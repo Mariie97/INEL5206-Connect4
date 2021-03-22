@@ -1,0 +1,29 @@
+Command line:
+   ColumnSelector_tb_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  53117
+
+Mon Mar 22 15:49:56 2021
+
+
+ Elaboration Time: 0.109375 sec
+
+ Current Memory Usage: 5150.68 Meg
+
+ Total Signals          : 19
+ Total Nets             : 104
+ Total Signal Drivers   : 11
+ Total Blocks           : 3
+ Total Primitive Blocks : 2
+ Total Processes        : 20
+ Total Traceable Variables  : 27
+ Total Scalar Nets and Variables : 340
+Total Line Count : 68
+
+ Total Simulation Time: 0.140625 sec
+
+ Current Memory Usage: 4993.4 Meg
+
+Mon Mar 22 15:53:26 2021
+
