@@ -30,7 +30,6 @@ module FSM_tb;
 	reg invalid_move;
 	reg [1:0] in_game_status;
 	reg player_turn;
-	reg board_full;
 
 	// Outputs
 	wire [1:0] out_game_status;
@@ -43,13 +42,11 @@ module FSM_tb;
 		.invalid_move(invalid_move), 
 		.in_game_status(in_game_status), 
 		.player_turn(player_turn), 
-		.board_full(board_full), 
 		.out_game_status(out_game_status),
 		.current_state(current_state)
 	);
 
 	always #10 clk = ~clk;
-	initial #500 $finish; 
 	initial begin
 		// Initialize Inputs
 		clk = 0;
@@ -57,27 +54,37 @@ module FSM_tb;
 		invalid_move = 0;
 		in_game_status = 0;
 		player_turn = 0;
-		board_full = 0;
 
 		// Wait 100 ns for global reset to finish
 		#100;
         
 		// Add stimulus here
 		
-		player_turn = 1;
-		#20 player_turn = 0;
-		#20 player_turn = 1;
-		#20 player_turn = 0;
-		#20 board_full = 1;
+		#20 player_turn = 1; //P2 Turn
+		#20 player_turn = 0; //P1 Turn
+		#20 player_turn = 1; // P2 Turn
+		#20 player_turn = 0; // P1 Turn
+		#20 invalid_move = 1; // Column is full, player 1 should keep playing
+		#20 invalid_move = 0; 
+		#20 in_game_status = 2'b10; // Tie Game, Board is full
 		
-//		#205 
-//		reset = 1;
-//		player_turn = 0;
-//		board_full = 0;
+		#20 reset=1;
+		in_game_status = 2'b00;		
+		player_turn = 0;
+		#20 reset=0;
 		
-
+		#20 player_turn = 1; //P2 Turn
+		#20 player_turn = 0; //P1 Turn
+		#20 in_game_status = 2'b01; //P1 Wins
 		
-
+		#20 reset=1;
+		in_game_status = 2'b00;		
+		player_turn = 0;
+		#20 reset=0;
+				
+		#20 player_turn = 1; // P2 Turn
+		#20 in_game_status = 2'b01; // P2 wins
+		#50 $finish;
 	end
       
 endmodule
