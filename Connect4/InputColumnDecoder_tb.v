@@ -44,8 +44,8 @@ module InputColumnDecoder_tb;
 		#100;
 		
 		// Add stimulus here	
-		#10 in_column = 7'b0000001;
 		#10 in_column = 7'b0000010;
+		#10 in_column = 7'b0000001;
 		#10 in_column = 7'b0000100;
 		#10 in_column = 7'b0001000;
 		#10 in_column = 7'b0010000;

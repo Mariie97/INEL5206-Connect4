@@ -25,13 +25,14 @@ module InputColumnDecoder(
 	 
 always @ (in_column)
 case(in_column)
-	7'b0000001: column_decode <= 2'b000;
-	7'b0000010: column_decode <= 2'b001;
-	7'b0000100: column_decode <= 2'b010;
-	7'b0001000: column_decode <= 2'b011;
-	7'b0010000: column_decode <= 2'b100;
-	7'b0100000: column_decode <= 2'b101;
-	7'b1000000: column_decode <= 2'b110;
+	7'b0000001: column_decode <= 3'b000;
+	7'b0000010: column_decode <= 3'b001;
+	7'b0000100: column_decode <= 3'b010;
+	7'b0001000: column_decode <= 3'b011;
+	7'b0010000: column_decode <= 3'b100;
+	7'b0100000: column_decode <= 3'b101;
+	7'b1000000: column_decode <= 3'b110;
+	default: column_decode <= 3'b000;
 endcase
 
 endmodule
