@@ -5,8 +5,8 @@ module FSM (
      input reset,// reset 
      input invalid_column , //Flag when column is full 
      input [1:0] in_game_status,
-	  input player_turn,	  //indicate wich player turn (P1=0 P2=1) para asegurarnos que el jugador realizo la jugada
-     output reg [1:0] out_game_status, current_state
+     output reg [1:0] out_game_status, current_state,
+	  output reg throw_again
      );
 
 parameter GAME_INIT=2'b00, P1_TURN=2'b01, P2_TURN=2'b10, END_GAME=2'b11; //STATES
@@ -34,6 +34,7 @@ begin
 		out_game_status = TIE;
 	end
 	else begin
+		throw_again <= 0;
 		case(current_state)
 			GAME_INIT: begin
 							next_state <= P1_TURN;
@@ -41,10 +42,10 @@ begin
 							end
 			P1_TURN: begin
 						if(invalid_column == 1'b1) //flag que indica que la columna esta llena o si aún el jugador 1 no ha tirado
-//						if(invalid_column == 1'b1 || (player_turn == 1'b0 && in_game_status == NEXT_TURN)) //flag que indica que la columna esta llena o si aún el jugador 1 no ha tirado
 						begin
 							next_state <= P1_TURN;
 							out_game_status <= STILL_PLAYING;
+							throw_again <= 1;
 						end
 						else begin							
 							case(in_game_status)
@@ -71,11 +72,11 @@ begin
 			END_GAME: next_state <= END_GAME;
 			
 			P2_TURN:begin
-//						if(invalid_column ==1'b1 || (player_turn == 1'b1 && in_game_status == NEXT_TURN)) //verifica que la columna esta llena o si aún el jugador 2 no ha tirado
-						if(invalid_column ==1'b1) //verifica que la columna esta llena o si aún el jugador 2 no ha tirado
+						if(invalid_column==1'b1) //verifica que la columna esta llena o si aún el jugador 2 no ha tirado
 						begin
 							next_state <= P2_TURN;
 							out_game_status <= STILL_PLAYING;
+							throw_again <= 1;
 						end
 						else begin							
 							case(in_game_status)
