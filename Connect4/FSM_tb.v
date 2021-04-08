@@ -27,7 +27,7 @@ module FSM_tb;
 	// Inputs
 	reg clk;
 	reg reset;
-	reg invalid_move;
+	reg invalid_column;
 	reg [1:0] in_game_status;
 	reg player_turn;
 
@@ -39,7 +39,7 @@ module FSM_tb;
 	FSM uut (
 		.clk(clk), 
 		.reset(reset), 
-		.invalid_move(invalid_move), 
+		.invalid_column(invalid_column), 
 		.in_game_status(in_game_status), 
 		.player_turn(player_turn), 
 		.out_game_status(out_game_status),
@@ -51,7 +51,7 @@ module FSM_tb;
 		// Initialize Inputs
 		clk = 0;
 		reset = 0;
-		invalid_move = 0;
+		invalid_column = 0;
 		in_game_status = 0;
 		player_turn = 0;
 
@@ -64,8 +64,8 @@ module FSM_tb;
 		#20 player_turn = 0; //P1 Turn
 		#20 player_turn = 1; // P2 Turn
 		#20 player_turn = 0; // P1 Turn
-		#20 invalid_move = 1; // Column is full, player 1 should keep playing
-		#20 invalid_move = 0; 
+		#20 invalid_column = 1; // Column is full, player 1 should keep playing
+		#20 invalid_column = 0; 
 		#20 in_game_status = 2'b10; // Tie Game, Board is full
 		
 		#20 reset=1;
@@ -74,6 +74,8 @@ module FSM_tb;
 		#20 reset=0;
 		
 		#20 player_turn = 1; //P2 Turn
+				#20 invalid_column = 1; // Column is full, player 1 should keep playing
+		#20 invalid_column = 0; 
 		#20 player_turn = 0; //P1 Turn
 		#20 in_game_status = 2'b01; //P1 Wins
 		
