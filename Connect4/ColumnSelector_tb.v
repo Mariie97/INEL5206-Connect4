@@ -42,51 +42,52 @@ module ColumnSelector_tb;
 		// Wait 100 ns for global reset to finish
 		#100;
 		
-//		#10 state = 2'b01; //P1		
-//		in_column = 2'b00;
-//		
-//		#25 state = 2'b10; //P2
-//		in_column = 2'b10;
-//		
-//		#25 state = 2'b01; //P1
-//		in_column = 2'b00;
-//
-//		#25 state = 2'b10; //P2
-//		in_column = 2'b10;
-//		
-//		#25 state = 2'b01; //P1
-//		in_column = 2'b11;
-//		
-//		#25 state = 2'b10; //P2
-//		in_column = 2'b00;
-//	
-//		#25 state = 2'b01; //P1
-//		in_column = 2'b00;
-
 		#10 state = 2'b01; //P1		
-		 in_column= 2'b00;
-		
-		#25 state = 2'b10; //P2
 		in_column = 2'b00;
 		
-		#25 state = 2'b01; //P1
+		#10 state = 2'b10; //P2
+		in_column = 2'b00;
+		
+		#10 state = 2'b01; //P1
 		in_column = 2'b00;
 
-		#25 state = 2'b10; //P2
+		#10 state = 2'b10; //P2
 		in_column = 2'b00;
 		
-		#25 state = 2'b01; //P1
+		#10 state = 2'b01; //P1
 		in_column = 2'b00;
-		#5 throw_again = 1;
-
+		#2 throw_again = 1;
+		#1 throw_again = 0;
+		#2 throw_again = 1;		
+		in_column = 2'b11;
+		#2throw_again = 0;	
+	
+		#10 state = 2'b10; //P2
 		in_column = 2'b01;
-		#5 throw_again = 0;		
+
+		#10 state = 2'b01; //P1
+		in_column= 2'b10;	
+
+		#10 in_column = 2'b01;
 		
 		#1 reset = 2'b1;
+		
+//		#10 state = 2'b01; //P1
+//		in_column = 2'b11;
+//
+//		#10 state = 2'b10; //P2
+//		in_column = 2'b10;
+//		
+//		#10 state = 2'b01; //P1
+//		in_column = 2'b00;
+//
+//		in_column = 2'b01;
+//		#5 throw_again = 0;		
+//		
+//		#1 reset = 2'b1;
 		
 		#50 $finish;
 
 end
-initial $monitor("column=%d", in_column);      
 endmodule
 
