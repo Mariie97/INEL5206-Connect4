@@ -1,0 +1,29 @@
+# clock signal for 50 MHz
+NET "clk" LOC = C9 | IOSTANDARD = LVCMOS33;
+NET "clk" PERIOD = 20000.0ns HIGH 50%;
+
+# ==== 6-pin header J1 ====
+# These four connections are shared with the FX2 connector
+NET "pin_0" LOC = B4 | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 6 ;
+NET "pin_1" LOC = A4 | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 6 ;
+NET "pin_2" LOC = D5 | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 6 ;
+NET "pin_3" LOC = C5 | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 6 ;
+
+# ==== 6-pin header J2 ====
+# These four connections are shared with the FX2 connector
+NET "pin_4" LOC = A6 | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 6 ;
+NET "pin_5" LOC = B6 | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 6 ;
+NET "pin_6" LOC = E7 | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 6 ;
+NET "pin_7" LOC = F7 | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 6 ;
+
+
+#=======Switches===========
+NET "Switch_0" LOC = L13 | IOSTANDARD = LVTTL | PULLUP ;
+NET "Switch_1" LOC = L14 | IOSTANDARD = LVTTL | PULLUP ;
+NET "Switch_2" LOC = H18 | IOSTANDARD = LVTTL | PULLUP ;
+NET "Switch_3" LOC = N17 | IOSTANDARD = LVTTL | PULLUP ;
+
+NET "BTN_EAST" LOC = H13 | IOSTANDARD = LVTTL | PULLDOWN ;
+#NET "BTN_EAST" CLOCK_DEDICATED_ROUTE = FALSE;
+
+

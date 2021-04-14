@@ -40,7 +40,7 @@ begin
 										begin
 											out_gameboard[i]=1;
 											out_players_cells[i] = 0;
-											assign flag_token_placed = 1;
+											flag_token_placed = 1;
 										end
 								end
 						assign flag_token_placed = 0;
