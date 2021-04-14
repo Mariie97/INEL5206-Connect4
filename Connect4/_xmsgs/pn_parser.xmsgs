@@ -15,7 +15,7 @@
 </arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/vince/Desktop/Xilinx Projects/INEL5206-Connect4/Connect4/connect4_top.v</arg>&quot; Line <arg fmt="%d" index="2">3</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/vince/Desktop/Xilinx Projects/INEL5206-Connect4/Connect4/column_counter.v&apos; in file &quot;C:/Users/vince/Desktop/Xilinx Projects/INEL5206-Connect4/Connect4/connect4_top.v&quot; line 3
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/vince/Desktop/Xilinx Projects/INEL5206-Connect4/Connect4/connect4_top.v</arg>&quot; Line <arg fmt="%d" index="2">3</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/vince/Desktop/Xilinx Projects/INEL5206-Connect4/Connect4/ColumnCalculator.v&apos; in file &quot;C:/Users/vince/Desktop/Xilinx Projects/INEL5206-Connect4/Connect4/connect4_top.v&quot; line 3
 </arg>
 </msg>
 

@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 `include "ColumnSelectorV2.v"
-`include "column_counter.v"
+`include "ColumnCalculator.v"
 `include "ButtonPressDetector.v"
 
 
@@ -108,6 +108,7 @@ module connect4_top(
 //	wire pin5;
 //	wire pin6;
 //	wire pin7;
+	
 	
 	parameter column = 3'b001;
 	parameter statep = 2'b01;

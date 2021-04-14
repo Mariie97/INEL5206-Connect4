@@ -77,21 +77,11 @@ begin
 //		end
 	
 //		2'b01: begin  //P1 turn 
-					
-					//if(row_counter[in_column]<6) begin
-//						out_gameboard[in_column+(row_counter[in_column]*4)] = 1;
-//						out_players_cells[in_column] = 0;
+				
 
-	if(enable == 1)begin
-		out_gameboard[in_column] <= 1;
-	end
-	
-						//row_counter[in_column] = row_counter[in_column] + 1;
-					//end 
-					
-//					else begin
-//						out_gameboard[in_column+(row_counter[in_column]*7)] = 0;
-//					end
+					if(enable == 1)begin
+						out_gameboard[in_column] <= 1;
+					end
 					
 //				end
 //		2'b10: //P2 turn 
@@ -100,6 +90,10 @@ begin
 //					out_gameboard[in_column+(row_counter[in_column]*7)] = 1;
 //					out_players_cells[in_column] = 1;
 //					row_counter[in_column] = row_counter[in_column] + 1;
+//				end
+
+//				if(enable == 1)begin
+//					out_gameboard[in_column] <= 1;
 //				end
 				
 //			end

@@ -874,3 +874,9 @@ map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o connect
 par -w -intstyle ise -ol high -t 1 connect4_top_map.ncd connect4_top.ncd connect4_top.pcf 
 trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml connect4_top.twx connect4_top.ncd -o connect4_top.twr connect4_top.pcf -ucf connect4.ucf 
 bitgen -intstyle ise -f connect4_top.ut connect4_top.ncd 
+xst -intstyle ise -ifn "C:/Users/vince/Desktop/Xilinx Projects/INEL5206-Connect4/Connect4/connect4_top.xst" -ofn "C:/Users/vince/Desktop/Xilinx Projects/INEL5206-Connect4/Connect4/connect4_top.syr" 
+xst -intstyle ise -ifn "C:/Users/vince/Desktop/Xilinx Projects/INEL5206-Connect4/Connect4/connect4_top.xst" -ofn "C:/Users/vince/Desktop/Xilinx Projects/INEL5206-Connect4/Connect4/connect4_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc connect4.ucf -p xc3s500e-fg320-4 "connect4_top.ngc" connect4_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o connect4_top_map.ncd connect4_top.ngd connect4_top.pcf 
+par -w -intstyle ise -ol high -t 1 connect4_top_map.ncd connect4_top.ncd connect4_top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml connect4_top.twx connect4_top.ncd -o connect4_top.twr connect4_top.pcf -ucf connect4.ucf 

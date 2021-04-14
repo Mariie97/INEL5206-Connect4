@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.10 secs
+Total CPU time to Xst completion: 0.20 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.10 secs
+Total CPU time to Xst completion: 0.20 secs
  
 --> Reading design: connect4_top.prj
 
@@ -104,14 +104,12 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
-Compiling verilog file "ColumnCalculator.v" in library work
 Compiling verilog file "connect4_top.v" in library work
 Compiling verilog include file "ColumnSelectorV2.v"
-Module <ColumnCalculator> compiled
-Compiling verilog include file "column_counter.v"
+Compiling verilog include file "ColumnCalculator.v"
 Module <ColumnSelectorV2> compiled
 Compiling verilog include file "ButtonPressDetector.v"
-Module <ColumnCounter> compiled
+Module <ColumnCalculator> compiled
 Module <ButtonPressDetector> compiled
 Module <connect4_top> compiled
 No errors in compilation
@@ -543,12 +541,12 @@ Offset:              4.310ns (Levels of Logic = 1)
 =========================================================================
 
 
-Total REAL time to Xst completion: 4.00 secs
-Total CPU time to Xst completion: 4.10 secs
+Total REAL time to Xst completion: 11.00 secs
+Total CPU time to Xst completion: 10.41 secs
  
 --> 
 
-Total memory usage is 4513700 kilobytes
+Total memory usage is 4513672 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   36 (   0 filtered)
