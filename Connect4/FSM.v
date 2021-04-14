@@ -42,8 +42,7 @@ begin
 							out_game_status <= STILL_PLAYING;
 							end
 			P1_TURN: begin
-//						if(invalid_column == 1'b1 || player_turn == 1'b0) //flag que indica que la columna esta llena o si aún el jugador 1 no ha tirado
-						if(invalid_column == 1'b1) //flag que indica que la columna esta llena o si aún el jugador 1 no ha tirado
+						if(invalid_column == 1'b1 && player_turn == 1'b0) //flag que indica que la columna esta llena o si aún el jugador 1 no ha tirado
 						begin
 							next_state <= P1_TURN;
 							out_game_status <= STILL_PLAYING;
@@ -78,8 +77,7 @@ begin
 			END_GAME: next_state <= END_GAME;
 			
 			P2_TURN:begin
-//						if(invalid_column==1'b1 || player_turn == 1'b1) //verifica que la columna esta llena o si aún el jugador 2 no ha tirado
-						if(invalid_column==1'b1) //verifica que la columna esta llena o si aún el jugador 2 no ha tirado
+						if(invalid_column==1'b1 && player_turn==1'b1) //verifica que la columna esta llena o si aún el jugador 2 no ha tirado
 						begin
 							next_state <= P2_TURN;
 							out_game_status <= STILL_PLAYING;

@@ -7,7 +7,7 @@ module ColumnSelector_tb;
 	reg reset;
 	reg throw_again;
 	reg [1:0] in_column;
-	reg [1:0] state;
+	reg [2:0] state;
 
 	// Outputs
 	wire [15:0] out_gameboard;
@@ -34,7 +34,7 @@ module ColumnSelector_tb;
 	initial begin
 		// Initialize Inputs
 		clk = 0;
-		in_column = 0;
+		in_column = 3'b111;
 		state = 0;
 		reset=0;
 		throw_again = 0;
@@ -43,32 +43,42 @@ module ColumnSelector_tb;
 		#100;
 		
 		#10 state = 2'b01; //P1		
-		in_column = 2'b00;
+		in_column = 3'b000;
+		#2 in_column = 3'b111;
 		
 		#10 state = 2'b10; //P2
-		in_column = 2'b00;
+		in_column = 3'b000;
+		#2 in_column = 3'b111;
 		
 		#10 state = 2'b01; //P1
-		in_column = 2'b00;
+		in_column = 3'b000;
+		#1 in_column = 3'b111;
 
 		#10 state = 2'b10; //P2
-		in_column = 2'b00;
+		in_column = 3'b000;
+		#2 in_column = 3'b111;
 		
 		#10 state = 2'b01; //P1
-		in_column = 2'b00;
+		in_column = 3'b000;
+		#2 in_column = 3'b111;
+		
 		#2 throw_again = 1;
 		#1 throw_again = 0;
 		#2 throw_again = 1;		
-		in_column = 2'b11;
-		#2throw_again = 0;	
+		in_column = 3'b011;
+		#2 in_column = 3'b111;
+		#2 throw_again = 0;	
 	
-		#10 state = 2'b10; //P2
-		in_column = 2'b01;
+		#10 state = 2'b010; //P2
+		in_column = 3'b001;
+		#2 in_column = 3'b111;
 
 		#10 state = 2'b01; //P1
-		in_column= 2'b10;	
+		in_column= 3'b010;
+		#2 in_column = 3'b111;		
 
-		#10 in_column = 2'b01;
+		#10 in_column = 2'b001;
+		#2 in_column = 3'b111;
 		
 		#1 reset = 2'b1;
 		
