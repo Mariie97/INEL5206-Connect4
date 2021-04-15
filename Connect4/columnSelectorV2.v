@@ -19,12 +19,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 
-module ColumnSelectorV2(//input clk //clock
-//					input [2:0] in_column, // selected column (0-6)
-//					input [1:0] state,
-//					output reg [41:0] out_gameboard, // keep track of selected and empty cells. 0-Empty, 1-Selected
-//					output reg [41:0] out_players_cells // keep track of player cells. 0-Player1, 1-Player2 
-//					//output out_invalidColumn // 0-column is valid, 1-column is invalid, is full 
+module ColumnSelectorV2(
 					enable,
 					clk,
 					in_column,

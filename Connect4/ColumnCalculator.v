@@ -46,22 +46,22 @@ module ColumnCalculator(
 	always@(posedge enable)begin
 	//if(enable == 1)begin
 		case(selected_column)
-			4'b0001: begin
+			4'b1110: begin
 				column_position <= counter_0 * 4;
 				counter_0 <= counter_0 + 2'b01;
 			end
 			
-			4'b0010: begin
+			4'b1101: begin
 				column_position <= counter_1 * 4 + 1;
 				counter_1 <= counter_1 + 2'b01;
 			end
 			
-			4'b0100: begin
+			4'b1011: begin
 				column_position <= counter_2 * 4 + 2;
 				counter_2 <= counter_2 + 2'b01;
 			end
 			
-			4'b1000: begin
+			4'b0111: begin
 				column_position <= counter_3 * 4 + 3;
 				counter_3 <= counter_3 + 2'b01;
 			end

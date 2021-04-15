@@ -3,59 +3,89 @@ Xilinx Mapping Report File for Design 'connect4_top'
 
 Design Information
 ------------------
-Command Line   : map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off
--c 100 -o connect4_top_map.ncd connect4_top.ngd connect4_top.pcf 
-Target Device  : xc3s500e
-Target Package : fg320
-Target Speed   : -4
-Mapper Version : spartan3e -- $Revision: 1.55 $
-Mapped Date    : Wed Apr 14 12:17:05 2021
+Command Line   : map -intstyle ise -p xc6slx9-csg324-3 -w -logic_opt off -ol
+high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off
+-pr off -lc off -power off -o connect4_top_map.ncd connect4_top.ngd
+connect4_top.pcf 
+Target Device  : xc6slx9
+Target Package : csg324
+Target Speed   : -3
+Mapper Version : spartan6 -- $Revision: 1.55 $
+Mapped Date    : Wed Apr 14 19:29:26 2021
 
 Design Summary
 --------------
 Number of errors:      0
 Number of warnings:    0
-Logic Utilization:
-  Number of Slice Flip Flops:            55 out of   9,312    1%
-  Number of 4 input LUTs:                51 out of   9,312    1%
-Logic Distribution:
-  Number of occupied Slices:             58 out of   4,656    1%
-    Number of Slices containing only related logic:      58 out of      58 100%
-    Number of Slices containing unrelated logic:          0 out of      58   0%
-      *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:          77 out of   9,312    1%
-    Number used as logic:                51
-    Number used as a route-thru:         26
+Slice Logic Utilization:
+  Number of Slice Registers:                    55 out of  11,440    1%
+    Number used as Flip Flops:                  55
+    Number used as Latches:                      0
+    Number used as Latch-thrus:                  0
+    Number used as AND/OR logics:                0
+  Number of Slice LUTs:                         93 out of   5,720    1%
+    Number used as logic:                       92 out of   5,720    1%
+      Number using O6 output only:              63
+      Number using O5 output only:              24
+      Number using O5 and O6:                    5
+      Number used as ROM:                        0
+    Number used as Memory:                       0 out of   1,440    0%
+    Number used exclusively as route-thrus:      1
+      Number with same-slice register load:      0
+      Number with same-slice carry load:         1
+      Number with other load:                    0
 
+Slice Logic Distribution:
+  Number of occupied Slices:                    31 out of   1,430    2%
+  Number of MUXCYs used:                        28 out of   2,860    1%
+  Number of LUT Flip Flop pairs used:           93
+    Number with an unused Flip Flop:            39 out of      93   41%
+    Number with an unused LUT:                   0 out of      93    0%
+    Number of fully used LUT-FF pairs:          54 out of      93   58%
+    Number of unique control sets:               7
+    Number of slice register sites lost
+      to control set restrictions:              33 out of  11,440    1%
+
+  A LUT Flip Flop pair for this architecture represents one LUT paired with
+  one Flip Flop within a slice.  A control set is a unique combination of
+  clock, reset, set, and enable signals for a registered element.
   The Slice Logic Distribution report is not meaningful if the design is
   over-mapped for a non-slice resource or if Placement fails.
 
-  Number of bonded IOBs:                 30 out of     232   12%
-  Number of BUFGMUXs:                     1 out of      24    4%
+IO Utilization:
+  Number of bonded IOBs:                        30 out of     200   15%
+    Number of LOCed IOBs:                       14 out of      30   46%
 
-Average Fanout of Non-Clock Nets:                2.62
+Specific Feature Utilization:
+  Number of RAMB16BWERs:                         0 out of      32    0%
+  Number of RAMB8BWERs:                          0 out of      64    0%
+  Number of BUFIO2/BUFIO2_2CLKs:                 0 out of      32    0%
+  Number of BUFIO2FB/BUFIO2FB_2CLKs:             0 out of      32    0%
+  Number of BUFG/BUFGMUXs:                       1 out of      16    6%
+    Number used as BUFGs:                        1
+    Number used as BUFGMUX:                      0
+  Number of DCM/DCM_CLKGENs:                     0 out of       4    0%
+  Number of ILOGIC2/ISERDES2s:                   0 out of     200    0%
+  Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     200    0%
+  Number of OLOGIC2/OSERDES2s:                   0 out of     200    0%
+  Number of BSCANs:                              0 out of       4    0%
+  Number of BUFHs:                               0 out of     128    0%
+  Number of BUFPLLs:                             0 out of       8    0%
+  Number of BUFPLL_MCBs:                         0 out of       4    0%
+  Number of DSP48A1s:                            0 out of      16    0%
+  Number of ICAPs:                               0 out of       1    0%
+  Number of MCBs:                                0 out of       2    0%
+  Number of PCILOGICSEs:                         0 out of       2    0%
+  Number of PLL_ADVs:                            0 out of       2    0%
+  Number of PMVs:                                0 out of       1    0%
+  Number of STARTUPs:                            0 out of       1    0%
+  Number of SUSPEND_SYNCs:                       0 out of       1    0%
 
-Peak Memory Usage:  4404 MB
-Total REAL time to MAP completion:  10 secs 
+Average Fanout of Non-Clock Nets:                2.76
+
+Peak Memory Usage:  4494 MB
+Total REAL time to MAP completion:  4 secs 
 Total CPU time to MAP completion:   4 secs 
-
-NOTES:
-
-   Related logic is defined as being logic that shares connectivity - e.g. two
-   LUTs are "related" if they share common inputs.  When assembling slices,
-   Map gives priority to combine logic that is related.  Doing so results in
-   the best timing performance.
-
-   Unrelated logic shares no connectivity.  Map will only begin packing
-   unrelated logic into a slice once 99% of the slices are occupied through
-   related logic packing.
-
-   Note that once logic distribution reaches the 99% level through related
-   logic packing, this does not mean the device is completely utilized.
-   Unrelated logic packing will then begin, continuing until all usable LUTs
-   and FFs are occupied.  Depending on your timing budget, increased levels of
-   unrelated logic packing may adversely affect the overall timing performance
-   of your design.
 
 Table of Contents
 -----------------
@@ -84,9 +114,16 @@ Section 3 - Informational
 INFO:MapLib:562 - No environment variables are currently set.
 INFO:MapLib:159 - Net Timing constraints on signal clk are pushed forward
    through input buffer.
-INFO:LIT:244 - All of the single ended outputs in this design are using slew
-   rate limited output drivers. The delay on speed critical single ended outputs
-   can be dramatically reduced by designating them as fast outputs.
+INFO:Pack:1716 - Initializing temperature to 85.000 Celsius. (default - Range:
+   0.000 to 85.000 Celsius)
+INFO:Pack:1720 - Initializing voltage to 1.140 Volts. (default - Range: 1.140 to
+   1.260 Volts)
+INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
+   (.mrp).
+INFO:Place:834 - Only a subset of IOs are locked. Out of 30 IOs, 14 are locked
+   and 16 are not locked. If you would like to print the names of these IOs,
+   please set the environment variable XIL_PAR_DESIGN_CHECK_VERBOSE to 1. 
+INFO:Pack:1650 - Map created a placed design.
 
 Section 4 - Removed Logic Summary
 ---------------------------------
@@ -110,36 +147,36 @@ Section 6 - IOB Properties
 | IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
 |                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
-| BTN_EAST                           | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLDOWN | 0 / 0    |
-| Switch_0                           | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLUP   | 0 / 0    |
-| Switch_1                           | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLUP   | 0 / 0    |
-| Switch_2                           | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLUP   | 0 / 0    |
-| Switch_3                           | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLUP   | 0 / 0    |
-| clk                                | IBUF             | INPUT     | LVCMOS33             |       |          |      |              |          | 0 / 0    |
-| gameboard_out<0>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
-| gameboard_out<1>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
-| gameboard_out<2>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
-| gameboard_out<3>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
-| gameboard_out<4>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
-| gameboard_out<5>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
-| gameboard_out<6>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
-| gameboard_out<7>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
-| gameboard_out<8>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
-| gameboard_out<9>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
-| gameboard_out<10>                  | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
-| gameboard_out<11>                  | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
-| gameboard_out<12>                  | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
-| gameboard_out<13>                  | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
-| gameboard_out<14>                  | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
-| gameboard_out<15>                  | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
-| pin_0                              | IOB              | OUTPUT    | LVTTL                |       | 6        | SLOW |              |          | 0 / 0    |
-| pin_1                              | IOB              | OUTPUT    | LVTTL                |       | 6        | SLOW |              |          | 0 / 0    |
-| pin_2                              | IOB              | OUTPUT    | LVTTL                |       | 6        | SLOW |              |          | 0 / 0    |
-| pin_3                              | IOB              | OUTPUT    | LVTTL                |       | 6        | SLOW |              |          | 0 / 0    |
-| pin_4                              | IOB              | OUTPUT    | LVTTL                |       | 6        | SLOW |              |          | 0 / 0    |
-| pin_5                              | IOB              | OUTPUT    | LVTTL                |       | 6        | SLOW |              |          | 0 / 0    |
-| pin_6                              | IOB              | OUTPUT    | LVTTL                |       | 6        | SLOW |              |          | 0 / 0    |
-| pin_7                              | IOB              | OUTPUT    | LVTTL                |       | 6        | SLOW |              |          | 0 / 0    |
+| BTN_EAST                           | IOB              | INPUT     | LVCMOS33             |       |          |      |              | PULLUP   |          |
+| Switch_0                           | IOB              | INPUT     | LVCMOS33             |       |          |      |              | PULLUP   |          |
+| Switch_1                           | IOB              | INPUT     | LVCMOS33             |       |          |      |              | PULLUP   |          |
+| Switch_2                           | IOB              | INPUT     | LVCMOS33             |       |          |      |              | PULLUP   |          |
+| Switch_3                           | IOB              | INPUT     | LVCMOS33             |       |          |      |              | PULLUP   |          |
+| clk                                | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| gameboard_out<0>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| gameboard_out<1>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| gameboard_out<2>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| gameboard_out<3>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| gameboard_out<4>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| gameboard_out<5>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| gameboard_out<6>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| gameboard_out<7>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| gameboard_out<8>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| gameboard_out<9>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| gameboard_out<10>                  | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| gameboard_out<11>                  | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| gameboard_out<12>                  | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| gameboard_out<13>                  | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| gameboard_out<14>                  | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| gameboard_out<15>                  | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| pin_0                              | IOB              | OUTPUT    | LVCMOS33             |       | 8        | FAST |              |          |          |
+| pin_1                              | IOB              | OUTPUT    | LVCMOS33             |       | 8        | FAST |              |          |          |
+| pin_2                              | IOB              | OUTPUT    | LVCMOS33             |       | 8        | FAST |              |          |          |
+| pin_3                              | IOB              | OUTPUT    | LVCMOS33             |       | 8        | FAST |              |          |          |
+| pin_4                              | IOB              | OUTPUT    | LVCMOS33             |       | 8        | FAST |              |          |          |
+| pin_5                              | IOB              | OUTPUT    | LVCMOS33             |       | 8        | FAST |              |          |          |
+| pin_6                              | IOB              | OUTPUT    | LVCMOS33             |       | 8        | FAST |              |          |          |
+| pin_7                              | IOB              | OUTPUT    | LVCMOS33             |       | 8        | FAST |              |          |          |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Section 7 - RPMs
@@ -168,7 +205,15 @@ Area Group Information
 
 Section 10 - Timing Report
 --------------------------
-This design was not run using timing mode.
+A logic-level (pre-route) timing report can be generated by using Xilinx static
+timing analysis tools, Timing Analyzer (GUI) or TRCE (command line), with the
+mapped NCD and PCF files. Please note that this timing report will be generated
+using estimated delay information. For accurate numbers, please generate a
+timing report with the post Place and Route NCD file.
+
+For more information about the Timing Analyzer, consult the Xilinx Timing
+Analyzer Reference Manual; for more information about TRCE, consult the Xilinx
+Command Line Tools User Guide "TRACE" chapter.
 
 Section 11 - Configuration String Details
 -----------------------------------------
@@ -176,7 +221,7 @@ Use the "-detail" map option to print out Configuration Strings
 
 Section 12 - Control Set Information
 ------------------------------------
-No control set information for this architecture.
+Use the "-detail" map option to print out Control Set Information.
 
 Section 13 - Utilization by Hierarchy
 -------------------------------------

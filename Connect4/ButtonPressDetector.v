@@ -28,7 +28,7 @@ module ButtonPressDetector(
 	reg clk_out;
 	
 	always@(posedge clk)begin
-		if(button_signal == 1)begin
+		if(button_signal == 0)begin
 			count <= count + 1;
 			if(count == 50_000_000)begin
 				count <= 0;
