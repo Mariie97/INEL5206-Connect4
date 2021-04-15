@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2021-04-08T15:09:07</DateModified>
+  <DateModified>2021-04-15T19:08:24</DateModified>
   <ModuleName>FSM_ColSel_circuit</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/cmcsc/Desktop/Segundo Semestre Virtual/Switching 2/Project/repo/INEL5206-Connect4/Connect4/iseconfig/ColumnSelector.xreport</SavedFilePath>
+  <SavedFilePath>C:/Users/cmcsc/Desktop/Segundo Semestre Virtual/Switching 2/Project/repo/INEL5206-Connect4/Connect4/iseconfig/FSM_ColSel_circuit.xreport</SavedFilePath>
   <ImplementationReportsDirectory>C:/Users/cmcsc/Desktop/Segundo Semestre Virtual/Switching 2/Project/repo/INEL5206-Connect4/Connect4\</ImplementationReportsDirectory>
-  <DateInitialized>2021-04-07T17:16:49</DateInitialized>
+  <DateInitialized>2021-04-02T17:04:17</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
  <body>

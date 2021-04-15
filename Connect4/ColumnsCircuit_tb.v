@@ -5,15 +5,15 @@ module ColumnsCircuit_tb;
 	// Inputs
 	reg clk;
 	reg reset;
-	reg [6:0] in_column;
+	reg [3:0] in_column;
 	reg [1:0] state;
 
 	// Outputs
-	wire [2:0] column_decode;
-	wire [41:0] out_gameboard;
-	wire [41:0] out_players_cells;
+	wire [1:0] column_decode;
+	wire [15:0] out_gameboard;
+	wire [15:0] out_players_cells;
 	wire invalid_column;
-	wire next_turn_player;
+	wire next_player;
 
 	// Instantiate the Unit Under Test (UUT)
 	ColumnsCircuit uut (
@@ -25,7 +25,7 @@ module ColumnsCircuit_tb;
 		.out_gameboard(out_gameboard), 
 		.out_players_cells(out_players_cells), 
 		.invalid_column(invalid_column), 
-		.next_turn_player(next_turn_player)
+		.next_player(next_player)
 	);
 	always #10 clk=~clk;
 	initial begin
@@ -40,38 +40,31 @@ module ColumnsCircuit_tb;
         
 		// Add stimulus here
 		
-		#5 in_column = 7'b0000001;
+		#5 in_column = 4'b0001;
 		#10 state = 2'b01; //P1	
 				
-		#5 in_column = 7'b0000100;
+		#5 in_column = 4'b0100;
 		#10 state = 2'b10; //P2
 				
-		#5 in_column = 7'b0000001;
+		#5 in_column = 4'b0001;
 		#10 state = 2'b01; //P1
 				
-		#5 in_column = 7'b0000100;
+		#5 in_column = 4'b0100;
 		#10 state = 2'b10; //P2
 				
-		#5 in_column = 7'b1000000;
+		#5 in_column = 4'b1000;
 		#10 state = 2'b01; //P1
 		
-		#5 in_column = 7'b0000001;
+		#5 in_column = 4'b0001;
 		#10 state = 2'b10; //P2
 		
-  		#5 in_column = 7'b0000001;		
+  		#5 in_column = 4'b0001;		
 		#10 state = 2'b01; //P1
 		
-		#5 in_column = 7'b0000001;
+		#5 in_column = 4'b0001; //column 1 is full
 		#10 state = 2'b10; //P2
-				
-		#5 in_column = 7'b0000001; //column 1 is full
-		#10 state = 2'b01; //P1
 		
-		#5 in_column = 7'b0000001; //invalid column
-		#10 state = 2'b10; //P2	
-		
-		#5 in_column = 7'b0000010;
-
+		#5 in_column = 4'b0100; //invalid column
 		
 		#10 reset = 1;
 		

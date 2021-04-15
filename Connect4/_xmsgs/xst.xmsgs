@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="error" file="Xst" num="885" delta="old" >&quot;<arg fmt="%s" index="1">ColumnSelector.v</arg>&quot; line <arg fmt="%d" index="2">37</arg>: For statement is only supported with a signal assignment to a constant in the initialization part. 
+</msg>
+
+<msg type="error" file="Xst" num="885" delta="old" >&quot;<arg fmt="%s" index="1">ColumnSelector.v</arg>&quot; line <arg fmt="%d" index="2">37</arg>: For statement is only supported with a signal assignment to a constant in the initialization part. 
+</msg>
+
+<msg type="error" file="Xst" num="2634" delta="old" >&quot;<arg fmt="%s" index="1">ColumnSelector.v</arg>&quot; line <arg fmt="%d" index="2">37</arg>: For loop stop condition should depend on loop variable or be static.
+</msg>
+
+<msg type="error" file="Xst" num="885" delta="old" >&quot;<arg fmt="%s" index="1">ColumnSelector.v</arg>&quot; line <arg fmt="%d" index="2">59</arg>: For statement is only supported with a signal assignment to a constant in the initialization part. 
+</msg>
+
+<msg type="error" file="Xst" num="885" delta="old" >&quot;<arg fmt="%s" index="1">ColumnSelector.v</arg>&quot; line <arg fmt="%d" index="2">59</arg>: For statement is only supported with a signal assignment to a constant in the initialization part. 
+</msg>
+
+<msg type="error" file="Xst" num="2634" delta="old" >&quot;<arg fmt="%s" index="1">ColumnSelector.v</arg>&quot; line <arg fmt="%d" index="2">59</arg>: For loop stop condition should depend on loop variable or be static.
+</msg>
+
+<msg type="warning" file="Xst" num="905" delta="old" >&quot;<arg fmt="%s" index="1">ColumnSelector.v</arg>&quot; line <arg fmt="%d" index="2">20</arg>: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+<arg fmt="%s" index="3">&lt;out_gameboard&gt;, &lt;in_column&gt;</arg>
+</msg>
+
+</messages>
+
