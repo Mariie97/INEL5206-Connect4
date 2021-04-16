@@ -1,0 +1,24 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Thu Apr 15 21:13:18 2021
+//! **************************************************************************
+
+SCHEMATIC START;
+CONFIG VCCAUX = "3.3";
+COMP "clk" LOCATE = SITE "V10" LEVEL 1;
+COMP "BTN_EAST" LOCATE = SITE "K18" LEVEL 1;
+COMP "Switch_0" LOCATE = SITE "C17" LEVEL 1;
+COMP "Switch_1" LOCATE = SITE "C18" LEVEL 1;
+COMP "Switch_2" LOCATE = SITE "D17" LEVEL 1;
+COMP "Switch_3" LOCATE = SITE "D18" LEVEL 1;
+COMP "reset" LOCATE = SITE "K17" LEVEL 1;
+COMP "pin_0" LOCATE = SITE "L16" LEVEL 1;
+COMP "pin_1" LOCATE = SITE "L15" LEVEL 1;
+COMP "pin_2" LOCATE = SITE "K16" LEVEL 1;
+COMP "pin_3" LOCATE = SITE "K15" LEVEL 1;
+COMP "pin_4" LOCATE = SITE "J18" LEVEL 1;
+COMP "pin_5" LOCATE = SITE "J16" LEVEL 1;
+COMP "pin_6" LOCATE = SITE "H18" LEVEL 1;
+COMP "pin_7" LOCATE = SITE "H17" LEVEL 1;
+NET "clk_BUFGP/IBUFG" PERIOD = 20 ns HIGH 50%;
+SCHEMATIC END;
+

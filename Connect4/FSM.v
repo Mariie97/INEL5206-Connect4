@@ -27,15 +27,16 @@ end
 
 
  // next state 
-always @(current_state, in_game_status, posedge invalid_column, player_turn)
+//always @(current_state, in_game_status, posedge invalid_column, player_turn)
+always @(negedge clk)
 begin
 	if(in_game_status == TIE_GAME) 
 	begin
 		next_state <= END_GAME;
-		out_game_status = TIE;
+		out_game_status <= TIE;
 	end
 	else begin
-		throw_again <= 0;
+//		throw_again <= 0;
 		case(current_state)
 			GAME_INIT: begin
 							next_state <= P1_TURN;
