@@ -19,7 +19,6 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module ColumnCalculator(
-	input clk,
 	input enable,
 	input [3:0] selected_column,
 	output reg [3:0] column_position,
@@ -37,7 +36,7 @@ module ColumnCalculator(
 		case(selected_column)
 			4'b1110: begin
 				if(counter_0==3'b100) begin
-					column_position <= counter_0 * 4;
+					column_position <= counter_0 * 3'b100;
 					counter_0 <= counter_0 + 3'b001;
 				end
 				else invalid_column <= 1;
@@ -45,14 +44,14 @@ module ColumnCalculator(
 			
 			4'b1101: begin
 						if(counter_1==3'b100) begin
-							column_position <= counter_1 * 4 + 1;
+							column_position <= counter_1 * 3'b100 + 3'b001;
 							counter_1 <= counter_1 + 3'b001;
 						end
 						end
 			
 			4'b1011: begin
 						if(counter_2==3'b100) begin
-							column_position <= counter_2 * 4 + 2;
+							column_position <= counter_2 * 3'b100 + 3'b010;
 							counter_2 <= counter_2 + 3'b001;
 						end
 						else invalid_column <= 1;
@@ -60,7 +59,7 @@ module ColumnCalculator(
 						end
 			4'b0111: begin
 						if(counter_3==3'b100) begin
-							column_position <= counter_3 * 4 + 3;
+							column_position <= counter_3 * 3'b100 + 3'b011;
 							counter_3 <= counter_3 + 3'b001;
 						end
 						else invalid_column <= 1;

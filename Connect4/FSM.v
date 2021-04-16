@@ -19,7 +19,7 @@ reg[1:0] next_state = GAME_INIT;
 
 
 // current state registers 
-always @(posedge clk, posedge reset) 
+always @(negedge clk, posedge reset) 
 begin 
  if(reset==1'b1) current_state <= GAME_INIT;
  else current_state <= next_state;
@@ -28,7 +28,7 @@ end
 
  // next state 
 //always @(current_state, in_game_status, posedge invalid_column, player_turn)
-always @(negedge clk)
+always @(posedge clk)
 begin
 	if(in_game_status == TIE_GAME) 
 	begin

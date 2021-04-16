@@ -29,14 +29,14 @@ module ButtonPressDetector(
 	
 	always@(posedge clk)begin
 		if(button_signal == 0)begin
-			count <= count + 1;
+			count <= count + 1'b1;
 			if(count == 50_000_000)begin
-				count <= 0;
+				count <= 1'b0;
 				clk_out = ~clk_out;
 			end
 		end else begin 
 			clk_out = 0;
-			count <= 0;
+			count <= 1'b0;
 		end
 	end
 	

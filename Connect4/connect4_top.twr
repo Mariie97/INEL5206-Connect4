@@ -42,8 +42,8 @@ Slack (setup path):     8.815ns (requirement - (data path - clock path skew + un
   Requirement:          10.000ns
   Data Path Delay:      1.138ns (Levels of Logic = 1)
   Clock Path Skew:      -0.012ns (0.145 - 0.157)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP falling at 10.000ns
+  Source Clock:         clk_BUFGP falling at 10.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
 
   Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
@@ -60,7 +60,7 @@ Slack (setup path):     8.815ns (requirement - (data path - clock path skew + un
                                                        fsm/current_state_1
     SLICE_X18Y25.A4      net (fanout=2)        0.406   fsm/current_state<1>
     SLICE_X18Y25.CLK     Tas                   0.341   fsm/next_state<1>
-                                                       fsm/Mmux_current_state[1]_PWR_6_o_mux_23_OUT21
+                                                       fsm/Mmux_current_state[1]_PWR_6_o_wide_mux_20_OUT21
                                                        fsm/next_state_1
     -------------------------------------------------  ---------------------------
     Total                                      1.138ns (0.732ns logic, 0.406ns route)
@@ -68,14 +68,14 @@ Slack (setup path):     8.815ns (requirement - (data path - clock path skew + un
 
 --------------------------------------------------------------------------------
 
-Paths for end point fsm/current_state_0 (SLICE_X19Y26.AX), 1 path
+Paths for end point columnSelector/next_player (SLICE_X19Y25.D4), 1 path
 --------------------------------------------------------------------------------
-Slack (setup path):     8.872ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               fsm/next_state_0 (FF)
-  Destination:          fsm/current_state_0 (FF)
+Slack (setup path):     8.838ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fsm/current_state_0 (FF)
+  Destination:          columnSelector/next_player (FF)
   Requirement:          10.000ns
-  Data Path Delay:      1.087ns (Levels of Logic = 0)
-  Clock Path Skew:      -0.006ns (0.148 - 0.154)
+  Data Path Delay:      1.115ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.012ns (0.145 - 0.157)
   Source Clock:         clk_BUFGP falling at 10.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
@@ -86,31 +86,32 @@ Slack (setup path):     8.872ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: fsm/next_state_0 to fsm/current_state_0
+  Maximum Data Path at Slow Process Corner: fsm/current_state_0 to columnSelector/next_player
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y25.AMUX    Tshcko                0.455   fsm/next_state<1>
-                                                       fsm/next_state_0
-    SLICE_X19Y26.AX      net (fanout=1)        0.569   fsm/next_state<0>
-    SLICE_X19Y26.CLK     Tdick                 0.063   fsm/current_state<1>
+    SLICE_X19Y26.AQ      Tcko                  0.391   fsm/current_state<1>
                                                        fsm/current_state_0
+    SLICE_X19Y25.D4      net (fanout=2)        0.402   fsm/current_state<0>
+    SLICE_X19Y25.CLK     Tas                   0.322   columnSelector/next_player
+                                                       columnSelector/Mmux_state[1]_GND_4_o_Mux_77_o11
+                                                       columnSelector/next_player
     -------------------------------------------------  ---------------------------
-    Total                                      1.087ns (0.518ns logic, 0.569ns route)
-                                                       (47.7% logic, 52.3% route)
+    Total                                      1.115ns (0.713ns logic, 0.402ns route)
+                                                       (63.9% logic, 36.1% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point fsm/next_state_1 (SLICE_X18Y25.A5), 1 path
+Paths for end point columnSelector/next_player (SLICE_X19Y25.D5), 1 path
 --------------------------------------------------------------------------------
-Slack (setup path):     8.885ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               fsm/current_state_0 (FF)
-  Destination:          fsm/next_state_1 (FF)
+Slack (setup path):     8.864ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fsm/current_state_1 (FF)
+  Destination:          columnSelector/next_player (FF)
   Requirement:          10.000ns
-  Data Path Delay:      1.068ns (Levels of Logic = 1)
+  Data Path Delay:      1.089ns (Levels of Logic = 1)
   Clock Path Skew:      -0.012ns (0.145 - 0.157)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP falling at 10.000ns
+  Source Clock:         clk_BUFGP falling at 10.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.035ns
 
   Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
@@ -119,106 +120,106 @@ Slack (setup path):     8.885ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: fsm/current_state_0 to fsm/next_state_1
+  Maximum Data Path at Slow Process Corner: fsm/current_state_1 to columnSelector/next_player
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X19Y26.AQ      Tcko                  0.391   fsm/current_state<1>
-                                                       fsm/current_state_0
-    SLICE_X18Y25.A5      net (fanout=2)        0.336   fsm/current_state<0>
-    SLICE_X18Y25.CLK     Tas                   0.341   fsm/next_state<1>
-                                                       fsm/Mmux_current_state[1]_PWR_6_o_mux_23_OUT21
-                                                       fsm/next_state_1
+    SLICE_X19Y26.BQ      Tcko                  0.391   fsm/current_state<1>
+                                                       fsm/current_state_1
+    SLICE_X19Y25.D5      net (fanout=2)        0.376   fsm/current_state<1>
+    SLICE_X19Y25.CLK     Tas                   0.322   columnSelector/next_player
+                                                       columnSelector/Mmux_state[1]_GND_4_o_Mux_77_o11
+                                                       columnSelector/next_player
     -------------------------------------------------  ---------------------------
-    Total                                      1.068ns (0.732ns logic, 0.336ns route)
-                                                       (68.5% logic, 31.5% route)
+    Total                                      1.089ns (0.713ns logic, 0.376ns route)
+                                                       (65.5% logic, 34.5% route)
 
 --------------------------------------------------------------------------------
 
 Hold Paths: NET "clk_BUFGP/IBUFG" PERIOD = 20 ns HIGH 50%;
 --------------------------------------------------------------------------------
 
-Paths for end point columnSelector/out_gameboard_0 (SLICE_X19Y25.D5), 1 path
+Paths for end point fsm/next_state_0 (SLICE_X18Y25.A3), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.512ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               fsm/current_state_1 (FF)
-  Destination:          columnSelector/out_gameboard_0 (FF)
-  Requirement:          0.000ns
-  Data Path Delay:      0.511ns (Levels of Logic = 1)
-  Clock Path Skew:      -0.001ns (0.034 - 0.035)
-  Source Clock:         clk_BUFGP rising at 20.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.000ns
-
-  Minimum Data Path at Fast Process Corner: fsm/current_state_1 to columnSelector/out_gameboard_0
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X19Y26.BQ      Tcko                  0.198   fsm/current_state<1>
-                                                       fsm/current_state_1
-    SLICE_X19Y25.D5      net (fanout=2)        0.158   fsm/current_state<1>
-    SLICE_X19Y25.CLK     Tah         (-Th)    -0.155   columnSelector/next_player
-                                                       columnSelector/Mmux_state[1]_GND_4_o_wide_mux_75_OUT11
-                                                       columnSelector/out_gameboard_0
-    -------------------------------------------------  ---------------------------
-    Total                                      0.511ns (0.353ns logic, 0.158ns route)
-                                                       (69.1% logic, 30.9% route)
-
---------------------------------------------------------------------------------
-
-Paths for end point columnSelector/next_player (SLICE_X19Y25.D5), 1 path
---------------------------------------------------------------------------------
-Slack (hold path):      0.572ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               fsm/current_state_1 (FF)
-  Destination:          columnSelector/next_player (FF)
-  Requirement:          0.000ns
-  Data Path Delay:      0.571ns (Levels of Logic = 1)
-  Clock Path Skew:      -0.001ns (0.034 - 0.035)
-  Source Clock:         clk_BUFGP rising at 20.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.000ns
-
-  Minimum Data Path at Fast Process Corner: fsm/current_state_1 to columnSelector/next_player
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X19Y26.BQ      Tcko                  0.198   fsm/current_state<1>
-                                                       fsm/current_state_1
-    SLICE_X19Y25.D5      net (fanout=2)        0.158   fsm/current_state<1>
-    SLICE_X19Y25.CLK     Tah         (-Th)    -0.215   columnSelector/next_player
-                                                       columnSelector/Mmux_state[1]_GND_4_o_Mux_77_o11
-                                                       columnSelector/next_player
-    -------------------------------------------------  ---------------------------
-    Total                                      0.571ns (0.413ns logic, 0.158ns route)
-                                                       (72.3% logic, 27.7% route)
-
---------------------------------------------------------------------------------
-
-Paths for end point columnSelector/next_player (SLICE_X19Y25.D4), 1 path
---------------------------------------------------------------------------------
-Slack (hold path):      0.653ns (requirement - (clock path skew + uncertainty - data path))
+Slack (hold path):      0.469ns (requirement - (clock path skew + uncertainty - data path))
   Source:               columnSelector/next_player (FF)
-  Destination:          columnSelector/next_player (FF)
+  Destination:          fsm/next_state_0 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.653ns (Levels of Logic = 1)
-  Clock Path Skew:      0.000ns
+  Data Path Delay:      0.471ns (Levels of Logic = 1)
+  Clock Path Skew:      0.002ns (0.034 - 0.032)
   Source Clock:         clk_BUFGP rising at 20.000ns
   Destination Clock:    clk_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: columnSelector/next_player to columnSelector/next_player
+  Minimum Data Path at Fast Process Corner: columnSelector/next_player to fsm/next_state_0
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
     SLICE_X19Y25.DQ      Tcko                  0.198   columnSelector/next_player
                                                        columnSelector/next_player
-    SLICE_X19Y25.D4      net (fanout=2)        0.240   columnSelector/next_player
-    SLICE_X19Y25.CLK     Tah         (-Th)    -0.215   columnSelector/next_player
-                                                       columnSelector/Mmux_state[1]_GND_4_o_Mux_77_o11
-                                                       columnSelector/next_player
+    SLICE_X18Y25.A3      net (fanout=2)        0.152   columnSelector/next_player
+    SLICE_X18Y25.CLK     Tah         (-Th)    -0.121   fsm/next_state<1>
+                                                       fsm/Mmux_current_state[1]_PWR_6_o_wide_mux_20_OUT11
+                                                       fsm/next_state_0
     -------------------------------------------------  ---------------------------
-    Total                                      0.653ns (0.413ns logic, 0.240ns route)
-                                                       (63.2% logic, 36.8% route)
+    Total                                      0.471ns (0.319ns logic, 0.152ns route)
+                                                       (67.7% logic, 32.3% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point fsm/next_state_1 (SLICE_X18Y25.A3), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.538ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               columnSelector/next_player (FF)
+  Destination:          fsm/next_state_1 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.540ns (Levels of Logic = 1)
+  Clock Path Skew:      0.002ns (0.034 - 0.032)
+  Source Clock:         clk_BUFGP rising at 20.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: columnSelector/next_player to fsm/next_state_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X19Y25.DQ      Tcko                  0.198   columnSelector/next_player
+                                                       columnSelector/next_player
+    SLICE_X18Y25.A3      net (fanout=2)        0.152   columnSelector/next_player
+    SLICE_X18Y25.CLK     Tah         (-Th)    -0.190   fsm/next_state<1>
+                                                       fsm/Mmux_current_state[1]_PWR_6_o_wide_mux_20_OUT21
+                                                       fsm/next_state_1
+    -------------------------------------------------  ---------------------------
+    Total                                      0.540ns (0.388ns logic, 0.152ns route)
+                                                       (71.9% logic, 28.1% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point columnSelector/out_gameboard_0 (SLICE_X19Y25.D1), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.807ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               columnSelector/out_gameboard_0 (FF)
+  Destination:          columnSelector/out_gameboard_0 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.807ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 20.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: columnSelector/out_gameboard_0 to columnSelector/out_gameboard_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X19Y25.DMUX    Tshcko                0.244   columnSelector/next_player
+                                                       columnSelector/out_gameboard_0
+    SLICE_X19Y25.D1      net (fanout=3)        0.408   columnSelector/out_gameboard<0>
+    SLICE_X19Y25.CLK     Tah         (-Th)    -0.155   columnSelector/next_player
+                                                       columnSelector/Mmux_state[1]_GND_4_o_wide_mux_75_OUT11
+                                                       columnSelector/out_gameboard_0
+    -------------------------------------------------  ---------------------------
+    Total                                      0.807ns (0.399ns logic, 0.408ns route)
+                                                       (49.4% logic, 50.6% route)
 
 --------------------------------------------------------------------------------
 
@@ -262,7 +263,7 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    3.346|    1.128|    1.185|         |
+clk            |    3.346|    1.185|    1.128|         |
 ---------------+---------+---------+---------+---------+
 
 
@@ -280,7 +281,7 @@ Design statistics:
 ------------------------------------Footnotes-----------------------------------
 1)  The minimum period statistic assumes all single cycle delays.
 
-Analysis completed Thu Apr 15 21:13:31 2021 
+Analysis completed Thu Apr 15 22:12:28 2021 
 --------------------------------------------------------------------------------
 
 Trace Settings:

@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-HP-PAVILION::  Thu Apr 15 21:13:21 2021
+HP-PAVILION::  Thu Apr 15 22:12:17 2021
 
 par -w -intstyle ise -ol high -mt off connect4_top_map.ncd connect4_top.ncd
 connect4_top.pcf 
@@ -98,11 +98,11 @@ WARNING:Par:288 - The signal Switch_3_IBUF has no load.  PAR will not attempt to
 Starting Router
 
 
-Phase  1  : 207 unrouted;      REAL time: 3 secs 
+Phase  1  : 207 unrouted;      REAL time: 4 secs 
 
-Phase  2  : 167 unrouted;      REAL time: 3 secs 
+Phase  2  : 167 unrouted;      REAL time: 4 secs 
 
-Phase  3  : 30 unrouted;      REAL time: 3 secs 
+Phase  3  : 30 unrouted;      REAL time: 4 secs 
 
 Phase  4  : 30 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 4 secs 
 
@@ -159,7 +159,7 @@ Asterisk (*) preceding a constraint indicates it was not met.
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
   NET "clk_BUFGP/IBUFG" PERIOD = 20 ns HIGH | SETUP       |     8.815ns|     3.346ns|       0|           0
-   50%                                      | HOLD        |     0.512ns|            |       0|           0
+   50%                                      | HOLD        |     0.469ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
 
 
@@ -173,7 +173,7 @@ All signals are completely routed.
 WARNING:Par:283 - There are 4 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
 Total REAL time to PAR completion: 5 secs 
-Total CPU time to PAR completion: 4 secs 
+Total CPU time to PAR completion: 5 secs 
 
 Peak Memory Usage:  4455 MB
 

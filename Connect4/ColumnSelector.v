@@ -14,10 +14,16 @@ module ColumnSelector(
     );
 	 
 
-integer i, column_index;
-reg flag_token_placed = 0; 
 parameter GAME_INIT=2'b00, P1_TURN=2'b01, P2_TURN=2'b10, END_GAME=2'b11; //STATES
-parameter CELLS_NUMBER = 16;
+
+integer i;
+initial begin
+	for(i=0; i<16; i=i+1)begin
+		out_gameboard[i] = 0;
+		out_players_cells[i] = 0;
+	end
+	next_player = 0;
+end
 
 
 //always@(state, posedge throw_again, column_position)

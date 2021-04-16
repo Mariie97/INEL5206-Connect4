@@ -11,7 +11,7 @@ Target Device  : xc6slx9
 Target Package : csg324
 Target Speed   : -3
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Thu Apr 15 21:13:11 2021
+Mapped Date    : Thu Apr 15 22:12:07 2021
 
 Design Summary
 --------------
@@ -42,9 +42,9 @@ Slice Logic Distribution:
     Number with an unused Flip Flop:            33 out of      64   51%
     Number with an unused LUT:                   1 out of      64    1%
     Number of fully used LUT-FF pairs:          30 out of      64   46%
-    Number of unique control sets:               3
+    Number of unique control sets:               2
     Number of slice register sites lost
-      to control set restrictions:              15 out of  11,440    1%
+      to control set restrictions:               7 out of  11,440    1%
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -84,7 +84,7 @@ Specific Feature Utilization:
 Average Fanout of Non-Clock Nets:                1.81
 
 Peak Memory Usage:  4494 MB
-Total REAL time to MAP completion:  7 secs 
+Total REAL time to MAP completion:  8 secs 
 Total CPU time to MAP completion:   7 secs 
 
 Table of Contents

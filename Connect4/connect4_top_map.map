@@ -11,7 +11,7 @@ Target Device  : xc6slx9
 Target Package : csg324
 Target Speed   : -3
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Thu Apr 15 21:13:11 2021
+Mapped Date    : Thu Apr 15 22:12:07 2021
 
 Mapping design into LUTs...
 Running directed packing...
@@ -20,8 +20,8 @@ Updating timing models...
 INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
    (.mrp).
 Running timing-driven placement...
-Total REAL time at the beginning of Placer: 3 secs 
-Total CPU  time at the beginning of Placer: 3 secs 
+Total REAL time at the beginning of Placer: 4 secs 
+Total CPU  time at the beginning of Placer: 4 secs 
 
 Phase 1.1  Initial Placement Analysis
 Phase 1.1  Initial Placement Analysis (Checksum:860912bc) REAL time: 4 secs 
@@ -48,18 +48,18 @@ Phase 6.30  Global Clock Region Assignment (Checksum:a1f75785) REAL time: 6 secs
 
 Phase 7.3  Local Placement Optimization
 .......
-Phase 7.3  Local Placement Optimization (Checksum:a200e328) REAL time: 6 secs 
+Phase 7.3  Local Placement Optimization (Checksum:a200e328) REAL time: 7 secs 
 
 Phase 8.5  Local Placement Optimization
-Phase 8.5  Local Placement Optimization (Checksum:a200e328) REAL time: 6 secs 
+Phase 8.5  Local Placement Optimization (Checksum:a200e328) REAL time: 7 secs 
 
 Phase 9.8  Global Placement
 ..
 ..
-Phase 9.8  Global Placement (Checksum:2bdc20fd) REAL time: 6 secs 
+Phase 9.8  Global Placement (Checksum:2bdc20fd) REAL time: 7 secs 
 
 Phase 10.5  Local Placement Optimization
-Phase 10.5  Local Placement Optimization (Checksum:2bdc20fd) REAL time: 6 secs 
+Phase 10.5  Local Placement Optimization (Checksum:2bdc20fd) REAL time: 7 secs 
 
 Phase 11.18  Placement Optimization
 Phase 11.18  Placement Optimization (Checksum:c9974cf5) REAL time: 7 secs 
@@ -106,9 +106,9 @@ Slice Logic Distribution:
     Number with an unused Flip Flop:            33 out of      64   51%
     Number with an unused LUT:                   1 out of      64    1%
     Number of fully used LUT-FF pairs:          30 out of      64   46%
-    Number of unique control sets:               3
+    Number of unique control sets:               2
     Number of slice register sites lost
-      to control set restrictions:              15 out of  11,440    1%
+      to control set restrictions:               7 out of  11,440    1%
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -148,7 +148,7 @@ Specific Feature Utilization:
 Average Fanout of Non-Clock Nets:                1.81
 
 Peak Memory Usage:  4494 MB
-Total REAL time to MAP completion:  7 secs 
+Total REAL time to MAP completion:  8 secs 
 Total CPU time to MAP completion:   7 secs 
 
 Mapping completed.

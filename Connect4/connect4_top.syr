@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.14 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.22 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.14 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.22 secs
  
 --> Reading design: connect4_top.prj
 
@@ -107,6 +107,8 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 Analyzing Verilog file "C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4\FSM.v" into library work
 Parsing module <FSM>.
+Analyzing Verilog file "C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4\DetectWinner.v" into library work
+Parsing module <DetectWinner>.
 Analyzing Verilog file "C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4\connect4_top.v" into library work
 Parsing verilog file "ColumnSelector.v" included at line 2.
 Parsing module <ColumnSelector>.
@@ -123,22 +125,15 @@ Parsing module <connect4_top>.
 Elaborating module <connect4_top>.
 
 Elaborating module <ButtonPressDetector>.
-WARNING:HDLCompiler:413 - "ButtonPressDetector.v" Line 32: Result of 27-bit expression is truncated to fit in 26-bit target.
 
 Elaborating module <ColumnCalculator>.
-WARNING:HDLCompiler:413 - "ColumnCalculator.v" Line 40: Result of 5-bit expression is truncated to fit in 4-bit target.
-WARNING:HDLCompiler:413 - "ColumnCalculator.v" Line 48: Result of 6-bit expression is truncated to fit in 4-bit target.
-WARNING:HDLCompiler:413 - "ColumnCalculator.v" Line 55: Result of 6-bit expression is truncated to fit in 4-bit target.
-WARNING:HDLCompiler:413 - "ColumnCalculator.v" Line 63: Result of 6-bit expression is truncated to fit in 4-bit target.
 
 Elaborating module <ColumnSelector>.
-WARNING:HDLCompiler:1127 - "C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4\connect4_top.v" Line 124: Assignment to player_cells ignored, since the identifier is never used
 
 Elaborating module <FSM>.
-WARNING:HDLCompiler:189 - "C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4\connect4_top.v" Line 130: Size mismatch in connection of port <in_game_status>. Formal port size is 2-bit while actual signal size is 1-bit.
-WARNING:HDLCompiler:189 - "C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4\connect4_top.v" Line 132: Size mismatch in connection of port <out_game_status>. Formal port size is 2-bit while actual signal size is 1-bit.
-WARNING:HDLCompiler:1127 - "C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4\connect4_top.v" Line 132: Assignment to out_game_status ignored, since the identifier is never used
-WARNING:HDLCompiler:634 - "C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4\connect4_top.v" Line 130: Net <in_game_status> does not have a driver.
+WARNING:HDLCompiler:1127 - "C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4\connect4_top.v" Line 135: Assignment to out_game_status ignored, since the identifier is never used
+
+Elaborating module <DetectWinner>.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -148,9 +143,7 @@ Synthesizing Unit <connect4_top>.
     Related source file is "C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4\connect4_top.v".
         column = 3'b001
         statep = 2'b01
-INFO:Xst:3210 - "C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4\connect4_top.v" line 124: Output port <out_players_cells> of the instance <columnSelector> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4\connect4_top.v" line 126: Output port <out_game_status> of the instance <fsm> is unconnected or connected to loadless signal.
-WARNING:Xst:653 - Signal <in_game_status> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+INFO:Xst:3210 - "C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4\connect4_top.v" line 129: Output port <out_game_status> of the instance <fsm> is unconnected or connected to loadless signal.
     Summary:
 	no macro.
 Unit <connect4_top> synthesized.
@@ -167,19 +160,18 @@ Unit <ButtonPressDetector> synthesized.
 
 Synthesizing Unit <ColumnCalculator>.
     Related source file is "C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4/ColumnCalculator.v".
-WARNING:Xst:647 - Input <clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 3-bit register for signal <counter_0>.
     Found 3-bit register for signal <counter_1>.
     Found 3-bit register for signal <counter_2>.
     Found 3-bit register for signal <counter_3>.
     Found 4-bit register for signal <column_position>.
-    Found 3-bit adder for signal <counter_0[2]_GND_3_o_add_2_OUT> created at line 41.
-    Found 5-bit adder for signal <n0050> created at line 48.
-    Found 3-bit adder for signal <counter_1[2]_GND_3_o_add_7_OUT> created at line 49.
-    Found 5-bit adder for signal <n0054> created at line 55.
-    Found 3-bit adder for signal <counter_2[2]_GND_3_o_add_12_OUT> created at line 56.
-    Found 5-bit adder for signal <n0058> created at line 63.
-    Found 3-bit adder for signal <counter_3[2]_GND_3_o_add_17_OUT> created at line 64.
+    Found 3-bit adder for signal <counter_0[2]_GND_3_o_add_2_OUT> created at line 40.
+    Found 4-bit adder for signal <counter_1[1]_GND_3_o_add_6_OUT> created at line 47.
+    Found 3-bit adder for signal <counter_1[2]_GND_3_o_add_7_OUT> created at line 48.
+    Found 4-bit adder for signal <counter_2[1]_GND_3_o_add_11_OUT> created at line 54.
+    Found 3-bit adder for signal <counter_2[2]_GND_3_o_add_12_OUT> created at line 55.
+    Found 4-bit adder for signal <counter_3[1]_GND_3_o_add_16_OUT> created at line 62.
+    Found 3-bit adder for signal <counter_3[2]_GND_3_o_add_17_OUT> created at line 63.
     Summary:
 	inferred   7 Adder/Subtractor(s).
 	inferred  16 D-type flip-flop(s).
@@ -192,13 +184,12 @@ Synthesizing Unit <ColumnSelector>.
         P1_TURN = 2'b01
         P2_TURN = 2'b10
         END_GAME = 2'b11
-        CELLS_NUMBER = 16
 WARNING:Xst:647 - Input <throw_again> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 16-bit register for signal <out_players_cells>.
     Found 1-bit register for signal <next_player>.
     Found 16-bit register for signal <out_gameboard>.
-    Found 16-bit 4-to-1 multiplexer for signal <state[1]_GND_4_o_wide_mux_76_OUT> created at line 26.
-    Found 1-bit 4-to-1 multiplexer for signal <state[1]_GND_4_o_Mux_77_o> created at line 26.
+    Found 16-bit 4-to-1 multiplexer for signal <state[1]_GND_4_o_wide_mux_76_OUT> created at line 32.
+    Found 1-bit 4-to-1 multiplexer for signal <state[1]_GND_4_o_Mux_77_o> created at line 32.
     Summary:
 	inferred  33 D-type flip-flop(s).
 	inferred  58 Multiplexer(s).
@@ -220,11 +211,23 @@ Synthesizing Unit <FSM>.
     Found 2-bit register for signal <current_state>.
     Found 2-bit register for signal <next_state>.
     Found 2-bit register for signal <out_game_status>.
-    Found 2-bit 4-to-1 multiplexer for signal <current_state[1]_PWR_6_o_mux_23_OUT> created at line 40.
+    Found 2-bit 4-to-1 multiplexer for signal <current_state[1]_PWR_6_o_wide_mux_20_OUT> created at line 40.
     Summary:
 	inferred   6 D-type flip-flop(s).
-	inferred   3 Multiplexer(s).
+	inferred   9 Multiplexer(s).
 Unit <FSM> synthesized.
+
+Synthesizing Unit <DetectWinner>.
+    Related source file is "C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4\DetectWinner.v".
+        still_playing = 2'b00
+        p1_wins = 2'b01
+        p2_wins = 2'b10
+        tie = 2'b11
+    Found 2-bit register for signal <game_status>.
+    Summary:
+	inferred   2 D-type flip-flop(s).
+	inferred  10 Multiplexer(s).
+Unit <DetectWinner> synthesized.
 
 =========================================================================
 HDL Synthesis Report
@@ -233,20 +236,20 @@ Macro Statistics
 # Adders/Subtractors                                   : 8
  26-bit adder                                          : 1
  3-bit adder                                           : 4
- 5-bit adder                                           : 3
-# Registers                                            : 13
+ 4-bit adder                                           : 3
+# Registers                                            : 14
  1-bit register                                        : 2
  16-bit register                                       : 2
- 2-bit register                                        : 3
+ 2-bit register                                        : 4
  26-bit register                                       : 1
  3-bit register                                        : 4
  4-bit register                                        : 1
-# Multiplexers                                         : 65
+# Multiplexers                                         : 81
  1-bit 2-to-1 multiplexer                              : 2
  1-bit 4-to-1 multiplexer                              : 1
  16-bit 2-to-1 multiplexer                             : 6
  16-bit 4-to-1 multiplexer                             : 1
- 2-bit 2-to-1 multiplexer                              : 2
+ 2-bit 2-to-1 multiplexer                              : 18
  2-bit 4-to-1 multiplexer                              : 1
  32-bit 2-to-1 multiplexer                             : 48
  4-bit 2-to-1 multiplexer                              : 4
@@ -278,14 +281,14 @@ Macro Statistics
 # Counters                                             : 5
  26-bit up counter                                     : 1
  3-bit up counter                                      : 4
-# Registers                                            : 44
- Flip-Flops                                            : 44
-# Multiplexers                                         : 65
+# Registers                                            : 46
+ Flip-Flops                                            : 46
+# Multiplexers                                         : 81
  1-bit 2-to-1 multiplexer                              : 2
  1-bit 4-to-1 multiplexer                              : 1
  16-bit 2-to-1 multiplexer                             : 6
  16-bit 4-to-1 multiplexer                             : 1
- 2-bit 2-to-1 multiplexer                              : 2
+ 2-bit 2-to-1 multiplexer                              : 18
  2-bit 4-to-1 multiplexer                              : 1
  32-bit 2-to-1 multiplexer                             : 48
  4-bit 2-to-1 multiplexer                              : 4
@@ -295,46 +298,44 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1710 - FF/Latch <out_game_status_0> (without init value) has a constant value of 0 in block <FSM>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <out_game_status_1> (without init value) has a constant value of 0 in block <FSM>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <connect4_top> ...
-
-Optimizing unit <ColumnCalculator> ...
-WARNING:Xst:1710 - FF/Latch <column_position_2> (without init value) has a constant value of 0 in block <ColumnCalculator>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <column_position_3> (without init value) has a constant value of 0 in block <ColumnCalculator>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <ColumnSelector> ...
 
 Optimizing unit <FSM> ...
-WARNING:Xst:1710 - FF/Latch <columnSelector/out_gameboard_15> (without init value) has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_gameboard_14> (without init value) has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_gameboard_13> (without init value) has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_gameboard_12> (without init value) has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_gameboard_11> (without init value) has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_gameboard_10> (without init value) has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_gameboard_9> (without init value) has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_gameboard_8> (without init value) has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_gameboard_7> (without init value) has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_gameboard_6> (without init value) has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_gameboard_5> (without init value) has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_gameboard_4> (without init value) has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:2677 - Node <columnSelector/out_players_cells_15> of sequential type is unconnected in block <connect4_top>.
-WARNING:Xst:2677 - Node <columnSelector/out_players_cells_14> of sequential type is unconnected in block <connect4_top>.
-WARNING:Xst:2677 - Node <columnSelector/out_players_cells_13> of sequential type is unconnected in block <connect4_top>.
-WARNING:Xst:2677 - Node <columnSelector/out_players_cells_12> of sequential type is unconnected in block <connect4_top>.
-WARNING:Xst:2677 - Node <columnSelector/out_players_cells_11> of sequential type is unconnected in block <connect4_top>.
-WARNING:Xst:2677 - Node <columnSelector/out_players_cells_10> of sequential type is unconnected in block <connect4_top>.
-WARNING:Xst:2677 - Node <columnSelector/out_players_cells_9> of sequential type is unconnected in block <connect4_top>.
-WARNING:Xst:2677 - Node <columnSelector/out_players_cells_8> of sequential type is unconnected in block <connect4_top>.
-WARNING:Xst:2677 - Node <columnSelector/out_players_cells_7> of sequential type is unconnected in block <connect4_top>.
-WARNING:Xst:2677 - Node <columnSelector/out_players_cells_6> of sequential type is unconnected in block <connect4_top>.
-WARNING:Xst:2677 - Node <columnSelector/out_players_cells_5> of sequential type is unconnected in block <connect4_top>.
-WARNING:Xst:2677 - Node <columnSelector/out_players_cells_4> of sequential type is unconnected in block <connect4_top>.
-WARNING:Xst:2677 - Node <columnSelector/out_players_cells_3> of sequential type is unconnected in block <connect4_top>.
-WARNING:Xst:2677 - Node <columnSelector/out_players_cells_2> of sequential type is unconnected in block <connect4_top>.
-WARNING:Xst:2677 - Node <columnSelector/out_players_cells_1> of sequential type is unconnected in block <connect4_top>.
-WARNING:Xst:2677 - Node <columnSelector/out_players_cells_0> of sequential type is unconnected in block <connect4_top>.
+
+Optimizing unit <DetectWinner> ...
+
+Optimizing unit <ColumnCalculator> ...
+WARNING:Xst:1710 - FF/Latch <column_position_2> (without init value) has a constant value of 0 in block <ColumnCalculator>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <column_position_3> (without init value) has a constant value of 0 in block <ColumnCalculator>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <columnSelector/out_players_cells_4> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_players_cells_5> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_players_cells_6> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_players_cells_7> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_players_cells_8> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_players_cells_9> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_players_cells_10> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_players_cells_11> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_players_cells_12> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_players_cells_13> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_players_cells_14> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_players_cells_15> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_gameboard_4> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_gameboard_5> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_gameboard_6> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_gameboard_7> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_gameboard_12> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_gameboard_13> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_gameboard_14> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_gameboard_15> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <fsm/out_game_status_1> of sequential type is unconnected in block <connect4_top>.
+WARNING:Xst:2677 - Node <fsm/out_game_status_0> of sequential type is unconnected in block <connect4_top>.
+WARNING:Xst:1293 - FF/Latch <columnSelector/out_gameboard_11> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_gameboard_10> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_gameboard_9> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_gameboard_8> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <columnCounter/column_position_0> (without init value) has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <columnCounter/column_position_1> (without init value) has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <columnCounter/counter_1_0> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
@@ -349,9 +350,15 @@ WARNING:Xst:1293 - FF/Latch <columnCounter/counter_2_2> has a constant value of 
 WARNING:Xst:1293 - FF/Latch <columnCounter/counter_3_0> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <columnCounter/counter_3_1> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <columnCounter/counter_3_2> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_gameboard_3> (without init value) has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_gameboard_2> (without init value) has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_gameboard_1> (without init value) has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_players_cells_1> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_players_cells_2> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_players_cells_3> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_gameboard_1> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_gameboard_2> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <columnSelector/out_gameboard_3> has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DW/game_status_1> (without init value) has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <DW/game_status_0> (without init value) has a constant value of 0 in block <connect4_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <columnSelector/out_players_cells_0> of sequential type is unconnected in block <connect4_top>.
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -399,9 +406,8 @@ Primitive and Black Box Usage:
 #      VCC                         : 1
 #      XORCY                       : 26
 # FlipFlops/Latches                : 33
-#      FD                          : 29
-#      FD_1                        : 2
-#      FDC                         : 2
+#      FD                          : 31
+#      FDC_1                       : 2
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
 # IO Buffers                       : 26
@@ -548,20 +554,20 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    3.998|    1.128|    1.633|         |
+clk            |    3.998|    1.540|    1.128|         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 6.87 secs
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 8.47 secs
  
 --> 
 
 Total memory usage is 4502428 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   62 (   0 filtered)
-Number of infos    :    2 (   0 filtered)
+Number of warnings :   53 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
 

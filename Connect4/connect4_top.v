@@ -106,6 +106,9 @@ module connect4_top(
 	wire invalid_column;
 	wire next_player;
 	wire [1:0] state;
+	wire [1:0] game_status;
+	wire [1:0] out_game_status;
+	
 //	wire pin0;
 //	wire pin1;
 //	wire pin2;
@@ -120,22 +123,28 @@ module connect4_top(
 	parameter statep = 2'b01;
 	
 	ButtonPressDetector BPD(clk, BTN_EAST, Enable_Button);
-	ColumnCalculator columnCounter(clk, Enable_Button, {Switch_3, Switch_2, Switch_1, Switch_0}, selected_column, invalid_column);
+	ColumnCalculator columnCounter(Enable_Button, {Switch_3, Switch_2, Switch_1, Switch_0}, selected_column, invalid_column);
 	ColumnSelector columnSelector(clk, Enable_Button, throw_again, selected_column, state, gameboard_out, player_cells, next_player);
 	
 	FSM fsm (
 		.clk(clk), 
 		.reset(reset), 
 		.invalid_column(invalid_column), 
-		.in_game_status(in_game_status), 
+		.in_game_status(game_status), 
 		.player_turn(next_player), 
 		.out_game_status(out_game_status),
 		.current_state(state),
 		.throw_again(throw_again)
 	);
 	
+	DetectWinner DW(
+	 .clk(clk), 
+	 .game_board(gameboard_out),
+	 .player_cells(player_cells),
+	 .game_status(game_status)   
+    );
 	
-	always@(gameboard_out) begin
+	always@(gameboard_out, player_cells) begin
 	
 		//if(BTN_EAST == 1)begin
 			if(gameboard_out[0] == 1)begin
