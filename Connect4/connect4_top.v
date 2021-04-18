@@ -2,6 +2,7 @@
 `include "ColumnSelector.v"
 `include "ColumnCalculator.v"
 `include "ButtonPressDetector.v"
+`include "DetectWinner.v"
 
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -100,10 +101,8 @@ module connect4_top(
 	
 	
 	wire [15:0]player_cells;
-	wire [3:0] selected_column;
+	wire [4:0] selected_column;
 	wire Enable_Button;
-	wire throw_again;
-	wire invalid_column;
 	wire next_player;
 	wire [1:0] state;
 	wire [1:0] game_status;
@@ -123,21 +122,35 @@ module connect4_top(
 	parameter statep = 2'b01;
 	
 	ButtonPressDetector BPD(clk, BTN_EAST, Enable_Button);
-	ColumnCalculator columnCounter(Enable_Button, {Switch_3, Switch_2, Switch_1, Switch_0}, selected_column, invalid_column);
-	ColumnSelector columnSelector(clk, Enable_Button, throw_again, selected_column, state, gameboard_out, player_cells, next_player);
+	
+	
+	ColumnCalculator columnCounter(
+		.enable(Enable_Button), 
+		.selected_column({Switch_3, Switch_2, Switch_1, Switch_0}), 
+		.column_position(selected_column)
+		);
+		
+		
+	ColumnSelector columnSelector(
+		.enable(Enable_Button),
+		.column_position(selected_column),
+		.state(state), 
+		.out_gameboard(gameboard_out),
+		.out_players_cells(player_cells),
+		.next_player(next_player)
+		);
+	
 	
 	FSM fsm (
 		.clk(clk), 
 		.reset(reset), 
-		.invalid_column(invalid_column), 
 		.in_game_status(game_status), 
 		.player_turn(next_player), 
 		.out_game_status(out_game_status),
-		.current_state(state),
-		.throw_again(throw_again)
+		.current_state(state)
 	);
 	
-	DetectWinner DW(
+	DetectWinner WD(
 	 .clk(clk), 
 	 .game_board(gameboard_out),
 	 .player_cells(player_cells),

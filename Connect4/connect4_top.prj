@@ -1,3 +1,2 @@
 verilog work "FSM.v"
-verilog work "DetectWinner.v"
 verilog work "connect4_top.v"
