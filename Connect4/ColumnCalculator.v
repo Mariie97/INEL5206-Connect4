@@ -20,6 +20,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module ColumnCalculator(
+	input reset,
 	input enable,
 	input [3:0] selected_column,
 	output reg [4:0] column_position
@@ -32,7 +33,13 @@ module ColumnCalculator(
 
 	integer i;
 
-	always@(enable)begin
+	always@(enable, posedge reset)begin
+	if (reset==1'b1) begin
+			counter_0 <= 0;
+			counter_1 <= 0;
+			counter_2 <= 0;
+			counter_3 <= 0;
+	end
 	if(enable==1'b0) column_position <= 5'b11111;
 	else begin
 		case(selected_column)

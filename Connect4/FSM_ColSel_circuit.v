@@ -37,13 +37,13 @@ module FSM_ColSel_circuit(
 	);
 	
 	ColumnCalculator CC(
-	.enable(enable),
-	.selected_column(in_column),
-	.column_position(column_position)
+		.reset(reset), 	
+		.enable(enable),
+		.selected_column(in_column),
+		.column_position(column_position)
     );
 		
 	ColumnSelector CS (
-		.enable(enable), 
 		.column_position(column_position), 
 		.state(state), 
 		.out_gameboard(out_gameboard), 

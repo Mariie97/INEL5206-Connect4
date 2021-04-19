@@ -188,9 +188,9 @@ LAB1:    return;
 }
 
 
-extern void work_m_00000000000267758077_0749205668_init()
+extern void work_m_00000000000267792925_0749205668_init()
 {
 	static char *pe[] = {(void *)Cont_62_0,(void *)Cont_63_1,(void *)Cont_64_2};
-	xsi_register_didat("work_m_00000000000267758077_0749205668", "isim/FSM_ColSel_circuit_tb_isim_beh.exe.sim/work/m_00000000000267758077_0749205668.didat");
+	xsi_register_didat("work_m_00000000000267792925_0749205668", "isim/FSM_ColSel_circuit_tb_isim_beh.exe.sim/work/m_00000000000267792925_0749205668.didat");
 	xsi_register_executes(pe);
 }

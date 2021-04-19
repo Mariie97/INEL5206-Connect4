@@ -2,7 +2,6 @@
 
 
 module ColumnSelector(
-					input enable,
 					input [4:0] column_position, // selected column (0-3)
 					input [1:0] state,
 					output reg [15:0] out_gameboard, // keep track of selected and empty cells. 0-Empty, 1-Selected

@@ -132,7 +132,6 @@ module connect4_top(
 		
 		
 	ColumnSelector columnSelector(
-		.enable(Enable_Button),
 		.column_position(selected_column),
 		.state(state), 
 		.out_gameboard(gameboard_out),
