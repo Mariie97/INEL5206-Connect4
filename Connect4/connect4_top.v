@@ -152,6 +152,7 @@ module connect4_top(
 	
 	DetectWinner WD(
 	 .clk(clk), 
+	 .reset(reset),
 	 .game_board(gameboard_out),
 	 .player_cells(player_cells),
 	 .game_status(game_status)   

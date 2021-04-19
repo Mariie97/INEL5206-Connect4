@@ -7,7 +7,6 @@ module FSM_ColSel_circuit_tb;
 	reg reset;
 	reg enable;
 	reg [3:0] in_column;
-	reg [1:0] in_game_status;
 
 	// Outputs
 	wire [15:0] out_gameboard;
@@ -23,7 +22,6 @@ module FSM_ColSel_circuit_tb;
 		.reset(reset), 
 		.enable(enable), 
 		.in_column(in_column), 
-		.in_game_status(in_game_status), 
 		.out_gameboard(out_gameboard), 
 		.out_players_cells(out_players_cells), 
 		.out_game_status(out_game_status),
@@ -39,46 +37,39 @@ module FSM_ColSel_circuit_tb;
 //		clk = 0;
 //		reset = 0;
 //		in_column = 3'b111;
-//		in_game_status = 0;
+
+
 //
 //        
 //		// Add stimulus here
 //		
-//		#10 in_game_status = 2'b00; //P1		
 //		#10 in_column = 3'b000;
 //		#5 in_column = 3'b111;
 //		
 //		
-//		#10 in_game_status = 2'b00; //P2
 //		#10 in_column = 3'b000;
 //		#5 in_column = 3'b111;
 //		
 //		
-//		#20 in_game_status = 2'b00; //P1
 //		#10 in_column = 3'b010;
 //		#5 in_column = 3'b111;
 //
 //
-//		#20 in_game_status = 2'b00; //P2
 //		#10 in_column = 3'b011;
 //		#5 in_column = 3'b111;
 //		
-//		#30 in_game_status = 2'b00; //P1
 //		#10 in_column = 3'b000;
 //		#5 in_column = 3'b111;
 //
 //		
-//		#30 in_game_status = 2'b00; //P2
 //		#10 in_column = 3'b001;
 //		#5 in_column = 3'b111;
 //
 //	
-//		#40 in_game_status = 2'b00; //P1
 //		#10 in_column = 3'b000;
 //		#5 in_column = 3'b111;
 //
 //		
-//		#30 in_game_status = 2'b00; //P2
 //		#10 in_column = 3'b000;
 //		
 //		#30 in_column = 3'b011;
@@ -95,81 +86,61 @@ module FSM_ColSel_circuit_tb;
 		enable = 0;
 		reset = 0;
 		in_column = 4'b0000;
-		in_game_status = 0;
-
         
 		// Add stimulus here
-		#10
+		#100
 		
-		#15 in_game_status = 2'b00; //P1		
-		#15 in_column = 4'b1110;
+		#15 in_column = 4'b1110; //P1
 		enable = 1'b1;
 		#5 enable = 1'b0;
 		
 		
 		
-		#15 in_game_status = 2'b00; //P2
-		#15 in_column = 4'b1110;
+		#15 in_column = 4'b1101; //P2
 		enable = 1'b1;
 		#5 enable = 1'b0;
 		
 		
-		#15 in_game_status = 2'b00; //P1
-		#15 in_column = 4'b1101;
+		#15 in_column = 4'b1110; //P1
 		enable = 1'b1;
 		#5 enable = 1'b0;
 
 
-		#15 in_game_status = 2'b00; //P2
-		#10 in_column = 4'b1011;
+		#10 in_column = 4'b1011; //P2
 		enable = 1'b1;
 		#5 enable = 1'b0;
 		
-		#30 in_game_status = 2'b00; //P1
-		#15 in_column = 4'b1110;
+		#15 in_column = 4'b1110; //P1
 		enable = 1'b1;
 		#5 enable = 1'b0;
 		
-		#30 in_game_status = 2'b00; //P2
-		#15 in_column = 4'b1110;
+		#45 in_column = 4'b1011; //P2
 		enable = 1'b1;
 		#5 enable = 1'b0;
 	
-		#40 in_game_status = 2'b00; //P1
-		#15 in_column = 4'b1110;
+		#15 in_column = 4'b1110; //P1
 		enable = 1'b1;
 		#5 enable = 1'b0;
 		
-		#30 in_game_status = 2'b00; //P2
-		#15 in_column = 4'b1110;
+		#15 in_column = 4'b1011; //P2
 		enable = 1'b1;
 		#5 enable = 1'b0;
 		
-		#30 in_column = 4'b1011;
+		#30 in_column = 4'b1110; //P1
 		enable = 1'b1;
 		#5 enable = 1'b0;
 		#10 reset = 1;
 		#5 reset = 0;
 		
-		#30 in_game_status = 2'b01; //P2
 		
 		#45 reset = 1;
-		in_game_status = 2'b00; //P2
 
 		#5 reset = 0;
 		
-		#30 in_game_status = 2'b10; //P2
 		
 		#45 reset = 1;
-		in_game_status = 2'b00; //P2
-		#5 reset = 0;
-		
-		#30 in_game_status = 2'b11; //P2
-
-
-
-		
-		
+		#5 reset = 0;		
+	
 
 		#50 $finish;
 

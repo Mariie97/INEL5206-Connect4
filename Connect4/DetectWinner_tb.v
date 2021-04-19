@@ -56,40 +56,112 @@ module DetectWinner_tb;
 		player_cells = 0;
 
 		// Wait 100 ns for global reset to finish
-		#100;
-		#10 game_board = 16'b0001000100010001;
-		player_cells = 16'b00000000000000000;
-		#10 player_cells = 16'b0001000100010001;
 		
-		#10 game_board = 16'b0010001000100010;
-		player_cells = 16'b00000000000000000;
-		#10 player_cells = 16'b0010001000100010;
+//All posibles combination to win
+//		#10 game_board = 16'b0000000000001111; //1st row
+//		#10 game_board = 16'b0000000011110000; //2nd row
+//		#10 game_board = 16'b0000111100000000; //3rd row
+//		#10 game_board = 16'b1111000000000000; //4th row
+//		#10 game_board = 16'b0001000100010001; //1st column
+//		#10 game_board = 16'b0010001000100010; //2nd column
+//		#10 game_board = 16'b0100010001000100; //3rd column
+//		#10 game_board = 16'b1000100010001000; //4th column
+//		#10 game_board = 16'b0001001001001000; //Top diagonal
+//		#10 game_board = 16'b1000010000100001; //Bottom diagonal
+		
+		#100;
+		#10 game_board = 16'b0000000000001101; //1st row
+		#10 game_board = 16'b0000000000001111; //1st row
+		player_cells =   16'b0000000000000000; //p1 wins
+	
+		
+		#5 reset = 1'b1;
+		game_board = 0;
+		player_cells = 0;
+		#5 reset = 1'b0;
+		
+		#10 game_board = 16'b0000000000001101; //1st row
+		#10 game_board = 16'b0000000000001111; //1st row
+		player_cells =   16'b0000000000001111; //p1 wins
+
+		#5 reset = 1'b1;
+		game_board = 0;
+		player_cells = 0;
+		#5 reset = 1'b0;
+		
+		
+		#10 game_board = 16'b1111111111111111; //Tie Game
+		player_cells = 16'b0101101001011010;
+		
+		#5 reset = 1'b1;
+		game_board = 0;
+		player_cells = 0;
+		#5 reset = 1'b0;
 		
 		#10 game_board = 16'b0100010001000100;
 		player_cells = 16'b0100010001000100;
 		
-		#10 game_board = 16'b0010001000100010;
-		player_cells = 16'b0010001000100010;
+		#5 reset = 1'b1;
+		game_board = 0;
+		player_cells = 0;
+		#5 reset = 1'b0;
 		
 		#10 game_board = 16'b0010001000100010;
 		player_cells = 16'b0010001000100010;
 		
-		#10 game_board = 16'b0010001000100010;
-		player_cells = 16'b0010001000100010;
+		#5 reset = 1'b1;
+		game_board = 0;
+		player_cells = 0;
+		#5 reset = 1'b0;
 		
 		#10 game_board = 16'b0010001000100010;
 		player_cells = 16'b0010001000100010;
 		
-		#10 game_board = 16'b0010001000100010;
-		player_cells = 16'b0010001000100010;
+		#5 reset = 1'b1;
+		game_board = 0;
+		player_cells = 0;
+		#5 reset = 1'b0;
 		
 		#10 game_board = 16'b0010001000100010;
 		player_cells = 16'b0010001000100010;
 		
+		#5 reset = 1'b1;
+		game_board = 0;
+		player_cells = 0;
+		#5 reset = 1'b0;
+		
+		#10 game_board = 16'b0010001000100010;
+		player_cells = 16'b0010001000100010;
+		
+		#5 reset = 1'b1;
+		game_board = 0;
+		player_cells = 0;
+		#5 reset = 1'b0;
+		
+		#10 game_board = 16'b0010001000100010;
+		player_cells = 16'b0010001000100010;
+		
+		#5 reset = 1'b1;
+		game_board = 0;
+		player_cells = 0;
+		#5 reset = 1'b0;
+		
+		#10 game_board = 16'b0010001000100010;
+		player_cells = 16'b0010000000100000;
+		
+		#5 reset = 1'b1;
+		game_board = 0;
+		player_cells = 0;
+		#5 reset = 1'b0;
 		
 		#50 $finish;
         
 		// Add stimulus here
+
+
+		
+
+
 
 	end
       

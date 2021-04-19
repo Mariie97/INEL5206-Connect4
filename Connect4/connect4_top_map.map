@@ -11,7 +11,7 @@ Target Device  : xc6slx9
 Target Package : csg324
 Target Speed   : -3
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Sat Apr 17 18:04:03 2021
+Mapped Date    : Mon Apr 19 14:08:35 2021
 
 Mapping design into LUTs...
 Running directed packing...
@@ -20,122 +20,78 @@ Updating timing models...
 INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
    (.mrp).
 Running timing-driven placement...
-Total REAL time at the beginning of Placer: 3 secs 
-Total CPU  time at the beginning of Placer: 3 secs 
+Total REAL time at the beginning of Placer: 7 secs 
+Total CPU  time at the beginning of Placer: 7 secs 
 
 Phase 1.1  Initial Placement Analysis
-Phase 1.1  Initial Placement Analysis (Checksum:e5cc0eba) REAL time: 3 secs 
+Phase 1.1  Initial Placement Analysis (Checksum:9f23404d) REAL time: 8 secs 
 
 Phase 2.7  Design Feasibility Check
 INFO:Place:834 - Only a subset of IOs are locked. Out of 31 IOs, 15 are locked
    and 16 are not locked. If you would like to print the names of these IOs,
    please set the environment variable XIL_PAR_DESIGN_CHECK_VERBOSE to 1. 
-Phase 2.7  Design Feasibility Check (Checksum:e5cc0eba) REAL time: 3 secs 
+Phase 2.7  Design Feasibility Check (Checksum:9f23404d) REAL time: 9 secs 
 
 Phase 3.31  Local Placement Optimization
-Phase 3.31  Local Placement Optimization (Checksum:e5cc0eba) REAL time: 3 secs 
+Phase 3.31  Local Placement Optimization (Checksum:9f23404d) REAL time: 9 secs 
 
 Phase 4.2  Initial Placement for Architecture Specific Features
 ...
 Phase 4.2  Initial Placement for Architecture Specific Features
-(Checksum:c09ea013) REAL time: 6 secs 
+(Checksum:f3b12b64) REAL time: 15 secs 
 
 Phase 5.36  Local Placement Optimization
-Phase 5.36  Local Placement Optimization (Checksum:c09ea013) REAL time: 6 secs 
+Phase 5.36  Local Placement Optimization (Checksum:f3b12b64) REAL time: 15 secs 
 
 Phase 6.30  Global Clock Region Assignment
-Phase 6.30  Global Clock Region Assignment (Checksum:c09ea013) REAL time: 6 secs 
+Phase 6.30  Global Clock Region Assignment (Checksum:f3b12b64) REAL time: 15 secs 
 
 Phase 7.3  Local Placement Optimization
 ...
-Phase 7.3  Local Placement Optimization (Checksum:ed3bd8d4) REAL time: 6 secs 
+Phase 7.3  Local Placement Optimization (Checksum:7ea6e56e) REAL time: 15 secs 
 
 Phase 8.5  Local Placement Optimization
-Phase 8.5  Local Placement Optimization (Checksum:c1bba55a) REAL time: 6 secs 
+Phase 8.5  Local Placement Optimization (Checksum:5e36765) REAL time: 15 secs 
 
 Phase 9.8  Global Placement
+........................................................................................................................................
 ..........
-.....
-Phase 9.8  Global Placement (Checksum:ea215dcc) REAL time: 7 secs 
+Phase 9.8  Global Placement (Checksum:d7ec10ae) REAL time: 17 secs 
 
 Phase 10.5  Local Placement Optimization
-Phase 10.5  Local Placement Optimization (Checksum:ea215dcc) REAL time: 7 secs 
+Phase 10.5  Local Placement Optimization (Checksum:d7ec10ae) REAL time: 17 secs 
 
 Phase 11.18  Placement Optimization
-Phase 11.18  Placement Optimization (Checksum:af7b5cef) REAL time: 7 secs 
+Phase 11.18  Placement Optimization (Checksum:44298b16) REAL time: 20 secs 
 
 Phase 12.5  Local Placement Optimization
-Phase 12.5  Local Placement Optimization (Checksum:af7b5cef) REAL time: 7 secs 
+Phase 12.5  Local Placement Optimization (Checksum:44298b16) REAL time: 20 secs 
 
 Phase 13.34  Placement Validation
-Phase 13.34  Placement Validation (Checksum:af7b5cef) REAL time: 7 secs 
+Phase 13.34  Placement Validation (Checksum:44298b16) REAL time: 20 secs 
 
-Total REAL time to Placer completion: 7 secs 
-Total CPU  time to Placer completion: 7 secs 
+Total REAL time to Placer completion: 20 secs 
+Total CPU  time to Placer completion: 20 secs 
 Running post-placement packing...
 Writing output files...
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/state[1]_PWR_27_o_Mux_85_o is sourced by a combinatorial pin.
+   columnSelector/state[1]_GND_55_o_Mux_115_o is sourced by a combinatorial pin.
    This is not good design practice. Use the CE pin to control the loading of
    data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/state[1]_PWR_26_o_Mux_84_o is sourced by a combinatorial pin.
+   columnSelector/state[1]_GND_30_o_Mux_90_o is sourced by a combinatorial pin.
    This is not good design practice. Use the CE pin to control the loading of
    data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/state[1]_PWR_25_o_Mux_83_o is sourced by a combinatorial pin.
+   columnSelector/state[1]_GND_34_o_Mux_94_o is sourced by a combinatorial pin.
    This is not good design practice. Use the CE pin to control the loading of
    data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/state[1]_PWR_24_o_Mux_82_o is sourced by a combinatorial pin.
+   columnSelector/state[1]_GND_38_o_Mux_98_o is sourced by a combinatorial pin.
    This is not good design practice. Use the CE pin to control the loading of
    data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/state[1]_PWR_23_o_Mux_81_o is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/state[1]_PWR_38_o_Mux_96_o is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/state[1]_PWR_37_o_Mux_95_o is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/state[1]_PWR_36_o_Mux_94_o is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/state[1]_PWR_35_o_Mux_93_o is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/state[1]_PWR_34_o_Mux_92_o is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/state[1]_PWR_33_o_Mux_91_o is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/state[1]_PWR_32_o_Mux_90_o is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/state[1]_PWR_31_o_Mux_89_o is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/state[1]_PWR_30_o_Mux_88_o is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/state[1]_PWR_29_o_Mux_87_o is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/state[1]_PWR_28_o_Mux_86_o is sourced by a combinatorial pin.
+   columnSelector/state[1]_GND_35_o_Mux_95_o is sourced by a combinatorial pin.
    This is not good design practice. Use the CE pin to control the loading of
    data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
@@ -143,7 +99,51 @@ WARNING:PhysDesignRules:372 - Gated clock. Clock net
    combinatorial pin. This is not good design practice. Use the CE pin to
    control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/state[1]_PWR_55_o_Mux_113_o is sourced by a combinatorial pin.
+   columnSelector/state[1]_GND_28_o_Mux_88_o is sourced by a combinatorial pin.
+   This is not good design practice. Use the CE pin to control the loading of
+   data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   columnSelector/state[1]_GND_27_o_Mux_87_o is sourced by a combinatorial pin.
+   This is not good design practice. Use the CE pin to control the loading of
+   data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   columnSelector/state[1]_GND_26_o_Mux_86_o is sourced by a combinatorial pin.
+   This is not good design practice. Use the CE pin to control the loading of
+   data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   columnSelector/state[1]_GND_25_o_Mux_85_o is sourced by a combinatorial pin.
+   This is not good design practice. Use the CE pin to control the loading of
+   data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   columnSelector/state[1]_GND_24_o_Mux_84_o is sourced by a combinatorial pin.
+   This is not good design practice. Use the CE pin to control the loading of
+   data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   columnSelector/state[1]_GND_23_o_Mux_83_o is sourced by a combinatorial pin.
+   This is not good design practice. Use the CE pin to control the loading of
+   data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   columnSelector/state[1]_GND_37_o_Mux_97_o is sourced by a combinatorial pin.
+   This is not good design practice. Use the CE pin to control the loading of
+   data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   columnSelector/state[1]_GND_36_o_Mux_96_o is sourced by a combinatorial pin.
+   This is not good design practice. Use the CE pin to control the loading of
+   data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   columnSelector/state[1]_GND_33_o_Mux_93_o is sourced by a combinatorial pin.
+   This is not good design practice. Use the CE pin to control the loading of
+   data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   columnSelector/state[1]_GND_32_o_Mux_92_o is sourced by a combinatorial pin.
+   This is not good design practice. Use the CE pin to control the loading of
+   data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   columnSelector/state[1]_GND_31_o_Mux_91_o is sourced by a combinatorial pin.
+   This is not good design practice. Use the CE pin to control the loading of
+   data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   columnSelector/state[1]_GND_29_o_Mux_89_o is sourced by a combinatorial pin.
    This is not good design practice. Use the CE pin to control the loading of
    data into the flip-flop.
 
@@ -159,11 +159,11 @@ Slice Logic Utilization:
     Number used as Latches:                     50
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                        138 out of   5,720    2%
-    Number used as logic:                      137 out of   5,720    2%
-      Number using O6 output only:             102
+  Number of Slice LUTs:                      2,020 out of   5,720   35%
+    Number used as logic:                    2,019 out of   5,720   35%
+      Number using O6 output only:           1,757
       Number using O5 output only:              24
-      Number using O5 and O6:                   11
+      Number using O5 and O6:                  238
       Number used as ROM:                        0
     Number used as Memory:                       0 out of   1,440    0%
     Number used exclusively as route-thrus:      1
@@ -172,12 +172,12 @@ Slice Logic Utilization:
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                    76 out of   1,430    5%
+  Number of occupied Slices:                   651 out of   1,430   45%
   Number of MUXCYs used:                        28 out of   2,860    1%
-  Number of LUT Flip Flop pairs used:          163
-    Number with an unused Flip Flop:            83 out of     163   50%
-    Number with an unused LUT:                  25 out of     163   15%
-    Number of fully used LUT-FF pairs:          55 out of     163   33%
+  Number of LUT Flip Flop pairs used:        2,024
+    Number with an unused Flip Flop:         1,945 out of   2,024   96%
+    Number with an unused LUT:                   4 out of   2,024    1%
+    Number of fully used LUT-FF pairs:          75 out of   2,024    3%
     Number of unique control sets:              25
     Number of slice register sites lost
       to control set restrictions:             143 out of  11,440    1%
@@ -220,11 +220,11 @@ Specific Feature Utilization:
   Number of STARTUPs:                            0 out of       1    0%
   Number of SUSPEND_SYNCs:                       0 out of       1    0%
 
-Average Fanout of Non-Clock Nets:                2.92
+Average Fanout of Non-Clock Nets:                4.87
 
-Peak Memory Usage:  4510 MB
-Total REAL time to MAP completion:  8 secs 
-Total CPU time to MAP completion:   8 secs 
+Peak Memory Usage:  4529 MB
+Total REAL time to MAP completion:  23 secs 
+Total CPU time to MAP completion:   22 secs 
 
 Mapping completed.
 See MAP report file "connect4_top_map.mrp" for details.

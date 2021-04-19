@@ -42,6 +42,7 @@ module ColumnCalculator(
 							column_position <= counter_0 * 3'b100;
 							counter_0 <= counter_0 + 3'b001;
 						end
+						else counter_0<=3'b100;
 						end
 			
 			
@@ -51,6 +52,7 @@ module ColumnCalculator(
 							column_position <= counter_1 * 3'b100 + 3'b001;
 							counter_1 <= counter_1 + 3'b001;
 						end
+						else counter_1<=3'b100;						
 						end
 			
 			4'b1011: begin
@@ -59,6 +61,7 @@ module ColumnCalculator(
 							column_position <= counter_2 * 3'b100 + 3'b010;
 							counter_2 <= counter_2 + 3'b001;
 						end
+						else counter_2<=3'b100;
 						end
 			4'b0111: begin
 						if(counter_3!=3'b100)
@@ -66,11 +69,10 @@ module ColumnCalculator(
 							column_position <= counter_3 * 3'b100 + 3'b011;
 							counter_3 <= counter_3 + 3'b001;
 						end
+						else counter_3<=3'b100;
 						end
 			
-			default: begin 
-						column_position <= 5'b11111;
-						end
+			default: column_position <= 5'b11111;
 		endcase
 	end
 	end

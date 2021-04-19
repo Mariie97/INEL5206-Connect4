@@ -26,6 +26,7 @@ end
 
  // next state 
 always @(current_state, in_game_status, player_turn)
+//always @(posedge clk)
 begin
 	if(in_game_status == TIE_GAME) 
 	begin
