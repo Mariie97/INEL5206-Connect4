@@ -125,6 +125,7 @@ module connect4_top(
 	
 	
 	ColumnCalculator columnCounter(
+		.reset(reset), 	
 		.enable(Enable_Button), 
 		.selected_column({Switch_3, Switch_2, Switch_1, Switch_0}), 
 		.column_position(selected_column)
