@@ -129,20 +129,143 @@ module FSM_ColSel_circuit_tb;
 		#30 in_column = 4'b1110; //P1
 		enable = 1'b1;
 		#5 enable = 1'b0;
+		
+		// P1 WINS
+		
 		#10 reset = 1;
 		#5 reset = 0;
 		
-		
-		#45 reset = 1;
+		//Start new game
+		#15 in_column = 4'b1101; //P1
+		enable = 1'b1;
+		#5 enable = 1'b0;
 
+
+		#15 in_column = 4'b1110; //P2
+		enable = 1'b1;
+		#5 enable = 1'b0;
+		
+		#15 in_column = 4'b1011; //P1
+		enable = 1'b1;
+		#5 enable = 1'b0;
+
+
+		#15 in_column = 4'b1101; //P2
+		enable = 1'b1;
+		#5 enable = 1'b0;		
+		
+		#15 in_column = 4'b1011; //P1
+		enable = 1'b1;
+		#5 enable = 1'b0;
+
+
+		#15 in_column = 4'b1011; //P2
+		enable = 1'b1;
+		#5 enable = 1'b0;	
+
+		#15 in_column = 4'b0111; //P1
+		enable = 1'b1;
+		#5 enable = 1'b0;
+
+
+		#15 in_column = 4'b0111; //P2
+		enable = 1'b1;
+		#5 enable = 1'b0;	
+		
+		#15 in_column = 4'b0111; //P1
+		enable = 1'b1;
+		#5 enable = 1'b0;
+
+
+		#15 in_column = 4'b0111; //P2
+		enable = 1'b1;
+		#5 enable = 1'b0;	
+		
+		// P2 WINS
+
+		#20 reset = 1;
 		#5 reset = 0;
 		
 		
-		#45 reset = 1;
-		#5 reset = 0;		
+		
+		
+		//Start new game
+		#15 in_column = 4'b1110; //P1
+		enable = 1'b1;
+		#5 enable = 1'b0;
+
+
+		#15 in_column = 4'b1101; //P2
+		enable = 1'b1;
+		#5 enable = 1'b0;
+		
+		#15 in_column = 4'b1011; //P1
+		enable = 1'b1;
+		#5 enable = 1'b0;
+
+
+		#15 in_column = 4'b0111; //P2
+		enable = 1'b1;
+		#5 enable = 1'b0;		
+		
+		#15 in_column = 4'b0111; //P1
+		enable = 1'b1;
+		#5 enable = 1'b0;
+
+
+		#15 in_column = 4'b1011; //P2
+		enable = 1'b1;
+		#5 enable = 1'b0;	
+
+		#15 in_column = 4'b1101; //P1
+		enable = 1'b1;
+		#5 enable = 1'b0;
+
+
+		#15 in_column = 4'b1110; //P2
+		enable = 1'b1;
+		#5 enable = 1'b0;	
+		
+		#15 in_column = 4'b1110; //P1
+		enable = 1'b1;
+		#5 enable = 1'b0;
+
+
+		#15 in_column = 4'b1101; //P2 
+		enable = 1'b1;
+		#5 enable = 1'b0;	
+
+		#15 in_column = 4'b1011; //P1
+		enable = 1'b1;
+		#5 enable = 1'b0;	
+
+		#15 in_column = 4'b0111; //P2
+		enable = 1'b1;
+		#5 enable = 1'b0;
+
+
+		#15 in_column = 4'b1110; //P1
+		enable = 1'b1;
+		#5 enable = 1'b0;	
+		
+		#15 in_column = 4'b1011; //P2
+		enable = 1'b1;
+		#5 enable = 1'b0;
+
+
+		#15 in_column = 4'b1101; //P1 
+		enable = 1'b1;
+		#5 enable = 1'b0;			
+		
+		#15 in_column = 4'b0111; //P1 
+		enable = 1'b1;
+		#5 enable = 1'b0;		
+		
+		//TIE GAME
+
 	
 
-		#50 $finish;
+		#500 $finish;
 
 	end
       
