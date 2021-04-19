@@ -33,13 +33,14 @@ module ColumnCalculator(
 
 	integer i;
 
-	always@(enable, posedge reset)begin
+	always@(enable, reset)begin
 	if (reset==1'b1) begin
-			counter_0 <= 0;
-			counter_1 <= 0;
-			counter_2 <= 0;
-			counter_3 <= 0;
+		counter_0 <= 0;
+		counter_1 <= 0;
+		counter_2 <= 0;
+		counter_3 <= 0;
 	end
+	else begin
 	if(enable==1'b0) column_position <= 5'b11111;
 	else begin
 		case(selected_column)
@@ -81,6 +82,7 @@ module ColumnCalculator(
 			
 			default: column_position <= 5'b11111;
 		endcase
+	end
 	end
 	end
 
