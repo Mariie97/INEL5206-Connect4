@@ -33,14 +33,17 @@ module ColumnCalculator(
 
 	integer i;
 
+//	always@(enable, reset)begin
 	always@(enable, reset)begin
-	if (reset==1'b1) begin
-		counter_0 <= 0;
-		counter_1 <= 0;
-		counter_2 <= 0;
-		counter_3 <= 0;
-	end
-	else begin
+		//TODO: with this if statement uncommented, getting errors in the implement design.
+
+//	if (reset==1'b1) begin
+//		counter_0 <= 0;
+//		counter_1 <= 0;
+//		counter_2 <= 0;
+//		counter_3 <= 0;
+//	end
+//	else begin
 	if(enable==1'b0) column_position <= 5'b11111;
 	else begin
 		case(selected_column)
@@ -82,7 +85,7 @@ module ColumnCalculator(
 			
 			default: column_position <= 5'b11111;
 		endcase
-	end
+//	end
 	end
 	end
 
