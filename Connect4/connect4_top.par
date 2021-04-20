@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-LAPTOP-VIFFFPNF::  Wed Apr 14 19:29:33 2021
+LAPTOP-VIFFFPNF::  Tue Apr 20 11:46:53 2021
 
 par -w -intstyle ise -ol high -mt off connect4_top_map.ncd connect4_top.ncd
 connect4_top.pcf 

@@ -96,7 +96,6 @@ module connect4_top(
 //	wire pin_7;
 	
 	
-	
 	wire [15:0]player_cells;
 	wire [3:0] selected_column;
 	wire Enable_Button;

@@ -1,7 +1,7 @@
 Release 14.7 Drc P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Wed Apr 14 19:30:26 2021
+Tue Apr 20 11:47:23 2021
 
 drc -z connect4_top.ncd connect4_top.pcf
 

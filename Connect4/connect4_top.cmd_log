@@ -892,3 +892,14 @@ map -intstyle ise -p xc6slx9-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -reg
 par -w -intstyle ise -ol high -mt off connect4_top_map.ncd connect4_top.ncd connect4_top.pcf 
 trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml connect4_top.twx connect4_top.ncd -o connect4_top.twr connect4_top.pcf -ucf connect4.ucf 
 bitgen -intstyle ise -f connect4_top.ut connect4_top.ncd 
+xst -intstyle ise -ifn "C:/Users/vince/Desktop/Xilinx Projects/INEL5206-Connect4/Connect4/connect4_top.xst" -ofn "C:/Users/vince/Desktop/Xilinx Projects/INEL5206-Connect4/Connect4/connect4_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc connect4.ucf -p xc6slx9-csg324-3 "connect4_top.ngc" connect4_top.ngd  
+map -intstyle ise -p xc6slx9-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o connect4_top_map.ncd connect4_top.ngd connect4_top.pcf 
+par -w -intstyle ise -ol high -mt off connect4_top_map.ncd connect4_top.ncd connect4_top.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml connect4_top.twx connect4_top.ncd -o connect4_top.twr connect4_top.pcf -ucf connect4.ucf 
+xst -intstyle ise -ifn "C:/Users/vince/Desktop/Xilinx Projects/INEL5206-Connect4/Connect4/connect4_top.xst" -ofn "C:/Users/vince/Desktop/Xilinx Projects/INEL5206-Connect4/Connect4/connect4_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc connect4.ucf -p xc6slx9-csg324-3 "connect4_top.ngc" connect4_top.ngd  
+map -intstyle ise -p xc6slx9-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o connect4_top_map.ncd connect4_top.ngd connect4_top.pcf 
+par -w -intstyle ise -ol high -mt off connect4_top_map.ncd connect4_top.ncd connect4_top.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml connect4_top.twx connect4_top.ncd -o connect4_top.twr connect4_top.pcf -ucf connect4.ucf 
+bitgen -intstyle ise -f connect4_top.ut connect4_top.ncd 

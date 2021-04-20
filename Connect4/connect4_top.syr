@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.16 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.16 secs
  
 --> Reading design: connect4_top.prj
 
@@ -129,7 +129,7 @@ WARNING:HDLCompiler:413 - "ColumnCalculator.v" Line 60: Result of 5-bit expressi
 WARNING:HDLCompiler:413 - "ColumnCalculator.v" Line 65: Result of 5-bit expression is truncated to fit in 4-bit target.
 
 Elaborating module <ColumnSelectorV2>.
-WARNING:HDLCompiler:1127 - "C:\Users\vince\Desktop\Xilinx Projects\INEL5206-Connect4\Connect4\connect4_top.v" Line 118: Assignment to player_cells ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\vince\Desktop\Xilinx Projects\INEL5206-Connect4\Connect4\connect4_top.v" Line 117: Assignment to player_cells ignored, since the identifier is never used
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -139,7 +139,7 @@ Synthesizing Unit <connect4_top>.
     Related source file is "C:\Users\vince\Desktop\Xilinx Projects\INEL5206-Connect4\Connect4\connect4_top.v".
         column = 3'b001
         statep = 2'b01
-INFO:Xst:3210 - "C:\Users\vince\Desktop\Xilinx Projects\INEL5206-Connect4\Connect4\connect4_top.v" line 118: Output port <out_players_cells> of the instance <columnSelectorV2> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\vince\Desktop\Xilinx Projects\INEL5206-Connect4\Connect4\connect4_top.v" line 117: Output port <out_players_cells> of the instance <columnSelectorV2> is unconnected or connected to loadless signal.
     Summary:
 	no macro.
 Unit <connect4_top> synthesized.
@@ -500,12 +500,12 @@ clk            |    3.998|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 5.00 secs
-Total CPU time to Xst completion: 4.43 secs
+Total REAL time to Xst completion: 4.00 secs
+Total CPU time to Xst completion: 4.75 secs
  
 --> 
 
-Total memory usage is 4486236 kilobytes
+Total memory usage is 4486232 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    7 (   0 filtered)
