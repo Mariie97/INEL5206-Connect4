@@ -3,6 +3,7 @@
 `include "ColumnSelector.v"
 `include "ColumnCalculator.v"
 `include "DetectWinner.v"
+`include "ThreeBitCounter.v"
 
  
 module FSM_ColSel_circuit(
@@ -23,8 +24,10 @@ module FSM_ColSel_circuit(
  wire [1:0] state;
  wire [1:0] in_game_status;
  wire pturn;
+ wire add;
  wire oset_invalid_column;
  wire [4:0] column_position;
+ wire [11:0] counters;
 
 
 	FSM fsm (
@@ -36,11 +39,20 @@ module FSM_ColSel_circuit(
 		.current_state(state)
 	);
 	
+	ThreeBitCounter tbc (
+		.clk(clk),
+		.reset(reset), 
+		.column(in_column), 
+		.add(add), 
+		.count(counters)
+	);
+	
 	ColumnCalculator CC(
-		.reset(reset), 	
 		.enable(enable),
+		.counters(counters),		
 		.selected_column(in_column),
-		.column_position(column_position)
+		.column_position(column_position),
+		.add(add)
     );
 		
 	ColumnSelector CS (

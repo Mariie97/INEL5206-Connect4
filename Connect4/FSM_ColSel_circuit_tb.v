@@ -33,53 +33,6 @@ module FSM_ColSel_circuit_tb;
 	always #10 clk = ~clk;
 
 	initial begin
-//		// Initialize Inputs
-//		clk = 0;
-//		reset = 0;
-//		in_column = 3'b111;
-
-
-//
-//        
-//		// Add stimulus here
-//		
-//		#10 in_column = 3'b000;
-//		#5 in_column = 3'b111;
-//		
-//		
-//		#10 in_column = 3'b000;
-//		#5 in_column = 3'b111;
-//		
-//		
-//		#10 in_column = 3'b010;
-//		#5 in_column = 3'b111;
-//
-//
-//		#10 in_column = 3'b011;
-//		#5 in_column = 3'b111;
-//		
-//		#10 in_column = 3'b000;
-//		#5 in_column = 3'b111;
-//
-//		
-//		#10 in_column = 3'b001;
-//		#5 in_column = 3'b111;
-//
-//	
-//		#10 in_column = 3'b000;
-//		#5 in_column = 3'b111;
-//
-//		
-//		#10 in_column = 3'b000;
-//		
-//		#30 in_column = 3'b011;
-//		#10 reset = 1;
-//
-//		#50 $finish;
-
-
-
-
 
 // Initialize Inputs
 		clk = 0;
@@ -94,17 +47,13 @@ module FSM_ColSel_circuit_tb;
 		enable = 1'b1;
 		#5 enable = 1'b0;
 		
-		
-		
 		#15 in_column = 4'b1101; //P2
 		enable = 1'b1;
 		#5 enable = 1'b0;
 		
-		
 		#15 in_column = 4'b1110; //P1
 		enable = 1'b1;
 		#5 enable = 1'b0;
-
 
 		#10 in_column = 4'b1011; //P2
 		enable = 1'b1;
@@ -122,24 +71,28 @@ module FSM_ColSel_circuit_tb;
 		enable = 1'b1;
 		#5 enable = 1'b0;
 		
-		#15 in_column = 4'b1011; //P2
-		enable = 1'b1;
-		#5 enable = 1'b0;
-		
-		#30 in_column = 4'b1110; //P1
-		enable = 1'b1;
-		#5 enable = 1'b0;
+//		#15 in_column = 4'b1011; //P2
+//		enable = 1'b1;
+//		#5 enable = 1'b0;
+//		
+//		#30 in_column = 4'b1110; //P1
+//		enable = 1'b1;
+//		#5 enable = 1'b0;
 		
 		// P1 WINS
 		
-		#10 reset = 1;
+		
+		
+		#15 reset = 1;
 		#5 reset = 0;
+		
+		
+		
 		
 		//Start new game
 		#15 in_column = 4'b1101; //P1
 		enable = 1'b1;
 		#5 enable = 1'b0;
-
 
 		#15 in_column = 4'b1110; //P2
 		enable = 1'b1;
@@ -149,7 +102,6 @@ module FSM_ColSel_circuit_tb;
 		enable = 1'b1;
 		#5 enable = 1'b0;
 
-
 		#15 in_column = 4'b1101; //P2
 		enable = 1'b1;
 		#5 enable = 1'b0;		
@@ -157,7 +109,6 @@ module FSM_ColSel_circuit_tb;
 		#15 in_column = 4'b1011; //P1
 		enable = 1'b1;
 		#5 enable = 1'b0;
-
 
 		#15 in_column = 4'b1011; //P2
 		enable = 1'b1;
@@ -167,7 +118,6 @@ module FSM_ColSel_circuit_tb;
 		enable = 1'b1;
 		#5 enable = 1'b0;
 
-
 		#15 in_column = 4'b0111; //P2
 		enable = 1'b1;
 		#5 enable = 1'b0;	
@@ -176,18 +126,18 @@ module FSM_ColSel_circuit_tb;
 		enable = 1'b1;
 		#5 enable = 1'b0;
 
-
 		#15 in_column = 4'b0111; //P2
 		enable = 1'b1;
 		#5 enable = 1'b0;	
 		
 		// P2 WINS
 
-		#20 reset = 1;
+
+		#15 reset = 1;
 		#5 reset = 0;
 		
 		
-		
+
 		
 		//Start new game
 		#15 in_column = 4'b1110; //P1

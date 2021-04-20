@@ -3,6 +3,7 @@
 `include "ColumnCalculator.v"
 `include "ButtonPressDetector.v"
 `include "DetectWinner.v"
+`include "ThreeBitCounter.v"
 
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -104,9 +105,13 @@ module connect4_top(
 	wire [4:0] selected_column;
 	wire Enable_Button;
 	wire next_player;
+	wire add;
 	wire [1:0] state;
 	wire [1:0] game_status;
 	wire [1:0] out_game_status;
+	
+	wire [11:0] counters;
+
 	
 //	wire pin0;
 //	wire pin1;
@@ -125,11 +130,21 @@ module connect4_top(
 	
 	
 	ColumnCalculator columnCounter(
-		.reset(reset), 	
-		.enable(Enable_Button), 
+		.enable(Enable_Button),
+		.counters(counters),		
 		.selected_column({Switch_3, Switch_2, Switch_1, Switch_0}), 
-		.column_position(selected_column)
+		.column_position(selected_column),
+		.add(add)
 		);
+		
+		
+	ThreeBitCounter tbc (
+		.clk(clk),
+		.reset(reset), 
+		.column({Switch_3, Switch_2, Switch_1, Switch_0}), 
+		.add(add), 
+		.count(counters)
+	);
 		
 		
 	ColumnSelector columnSelector(

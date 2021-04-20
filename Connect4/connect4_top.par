@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-HP-PAVILION::  Mon Apr 19 16:58:01 2021
+HP-PAVILION::  Tue Apr 20 13:50:42 2021
 
 par -w -intstyle ise -ol high -mt off connect4_top_map.ncd connect4_top.ncd
 connect4_top.pcf 
@@ -22,14 +22,14 @@ Device speed data version:  "PRODUCTION 1.23 2013-10-13".
 Device Utilization Summary:
 
 Slice Logic Utilization:
-  Number of Slice Registers:                    81 out of  11,440    1%
-    Number used as Flip Flops:                  31
+  Number of Slice Registers:                    93 out of  11,440    1%
+    Number used as Flip Flops:                  43
     Number used as Latches:                     50
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                      2,020 out of   5,720   35%
-    Number used as logic:                    2,019 out of   5,720   35%
-      Number using O6 output only:           1,757
+  Number of Slice LUTs:                      2,032 out of   5,720   35%
+    Number used as logic:                    2,031 out of   5,720   35%
+      Number using O6 output only:           1,769
       Number using O5 output only:              24
       Number using O5 and O6:                  238
       Number used as ROM:                        0
@@ -40,12 +40,12 @@ Slice Logic Utilization:
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   651 out of   1,430   45%
+  Number of occupied Slices:                   704 out of   1,430   49%
   Number of MUXCYs used:                        28 out of   2,860    1%
-  Number of LUT Flip Flop pairs used:        2,024
-    Number with an unused Flip Flop:         1,945 out of   2,024   96%
-    Number with an unused LUT:                   4 out of   2,024    1%
-    Number of fully used LUT-FF pairs:          75 out of   2,024    3%
+  Number of LUT Flip Flop pairs used:        2,039
+    Number with an unused Flip Flop:         1,948 out of   2,039   95%
+    Number with an unused LUT:                   7 out of   2,039    1%
+    Number of fully used LUT-FF pairs:          84 out of   2,039    4%
     Number of slice register sites lost
       to control set restrictions:               0 out of  11,440    0%
 
@@ -91,35 +91,35 @@ Specific Feature Utilization:
 Overall effort level (-ol):   High 
 Router effort level (-rl):    High 
 
-Starting initial Timing Analysis.  REAL time: 3 secs 
-Finished initial Timing Analysis.  REAL time: 3 secs 
+Starting initial Timing Analysis.  REAL time: 4 secs 
+Finished initial Timing Analysis.  REAL time: 4 secs 
 
 Starting Router
 
 
-Phase  1  : 11591 unrouted;      REAL time: 3 secs 
+Phase  1  : 11667 unrouted;      REAL time: 4 secs 
 
-Phase  2  : 11260 unrouted;      REAL time: 4 secs 
+Phase  2  : 11330 unrouted;      REAL time: 4 secs 
 
-Phase  3  : 7409 unrouted;      REAL time: 5 secs 
+Phase  3  : 7839 unrouted;      REAL time: 6 secs 
 
-Phase  4  : 7409 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 5 secs 
+Phase  4  : 7839 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
 
 Updating file: connect4_top.ncd with current fully routed design.
 
-Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
+Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 11 secs 
 
-Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
+Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 11 secs 
 
-Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
+Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 11 secs 
 
-Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
+Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 11 secs 
 
-Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
+Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 11 secs 
 
-Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
-Total REAL time to Router completion: 9 secs 
-Total CPU time to Router completion: 9 secs 
+Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 11 secs 
+Total REAL time to Router completion: 11 secs 
+Total CPU time to Router completion: 10 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -137,81 +137,81 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|           clk_BUFGP | BUFGMUX_X3Y13| No   |   13 |  0.013     |  1.082      |
-+---------------------+--------------+------+------+------------+-------------+
-|columnSelector/state |              |      |      |            |             |
-|[1]_GND_55_o_Mux_115 |              |      |      |            |             |
-|                  _o |         Local|      |    1 |  0.000     |  0.490      |
-+---------------------+--------------+------+------+------------+-------------+
-|         BPD/clk_out |         Local|      |    5 |  0.439     |  1.957      |
-+---------------------+--------------+------+------+------------+-------------+
-|columnSelector/state |              |      |      |            |             |
-|[1]_GND_30_o_Mux_90_ |              |      |      |            |             |
-|                   o |         Local|      |    3 |  1.788     |  2.894      |
-+---------------------+--------------+------+------+------------+-------------+
-|columnSelector/state |              |      |      |            |             |
-|[1]_GND_34_o_Mux_94_ |              |      |      |            |             |
-|                   o |         Local|      |    4 |  2.104     |  2.888      |
-+---------------------+--------------+------+------+------------+-------------+
-|columnSelector/state |              |      |      |            |             |
-|[1]_GND_38_o_Mux_98_ |              |      |      |            |             |
-|                   o |         Local|      |    4 |  1.925     |  2.415      |
-+---------------------+--------------+------+------+------------+-------------+
-|columnSelector/state |              |      |      |            |             |
-|[1]_GND_35_o_Mux_95_ |              |      |      |            |             |
-|                   o |         Local|      |    4 |  0.564     |  2.265      |
+|           clk_BUFGP | BUFGMUX_X3Y13| No   |   19 |  0.067     |  1.142      |
 +---------------------+--------------+------+------+------------+-------------+
 |columnCounter/select |              |      |      |            |             |
 |ed_column[3]_counter |              |      |      |            |             |
-|   _0[2]_Select_35_o |         Local|      |    2 |  0.161     |  0.468      |
+|    s[2]_Select_21_o |         Local|      |    3 |  0.376     |  0.851      |
++---------------------+--------------+------+------+------------+-------------+
+|                 add |         Local|      |    4 |  0.564     |  1.047      |
 +---------------------+--------------+------+------+------------+-------------+
 |columnSelector/state |              |      |      |            |             |
-|[1]_GND_28_o_Mux_88_ |              |      |      |            |             |
-|                   o |         Local|      |    3 |  1.252     |  1.541      |
+|[1]_GND_56_o_Mux_115 |              |      |      |            |             |
+|                  _o |         Local|      |    1 |  0.000     |  0.650      |
 +---------------------+--------------+------+------+------------+-------------+
 |columnSelector/state |              |      |      |            |             |
-|[1]_GND_27_o_Mux_87_ |              |      |      |            |             |
-|                   o |         Local|      |    3 |  1.340     |  1.819      |
+|[1]_GND_35_o_Mux_94_ |              |      |      |            |             |
+|                   o |         Local|      |    4 |  1.278     |  2.572      |
 +---------------------+--------------+------+------+------------+-------------+
 |columnSelector/state |              |      |      |            |             |
-|[1]_GND_26_o_Mux_86_ |              |      |      |            |             |
-|                   o |         Local|      |    3 |  0.349     |  1.416      |
+|[1]_GND_39_o_Mux_98_ |              |      |      |            |             |
+|                   o |         Local|      |    4 |  2.160     |  3.337      |
 +---------------------+--------------+------+------+------------+-------------+
 |columnSelector/state |              |      |      |            |             |
-|[1]_GND_25_o_Mux_85_ |              |      |      |            |             |
-|                   o |         Local|      |    3 |  1.273     |  1.590      |
+|[1]_GND_36_o_Mux_95_ |              |      |      |            |             |
+|                   o |         Local|      |    4 |  1.214     |  2.503      |
 +---------------------+--------------+------+------+------------+-------------+
 |columnSelector/state |              |      |      |            |             |
-|[1]_GND_24_o_Mux_84_ |              |      |      |            |             |
-|                   o |         Local|      |    3 |  2.048     |  2.770      |
+|[1]_GND_31_o_Mux_90_ |              |      |      |            |             |
+|                   o |         Local|      |    3 |  2.130     |  3.252      |
 +---------------------+--------------+------+------+------------+-------------+
 |columnSelector/state |              |      |      |            |             |
-|[1]_GND_23_o_Mux_83_ |              |      |      |            |             |
-|                   o |         Local|      |    3 |  0.754     |  2.493      |
+|[1]_GND_29_o_Mux_88_ |              |      |      |            |             |
+|                   o |         Local|      |    3 |  0.135     |  0.924      |
 +---------------------+--------------+------+------+------------+-------------+
 |columnSelector/state |              |      |      |            |             |
-|[1]_GND_37_o_Mux_97_ |              |      |      |            |             |
-|                   o |         Local|      |    4 |  1.875     |  2.802      |
+|[1]_GND_28_o_Mux_87_ |              |      |      |            |             |
+|                   o |         Local|      |    3 |  0.339     |  1.309      |
 +---------------------+--------------+------+------+------------+-------------+
 |columnSelector/state |              |      |      |            |             |
-|[1]_GND_36_o_Mux_96_ |              |      |      |            |             |
-|                   o |         Local|      |    4 |  2.474     |  3.230      |
+|[1]_GND_27_o_Mux_86_ |              |      |      |            |             |
+|                   o |         Local|      |    3 |  1.182     |  1.927      |
 +---------------------+--------------+------+------+------------+-------------+
 |columnSelector/state |              |      |      |            |             |
-|[1]_GND_33_o_Mux_93_ |              |      |      |            |             |
-|                   o |         Local|      |    4 |  0.793     |  1.943      |
+|[1]_GND_26_o_Mux_85_ |              |      |      |            |             |
+|                   o |         Local|      |    3 |  0.106     |  0.893      |
 +---------------------+--------------+------+------+------------+-------------+
 |columnSelector/state |              |      |      |            |             |
-|[1]_GND_32_o_Mux_92_ |              |      |      |            |             |
-|                   o |         Local|      |    4 |  0.768     |  1.741      |
+|[1]_GND_25_o_Mux_84_ |              |      |      |            |             |
+|                   o |         Local|      |    3 |  0.145     |  0.934      |
 +---------------------+--------------+------+------+------------+-------------+
 |columnSelector/state |              |      |      |            |             |
-|[1]_GND_31_o_Mux_91_ |              |      |      |            |             |
-|                   o |         Local|      |    4 |  1.038     |  2.108      |
+|[1]_GND_24_o_Mux_83_ |              |      |      |            |             |
+|                   o |         Local|      |    3 |  0.782     |  1.755      |
 +---------------------+--------------+------+------+------------+-------------+
 |columnSelector/state |              |      |      |            |             |
-|[1]_GND_29_o_Mux_89_ |              |      |      |            |             |
-|                   o |         Local|      |    3 |  0.935     |  1.489      |
+|[1]_GND_38_o_Mux_97_ |              |      |      |            |             |
+|                   o |         Local|      |    4 |  1.247     |  2.494      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/state |              |      |      |            |             |
+|[1]_GND_37_o_Mux_96_ |              |      |      |            |             |
+|                   o |         Local|      |    4 |  2.089     |  2.667      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/state |              |      |      |            |             |
+|[1]_GND_34_o_Mux_93_ |              |      |      |            |             |
+|                   o |         Local|      |    4 |  1.419     |  2.389      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/state |              |      |      |            |             |
+|[1]_GND_33_o_Mux_92_ |              |      |      |            |             |
+|                   o |         Local|      |    4 |  1.141     |  2.033      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/state |              |      |      |            |             |
+|[1]_GND_32_o_Mux_91_ |              |      |      |            |             |
+|                   o |         Local|      |    4 |  1.532     |  2.248      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/state |              |      |      |            |             |
+|[1]_GND_30_o_Mux_89_ |              |      |      |            |             |
+|                   o |         Local|      |    3 |  0.118     |  1.251      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -231,8 +231,8 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  NET "clk_BUFGP/IBUFG" PERIOD = 20 ns HIGH | SETUP       |    15.650ns|     4.350ns|       0|           0
-   50%                                      | HOLD        |     0.410ns|            |       0|           0
+  NET "clk_BUFGP/IBUFG" PERIOD = 20 ns HIGH | SETUP       |    15.038ns|     4.962ns|       0|           0
+   50%                                      | HOLD        |     0.412ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
 
 
@@ -243,8 +243,8 @@ Generating Pad Report.
 
 All signals are completely routed.
 
-Total REAL time to PAR completion: 10 secs 
-Total CPU time to PAR completion: 9 secs 
+Total REAL time to PAR completion: 12 secs 
+Total CPU time to PAR completion: 11 secs 
 
 Peak Memory Usage:  4472 MB
 
