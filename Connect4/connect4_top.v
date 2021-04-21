@@ -54,7 +54,16 @@ module connect4_top(
 	Switch_2,
 	Switch_3,
 	BTN_EAST,
-	gameboard_out
+	gameboard_out,
+	led_1,
+	led_2,
+	led_3,
+	led_4,
+	led_5,
+	led_6,
+	led_7,
+	led_8
+	
 	//selected_column
 	);
 	
@@ -71,6 +80,26 @@ module connect4_top(
 	input clk;
 	input reset;
 	//input [2:0] selected_column;
+	
+	//FPGA LEDS
+	output led_1;
+	output led_2;
+	output led_3;
+	output led_4;
+	output led_5;
+	output led_6;
+	output led_7;
+	output led_8;
+	
+	reg led_1 = 0;
+	reg led_2 = 0;
+	reg led_3 = 0;
+	reg led_4 = 0;
+	reg led_5 = 0;
+	reg led_6 = 0;
+	reg led_7 = 0;
+	reg led_8 = 0;
+	
 	
 	output pin_0;
 	output pin_1;
@@ -109,7 +138,7 @@ module connect4_top(
 	wire [1:0] state;
 	wire [1:0] game_status;
 	wire [1:0] out_game_status;
-	
+	wire [7:0] LEDs;	
 	wire [11:0] counters;
 
 	
@@ -166,13 +195,29 @@ module connect4_top(
 	);
 	
 	DetectWinner WD(
-	 .clk(clk), 
-	 .reset(reset),
-	 .game_board(gameboard_out),
-	 .player_cells(player_cells),
-	 .game_status(game_status)   
+		 .clk(clk), 
+		 .reset(reset),
+		 .game_board(gameboard_out),
+		 .player_cells(player_cells),
+		 .game_status(game_status)   
     );
 	 
+	DisplayGameStatus DGS (
+		.state(state),
+		.game_status(out_game_status),
+		.LEDs(LEDs)
+	);
+	 
+	always@(LEDs) begin
+			led_1 <= LEDs[7];
+			led_2 <= LEDs[6];
+			led_3 <= LEDs[5];
+			led_4 <= LEDs[4];
+			led_5 <= LEDs[3];
+			led_6 <= LEDs[2];
+			led_7 <= LEDs[1];
+			led_8 <= LEDs[0];
+	end
 	
 	always@(gameboard_out, player_cells) begin
 	
