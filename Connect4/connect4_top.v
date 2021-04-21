@@ -172,6 +172,7 @@ module connect4_top(
 	 .player_cells(player_cells),
 	 .game_status(game_status)   
     );
+	 
 	
 	always@(gameboard_out, player_cells) begin
 	

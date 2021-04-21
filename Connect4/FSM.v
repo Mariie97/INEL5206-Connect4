@@ -13,9 +13,11 @@ parameter NEXT_TURN=2'b00, P1_WIN=2'b01, P2_WIN=2'b10, TIE_GAME=2'b11; //INPUTS 
 parameter STILL_PLAYING=2'b00, P1_WINS=2'b01, P2_WINS=2'b10, TIE=2'b11; //outputs
 
 
-reg[1:0] next_state = GAME_INIT;
+reg[1:0] next_state;
 
-
+initial begin
+current_state <= GAME_INIT;
+end
 // current state registers 
 always @(posedge clk, posedge reset) 
 begin 

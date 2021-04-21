@@ -4,65 +4,65 @@
      changes made to this file may result in unpredictable
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
-<DeviceUsageSummary rev="26">
-<DesignStatistics TimeStamp="Tue Apr 20 13:50:39 2021"><group name="MiscellaneousStatistics">
-<item name="AGG_BONDED_IO" rev="26">
+<DeviceUsageSummary rev="28">
+<DesignStatistics TimeStamp="Wed Apr 21 14:23:51 2021"><group name="MiscellaneousStatistics">
+<item name="AGG_BONDED_IO" rev="28">
 <attrib name="value" value="31"/></item>
-<item name="AGG_IO" rev="26">
+<item name="AGG_IO" rev="28">
 <attrib name="value" value="31"/></item>
-<item name="AGG_LOCED_IO" rev="26">
+<item name="AGG_LOCED_IO" rev="28">
 <attrib name="value" value="15"/></item>
-<item name="AGG_SLICE" rev="26">
+<item name="AGG_SLICE" rev="28">
 <attrib name="value" value="704"/></item>
-<item name="NUM_BONDED_IOB" rev="26">
+<item name="NUM_BONDED_IOB" rev="28">
 <attrib name="value" value="31"/></item>
-<item name="NUM_BSFULL" rev="26">
+<item name="NUM_BSFULL" rev="28">
 <attrib name="value" value="84"/></item>
-<item name="NUM_BSLUTONLY" rev="26">
+<item name="NUM_BSLUTONLY" rev="28">
 <attrib name="value" value="1948"/></item>
-<item name="NUM_BSREGONLY" rev="26">
+<item name="NUM_BSREGONLY" rev="28">
 <attrib name="value" value="7"/></item>
-<item name="NUM_BSUSED" rev="26">
+<item name="NUM_BSUSED" rev="28">
 <attrib name="value" value="2039"/></item>
-<item name="NUM_BUFG" rev="26">
+<item name="NUM_BUFG" rev="28">
 <attrib name="value" value="1"/></item>
-<item name="NUM_IOB_LATCH" rev="26">
+<item name="NUM_IOB_LATCH" rev="28">
 <attrib name="value" value="24"/></item>
-<item name="NUM_LOCED_IOB" rev="26">
+<item name="NUM_LOCED_IOB" rev="28">
 <attrib name="value" value="15"/></item>
-<item name="NUM_LOGIC_O5ANDO6" rev="26">
+<item name="NUM_LOGIC_O5ANDO6" rev="28">
 <attrib name="value" value="238"/></item>
-<item name="NUM_LOGIC_O5ONLY" rev="26">
+<item name="NUM_LOGIC_O5ONLY" rev="28">
 <attrib name="value" value="24"/></item>
-<item name="NUM_LOGIC_O6ONLY" rev="26">
+<item name="NUM_LOGIC_O6ONLY" rev="28">
 <attrib name="value" value="1769"/></item>
-<item name="NUM_LUT_RT_DRIVES_CARRY4" rev="26">
+<item name="NUM_LUT_RT_DRIVES_CARRY4" rev="28">
 <attrib name="value" value="1"/></item>
-<item name="NUM_LUT_RT_EXO6" rev="26">
+<item name="NUM_LUT_RT_EXO6" rev="28">
 <attrib name="value" value="1"/></item>
-<item name="NUM_LUT_RT_O6" rev="26">
+<item name="NUM_LUT_RT_O6" rev="28">
 <attrib name="value" value="24"/></item>
-<item name="NUM_OLOGIC2" rev="26">
+<item name="NUM_OLOGIC2" rev="28">
 <attrib name="value" value="24"/></item>
-<item name="NUM_SLICEL" rev="26">
+<item name="NUM_SLICEL" rev="28">
 <attrib name="value" value="11"/></item>
-<item name="NUM_SLICEX" rev="26">
+<item name="NUM_SLICEX" rev="28">
 <attrib name="value" value="693"/></item>
-<item name="NUM_SLICE_CARRY4" rev="26">
+<item name="NUM_SLICE_CARRY4" rev="28">
 <attrib name="value" value="7"/></item>
-<item name="NUM_SLICE_CONTROLSET" rev="26">
+<item name="NUM_SLICE_CONTROLSET" rev="28">
 <attrib name="value" value="25"/></item>
-<item name="NUM_SLICE_CYINIT" rev="26">
+<item name="NUM_SLICE_CYINIT" rev="28">
 <attrib name="value" value="2295"/></item>
-<item name="NUM_SLICE_F7MUX" rev="26">
+<item name="NUM_SLICE_F7MUX" rev="28">
 <attrib name="value" value="4"/></item>
-<item name="NUM_SLICE_FF" rev="26">
+<item name="NUM_SLICE_FF" rev="28">
 <attrib name="value" value="43"/></item>
-<item name="NUM_SLICE_LATCH" rev="26">
+<item name="NUM_SLICE_LATCH" rev="28">
 <attrib name="value" value="50"/></item>
-<item name="NUM_SLICE_UNUSEDCTRL" rev="26">
+<item name="NUM_SLICE_UNUSEDCTRL" rev="28">
 <attrib name="value" value="645"/></item>
-<item name="NUM_UNUSABLE_FF_BELS" rev="26">
+<item name="NUM_UNUSABLE_FF_BELS" rev="28">
 <attrib name="value" value="139"/></item>
 </group>
 </DesignStatistics>

@@ -25,7 +25,7 @@ static const char *ng0 = "C:/Users/cmcsc/Desktop/Segundo Semestre Virtual/Switch
 
 
 
-static void Cont_74_0(char *t0)
+static void Cont_81_0(char *t0)
 {
     char *t1;
     char *t2;
@@ -44,17 +44,17 @@ static void Cont_74_0(char *t0)
     unsigned int t15;
     char *t16;
 
-LAB0:    t1 = (t0 + 4768U);
+LAB0:    t1 = (t0 + 4928U);
     t2 = *((char **)t1);
     if (t2 == 0)
         goto LAB2;
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(74, ng0);
-    t2 = (t0 + 2648U);
+LAB2:    xsi_set_current_line(81, ng0);
+    t2 = (t0 + 2808U);
     t3 = *((char **)t2);
-    t2 = (t0 + 5696);
+    t2 = (t0 + 5856);
     t4 = (t2 + 56U);
     t5 = *((char **)t4);
     t6 = (t5 + 56U);
@@ -73,13 +73,13 @@ LAB2:    xsi_set_current_line(74, ng0);
     t15 = *((unsigned int *)t13);
     *((unsigned int *)t13) = (t15 | t9);
     xsi_driver_vfirst_trans(t2, 0, 1);
-    t16 = (t0 + 5584);
+    t16 = (t0 + 5744);
     *((int *)t16) = 1;
 
 LAB1:    return;
 }
 
-static void Cont_75_1(char *t0)
+static void Cont_82_1(char *t0)
 {
     char *t1;
     char *t2;
@@ -98,17 +98,17 @@ static void Cont_75_1(char *t0)
     unsigned int t15;
     char *t16;
 
-LAB0:    t1 = (t0 + 5016U);
+LAB0:    t1 = (t0 + 5176U);
     t2 = *((char **)t1);
     if (t2 == 0)
         goto LAB2;
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(75, ng0);
-    t2 = (t0 + 2968U);
+LAB2:    xsi_set_current_line(82, ng0);
+    t2 = (t0 + 3128U);
     t3 = *((char **)t2);
-    t2 = (t0 + 5760);
+    t2 = (t0 + 5920);
     t4 = (t2 + 56U);
     t5 = *((char **)t4);
     t6 = (t5 + 56U);
@@ -127,13 +127,13 @@ LAB2:    xsi_set_current_line(75, ng0);
     t15 = *((unsigned int *)t13);
     *((unsigned int *)t13) = (t15 | t9);
     xsi_driver_vfirst_trans(t2, 0, 0);
-    t16 = (t0 + 5600);
+    t16 = (t0 + 5760);
     *((int *)t16) = 1;
 
 LAB1:    return;
 }
 
-static void Cont_76_2(char *t0)
+static void Cont_83_2(char *t0)
 {
     char *t1;
     char *t2;
@@ -152,17 +152,17 @@ static void Cont_76_2(char *t0)
     unsigned int t15;
     char *t16;
 
-LAB0:    t1 = (t0 + 5264U);
+LAB0:    t1 = (t0 + 5424U);
     t2 = *((char **)t1);
     if (t2 == 0)
         goto LAB2;
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(76, ng0);
-    t2 = (t0 + 3448U);
+LAB2:    xsi_set_current_line(83, ng0);
+    t2 = (t0 + 3608U);
     t3 = *((char **)t2);
-    t2 = (t0 + 5824);
+    t2 = (t0 + 5984);
     t4 = (t2 + 56U);
     t5 = *((char **)t4);
     t6 = (t5 + 56U);
@@ -181,16 +181,16 @@ LAB2:    xsi_set_current_line(76, ng0);
     t15 = *((unsigned int *)t13);
     *((unsigned int *)t13) = (t15 | t9);
     xsi_driver_vfirst_trans(t2, 0, 4);
-    t16 = (t0 + 5616);
+    t16 = (t0 + 5776);
     *((int *)t16) = 1;
 
 LAB1:    return;
 }
 
 
-extern void work_m_00000000003708104024_0749205668_init()
+extern void work_m_00000000002874122798_0749205668_init()
 {
-	static char *pe[] = {(void *)Cont_74_0,(void *)Cont_75_1,(void *)Cont_76_2};
-	xsi_register_didat("work_m_00000000003708104024_0749205668", "isim/FSM_ColSel_circuit_tb_isim_beh.exe.sim/work/m_00000000003708104024_0749205668.didat");
+	static char *pe[] = {(void *)Cont_81_0,(void *)Cont_82_1,(void *)Cont_83_2};
+	xsi_register_didat("work_m_00000000002874122798_0749205668", "isim/FSM_ColSel_circuit_tb_isim_beh.exe.sim/work/m_00000000002874122798_0749205668.didat");
 	xsi_register_executes(pe);
 }

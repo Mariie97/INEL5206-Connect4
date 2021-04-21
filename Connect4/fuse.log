@@ -4,6 +4,7 @@ Number of CPUs detected in this system: 8
 Turning on mult-threading, number of parallel sub-compilation jobs: 16 
 Determining compilation order of HDL files
 Analyzing Verilog file "C:/Users/cmcsc/Desktop/Segundo Semestre Virtual/Switching 2/Project/repo/INEL5206-Connect4/Connect4/FSM.v" into library work
+Analyzing Verilog file "C:/Users/cmcsc/Desktop/Segundo Semestre Virtual/Switching 2/Project/repo/INEL5206-Connect4/Connect4/DisplayGameStatus.v" into library work
 Analyzing Verilog file "C:/Users/cmcsc/Desktop/Segundo Semestre Virtual/Switching 2/Project/repo/INEL5206-Connect4/Connect4/FSM_ColSel_circuit.v" into library work
 Analyzing Verilog file "C:/Users/cmcsc/Desktop/Segundo Semestre Virtual/Switching 2/Project/repo/INEL5206-Connect4/Connect4/FSM_ColSel_circuit_tb.v" into library work
 Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
@@ -14,12 +15,13 @@ Compiling module ThreeBitCounter
 Compiling module ColumnCalculator
 Compiling module ColumnSelector
 Compiling module DetectWinner
+Compiling module DisplayGameStatus
 Compiling module FSM_ColSel_circuit
 Compiling module FSM_ColSel_circuit_tb
 Compiling module glbl
 Time Resolution for simulation is 1ps.
 Waiting for 1 sub-compilation(s) to finish...
-Compiled 8 Verilog Units
+Compiled 9 Verilog Units
 Built simulation executable C:/Users/cmcsc/Desktop/Segundo Semestre Virtual/Switching 2/Project/repo/INEL5206-Connect4/Connect4/FSM_ColSel_circuit_tb_isim_beh.exe
-Fuse Memory Usage: 31712 KB
+Fuse Memory Usage: 32272 KB
 Fuse CPU Usage: 640 ms

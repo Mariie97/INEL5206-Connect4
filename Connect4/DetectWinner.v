@@ -11,6 +11,9 @@ module DetectWinner(
 
 parameter still_playing=2'b00, p1_wins=2'b01, p2_wins=2'b10, tie=2'b11;
 
+initial begin 
+	game_status <= still_playing;
+end
 
 always@(posedge clk or negedge clk, posedge reset)
 begin

@@ -14,6 +14,7 @@ module FSM_ColSel_circuit_tb;
 	wire [1:0] out_game_status;
 	wire [1:0] current_state;
 	wire [4:0] column_calc;
+	wire [7:0] LEDs;
 	
 
 	// Instantiate the Unit Under Test (UUT)
@@ -27,7 +28,8 @@ module FSM_ColSel_circuit_tb;
 		.out_game_status(out_game_status),
 		.current_state(current_state),
 		.playerTurn(playerTurn),
-		.column_calc(column_calc)
+		.column_calc(column_calc),
+		.LEDs(LEDs)
 		);
 
 	always #10 clk = ~clk;
@@ -71,20 +73,12 @@ module FSM_ColSel_circuit_tb;
 		enable = 1'b1;
 		#5 enable = 1'b0;
 		
-//		#15 in_column = 4'b1011; //P2
-//		enable = 1'b1;
-//		#5 enable = 1'b0;
-//		
-//		#30 in_column = 4'b1110; //P1
-//		enable = 1'b1;
-//		#5 enable = 1'b0;
-		
 		// P1 WINS
 		
 		
 		
-		#15 reset = 1;
-		#5 reset = 0;
+		#35 reset = 1;
+		#2 reset = 0;
 		
 		
 		
@@ -133,14 +127,14 @@ module FSM_ColSel_circuit_tb;
 		// P2 WINS
 
 
-		#15 reset = 1;
-		#5 reset = 0;
+		#30 reset = 1;
+		#2 reset = 0;
 		
 		
 
 		
 		//Start new game
-		#15 in_column = 4'b1110; //P1
+		#20 in_column = 4'b1110; //P1
 		enable = 1'b1;
 		#5 enable = 1'b0;
 

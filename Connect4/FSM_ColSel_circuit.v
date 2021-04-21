@@ -17,7 +17,8 @@ module FSM_ColSel_circuit(
 	  output [1:0] out_game_status, // keep track of player cells. 0-Player1, 1-Player2 
 	  output [1:0] current_state, // keep track of player cells. 0-Player1, 1-Player2 
 	  output playerTurn,
-	  output [4:0] column_calc
+	  output [4:0] column_calc,
+	  output [7:0] LEDs
     );
  
  
@@ -69,6 +70,12 @@ module FSM_ColSel_circuit(
 	   .game_board(out_gameboard),
 	   .player_cells(out_players_cells),
 	   .game_status(in_game_status)   
+	);
+	
+	DisplayGameStatus DGS (
+		.state(state),
+		.game_status(out_game_status),
+		.LEDs(LEDs)
 	);
 	
 	assign current_state = state;
