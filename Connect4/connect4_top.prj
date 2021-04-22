@@ -1,3 +1,4 @@
 verilog work "FSM.v"
 verilog work "DisplayGameStatus.v"
+verilog work "CLockDelay.v"
 verilog work "connect4_top.v"

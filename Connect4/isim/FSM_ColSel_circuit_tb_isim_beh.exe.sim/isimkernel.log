@@ -2,14 +2,14 @@ Command line:
    FSM_ColSel_circuit_tb_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  63275
+     -socket  57985
 
-Wed Apr 21 16:02:47 2021
+Thu Apr 22 13:51:07 2021
 
 
  Elaboration Time: 0.03125 sec
 
- Current Memory Usage: 5150.17 Meg
+ Current Memory Usage: 5150.21 Meg
 
  Total Signals          : 57
  Total Nets             : 94
@@ -17,13 +17,13 @@ Wed Apr 21 16:02:47 2021
  Total Blocks           : 9
  Total Primitive Blocks : 7
  Total Processes        : 36
- Total Traceable Variables  : 67
- Total Scalar Nets and Variables : 380
-Total Line Count : 320
+ Total Traceable Variables  : 65
+ Total Scalar Nets and Variables : 316
+Total Line Count : 351
 
- Total Simulation Time: 0.03125 sec
+ Total Simulation Time: 0.0625 sec
 
- Current Memory Usage: 5150.17 Meg
+ Current Memory Usage: 5150.21 Meg
 
-Wed Apr 21 16:03:13 2021
+Thu Apr 22 13:51:13 2021
 

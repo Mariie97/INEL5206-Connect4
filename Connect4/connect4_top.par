@@ -1,125 +1,129 @@
 Release 14.7 par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-HP-PAVILION::  Wed Apr 21 16:45:13 2021
+HP-PAVILION::  Thu Apr 22 12:44:45 2021
 
-par -w -intstyle ise -ol high -mt off connect4_top_map.ncd connect4_top.ncd
+par -w -intstyle ise -ol high -t 1 connect4_top_map.ncd connect4_top.ncd
 connect4_top.pcf 
 
 
 Constraints file: connect4_top.pcf.
-Loading device for application Rf_Device from file '6slx9.nph' in environment C:\Xilinx\14.7\ISE_DS\ISE\.
-   "connect4_top" is an NCD, version 3.2, device xc6slx9, package csg324, speed -3
+Loading device for application Rf_Device from file '3s500e.nph' in environment C:\Xilinx\14.7\ISE_DS\ISE\.
+   "connect4_top" is an NCD, version 3.2, device xc3s500e, package fg320, speed -4
 
-Initializing temperature to 85.000 Celsius. (default - Range: 0.000 to 85.000 Celsius)
-Initializing voltage to 1.140 Volts. (default - Range: 1.140 to 1.260 Volts)
-
-
-Device speed data version:  "PRODUCTION 1.23 2013-10-13".
+Initializing temperature to 85.000 Celsius. (default - Range: -40.000 to 100.000 Celsius)
+Initializing voltage to 1.140 Volts. (default - Range: 1.140 to 1.320 Volts)
 
 
+Device speed data version:  "PRODUCTION 1.27 2013-10-13".
 
-Device Utilization Summary:
 
-Slice Logic Utilization:
-  Number of Slice Registers:                    95 out of  11,440    1%
-    Number used as Flip Flops:                  43
-    Number used as Latches:                     52
-    Number used as Latch-thrus:                  0
-    Number used as AND/OR logics:                0
-  Number of Slice LUTs:                      2,041 out of   5,720   35%
-    Number used as logic:                    2,040 out of   5,720   35%
-      Number using O6 output only:           1,796
-      Number using O5 output only:              24
-      Number using O5 and O6:                  220
-      Number used as ROM:                        0
-    Number used as Memory:                       0 out of   1,440    0%
-    Number used exclusively as route-thrus:      1
-      Number with same-slice register load:      0
-      Number with same-slice carry load:         1
-      Number with other load:                    0
+Design Summary Report:
 
-Slice Logic Distribution:
-  Number of occupied Slices:                   580 out of   1,430   40%
-  Number of MUXCYs used:                        28 out of   2,860    1%
-  Number of LUT Flip Flop pairs used:        2,046
-    Number with an unused Flip Flop:         1,953 out of   2,046   95%
-    Number with an unused LUT:                   5 out of   2,046    1%
-    Number of fully used LUT-FF pairs:          88 out of   2,046    4%
-    Number of slice register sites lost
-      to control set restrictions:               0 out of  11,440    0%
+ Number of External IOBs                          15 out of 232     6%
 
-  A LUT Flip Flop pair for this architecture represents one LUT paired with
-  one Flip Flop within a slice.  A control set is a unique combination of
-  clock, reset, set, and enable signals for a registered element.
-  The Slice Logic Distribution report is not meaningful if the design is
-  over-mapped for a non-slice resource or if Placement fails.
+   Number of External Input IOBs                  7
 
-IO Utilization:
-  Number of bonded IOBs:                        39 out of     200   19%
-    Number of LOCed IOBs:                       23 out of      39   58%
-    IOB Latches:                                24
+      Number of External Input IBUFs              7
+        Number of LOCed External Input IBUFs      7 out of 7     100%
 
-Specific Feature Utilization:
-  Number of RAMB16BWERs:                         0 out of      32    0%
-  Number of RAMB8BWERs:                          0 out of      64    0%
-  Number of BUFIO2/BUFIO2_2CLKs:                 0 out of      32    0%
-  Number of BUFIO2FB/BUFIO2FB_2CLKs:             0 out of      32    0%
-  Number of BUFG/BUFGMUXs:                       1 out of      16    6%
-    Number used as BUFGs:                        1
-    Number used as BUFGMUX:                      0
-  Number of DCM/DCM_CLKGENs:                     0 out of       4    0%
-  Number of ILOGIC2/ISERDES2s:                   0 out of     200    0%
-  Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     200    0%
-  Number of OLOGIC2/OSERDES2s:                  24 out of     200   12%
-    Number used as OLOGIC2s:                    24
-    Number used as OSERDES2s:                    0
-  Number of BSCANs:                              0 out of       4    0%
-  Number of BUFHs:                               0 out of     128    0%
-  Number of BUFPLLs:                             0 out of       8    0%
-  Number of BUFPLL_MCBs:                         0 out of       4    0%
-  Number of DSP48A1s:                            0 out of      16    0%
-  Number of ICAPs:                               0 out of       1    0%
-  Number of MCBs:                                0 out of       2    0%
-  Number of PCILOGICSEs:                         0 out of       2    0%
-  Number of PLL_ADVs:                            0 out of       2    0%
-  Number of PMVs:                                0 out of       1    0%
-  Number of STARTUPs:                            0 out of       1    0%
-  Number of SUSPEND_SYNCs:                       0 out of       1    0%
+
+   Number of External Output IOBs                 8
+
+      Number of External Output IOBs              8
+        Number of LOCed External Output IOBs      8 out of 8     100%
+
+
+   Number of External Bidir IOBs                  0
+
+
+   Number of BUFGMUXs                        1 out of 24      4%
+   Number of Slices                        160 out of 4656    3%
+      Number of SLICEMs                      0 out of 2328    0%
+
 
 
 Overall effort level (-ol):   High 
+Placer effort level (-pl):    High 
+Placer cost table entry (-t): 1
 Router effort level (-rl):    High 
 
-Starting initial Timing Analysis.  REAL time: 3 secs 
-Finished initial Timing Analysis.  REAL time: 3 secs 
+Starting initial Timing Analysis.  REAL time: 1 secs 
+Finished initial Timing Analysis.  REAL time: 1 secs 
+
+
+Starting Placer
+Total REAL time at the beginning of Placer: 1 secs 
+Total CPU  time at the beginning of Placer: 1 secs 
+
+Phase 1.1  Initial Placement Analysis
+Phase 1.1  Initial Placement Analysis (Checksum:e8dce150) REAL time: 1 secs 
+
+Phase 2.7  Design Feasibility Check
+Phase 2.7  Design Feasibility Check (Checksum:e8dce150) REAL time: 1 secs 
+
+Phase 3.31  Local Placement Optimization
+Phase 3.31  Local Placement Optimization (Checksum:e8dce150) REAL time: 1 secs 
+
+Phase 4.2  Initial Clock and IO Placement
+
+Phase 4.2  Initial Clock and IO Placement (Checksum:618dc7c8) REAL time: 2 secs 
+
+Phase 5.30  Global Clock Region Assignment
+Phase 5.30  Global Clock Region Assignment (Checksum:618dc7c8) REAL time: 2 secs 
+
+Phase 6.36  Local Placement Optimization
+Phase 6.36  Local Placement Optimization (Checksum:618dc7c8) REAL time: 2 secs 
+
+Phase 7.8  Global Placement
+.......
+...................
+Phase 7.8  Global Placement (Checksum:1ea8d454) REAL time: 2 secs 
+
+Phase 8.5  Local Placement Optimization
+Phase 8.5  Local Placement Optimization (Checksum:1ea8d454) REAL time: 2 secs 
+
+Phase 9.18  Placement Optimization
+Phase 9.18  Placement Optimization (Checksum:40c57ddb) REAL time: 2 secs 
+
+Phase 10.5  Local Placement Optimization
+Phase 10.5  Local Placement Optimization (Checksum:40c57ddb) REAL time: 2 secs 
+
+Total REAL time to Placer completion: 2 secs 
+Total CPU  time to Placer completion: 2 secs 
+Writing design to file connect4_top.ncd
+
+
 
 Starting Router
 
 
-Phase  1  : 11732 unrouted;      REAL time: 4 secs 
+Phase  1  : 940 unrouted;      REAL time: 6 secs 
 
-Phase  2  : 11414 unrouted;      REAL time: 4 secs 
+Phase  2  : 891 unrouted;      REAL time: 6 secs 
 
-Phase  3  : 7767 unrouted;      REAL time: 5 secs 
+Phase  3  : 214 unrouted;      REAL time: 6 secs 
 
-Phase  4  : 7767 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 5 secs 
+Phase  4  : 214 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
+
+Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
 
 Updating file: connect4_top.ncd with current fully routed design.
 
-Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
+Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
 
-Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
+Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
 
-Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
+Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
+WARNING:Route:455 - CLK Net:add may have excessive skew because 
+      0 CLK pins and 24 NON_CLK pins failed to route using a CLK template.
+WARNING:Route:455 - CLK Net:columnCounter/column_position_not0001 may have excessive skew because 
+      5 CLK pins and 0 NON_CLK pins failed to route using a CLK template.
+WARNING:Route:455 - CLK Net:CD/clk_out may have excessive skew because 
+      0 CLK pins and 1 NON_CLK pins failed to route using a CLK template.
 
-Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
-
-Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
-
-Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
-Total REAL time to Router completion: 9 secs 
-Total CPU time to Router completion: 9 secs 
+Total REAL time to Router completion: 6 secs 
+Total CPU time to Router completion: 6 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -137,84 +141,136 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|           clk_BUFGP | BUFGMUX_X3Y13| No   |   19 |  0.075     |  1.142      |
+|           clk_BUFGP | BUFGMUX_X1Y11| No   |   12 |  0.016     |  0.172      |
 +---------------------+--------------+------+------+------------+-------------+
-|columnCounter/select |              |      |      |            |             |
-|ed_column[3]_counter |              |      |      |            |             |
-|    s[2]_Select_21_o |         Local|      |    3 |  0.560     |  1.053      |
+|                 add |         Local|      |   36 |  0.014     |  1.583      |
 +---------------------+--------------+------+------+------------+-------------+
-|                 add |         Local|      |    4 |  0.579     |  0.928      |
+|columnSelector/out_p |              |      |      |            |             |
+|layers_cells_0_not00 |              |      |      |            |             |
+|                  01 |         Local|      |    1 |  0.000     |  0.287      |
 +---------------------+--------------+------+------+------------+-------------+
-|columnSelector/state |              |      |      |            |             |
-|[1]_GND_31_o_Mux_90_ |              |      |      |            |             |
-|                   o |         Local|      |    3 |  1.485     |  2.573      |
+|columnSelector/out_p |              |      |      |            |             |
+|layers_cells_8_not00 |              |      |      |            |             |
+|                  01 |         Local|      |    1 |  0.000     |  0.284      |
 +---------------------+--------------+------+------+------------+-------------+
-|columnSelector/state |              |      |      |            |             |
-|[1]_GND_56_o_Mux_115 |              |      |      |            |             |
-|                  _o |         Local|      |    1 |  0.000     |  0.515      |
+|columnSelector/out_p |              |      |      |            |             |
+|layers_cells_10_not0 |              |      |      |            |             |
+|                 001 |         Local|      |    1 |  0.000     |  1.208      |
 +---------------------+--------------+------+------+------------+-------------+
-|columnSelector/state |              |      |      |            |             |
-|[1]_GND_35_o_Mux_94_ |              |      |      |            |             |
-|                   o |         Local|      |    4 |  1.674     |  2.922      |
+|columnSelector/out_p |              |      |      |            |             |
+|layers_cells_14_not0 |              |      |      |            |             |
+|                 001 |         Local|      |    1 |  0.000     |  0.346      |
 +---------------------+--------------+------+------+------------+-------------+
-|columnSelector/state |              |      |      |            |             |
-|[1]_GND_39_o_Mux_98_ |              |      |      |            |             |
-|                   o |         Local|      |    4 |  2.915     |  3.484      |
+|columnSelector/out_g |              |      |      |            |             |
+|ameboard_15_cmp_eq00 |              |      |      |            |             |
+|                  00 |         Local|      |    8 |  0.037     |  1.963      |
 +---------------------+--------------+------+------+------------+-------------+
-|columnSelector/state |              |      |      |            |             |
-|[1]_GND_36_o_Mux_95_ |              |      |      |            |             |
-|                   o |         Local|      |    4 |  1.394     |  3.129      |
+|columnSelector/out_p |              |      |      |            |             |
+|layers_cells_3_not00 |              |      |      |            |             |
+|                  01 |         Local|      |    1 |  0.000     |  1.125      |
 +---------------------+--------------+------+------+------------+-------------+
-|columnSelector/state |              |      |      |            |             |
-|[1]_GND_29_o_Mux_88_ |              |      |      |            |             |
-|                   o |         Local|      |    3 |  1.499     |  2.207      |
+|columnSelector/out_g |              |      |      |            |             |
+| ameboard_15_mux0002 |         Local|      |    1 |  0.000     |  1.125      |
 +---------------------+--------------+------+------+------------+-------------+
-|columnSelector/state |              |      |      |            |             |
-|[1]_GND_28_o_Mux_87_ |              |      |      |            |             |
-|                   o |         Local|      |    3 |  1.013     |  1.518      |
+|columnCounter/column |              |      |      |            |             |
+|   _position_not0001 |         Local|      |    5 |  0.319     |  1.217      |
 +---------------------+--------------+------+------+------------+-------------+
-|columnSelector/state |              |      |      |            |             |
-|[1]_GND_27_o_Mux_86_ |              |      |      |            |             |
-|                   o |         Local|      |    3 |  1.575     |  2.486      |
+|          CD/clk_out |         Local|      |   15 |  0.428     |  2.676      |
 +---------------------+--------------+------+------+------------+-------------+
-|columnSelector/state |              |      |      |            |             |
-|[1]_GND_26_o_Mux_85_ |              |      |      |            |             |
-|                   o |         Local|      |    3 |  1.003     |  1.843      |
+|columnSelector/out_p |              |      |      |            |             |
+|layers_cells_5_not00 |              |      |      |            |             |
+|                  01 |         Local|      |    1 |  0.000     |  1.079      |
 +---------------------+--------------+------+------+------------+-------------+
-|columnSelector/state |              |      |      |            |             |
-|[1]_GND_25_o_Mux_84_ |              |      |      |            |             |
-|                   o |         Local|      |    3 |  1.684     |  2.555      |
+|columnSelector/out_p |              |      |      |            |             |
+|layers_cells_11_not0 |              |      |      |            |             |
+|                 001 |         Local|      |    1 |  0.000     |  0.853      |
 +---------------------+--------------+------+------+------------+-------------+
-|columnSelector/state |              |      |      |            |             |
-|[1]_GND_24_o_Mux_83_ |              |      |      |            |             |
-|                   o |         Local|      |    3 |  2.251     |  2.561      |
+|columnSelector/out_p |              |      |      |            |             |
+|layers_cells_12_not0 |              |      |      |            |             |
+|                 001 |         Local|      |    1 |  0.000     |  0.537      |
 +---------------------+--------------+------+------+------------+-------------+
-|columnSelector/state |              |      |      |            |             |
-|[1]_GND_38_o_Mux_97_ |              |      |      |            |             |
-|                   o |         Local|      |    4 |  2.348     |  3.131      |
+|columnSelector/out_p |              |      |      |            |             |
+|layers_cells_13_not0 |              |      |      |            |             |
+|                 001 |         Local|      |    1 |  0.000     |  1.125      |
 +---------------------+--------------+------+------+------------+-------------+
-|columnSelector/state |              |      |      |            |             |
-|[1]_GND_37_o_Mux_96_ |              |      |      |            |             |
-|                   o |         Local|      |    4 |  2.220     |  3.037      |
+|columnSelector/out_p |              |      |      |            |             |
+|layers_cells_15_not0 |              |      |      |            |             |
+|                 001 |         Local|      |    1 |  0.000     |  1.389      |
 +---------------------+--------------+------+------+------------+-------------+
-|columnSelector/state |              |      |      |            |             |
-|[1]_GND_34_o_Mux_93_ |              |      |      |            |             |
-|                   o |         Local|      |    4 |  1.919     |  2.848      |
+|fsm/out_game_status_ |              |      |      |            |             |
+|             not0001 |         Local|      |    2 |  0.009     |  1.196      |
 +---------------------+--------------+------+------+------------+-------------+
-|columnSelector/state |              |      |      |            |             |
-|[1]_GND_33_o_Mux_92_ |              |      |      |            |             |
-|                   o |         Local|      |    4 |  1.666     |  2.586      |
+|columnSelector/out_p |              |      |      |            |             |
+|layers_cells_2_not00 |              |      |      |            |             |
+|                  01 |         Local|      |    1 |  0.000     |  0.856      |
 +---------------------+--------------+------+------+------------+-------------+
-|columnSelector/state |              |      |      |            |             |
-|[1]_GND_32_o_Mux_91_ |              |      |      |            |             |
-|                   o |         Local|      |    4 |  1.543     |  2.021      |
+|columnSelector/out_p |              |      |      |            |             |
+|layers_cells_7_not00 |              |      |      |            |             |
+|                  01 |         Local|      |    1 |  0.000     |  0.346      |
 +---------------------+--------------+------+------+------------+-------------+
-|columnSelector/state |              |      |      |            |             |
-|[1]_GND_30_o_Mux_89_ |              |      |      |            |             |
-|                   o |         Local|      |    3 |  0.912     |  1.740      |
+|columnSelector/out_p |              |      |      |            |             |
+|layers_cells_6_not00 |              |      |      |            |             |
+|                  01 |         Local|      |    1 |  0.000     |  0.855      |
 +---------------------+--------------+------+------+------------+-------------+
-|fsm/current_state[1] |              |      |      |            |             |
-|  _GND_58_o_Mux_15_o |         Local|      |    1 |  0.000     |  0.497      |
+|columnSelector/out_p |              |      |      |            |             |
+|layers_cells_4_not00 |              |      |      |            |             |
+|                  01 |         Local|      |    1 |  0.000     |  0.911      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_p |              |      |      |            |             |
+|layers_cells_1_not00 |              |      |      |            |             |
+|                  01 |         Local|      |    1 |  0.000     |  1.125      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/next_ |              |      |      |            |             |
+|      player_not0001 |         Local|      |    1 |  0.000     |  1.390      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_p |              |      |      |            |             |
+|layers_cells_9_not00 |              |      |      |            |             |
+|                  01 |         Local|      |    1 |  0.000     |  1.073      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_g |              |      |      |            |             |
+|  ameboard_1_mux0002 |         Local|      |    1 |  0.000     |  1.389      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_g |              |      |      |            |             |
+| ameboard_10_mux0002 |         Local|      |    1 |  0.000     |  1.125      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_g |              |      |      |            |             |
+|  ameboard_3_mux0002 |         Local|      |    1 |  0.000     |  1.396      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_g |              |      |      |            |             |
+| ameboard_12_mux0002 |         Local|      |    1 |  0.000     |  0.287      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_g |              |      |      |            |             |
+|  ameboard_5_mux0002 |         Local|      |    1 |  0.000     |  0.287      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_g |              |      |      |            |             |
+| ameboard_14_mux0002 |         Local|      |    1 |  0.000     |  1.125      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_g |              |      |      |            |             |
+|  ameboard_7_mux0002 |         Local|      |    1 |  0.000     |  0.282      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_g |              |      |      |            |             |
+|  ameboard_9_mux0002 |         Local|      |    1 |  0.000     |  0.287      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_g |              |      |      |            |             |
+|  ameboard_0_mux0002 |         Local|      |    1 |  0.000     |  1.389      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_g |              |      |      |            |             |
+|  ameboard_2_mux0002 |         Local|      |    1 |  0.000     |  1.125      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_g |              |      |      |            |             |
+| ameboard_11_mux0002 |         Local|      |    1 |  0.000     |  0.282      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_g |              |      |      |            |             |
+|  ameboard_4_mux0002 |         Local|      |    1 |  0.000     |  0.287      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_g |              |      |      |            |             |
+| ameboard_13_mux0002 |         Local|      |    1 |  0.000     |  1.389      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_g |              |      |      |            |             |
+|  ameboard_6_mux0002 |         Local|      |    1 |  0.000     |  0.282      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_g |              |      |      |            |             |
+|  ameboard_8_mux0002 |         Local|      |    1 |  0.000     |  1.125      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -234,8 +290,8 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  NET "clk_BUFGP/IBUFG" PERIOD = 20 ns HIGH | SETUP       |    15.477ns|     4.523ns|       0|           0
-   50%                                      | HOLD        |     0.416ns|            |       0|           0
+  NET "clk_BUFGP/IBUFG" PERIOD = 20 ns HIGH | SETUP       |    14.735ns|     5.265ns|       0|           0
+   50%                                      | HOLD        |     1.102ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
 
 
@@ -246,17 +302,17 @@ Generating Pad Report.
 
 All signals are completely routed.
 
-Total REAL time to PAR completion: 10 secs 
-Total CPU time to PAR completion: 10 secs 
+Total REAL time to PAR completion: 7 secs 
+Total CPU time to PAR completion: 7 secs 
 
-Peak Memory Usage:  4472 MB
+Peak Memory Usage:  4421 MB
 
-Placer: Placement generated during map.
+Placement: Completed - No errors found.
 Routing: Completed - No errors found.
 Timing: Completed - No errors found.
 
 Number of error messages: 0
-Number of warning messages: 0
+Number of warning messages: 3
 Number of info messages: 0
 
 Writing design to file connect4_top.ncd

@@ -1,5 +1,9 @@
-MO connect4_top NULL connect4_top.v vlg08/connect4__top.bin 1618535213
-MO ColumnSelector NULL ColumnSelector.v vlg33/_column_selector.bin 1618535213
-MO ButtonPressDetector NULL ButtonPressDetector.v vlg2B/_button_press_detector.bin 1618535213
-MO FSM NULL FSM.v vlg42/_f_s_m.bin 1618535213
-MO ColumnCalculator NULL ColumnCalculator.v vlg40/_column_calculator.bin 1618535213
+MO ThreeBitCounter NULL ThreeBitCounter.v vlg23/_three_bit_counter.bin 1619109867
+MO connect4_top NULL connect4_top.v vlg08/connect4__top.bin 1619109867
+MO CLockDelay NULL CLockDelay.v vlg1F/_c_lock_delay.bin 1619109867
+MO ColumnSelector NULL ColumnSelector.v vlg33/_column_selector.bin 1619109867
+MO ButtonPressDetector NULL ButtonPressDetector.v vlg2B/_button_press_detector.bin 1619109867
+MO DetectWinner NULL DetectWinner.v vlg30/_detect_winner.bin 1619109867
+MO FSM NULL FSM.v vlg42/_f_s_m.bin 1619109867
+MO ColumnCalculator NULL ColumnCalculator.v vlg40/_column_calculator.bin 1619109867
+MO DisplayGameStatus NULL DisplayGameStatus.v vlg58/_display_game_status.bin 1619109867

@@ -26,10 +26,9 @@ module ColumnCalculator(
 	output reg add
     );
 
-	integer i;
 
-
-	always@(enable)begin
+	always@(enable, selected_column, counters)begin
+//	always@(enable)begin
 	add=0;
 	if(enable==1'b0) column_position = 5'b11111;
 	else begin

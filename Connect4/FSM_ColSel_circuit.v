@@ -11,7 +11,6 @@ module FSM_ColSel_circuit(
      input reset,// reset 
      input enable,
 	  input [3:0] in_column, // selected column (0-6)
-//	  input [1:0] in_game_status,
 	  output [15:0] out_gameboard, // keep track of selected and empty cells. 0-Empty, 1-Selected
 	  output [15:0] out_players_cells, // keep track of player cells. 0-Player1, 1-Player2 
 	  output [1:0] out_game_status, // keep track of player cells. 0-Player1, 1-Player2 

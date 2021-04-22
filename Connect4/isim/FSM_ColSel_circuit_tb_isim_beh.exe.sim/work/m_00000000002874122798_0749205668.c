@@ -25,7 +25,7 @@ static const char *ng0 = "C:/Users/cmcsc/Desktop/Segundo Semestre Virtual/Switch
 
 
 
-static void Cont_81_0(char *t0)
+static void Cont_80_0(char *t0)
 {
     char *t1;
     char *t2;
@@ -51,7 +51,7 @@ LAB0:    t1 = (t0 + 4928U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(81, ng0);
+LAB2:    xsi_set_current_line(80, ng0);
     t2 = (t0 + 2808U);
     t3 = *((char **)t2);
     t2 = (t0 + 5856);
@@ -79,7 +79,7 @@ LAB2:    xsi_set_current_line(81, ng0);
 LAB1:    return;
 }
 
-static void Cont_82_1(char *t0)
+static void Cont_81_1(char *t0)
 {
     char *t1;
     char *t2;
@@ -105,7 +105,7 @@ LAB0:    t1 = (t0 + 5176U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(82, ng0);
+LAB2:    xsi_set_current_line(81, ng0);
     t2 = (t0 + 3128U);
     t3 = *((char **)t2);
     t2 = (t0 + 5920);
@@ -133,7 +133,7 @@ LAB2:    xsi_set_current_line(82, ng0);
 LAB1:    return;
 }
 
-static void Cont_83_2(char *t0)
+static void Cont_82_2(char *t0)
 {
     char *t1;
     char *t2;
@@ -159,7 +159,7 @@ LAB0:    t1 = (t0 + 5424U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(83, ng0);
+LAB2:    xsi_set_current_line(82, ng0);
     t2 = (t0 + 3608U);
     t3 = *((char **)t2);
     t2 = (t0 + 5984);
@@ -190,7 +190,7 @@ LAB1:    return;
 
 extern void work_m_00000000002874122798_0749205668_init()
 {
-	static char *pe[] = {(void *)Cont_81_0,(void *)Cont_82_1,(void *)Cont_83_2};
+	static char *pe[] = {(void *)Cont_80_0,(void *)Cont_81_1,(void *)Cont_82_2};
 	xsi_register_didat("work_m_00000000002874122798_0749205668", "isim/FSM_ColSel_circuit_tb_isim_beh.exe.sim/work/m_00000000002874122798_0749205668.didat");
 	xsi_register_executes(pe);
 }
