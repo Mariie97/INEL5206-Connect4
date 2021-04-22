@@ -8,29 +8,8 @@
 
 
 module connect4_top(
-//	input clk,
-//   output wire pin_0,
-//	output wire pin_1,
-//	output wire pin_2,
-//	output wire pin_3,
-//	output wire pin_4,
-//	output wire pin_5,
-//	output wire pin_6,
-//	output wire pin_7,
-//	input [1:0] state,
-//	output wire [41:0] gameboard_out
-
 	clk,
 	reset, 
-//	pin_0,
-//	pin_1,
-//	pin_2,
-//	pin_3,
-//	pin_4,
-//	pin_5,
-//	pin_6,
-//	pin_7,
-	//state,
 	Switch_0,
 	Switch_1,
 	Switch_2,
@@ -39,7 +18,7 @@ module connect4_top(
 	leds
 	);
 	
-	wire[15:0] gameboard_out;
+	reg[15:0] gameboard_out;
 	
 	input Switch_0;
 	input Switch_1;
@@ -69,7 +48,7 @@ module connect4_top(
 	wire [11:0] counters;
 
 	
-	ButtonPressDetector BPD(clk_delay, BTN_EAST, Enable_Button);
+//	ButtonPressDetector BPD(clk_delay, BTN_EAST, Enable_Button);
 	
 	CLockDelay CD(
     .clk_in(clk),
@@ -97,11 +76,10 @@ module connect4_top(
 	ColumnSelector columnSelector(
 		.column_position(selected_column),
 		.state(state), 
-		.out_gameboard(gameboard_out),
+		.out_gameboard(out_gameboard),
 		.out_players_cells(player_cells),
 		.next_player(next_player)
 		);
-	
 	
 	FSM fsm (
 		.clk(clk_delay), 
@@ -119,12 +97,10 @@ module connect4_top(
 		 .player_cells(player_cells),
 		 .game_status(game_status)   
     );
-	 
 	DisplayGameStatus DGS (
 		.state(state),
 		.game_status(out_game_status),
 		.LEDs(leds)
 	);
 	 	
-	
 endmodule

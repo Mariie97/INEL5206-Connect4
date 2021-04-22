@@ -90,10 +90,6 @@ begin
 											next_state <= END_GAME;
 											out_game_status <= TIE;
 										 end
-							default: begin
-											next_state <= END_GAME;
-											out_game_status <= TIE;		
-										end
 							endcase
 						end		
 		endcase

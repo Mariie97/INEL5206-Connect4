@@ -29,9 +29,11 @@ module ColumnCalculator(
 
 	always@(enable, selected_column, counters)begin
 //	always@(enable)begin
-	add=0;
+		add=0;
 	if(enable==1'b0) column_position = 5'b11111;
 	else begin
+		
+
 		case(selected_column)
 			4'b1110: begin
 						if(counters[2:0]!=3'b100)
