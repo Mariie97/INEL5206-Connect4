@@ -11,23 +11,23 @@ Target Device  : xc6slx9
 Target Package : csg324
 Target Speed   : -3
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Wed Apr 21 14:22:47 2021
+Mapped Date    : Wed Apr 21 16:44:55 2021
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:   19
+Number of warnings:   20
 Slice Logic Utilization:
-  Number of Slice Registers:                    93 out of  11,440    1%
+  Number of Slice Registers:                    95 out of  11,440    1%
     Number used as Flip Flops:                  43
-    Number used as Latches:                     50
+    Number used as Latches:                     52
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                      2,032 out of   5,720   35%
-    Number used as logic:                    2,031 out of   5,720   35%
-      Number using O6 output only:           1,769
+  Number of Slice LUTs:                      2,041 out of   5,720   35%
+    Number used as logic:                    2,040 out of   5,720   35%
+      Number using O6 output only:           1,796
       Number using O5 output only:              24
-      Number using O5 and O6:                  238
+      Number using O5 and O6:                  220
       Number used as ROM:                        0
     Number used as Memory:                       0 out of   1,440    0%
     Number used exclusively as route-thrus:      1
@@ -36,15 +36,15 @@ Slice Logic Utilization:
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   704 out of   1,430   49%
+  Number of occupied Slices:                   580 out of   1,430   40%
   Number of MUXCYs used:                        28 out of   2,860    1%
-  Number of LUT Flip Flop pairs used:        2,039
-    Number with an unused Flip Flop:         1,948 out of   2,039   95%
-    Number with an unused LUT:                   7 out of   2,039    1%
-    Number of fully used LUT-FF pairs:          84 out of   2,039    4%
-    Number of unique control sets:              25
+  Number of LUT Flip Flop pairs used:        2,046
+    Number with an unused Flip Flop:         1,953 out of   2,046   95%
+    Number with an unused LUT:                   5 out of   2,046    1%
+    Number of fully used LUT-FF pairs:          88 out of   2,046    4%
+    Number of unique control sets:              26
     Number of slice register sites lost
-      to control set restrictions:             139 out of  11,440    1%
+      to control set restrictions:             145 out of  11,440    1%
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -53,8 +53,8 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                        31 out of     200   15%
-    Number of LOCed IOBs:                       15 out of      31   48%
+  Number of bonded IOBs:                        39 out of     200   19%
+    Number of LOCed IOBs:                       23 out of      39   58%
     IOB Latches:                                24
 
 Specific Feature Utilization:
@@ -84,11 +84,11 @@ Specific Feature Utilization:
   Number of STARTUPs:                            0 out of       1    0%
   Number of SUSPEND_SYNCs:                       0 out of       1    0%
 
-Average Fanout of Non-Clock Nets:                4.88
+Average Fanout of Non-Clock Nets:                4.93
 
-Peak Memory Usage:  4520 MB
-Total REAL time to MAP completion:  1 mins 4 secs 
-Total CPU time to MAP completion:   57 secs 
+Peak Memory Usage:  4529 MB
+Total REAL time to MAP completion:  15 secs 
+Total CPU time to MAP completion:   14 secs 
 
 Table of Contents
 -----------------
@@ -119,6 +119,10 @@ WARNING:PhysDesignRules:372 - Gated clock. Clock net add is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to
    control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   columnSelector/state[1]_GND_31_o_Mux_90_o is sourced by a combinatorial pin.
+   This is not good design practice. Use the CE pin to control the loading of
+   data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
    columnSelector/state[1]_GND_56_o_Mux_115_o is sourced by a combinatorial pin.
    This is not good design practice. Use the CE pin to control the loading of
    data into the flip-flop.
@@ -132,10 +136,6 @@ WARNING:PhysDesignRules:372 - Gated clock. Clock net
    data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
    columnSelector/state[1]_GND_36_o_Mux_95_o is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/state[1]_GND_31_o_Mux_90_o is sourced by a combinatorial pin.
    This is not good design practice. Use the CE pin to control the loading of
    data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
@@ -186,6 +186,10 @@ WARNING:PhysDesignRules:372 - Gated clock. Clock net
    columnSelector/state[1]_GND_30_o_Mux_89_o is sourced by a combinatorial pin.
    This is not good design practice. Use the CE pin to control the loading of
    data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   fsm/current_state[1]_GND_58_o_Mux_15_o is sourced by a combinatorial pin.
+   This is not good design practice. Use the CE pin to control the loading of
+   data into the flip-flop.
 
 Section 3 - Informational
 -------------------------
@@ -198,7 +202,7 @@ INFO:Pack:1720 - Initializing voltage to 1.140 Volts. (default - Range: 1.140 to
    1.260 Volts)
 INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
    (.mrp).
-INFO:Place:834 - Only a subset of IOs are locked. Out of 31 IOs, 15 are locked
+INFO:Place:834 - Only a subset of IOs are locked. Out of 39 IOs, 23 are locked
    and 16 are not locked. If you would like to print the names of these IOs,
    please set the environment variable XIL_PAR_DESIGN_CHECK_VERBOSE to 1. 
 INFO:Pack:1650 - Map created a placed design.
@@ -247,6 +251,14 @@ Section 6 - IOB Properties
 | gameboard_out<13>                  | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OLATCH       |          |          |
 | gameboard_out<14>                  | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OLATCH       |          |          |
 | gameboard_out<15>                  | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OLATCH       |          |          |
+| led_1                              | IOB              | OUTPUT    | LVCMOS33             |       | 8        | FAST |              |          |          |
+| led_2                              | IOB              | OUTPUT    | LVCMOS33             |       | 8        | FAST |              |          |          |
+| led_3                              | IOB              | OUTPUT    | LVCMOS33             |       | 8        | FAST |              |          |          |
+| led_4                              | IOB              | OUTPUT    | LVCMOS33             |       | 8        | FAST |              |          |          |
+| led_5                              | IOB              | OUTPUT    | LVCMOS33             |       | 8        | FAST |              |          |          |
+| led_6                              | IOB              | OUTPUT    | LVCMOS33             |       | 8        | FAST |              |          |          |
+| led_7                              | IOB              | OUTPUT    | LVCMOS33             |       | 8        | FAST |              |          |          |
+| led_8                              | IOB              | OUTPUT    | LVCMOS33             |       | 8        | FAST |              |          |          |
 | pin_0                              | IOB              | OUTPUT    | LVCMOS33             |       | 8        | FAST | OLATCH       |          |          |
 | pin_1                              | IOB              | OUTPUT    | LVCMOS33             |       | 8        | FAST | OLATCH       |          |          |
 | pin_2                              | IOB              | OUTPUT    | LVCMOS33             |       | 8        | FAST | OLATCH       |          |          |

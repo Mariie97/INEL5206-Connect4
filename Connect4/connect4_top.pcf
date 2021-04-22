@@ -1,10 +1,18 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Wed Apr 21 14:23:50 2021
+// Written by: Map P.20131013 on Wed Apr 21 16:45:09 2021
 //! **************************************************************************
 
 SCHEMATIC START;
 CONFIG VCCAUX = "3.3";
 COMP "clk" LOCATE = SITE "V10" LEVEL 1;
+COMP "led_1" LOCATE = SITE "P15" LEVEL 1;
+COMP "led_2" LOCATE = SITE "P16" LEVEL 1;
+COMP "led_3" LOCATE = SITE "N15" LEVEL 1;
+COMP "led_4" LOCATE = SITE "N16" LEVEL 1;
+COMP "led_5" LOCATE = SITE "U17" LEVEL 1;
+COMP "led_6" LOCATE = SITE "U18" LEVEL 1;
+COMP "led_7" LOCATE = SITE "T17" LEVEL 1;
+COMP "led_8" LOCATE = SITE "T18" LEVEL 1;
 COMP "pin_0" LOCATE = SITE "L16" LEVEL 1;
 COMP "pin_1" LOCATE = SITE "L15" LEVEL 1;
 COMP "pin_2" LOCATE = SITE "K16" LEVEL 1;
