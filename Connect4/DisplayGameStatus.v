@@ -28,7 +28,7 @@ parameter STILL_PLAYING=2'b00, P1_WINS=2'b01, P2_WINS=2'b10, TIE=2'b11; //GAME_S
 parameter GAME_INIT=2'b00, P1_TURN=2'b01, P2_TURN=2'b10, END_GAME=2'b11; //STATES
 	 
 initial begin
-	LEDs <= 8'b00000000;
+	LEDs = 8'b00000000;
 end	 
 always @ (state, game_status)
 begin

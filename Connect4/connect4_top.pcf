@@ -1,10 +1,10 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Fri Apr 23 01:17:09 2021
+// Written by: Map P.20131013 on Fri Apr 23 14:39:52 2021
 //! **************************************************************************
 
 SCHEMATIC START;
 COMP "clk" LOCATE = SITE "C9" LEVEL 1;
-COMP "BTN_EAST" LOCATE = SITE "H13" LEVEL 1;
+COMP "BTN_EAST" LOCATE = SITE "D18" LEVEL 1;
 COMP "leds<0>" LOCATE = SITE "F9" LEVEL 1;
 COMP "leds<1>" LOCATE = SITE "E9" LEVEL 1;
 COMP "leds<2>" LOCATE = SITE "D11" LEVEL 1;
@@ -17,7 +17,7 @@ COMP "Switch_0" LOCATE = SITE "L13" LEVEL 1;
 COMP "Switch_1" LOCATE = SITE "L14" LEVEL 1;
 COMP "Switch_2" LOCATE = SITE "H18" LEVEL 1;
 COMP "Switch_3" LOCATE = SITE "N17" LEVEL 1;
-COMP "reset" LOCATE = SITE "V4" LEVEL 1;
+COMP "reset" LOCATE = SITE "K17" LEVEL 1;
 NET "clk_BUFGP/IBUFG" BEL "clk_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
 NET "clk_BUFGP/IBUFG" PERIOD = 20 ns HIGH 50%;
 SCHEMATIC END;

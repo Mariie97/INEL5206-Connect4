@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-HP-PAVILION::  Fri Apr 23 01:17:12 2021
+HP-PAVILION::  Fri Apr 23 14:39:55 2021
 
 par -w -intstyle ise -ol high -t 1 connect4_top_map.ncd connect4_top.ncd
 connect4_top.pcf 
@@ -38,7 +38,7 @@ Design Summary Report:
 
 
    Number of BUFGMUXs                        1 out of 24      4%
-   Number of Slices                        151 out of 4656    3%
+   Number of Slices                        156 out of 4656    3%
       Number of SLICEMs                      0 out of 2328    0%
 
 
@@ -57,37 +57,37 @@ Total REAL time at the beginning of Placer: 1 secs
 Total CPU  time at the beginning of Placer: 1 secs 
 
 Phase 1.1  Initial Placement Analysis
-Phase 1.1  Initial Placement Analysis (Checksum:3e6f1e37) REAL time: 1 secs 
+Phase 1.1  Initial Placement Analysis (Checksum:bc2dbf78) REAL time: 1 secs 
 
 Phase 2.7  Design Feasibility Check
-Phase 2.7  Design Feasibility Check (Checksum:3e6f1e37) REAL time: 1 secs 
+Phase 2.7  Design Feasibility Check (Checksum:bc2dbf78) REAL time: 1 secs 
 
 Phase 3.31  Local Placement Optimization
-Phase 3.31  Local Placement Optimization (Checksum:3e6f1e37) REAL time: 1 secs 
+Phase 3.31  Local Placement Optimization (Checksum:bc2dbf78) REAL time: 1 secs 
 
 Phase 4.2  Initial Clock and IO Placement
 
-Phase 4.2  Initial Clock and IO Placement (Checksum:b20dd447) REAL time: 2 secs 
+Phase 4.2  Initial Clock and IO Placement (Checksum:5040de88) REAL time: 2 secs 
 
 Phase 5.30  Global Clock Region Assignment
-Phase 5.30  Global Clock Region Assignment (Checksum:b20dd447) REAL time: 2 secs 
+Phase 5.30  Global Clock Region Assignment (Checksum:5040de88) REAL time: 2 secs 
 
 Phase 6.36  Local Placement Optimization
-Phase 6.36  Local Placement Optimization (Checksum:b20dd447) REAL time: 2 secs 
+Phase 6.36  Local Placement Optimization (Checksum:5040de88) REAL time: 2 secs 
 
 Phase 7.8  Global Placement
-........................
-...................................
-Phase 7.8  Global Placement (Checksum:aebde18d) REAL time: 2 secs 
+...............................................
+.............................
+Phase 7.8  Global Placement (Checksum:39f39bad) REAL time: 2 secs 
 
 Phase 8.5  Local Placement Optimization
-Phase 8.5  Local Placement Optimization (Checksum:aebde18d) REAL time: 2 secs 
+Phase 8.5  Local Placement Optimization (Checksum:39f39bad) REAL time: 2 secs 
 
 Phase 9.18  Placement Optimization
-Phase 9.18  Placement Optimization (Checksum:23f6438) REAL time: 2 secs 
+Phase 9.18  Placement Optimization (Checksum:2260856e) REAL time: 2 secs 
 
 Phase 10.5  Local Placement Optimization
-Phase 10.5  Local Placement Optimization (Checksum:23f6438) REAL time: 2 secs 
+Phase 10.5  Local Placement Optimization (Checksum:2260856e) REAL time: 2 secs 
 
 Total REAL time to Placer completion: 2 secs 
 Total CPU  time to Placer completion: 2 secs 
@@ -98,13 +98,13 @@ Writing design to file connect4_top.ncd
 Starting Router
 
 
-Phase  1  : 906 unrouted;      REAL time: 5 secs 
+Phase  1  : 969 unrouted;      REAL time: 6 secs 
 
-Phase  2  : 859 unrouted;      REAL time: 5 secs 
+Phase  2  : 930 unrouted;      REAL time: 6 secs 
 
-Phase  3  : 158 unrouted;      REAL time: 5 secs 
+Phase  3  : 202 unrouted;      REAL time: 6 secs 
 
-Phase  4  : 158 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
+Phase  4  : 202 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
 
 Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
 
@@ -116,9 +116,9 @@ Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL 
 
 Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
 WARNING:Route:455 - CLK Net:add may have excessive skew because 
-      0 CLK pins and 1 NON_CLK pins failed to route using a CLK template.
+      2 CLK pins and 1 NON_CLK pins failed to route using a CLK template.
 WARNING:Route:455 - CLK Net:CD/clk_out may have excessive skew because 
-      0 CLK pins and 1 NON_CLK pins failed to route using a CLK template.
+      1 CLK pins and 1 NON_CLK pins failed to route using a CLK template.
 
 Total REAL time to Router completion: 6 secs 
 Total CPU time to Router completion: 6 secs 
@@ -139,66 +139,110 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|           clk_BUFGP | BUFGMUX_X1Y11| No   |   15 |  0.018     |  0.161      |
-+---------------------+--------------+------+------+------------+-------------+
-|                 add |         Local|      |    9 |  0.048     |  1.951      |
+|           clk_BUFGP | BUFGMUX_X1Y11| No   |   15 |  0.022     |  0.161      |
 +---------------------+--------------+------+------+------------+-------------+
 |columnSelector/out_g |              |      |      |            |             |
-|  ameboard_6_mux0002 |         Local|      |    1 |  0.000     |  0.287      |
+|  ameboard_1_mux0002 |         Local|      |    1 |  0.000     |  1.086      |
 +---------------------+--------------+------+------+------------+-------------+
 |columnSelector/out_p |              |      |      |            |             |
 |layers_cells_0_not00 |              |      |      |            |             |
-|                  01 |         Local|      |    1 |  0.000     |  0.853      |
+|                  01 |         Local|      |    1 |  0.000     |  0.589      |
 +---------------------+--------------+------+------+------------+-------------+
 |columnSelector/out_g |              |      |      |            |             |
-|  ameboard_8_mux0002 |         Local|      |    1 |  0.000     |  0.282      |
+| ameboard_10_mux0002 |         Local|      |    1 |  0.000     |  1.085      |
 +---------------------+--------------+------+------+------------+-------------+
 |columnSelector/out_p |              |      |      |            |             |
 |layers_cells_10_not0 |              |      |      |            |             |
-|                 001 |         Local|      |    1 |  0.000     |  1.110      |
+|                 001 |         Local|      |    1 |  0.000     |  0.542      |
 +---------------------+--------------+------+------+------------+-------------+
-|columnSelector/out_p |              |      |      |            |             |
-|layers_cells_9_not00 |              |      |      |            |             |
-|                  01 |         Local|      |    1 |  0.000     |  1.125      |
+|columnSelector/out_g |              |      |      |            |             |
+|  ameboard_3_mux0002 |         Local|      |    1 |  0.000     |  0.282      |
 +---------------------+--------------+------+------+------------+-------------+
 |columnSelector/out_p |              |      |      |            |             |
 |layers_cells_12_not0 |              |      |      |            |             |
-|                 001 |         Local|      |    1 |  0.000     |  1.073      |
+|                 001 |         Local|      |    1 |  0.000     |  0.591      |
 +---------------------+--------------+------+------+------------+-------------+
-|columnSelector/out_p |              |      |      |            |             |
-|layers_cells_8_not00 |              |      |      |            |             |
-|                  01 |         Local|      |    1 |  0.000     |  1.211      |
-+---------------------+--------------+------+------+------------+-------------+
-|columnSelector/out_p |              |      |      |            |             |
-|layers_cells_2_not00 |              |      |      |            |             |
-|                  01 |         Local|      |    1 |  0.000     |  0.824      |
+|columnSelector/out_g |              |      |      |            |             |
+| ameboard_12_mux0002 |         Local|      |    1 |  0.000     |  1.127      |
 +---------------------+--------------+------+------+------------+-------------+
 |columnSelector/out_p |              |      |      |            |             |
 |layers_cells_14_not0 |              |      |      |            |             |
-|                 001 |         Local|      |    1 |  0.000     |  0.284      |
+|                 001 |         Local|      |    1 |  0.000     |  0.584      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_g |              |      |      |            |             |
+|  ameboard_5_mux0002 |         Local|      |    1 |  0.000     |  1.125      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_p |              |      |      |            |             |
+|layers_cells_2_not00 |              |      |      |            |             |
+|                  01 |         Local|      |    1 |  0.000     |  1.125      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_g |              |      |      |            |             |
+| ameboard_14_mux0002 |         Local|      |    1 |  0.000     |  0.282      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_p |              |      |      |            |             |
+|layers_cells_4_not00 |              |      |      |            |             |
+|                  01 |         Local|      |    1 |  0.000     |  1.395      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/next_ |              |      |      |            |             |
+|      player_not0001 |         Local|      |    1 |  0.000     |  0.618      |
 +---------------------+--------------+------+------+------------+-------------+
 |columnSelector/out_g |              |      |      |            |             |
 |ameboard_15_cmp_eq00 |              |      |      |            |             |
-|                  00 |         Local|      |   10 |  0.295     |  2.087      |
+|                  00 |         Local|      |   10 |  0.207     |  2.118      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_g |              |      |      |            |             |
+|  ameboard_0_mux0002 |         Local|      |    1 |  0.000     |  0.282      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_p |              |      |      |            |             |
+|layers_cells_6_not00 |              |      |      |            |             |
+|                  01 |         Local|      |    1 |  0.000     |  1.125      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_g |              |      |      |            |             |
+|  ameboard_2_mux0002 |         Local|      |    1 |  0.000     |  0.282      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_p |              |      |      |            |             |
+|layers_cells_8_not00 |              |      |      |            |             |
+|                  01 |         Local|      |    1 |  0.000     |  1.125      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_g |              |      |      |            |             |
+| ameboard_11_mux0002 |         Local|      |    1 |  0.000     |  0.282      |
++---------------------+--------------+------+------+------------+-------------+
+|                 add |         Local|      |    9 |  0.834     |  2.326      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_g |              |      |      |            |             |
+| ameboard_13_mux0002 |         Local|      |    1 |  0.000     |  0.282      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_g |              |      |      |            |             |
+|  ameboard_6_mux0002 |         Local|      |    1 |  0.000     |  1.085      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_g |              |      |      |            |             |
+|  ameboard_8_mux0002 |         Local|      |    1 |  0.000     |  1.123      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_p |              |      |      |            |             |
+|layers_cells_9_not00 |              |      |      |            |             |
+|                  01 |         Local|      |    1 |  0.000     |  0.583      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_g |              |      |      |            |             |
+|  ameboard_7_mux0002 |         Local|      |    1 |  0.000     |  1.125      |
++---------------------+--------------+------+------+------------+-------------+
+|columnSelector/out_g |              |      |      |            |             |
+|  ameboard_9_mux0002 |         Local|      |    1 |  0.000     |  0.287      |
 +---------------------+--------------+------+------+------------+-------------+
 |columnSelector/out_p |              |      |      |            |             |
 |layers_cells_3_not00 |              |      |      |            |             |
-|                  01 |         Local|      |    1 |  0.000     |  0.642      |
-+---------------------+--------------+------+------+------------+-------------+
-|columnSelector/next_ |              |      |      |            |             |
-|      player_not0001 |         Local|      |    1 |  0.000     |  1.110      |
+|                  01 |         Local|      |    1 |  0.000     |  1.125      |
 +---------------------+--------------+------+------+------------+-------------+
 |columnSelector/out_g |              |      |      |            |             |
-| ameboard_15_mux0002 |         Local|      |    1 |  0.000     |  1.389      |
+| ameboard_15_mux0002 |         Local|      |    1 |  0.000     |  1.126      |
 +---------------------+--------------+------+------+------------+-------------+
-|columnCounter/column |              |      |      |            |             |
-|   _position_not0001 |         Local|      |    5 |  0.101     |  2.026      |
+|columnSelector/out_g |              |      |      |            |             |
+|  ameboard_4_mux0002 |         Local|      |    1 |  0.000     |  0.287      |
 +---------------------+--------------+------+------+------------+-------------+
-|          CD/clk_out |         Local|      |    9 |  0.389     |  2.564      |
+|          CD/clk_out |         Local|      |    9 |  0.923     |  3.420      |
 +---------------------+--------------+------+------+------------+-------------+
 |columnSelector/out_p |              |      |      |            |             |
 |layers_cells_5_not00 |              |      |      |            |             |
-|                  01 |         Local|      |    1 |  0.000     |  1.133      |
+|                  01 |         Local|      |    1 |  0.000     |  0.855      |
 +---------------------+--------------+------+------+------------+-------------+
 |columnSelector/out_p |              |      |      |            |             |
 |layers_cells_11_not0 |              |      |      |            |             |
@@ -206,66 +250,19 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |columnSelector/out_p |              |      |      |            |             |
 |layers_cells_13_not0 |              |      |      |            |             |
-|                 001 |         Local|      |    1 |  0.000     |  1.125      |
+|                 001 |         Local|      |    1 |  0.000     |  0.867      |
 +---------------------+--------------+------+------+------------+-------------+
 |columnSelector/out_p |              |      |      |            |             |
 |layers_cells_15_not0 |              |      |      |            |             |
-|                 001 |         Local|      |    1 |  0.000     |  0.348      |
+|                 001 |         Local|      |    1 |  0.000     |  0.584      |
 +---------------------+--------------+------+------+------------+-------------+
 |columnSelector/out_p |              |      |      |            |             |
 |layers_cells_7_not00 |              |      |      |            |             |
-|                  01 |         Local|      |    1 |  0.000     |  1.211      |
-+---------------------+--------------+------+------+------------+-------------+
-|columnSelector/out_p |              |      |      |            |             |
-|layers_cells_6_not00 |              |      |      |            |             |
-|                  01 |         Local|      |    1 |  0.000     |  0.950      |
-+---------------------+--------------+------+------+------------+-------------+
-|columnSelector/out_p |              |      |      |            |             |
-|layers_cells_4_not00 |              |      |      |            |             |
-|                  01 |         Local|      |    1 |  0.000     |  0.963      |
+|                  01 |         Local|      |    1 |  0.000     |  1.398      |
 +---------------------+--------------+------+------+------------+-------------+
 |columnSelector/out_p |              |      |      |            |             |
 |layers_cells_1_not00 |              |      |      |            |             |
-|                  01 |         Local|      |    1 |  0.000     |  1.840      |
-+---------------------+--------------+------+------+------------+-------------+
-|columnSelector/out_g |              |      |      |            |             |
-|  ameboard_1_mux0002 |         Local|      |    1 |  0.000     |  0.877      |
-+---------------------+--------------+------+------+------------+-------------+
-|columnSelector/out_g |              |      |      |            |             |
-| ameboard_10_mux0002 |         Local|      |    1 |  0.000     |  0.279      |
-+---------------------+--------------+------+------+------------+-------------+
-|columnSelector/out_g |              |      |      |            |             |
-|  ameboard_3_mux0002 |         Local|      |    1 |  0.000     |  0.279      |
-+---------------------+--------------+------+------+------------+-------------+
-|columnSelector/out_g |              |      |      |            |             |
-| ameboard_12_mux0002 |         Local|      |    1 |  0.000     |  1.124      |
-+---------------------+--------------+------+------+------------+-------------+
-|columnSelector/out_g |              |      |      |            |             |
-|  ameboard_5_mux0002 |         Local|      |    1 |  0.000     |  0.877      |
-+---------------------+--------------+------+------+------------+-------------+
-|columnSelector/out_g |              |      |      |            |             |
-| ameboard_14_mux0002 |         Local|      |    1 |  0.000     |  0.282      |
-+---------------------+--------------+------+------+------------+-------------+
-|columnSelector/out_g |              |      |      |            |             |
-|  ameboard_7_mux0002 |         Local|      |    1 |  0.000     |  1.083      |
-+---------------------+--------------+------+------+------------+-------------+
-|columnSelector/out_g |              |      |      |            |             |
-|  ameboard_9_mux0002 |         Local|      |    1 |  0.000     |  0.282      |
-+---------------------+--------------+------+------+------------+-------------+
-|columnSelector/out_g |              |      |      |            |             |
-|  ameboard_0_mux0002 |         Local|      |    1 |  0.000     |  1.133      |
-+---------------------+--------------+------+------+------------+-------------+
-|columnSelector/out_g |              |      |      |            |             |
-|  ameboard_2_mux0002 |         Local|      |    1 |  0.000     |  0.279      |
-+---------------------+--------------+------+------+------------+-------------+
-|columnSelector/out_g |              |      |      |            |             |
-| ameboard_11_mux0002 |         Local|      |    1 |  0.000     |  0.877      |
-+---------------------+--------------+------+------+------------+-------------+
-|columnSelector/out_g |              |      |      |            |             |
-|  ameboard_4_mux0002 |         Local|      |    1 |  0.000     |  1.133      |
-+---------------------+--------------+------+------+------------+-------------+
-|columnSelector/out_g |              |      |      |            |             |
-| ameboard_13_mux0002 |         Local|      |    1 |  0.000     |  0.287      |
+|                  01 |         Local|      |    1 |  0.000     |  1.108      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -285,7 +282,7 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  NET "clk_BUFGP/IBUFG" PERIOD = 20 ns HIGH | SETUP       |    14.468ns|     5.532ns|       0|           0
+  NET "clk_BUFGP/IBUFG" PERIOD = 20 ns HIGH | SETUP       |    13.807ns|     6.193ns|       0|           0
    50%                                      | HOLD        |     1.102ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
 
@@ -297,10 +294,10 @@ Generating Pad Report.
 
 All signals are completely routed.
 
-Total REAL time to PAR completion: 6 secs 
-Total CPU time to PAR completion: 6 secs 
+Total REAL time to PAR completion: 7 secs 
+Total CPU time to PAR completion: 7 secs 
 
-Peak Memory Usage:  4431 MB
+Peak Memory Usage:  4421 MB
 
 Placement: Completed - No errors found.
 Routing: Completed - No errors found.

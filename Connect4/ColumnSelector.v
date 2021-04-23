@@ -12,13 +12,9 @@ module ColumnSelector(
 
 parameter GAME_INIT=2'b00, P1_TURN=2'b01, P2_TURN=2'b10, END_GAME=2'b11; //STATES
 
-integer i;
 initial begin
-	for(i=0; i<16; i=i+1)begin
-		out_gameboard[i] = 0;
-		out_players_cells[i] = 0;
-	end
-	next_player = 0;
+	out_gameboard <= 16'b0;
+	next_player <= 0;
 end
 
 
@@ -44,6 +40,7 @@ begin
 						next_player <= 0;
 						end
 					end
+//		END_GAME: next_player <= 0; 
 	endcase
 end
 endmodule

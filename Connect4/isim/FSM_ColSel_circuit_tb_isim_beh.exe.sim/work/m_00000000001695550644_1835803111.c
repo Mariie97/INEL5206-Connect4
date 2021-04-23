@@ -43,7 +43,7 @@ LAB0:    xsi_set_current_line(30, ng0);
 LAB2:    xsi_set_current_line(31, ng0);
     t1 = ((char*)((ng1)));
     t2 = (t0 + 2696);
-    xsi_vlogvar_wait_assign_value(t2, t1, 0, 0, 8, 0LL);
+    xsi_vlogvar_assign_value(t2, t1, 0, 0, 8);
 
 LAB1:    return;
 }

@@ -1,7 +1,7 @@
 Release 14.7 - par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Fri Apr 23 01:17:19 2021
+Fri Apr 23 14:40:02 2021
 
 
 # NOTE: This file is designed to be imported into a spreadsheet program
@@ -90,7 +90,7 @@ D14||DIFFM|IO_L03P_0|UNUSED||0|||||||||
 D15|||TMS||||||||||||
 D16||DIFFS|IO_L23N_1/LDC0|UNUSED||1|||||||||
 D17||DIFFM|IO_L23P_1/HDC|UNUSED||1|||||||||
-D18||IBUF|IP/VREF_1|UNUSED||1|||||||||
+D18|BTN_EAST|IBUF|IP/VREF_1|INPUT|LVTTL|1|||PULLDOWN|NONE||LOCATED|NO|NONE|
 E1||DIFFS|IO_L03N_3|UNUSED||3|||||||||
 E2||DIFFM|IO_L03P_3|UNUSED||3|||||||||
 E3|||NC||||||||||||
@@ -157,7 +157,7 @@ H9|||GND||||||||||||
 H10|||GND||||||||||||
 H11|||GND||||||||||||
 H12|||VCCO_1|||1|||||3.30||||
-H13|BTN_EAST|IBUF|IP|INPUT|LVTTL|1|||PULLDOWN|NONE||LOCATED|NO|NONE|
+H13||IBUF|IP|UNUSED||1|||||||||
 H14||DIFFM|IO_L17P_1|UNUSED||1|||||||||
 H15||DIFFS|IO_L17N_1|UNUSED||1|||||||||
 H16||DIFFM|IO_L16P_1|UNUSED||1|||||||||
@@ -193,7 +193,7 @@ K13||DIFFM|IO_L11P_1/A10/RHCLK0|UNUSED||1|||||||||
 K14||DIFFS|IO_L12N_1/A7/RHCLK3/TRDY1|UNUSED||1|||||||||
 K15||DIFFM|IO_L12P_1/A8/RHCLK2|UNUSED||1|||||||||
 K16|||GND||||||||||||
-K17||IBUF|IP|UNUSED||1|||||||||
+K17|reset|IBUF|IP|INPUT|LVTTL|1|||PULLDOWN|NONE||LOCATED|NO|NONE|
 K18||IBUF|IP|UNUSED||1|||||||||
 L1||DIFFM|IO_L15P_3|UNUSED||3|||||||||
 L2||DIFFS|IO_L15N_3|UNUSED||3|||||||||
@@ -220,10 +220,10 @@ M4||DIFFM|IO_L18P_3|UNUSED||3|||||||||
 M5||DIFFM|IO_L19P_3|UNUSED||3|||||||||
 M6||DIFFS|IO_L19N_3|UNUSED||3|||||||||
 M7|||GND||||||||||||
-M8|||VCCO_2|||2|||||3.30||||
+M8|||VCCO_2|||2|||||any******||||
 M9||DIFFS|IO_L12N_2/D6/GCLK13|UNUSED||2|||||||||
 M10||DIFFM|IO_L16P_2/M0|UNUSED||2|||||||||
-M11|||VCCO_2|||2|||||3.30||||
+M11|||VCCO_2|||2|||||any******||||
 M12|||GND||||||||||||
 M13||DIFFS|IO_L05N_1/VREF_1|UNUSED||1|||||||||
 M14||DIFFM|IO_L05P_1|UNUSED||1|||||||||
@@ -290,14 +290,14 @@ T2||DIFFM|IO_L24P_3|UNUSED||3|||||||||
 T3||DIFFS|IO_L01N_2/INIT_B|UNUSED||2|||||||||
 T4||DIFFS|IO_L03N_2/MOSI/CSI_B|UNUSED||2|||||||||
 T5||DIFFS|IO_L04N_2|UNUSED||2|||||||||
-T6|||VCCO_2|||2|||||3.30||||
+T6|||VCCO_2|||2|||||any******||||
 T7||DIFFMI|IP_L08P_2|UNUSED||2|||||||||
 T8||DIFFS|IO_L10N_2|UNUSED||2|||||||||
 T9|||GND||||||||||||
 T10||DIFFSI|IP_L14N_2/M2/GCLK1|UNUSED||2|||||||||
 T11||DIFFMI|IP_L17P_2|UNUSED||2|||||||||
 T12||DIFFM|IO_L20P_2|UNUSED||2|||||||||
-T13|||VCCO_2|||2|||||3.30||||
+T13|||VCCO_2|||2|||||any******||||
 T14||DIFFM|IO_L24P_2/A21|UNUSED||2|||||||||
 T15||IOB|IO/VREF_2|UNUSED||2|||||||||
 T16||DIFFM|IO_L26P_2/VS0/A17|UNUSED||2|||||||||
@@ -324,13 +324,13 @@ U18||DIFFM|IO_L01P_1/A16|UNUSED||1|||||||||
 V1|||GND||||||||||||
 V2||IBUF|IP|UNUSED||2|||||||||
 V3||DIFFSI|IP_L02N_2|UNUSED||2|||||||||
-V4|reset|IBUF|IP_L02P_2|INPUT|LVTTL|2|||PULLDOWN|NONE||LOCATED|NO|NONE|
+V4||DIFFMI|IP_L02P_2|UNUSED||2|||||||||
 V5|||NC||||||||||||
 V6|||NC||||||||||||
 V7|||NC||||||||||||
 V8||DIFFSI|IP_L11N_2/VREF_2|UNUSED||2|||||||||
 V9||DIFFS|IO_L13N_2/D3/GCLK15|UNUSED||2|||||||||
-V10|||VCCO_2|||2|||||3.30||||
+V10|||VCCO_2|||2|||||any******||||
 V11||IOB|IO/M1|UNUSED||2|||||||||
 V12||DIFFM|IO_L19P_2|UNUSED||2|||||||||
 V13||DIFFS|IO_L19N_2/VREF_2|UNUSED||2|||||||||

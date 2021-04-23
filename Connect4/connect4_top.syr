@@ -191,12 +191,12 @@ Analyzing module <ColumnCalculator> in library <work>.
 Module <ColumnCalculator> is correct for synthesis.
  
 Analyzing module <ThreeBitCounter> in library <work>.
+WARNING:Xst:1467 - "ThreeBitCounter.v" line 33: Reset or set value is not constant in <count>. It could involve simulation mismatches
+WARNING:Xst:1467 - "ThreeBitCounter.v" line 33: Reset or set value is not constant in <count>. It could involve simulation mismatches
 WARNING:Xst:1467 - "ThreeBitCounter.v" line 19: Reset or set value is not constant in <counter_0>. It could involve simulation mismatches
 WARNING:Xst:1467 - "ThreeBitCounter.v" line 20: Reset or set value is not constant in <counter_1>. It could involve simulation mismatches
 WARNING:Xst:1467 - "ThreeBitCounter.v" line 21: Reset or set value is not constant in <counter_2>. It could involve simulation mismatches
 WARNING:Xst:1467 - "ThreeBitCounter.v" line 22: Reset or set value is not constant in <counter_3>. It could involve simulation mismatches
-WARNING:Xst:1467 - "ThreeBitCounter.v" line 33: Reset or set value is not constant in <count>. It could involve simulation mismatches
-WARNING:Xst:1467 - "ThreeBitCounter.v" line 33: Reset or set value is not constant in <count>. It could involve simulation mismatches
 Module <ThreeBitCounter> is correct for synthesis.
  
 Analyzing module <ColumnSelector> in library <work>.
@@ -258,10 +258,7 @@ Unit <ClockDelay> synthesized.
 
 Synthesizing Unit <ColumnCalculator>.
     Related source file is "ColumnCalculator.v".
-WARNING:Xst:1872 - Variable <i> is used but never assigned.
-WARNING:Xst:737 - Found 5-bit latch for signal <column_position>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-    Found 5-bit adder for signal <column_position$share0000> created at line 36.
+    Found 5-bit adder for signal <column_position$share0000> created at line 35.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 Unit <ColumnCalculator> synthesized.
@@ -475,11 +472,10 @@ Macro Statistics
  1-bit register                                        : 1
  12-bit register                                       : 1
  2-bit register                                        : 1
-# Latches                                              : 55
+# Latches                                              : 54
  1-bit latch                                           : 49
  2-bit latch                                           : 1
  3-bit latch                                           : 4
- 5-bit latch                                           : 1
 # Multiplexers                                         : 36
  1-bit 3-to-1 multiplexer                              : 33
  2-bit 3-to-1 multiplexer                              : 1
@@ -507,11 +503,10 @@ Macro Statistics
  28-bit up counter                                     : 1
 # Registers                                            : 15
  Flip-Flops                                            : 15
-# Latches                                              : 55
+# Latches                                              : 54
  1-bit latch                                           : 49
  2-bit latch                                           : 1
  3-bit latch                                           : 4
- 5-bit latch                                           : 1
 # Multiplexers                                         : 36
  1-bit 3-to-1 multiplexer                              : 33
  2-bit 3-to-1 multiplexer                              : 1
@@ -527,8 +522,6 @@ Macro Statistics
 Optimizing unit <connect4_top> ...
 
 Optimizing unit <ColumnSelector> ...
-
-Optimizing unit <ColumnCalculator> ...
 
 Optimizing unit <ThreeBitCounter> ...
 
@@ -574,26 +567,27 @@ Design Statistics
 # IOs                              : 15
 
 Cell Usage :
-# BELS                             : 304
+# BELS                             : 325
 #      GND                         : 1
 #      INV                         : 6
 #      LUT1                        : 27
-#      LUT2                        : 26
+#      LUT2                        : 31
 #      LUT2_L                      : 1
-#      LUT3                        : 41
-#      LUT3_D                      : 3
+#      LUT3                        : 40
+#      LUT3_D                      : 1
 #      LUT3_L                      : 1
-#      LUT4                        : 110
-#      LUT4_D                      : 15
+#      LUT4                        : 125
+#      LUT4_D                      : 12
+#      LUT4_L                      : 4
 #      MUXCY                       : 34
-#      MUXF5                       : 10
+#      MUXF5                       : 13
 #      VCC                         : 1
 #      XORCY                       : 28
-# FlipFlops/Latches                : 111
+# FlipFlops/Latches                : 106
 #      FDC                         : 2
 #      FDE                         : 13
 #      FDR                         : 28
-#      LD                          : 38
+#      LD                          : 33
 #      LD_1                        : 18
 #      LDCE                        : 12
 # Clock Buffers                    : 1
@@ -608,9 +602,9 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-4 
 
- Number of Slices:                      123  out of   4656     2%  
- Number of Slice Flip Flops:            111  out of   9312     1%  
- Number of 4 input LUTs:                230  out of   9312     2%  
+ Number of Slices:                      135  out of   4656     2%  
+ Number of Slice Flip Flops:            106  out of   9312     1%  
+ Number of 4 input LUTs:                248  out of   9312     2%  
  Number of IOs:                          15
  Number of bonded IOBs:                  15  out of    232     6%  
  Number of GCLKs:                         1  out of     24     4%  
@@ -637,6 +631,23 @@ Clock Information:
 Clock Signal                                                                                  | Clock buffer(FF name)                           | Load  |
 ----------------------------------------------------------------------------------------------+-------------------------------------------------+-------+
 clk                                                                                           | BUFGP                                           | 29    |
+columnSelector/out_gameboard_15_cmp_eq0000(fsm/Mmux_next_state111:O)                          | NONE(*)(columnSelector/out_gameboard_15)        | 18    |
+columnSelector/out_players_cells_15_not0001(columnSelector/out_players_cells_15_not00012_f5:O)| NONE(*)(columnSelector/out_players_cells_15)    | 1     |
+columnSelector/out_players_cells_14_not0001(columnSelector/out_players_cells_14_not00011:O)   | NONE(*)(columnSelector/out_players_cells_14)    | 1     |
+columnSelector/out_players_cells_13_not0001(columnSelector/out_players_cells_13_not00011:O)   | NONE(*)(columnSelector/out_players_cells_13)    | 1     |
+columnSelector/out_players_cells_12_not0001(columnSelector/out_players_cells_12_not00012:O)   | NONE(*)(columnSelector/out_players_cells_12)    | 1     |
+columnSelector/out_players_cells_11_not0001(columnSelector/out_players_cells_11_not00011:O)   | NONE(*)(columnSelector/out_players_cells_11)    | 1     |
+columnSelector/out_players_cells_10_not0001(columnSelector/out_players_cells_10_not00012:O)   | NONE(*)(columnSelector/out_players_cells_10)    | 1     |
+columnSelector/out_players_cells_9_not0001(columnSelector/out_players_cells_9_not00011:O)     | NONE(*)(columnSelector/out_players_cells_9)     | 1     |
+columnSelector/out_players_cells_8_not0001(columnSelector/out_players_cells_8_not00012:O)     | NONE(*)(columnSelector/out_players_cells_8)     | 1     |
+columnSelector/out_players_cells_7_not0001(columnSelector/out_players_cells_7_not00011:O)     | NONE(*)(columnSelector/out_players_cells_7)     | 1     |
+columnSelector/out_players_cells_6_not0001(columnSelector/out_players_cells_6_not00012:O)     | NONE(*)(columnSelector/out_players_cells_6)     | 1     |
+columnSelector/out_players_cells_5_not0001(columnSelector/out_players_cells_5_not00011:O)     | NONE(*)(columnSelector/out_players_cells_5)     | 1     |
+columnSelector/out_players_cells_4_not0001(columnSelector/out_players_cells_4_not00012:O)     | NONE(*)(columnSelector/out_players_cells_4)     | 1     |
+columnSelector/out_players_cells_3_not0001(columnSelector/out_players_cells_3_not00011:O)     | NONE(*)(columnSelector/out_players_cells_3)     | 1     |
+columnSelector/out_players_cells_2_not0001(columnSelector/out_players_cells_2_not00012:O)     | NONE(*)(columnSelector/out_players_cells_2)     | 1     |
+columnSelector/out_players_cells_1_not0001(columnSelector/out_players_cells_1_not00011:O)     | NONE(*)(columnSelector/out_players_cells_1)     | 1     |
+columnSelector/out_players_cells_0_not0001(columnSelector/out_players_cells_0_not00012:O)     | NONE(*)(columnSelector/out_players_cells_0)     | 1     |
 columnSelector/out_gameboard_15_mux0002(columnSelector/out_gameboard_15_mux000211:O)          | NONE(*)(columnSelector/out_gameboard_15_mux0000)| 1     |
 columnSelector/out_gameboard_14_mux0002(columnSelector/out_gameboard_14_mux00021:O)           | NONE(*)(columnSelector/out_gameboard_14_mux0000)| 1     |
 columnSelector/out_gameboard_13_mux0002(columnSelector/out_gameboard_13_mux00021:O)           | NONE(*)(columnSelector/out_gameboard_13_mux0000)| 1     |
@@ -653,29 +664,11 @@ columnSelector/out_gameboard_3_mux0002(columnSelector/out_gameboard_3_mux00021:O
 columnSelector/out_gameboard_2_mux0002(columnSelector/out_gameboard_2_mux00021:O)             | NONE(*)(columnSelector/out_gameboard_2_mux0000) | 1     |
 columnSelector/out_gameboard_1_mux0002(columnSelector/out_gameboard_1_mux00021:O)             | NONE(*)(columnSelector/out_gameboard_1_mux0000) | 1     |
 columnSelector/out_gameboard_0_mux0002(columnSelector/out_gameboard_0_mux00021:O)             | NONE(*)(columnSelector/out_gameboard_0_mux0000) | 1     |
-columnSelector/out_gameboard_15_cmp_eq0000(fsm/Mmux_next_state111:O)                          | NONE(*)(columnSelector/out_gameboard_15)        | 18    |
-columnSelector/out_players_cells_15_not0001(columnSelector/out_players_cells_15_not00011_f5:O)| NONE(*)(columnSelector/out_players_cells_15)    | 1     |
-columnSelector/out_players_cells_14_not0001(columnSelector/out_players_cells_14_not00011:O)   | NONE(*)(columnSelector/out_players_cells_14)    | 1     |
-columnSelector/out_players_cells_13_not0001(columnSelector/out_players_cells_13_not00011:O)   | NONE(*)(columnSelector/out_players_cells_13)    | 1     |
-columnSelector/out_players_cells_12_not0001(columnSelector/out_players_cells_12_not00011:O)   | NONE(*)(columnSelector/out_players_cells_12)    | 1     |
-columnSelector/out_players_cells_11_not0001(columnSelector/out_players_cells_11_not00011:O)   | NONE(*)(columnSelector/out_players_cells_11)    | 1     |
-columnSelector/out_players_cells_10_not0001(columnSelector/out_players_cells_10_not00011:O)   | NONE(*)(columnSelector/out_players_cells_10)    | 1     |
-columnSelector/out_players_cells_9_not0001(columnSelector/out_players_cells_9_not00011:O)     | NONE(*)(columnSelector/out_players_cells_9)     | 1     |
-columnSelector/out_players_cells_8_not0001(columnSelector/out_players_cells_8_not00011:O)     | NONE(*)(columnSelector/out_players_cells_8)     | 1     |
-columnSelector/out_players_cells_7_not0001(columnSelector/out_players_cells_7_not00011:O)     | NONE(*)(columnSelector/out_players_cells_7)     | 1     |
-columnSelector/out_players_cells_6_not0001(columnSelector/out_players_cells_6_not00011:O)     | NONE(*)(columnSelector/out_players_cells_6)     | 1     |
-columnSelector/out_players_cells_5_not0001(columnSelector/out_players_cells_5_not00011:O)     | NONE(*)(columnSelector/out_players_cells_5)     | 1     |
-columnSelector/out_players_cells_4_not0001(columnSelector/out_players_cells_4_not00011:O)     | NONE(*)(columnSelector/out_players_cells_4)     | 1     |
-columnSelector/out_players_cells_3_not0001(columnSelector/out_players_cells_3_not00011:O)     | NONE(*)(columnSelector/out_players_cells_3)     | 1     |
-columnSelector/out_players_cells_2_not0001(columnSelector/out_players_cells_2_not00011:O)     | NONE(*)(columnSelector/out_players_cells_2)     | 1     |
-columnSelector/out_players_cells_1_not0001(columnSelector/out_players_cells_1_not00011:O)     | NONE(*)(columnSelector/out_players_cells_1)     | 1     |
-columnSelector/out_players_cells_0_not0001(columnSelector/out_players_cells_0_not00011:O)     | NONE(*)(columnSelector/out_players_cells_0)     | 1     |
-columnSelector/next_player_not0001(columnSelector/next_player_not0001:O)                      | NONE(*)(columnSelector/next_player)             | 1     |
-columnCounter/column_position_not0001(columnCounter/column_position_not0001:O)                | NONE(*)(columnCounter/column_position_4)        | 5     |
-add(columnCounter/add71_f5:O)                                                                 | NONE(*)(tbc/counter_0_2)                        | 12    |
+columnSelector/next_player_not0001(columnSelector/next_player_not000146:O)                    | NONE(*)(columnSelector/next_player)             | 1     |
+add(columnCounter/add120:O)                                                                   | NONE(*)(tbc/counter_0_2)                        | 12    |
 CD/clk_out                                                                                    | NONE(tbc/count_11)                              | 14    |
 ----------------------------------------------------------------------------------------------+-------------------------------------------------+-------+
-(*) These 36 clock signal(s) are generated by combinatorial logic,
+(*) These 35 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
 Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
@@ -692,9 +685,9 @@ Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 8.359ns (Maximum Frequency: 119.632MHz)
-   Minimum input arrival time before clock: 9.545ns
-   Maximum output required time after clock: 6.455ns
+   Minimum period: 7.914ns (Maximum Frequency: 126.358MHz)
+   Minimum input arrival time before clock: 10.691ns
+   Maximum output required time after clock: 6.456ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -754,145 +747,508 @@ Delay:               2.695ns (Levels of Logic = 1)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CD/clk_out'
-  Clock period: 7.909ns (frequency: 126.438MHz)
+  Clock period: 7.549ns (frequency: 132.468MHz)
   Total number of paths / destination ports: 150 / 14
 -------------------------------------------------------------------------
-Delay:               7.909ns (Levels of Logic = 5)
-  Source:            tbc/count_2 (FF)
+Delay:               7.549ns (Levels of Logic = 4)
+  Source:            tbc/count_10 (FF)
   Destination:       tbc/count_11 (FF)
   Source Clock:      CD/clk_out rising
   Destination Clock: CD/clk_out rising
 
-  Data Path: tbc/count_2 to tbc/count_11
+  Data Path: tbc/count_10 to tbc/count_11
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              2   0.591   0.622  tbc/count_2 (tbc/count_2)
-     LUT3:I0->O            2   0.704   0.482  columnCounter/column_position_not000121 (columnCounter/N7)
-     LUT4:I2->O            1   0.704   0.499  columnCounter/add18 (columnCounter/add18)
-     LUT4:I1->O            1   0.704   0.000  columnCounter/add711 (columnCounter/add71)
-     MUXF5:I1->O          13   0.321   1.062  columnCounter/add71_f5 (add)
+     FDE:C->Q              3   0.591   0.610  tbc/count_10 (tbc/count_10)
+     LUT4:I1->O            1   0.704   0.499  columnCounter/add12 (columnCounter/add12)
+     LUT4:I1->O            1   0.704   0.455  columnCounter/add77 (columnCounter/add77)
+     LUT4:I2->O           13   0.704   1.062  columnCounter/add120 (add)
      LUT2:I1->O           12   0.704   0.961  tbc/count_and00001 (tbc/count_not0001_inv)
      FDE:CE                    0.555          tbc/count_0
     ----------------------------------------
-    Total                      7.909ns (4.283ns logic, 3.626ns route)
-                                       (54.2% logic, 45.8% route)
+    Total                      7.549ns (3.962ns logic, 3.587ns route)
+                                       (52.5% logic, 47.5% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'columnSelector/out_gameboard_15_cmp_eq0000'
-  Clock period: 8.359ns (frequency: 119.632MHz)
-  Total number of paths / destination ports: 368 / 2
+  Clock period: 7.914ns (frequency: 126.358MHz)
+  Total number of paths / destination ports: 300 / 2
 -------------------------------------------------------------------------
-Delay:               8.359ns (Levels of Logic = 7)
-  Source:            columnSelector/out_gameboard_10 (LATCH)
+Delay:               7.914ns (Levels of Logic = 6)
+  Source:            columnSelector/out_gameboard_0 (LATCH)
   Destination:       fsm/out_game_status_1 (LATCH)
   Source Clock:      columnSelector/out_gameboard_15_cmp_eq0000 rising
   Destination Clock: columnSelector/out_gameboard_15_cmp_eq0000 rising
 
-  Data Path: columnSelector/out_gameboard_10 to fsm/out_game_status_1
+  Data Path: columnSelector/out_gameboard_0 to fsm/out_game_status_1
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     LD_1:G->Q             3   0.676   0.706  columnSelector/out_gameboard_10 (columnSelector/out_gameboard_10)
-     LUT4_D:I0->O          3   0.704   0.535  WD/game_status_and000211 (N25)
-     LUT4:I3->O            3   0.704   0.535  WD/game_status_and0002 (WD/game_status_and0002)
-     LUT4:I3->O            1   0.704   0.000  WD/game_status<1>140_SW0_F (N156)
-     MUXF5:I0->O           2   0.321   0.451  WD/game_status<1>140_SW0 (N96)
-     LUT4:I3->O            1   0.704   0.499  WD/game_status<1>87_SW0 (N116)
-     LUT4_D:I1->LO         1   0.704   0.104  WD/game_status<1>190 (N182)
+     LD_1:G->Q             3   0.676   0.706  columnSelector/out_gameboard_0 (columnSelector/out_gameboard_0)
+     LUT4:I0->O            2   0.704   0.451  WD/game_status_and000811 (N58)
+     LUT4:I3->O            1   0.704   0.420  WD/game_status_and0008 (WD/game_status_and0008)
+     MUXF5:S->O            3   0.739   0.566  WD/game_status<1>186_SW0 (N109)
+     LUT4_D:I2->LO         1   0.704   0.104  WD/game_status<1>216_SW0 (N233)
+     LUT4:I3->O            1   0.704   0.424  WD/game_status<1>281_SW0 (N163)
      LUT4:I3->O            1   0.704   0.000  fsm/Mmux_out_game_status_mux000121 (fsm/out_game_status_mux0001<1>)
      LD_1:D                    0.308          fsm/out_game_status_1
     ----------------------------------------
-    Total                      8.359ns (5.529ns logic, 2.830ns route)
-                                       (66.1% logic, 33.9% route)
+    Total                      7.914ns (5.243ns logic, 2.671ns route)
+                                       (66.2% logic, 33.8% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'columnCounter/column_position_not0001'
-  Total number of paths / destination ports: 73 / 5
+Timing constraint: Default OFFSET IN BEFORE for Clock 'columnSelector/out_gameboard_15_mux0002'
+  Total number of paths / destination ports: 56 / 1
 -------------------------------------------------------------------------
-Offset:              6.412ns (Levels of Logic = 5)
-  Source:            Switch_0 (PAD)
-  Destination:       columnCounter/column_position_1 (LATCH)
-  Destination Clock: columnCounter/column_position_not0001 falling
+Offset:              10.691ns (Levels of Logic = 7)
+  Source:            Switch_2 (PAD)
+  Destination:       columnSelector/out_gameboard_15_mux0000 (LATCH)
+  Destination Clock: columnSelector/out_gameboard_15_mux0002 falling
 
-  Data Path: Switch_0 to columnCounter/column_position_1
+  Data Path: Switch_2 to columnSelector/out_gameboard_15_mux0000
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            13   1.218   1.158  Switch_0_IBUF (Switch_0_IBUF)
-     LUT3:I0->O            6   0.704   0.673  columnCounter/column_position_mux0002<4>110 (columnCounter/N11)
-     LUT4:I3->O            2   0.704   0.622  columnCounter/column_position_mux0002<1>17 (columnCounter/column_position_mux0002<0>37)
-     LUT3:I0->O            1   0.704   0.000  columnCounter/column_position_mux0002<1>272 (columnCounter/column_position_mux0002<1>271)
-     MUXF5:I0->O           1   0.321   0.000  columnCounter/column_position_mux0002<1>27_f5 (columnCounter/column_position_mux0002<1>)
-     LD:D                      0.308          columnCounter/column_position_1
+     IBUF:I->O            16   1.218   1.209  Switch_2_IBUF (Switch_2_IBUF)
+     LUT3:I0->O            4   0.704   0.622  columnCounter/column_position<2>11 (N3)
+     LUT3:I2->O            2   0.704   0.451  columnCounter/column_position<2>2_SW0 (N98)
+     LUT4:I3->O            2   0.704   0.622  columnCounter/column_position<2>2 (N7)
+     LUT3:I0->O           24   0.704   1.427  columnCounter/column_position<2>94 (selected_column<2>)
+     LUT3:I0->O            3   0.704   0.610  columnSelector/out_players_cells_15_not000111 (columnSelector/N2)
+     LUT3:I1->O            2   0.704   0.000  columnSelector/out_gameboard_15_mux000211 (columnSelector/out_gameboard_15_mux0002)
+     LD:D                      0.308          columnSelector/out_gameboard_15_mux0000
     ----------------------------------------
-    Total                      6.412ns (3.959ns logic, 2.453ns route)
-                                       (61.7% logic, 38.3% route)
+    Total                     10.691ns (5.750ns logic, 4.941ns route)
+                                       (53.8% logic, 46.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'columnSelector/out_gameboard_14_mux0002'
+  Total number of paths / destination ports: 43 / 1
+-------------------------------------------------------------------------
+Offset:              9.281ns (Levels of Logic = 6)
+  Source:            Switch_2 (PAD)
+  Destination:       columnSelector/out_gameboard_14_mux0000 (LATCH)
+  Destination Clock: columnSelector/out_gameboard_14_mux0002 falling
+
+  Data Path: Switch_2 to columnSelector/out_gameboard_14_mux0000
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            16   1.218   1.209  Switch_2_IBUF (Switch_2_IBUF)
+     LUT3:I0->O            4   0.704   0.622  columnCounter/column_position<2>11 (N3)
+     LUT3:I2->O            2   0.704   0.451  columnCounter/column_position<2>2_SW0 (N98)
+     LUT4:I3->O            2   0.704   0.622  columnCounter/column_position<2>2 (N7)
+     LUT3:I0->O           24   0.704   1.331  columnCounter/column_position<3>94 (selected_column<3>)
+     LUT4:I1->O            2   0.704   0.000  columnSelector/out_gameboard_14_mux00021 (columnSelector/out_gameboard_14_mux0002)
+     LD:D                      0.308          columnSelector/out_gameboard_14_mux0000
+    ----------------------------------------
+    Total                      9.281ns (5.046ns logic, 4.235ns route)
+                                       (54.4% logic, 45.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'columnSelector/out_gameboard_13_mux0002'
+  Total number of paths / destination ports: 43 / 1
+-------------------------------------------------------------------------
+Offset:              9.377ns (Levels of Logic = 6)
+  Source:            Switch_2 (PAD)
+  Destination:       columnSelector/out_gameboard_13_mux0000 (LATCH)
+  Destination Clock: columnSelector/out_gameboard_13_mux0002 falling
+
+  Data Path: Switch_2 to columnSelector/out_gameboard_13_mux0000
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            16   1.218   1.209  Switch_2_IBUF (Switch_2_IBUF)
+     LUT3:I0->O            4   0.704   0.622  columnCounter/column_position<2>11 (N3)
+     LUT3:I2->O            2   0.704   0.451  columnCounter/column_position<2>2_SW0 (N98)
+     LUT4:I3->O            2   0.704   0.622  columnCounter/column_position<2>2 (N7)
+     LUT3:I0->O           24   0.704   1.427  columnCounter/column_position<3>94 (selected_column<3>)
+     LUT4:I0->O            2   0.704   0.000  columnSelector/out_gameboard_13_mux00021 (columnSelector/out_gameboard_13_mux0002)
+     LD:D                      0.308          columnSelector/out_gameboard_13_mux0000
+    ----------------------------------------
+    Total                      9.377ns (5.046ns logic, 4.331ns route)
+                                       (53.8% logic, 46.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'columnSelector/out_gameboard_12_mux0002'
+  Total number of paths / destination ports: 43 / 1
+-------------------------------------------------------------------------
+Offset:              9.377ns (Levels of Logic = 6)
+  Source:            Switch_2 (PAD)
+  Destination:       columnSelector/out_gameboard_12_mux0000 (LATCH)
+  Destination Clock: columnSelector/out_gameboard_12_mux0002 falling
+
+  Data Path: Switch_2 to columnSelector/out_gameboard_12_mux0000
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            16   1.218   1.209  Switch_2_IBUF (Switch_2_IBUF)
+     LUT3:I0->O            4   0.704   0.622  columnCounter/column_position<2>11 (N3)
+     LUT3:I2->O            2   0.704   0.451  columnCounter/column_position<2>2_SW0 (N98)
+     LUT4:I3->O            2   0.704   0.622  columnCounter/column_position<2>2 (N7)
+     LUT3:I0->O           24   0.704   1.427  columnCounter/column_position<2>94 (selected_column<2>)
+     LUT4:I0->O            2   0.704   0.000  columnSelector/out_gameboard_12_mux00021 (columnSelector/out_gameboard_12_mux0002)
+     LD:D                      0.308          columnSelector/out_gameboard_12_mux0000
+    ----------------------------------------
+    Total                      9.377ns (5.046ns logic, 4.331ns route)
+                                       (53.8% logic, 46.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'columnSelector/out_gameboard_11_mux0002'
+  Total number of paths / destination ports: 43 / 1
+-------------------------------------------------------------------------
+Offset:              9.377ns (Levels of Logic = 6)
+  Source:            Switch_2 (PAD)
+  Destination:       columnSelector/out_gameboard_11_mux0000 (LATCH)
+  Destination Clock: columnSelector/out_gameboard_11_mux0002 falling
+
+  Data Path: Switch_2 to columnSelector/out_gameboard_11_mux0000
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            16   1.218   1.209  Switch_2_IBUF (Switch_2_IBUF)
+     LUT3:I0->O            4   0.704   0.622  columnCounter/column_position<2>11 (N3)
+     LUT3:I2->O            2   0.704   0.451  columnCounter/column_position<2>2_SW0 (N98)
+     LUT4:I3->O            2   0.704   0.622  columnCounter/column_position<2>2 (N7)
+     LUT3:I0->O           24   0.704   1.427  columnCounter/column_position<3>94 (selected_column<3>)
+     LUT4:I0->O            2   0.704   0.000  columnSelector/out_gameboard_11_mux00021 (columnSelector/out_gameboard_11_mux0002)
+     LD:D                      0.308          columnSelector/out_gameboard_11_mux0000
+    ----------------------------------------
+    Total                      9.377ns (5.046ns logic, 4.331ns route)
+                                       (53.8% logic, 46.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'columnSelector/out_gameboard_10_mux0002'
+  Total number of paths / destination ports: 43 / 1
+-------------------------------------------------------------------------
+Offset:              9.281ns (Levels of Logic = 6)
+  Source:            Switch_2 (PAD)
+  Destination:       columnSelector/out_gameboard_10_mux0000 (LATCH)
+  Destination Clock: columnSelector/out_gameboard_10_mux0002 falling
+
+  Data Path: Switch_2 to columnSelector/out_gameboard_10_mux0000
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            16   1.218   1.209  Switch_2_IBUF (Switch_2_IBUF)
+     LUT3:I0->O            4   0.704   0.622  columnCounter/column_position<2>11 (N3)
+     LUT3:I2->O            2   0.704   0.451  columnCounter/column_position<2>2_SW0 (N98)
+     LUT4:I3->O            2   0.704   0.622  columnCounter/column_position<2>2 (N7)
+     LUT3:I0->O           24   0.704   1.331  columnCounter/column_position<3>94 (selected_column<3>)
+     LUT4:I1->O            2   0.704   0.000  columnSelector/out_gameboard_10_mux00021 (columnSelector/out_gameboard_10_mux0002)
+     LD:D                      0.308          columnSelector/out_gameboard_10_mux0000
+    ----------------------------------------
+    Total                      9.281ns (5.046ns logic, 4.235ns route)
+                                       (54.4% logic, 45.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'columnSelector/out_gameboard_9_mux0002'
+  Total number of paths / destination ports: 43 / 1
+-------------------------------------------------------------------------
+Offset:              9.281ns (Levels of Logic = 6)
+  Source:            Switch_2 (PAD)
+  Destination:       columnSelector/out_gameboard_9_mux0000 (LATCH)
+  Destination Clock: columnSelector/out_gameboard_9_mux0002 falling
+
+  Data Path: Switch_2 to columnSelector/out_gameboard_9_mux0000
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            16   1.218   1.209  Switch_2_IBUF (Switch_2_IBUF)
+     LUT3:I0->O            4   0.704   0.622  columnCounter/column_position<2>11 (N3)
+     LUT3:I2->O            2   0.704   0.451  columnCounter/column_position<2>2_SW0 (N98)
+     LUT4:I3->O            2   0.704   0.622  columnCounter/column_position<2>2 (N7)
+     LUT3:I0->O           24   0.704   1.331  columnCounter/column_position<3>94 (selected_column<3>)
+     LUT4:I1->O            2   0.704   0.000  columnSelector/out_gameboard_9_mux00021 (columnSelector/out_gameboard_9_mux0002)
+     LD:D                      0.308          columnSelector/out_gameboard_9_mux0000
+    ----------------------------------------
+    Total                      9.281ns (5.046ns logic, 4.235ns route)
+                                       (54.4% logic, 45.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'columnSelector/out_gameboard_8_mux0002'
+  Total number of paths / destination ports: 43 / 1
+-------------------------------------------------------------------------
+Offset:              9.377ns (Levels of Logic = 6)
+  Source:            Switch_2 (PAD)
+  Destination:       columnSelector/out_gameboard_8_mux0000 (LATCH)
+  Destination Clock: columnSelector/out_gameboard_8_mux0002 falling
+
+  Data Path: Switch_2 to columnSelector/out_gameboard_8_mux0000
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            16   1.218   1.209  Switch_2_IBUF (Switch_2_IBUF)
+     LUT3:I0->O            4   0.704   0.622  columnCounter/column_position<2>11 (N3)
+     LUT3:I2->O            2   0.704   0.451  columnCounter/column_position<2>2_SW0 (N98)
+     LUT4:I3->O            2   0.704   0.622  columnCounter/column_position<2>2 (N7)
+     LUT3:I0->O           24   0.704   1.427  columnCounter/column_position<2>94 (selected_column<2>)
+     LUT4:I0->O            2   0.704   0.000  columnSelector/out_gameboard_8_mux00021 (columnSelector/out_gameboard_8_mux0002)
+     LD:D                      0.308          columnSelector/out_gameboard_8_mux0000
+    ----------------------------------------
+    Total                      9.377ns (5.046ns logic, 4.331ns route)
+                                       (53.8% logic, 46.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'columnSelector/out_gameboard_7_mux0002'
+  Total number of paths / destination ports: 43 / 1
+-------------------------------------------------------------------------
+Offset:              9.377ns (Levels of Logic = 6)
+  Source:            Switch_2 (PAD)
+  Destination:       columnSelector/out_gameboard_7_mux0000 (LATCH)
+  Destination Clock: columnSelector/out_gameboard_7_mux0002 falling
+
+  Data Path: Switch_2 to columnSelector/out_gameboard_7_mux0000
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            16   1.218   1.209  Switch_2_IBUF (Switch_2_IBUF)
+     LUT3:I0->O            4   0.704   0.622  columnCounter/column_position<2>11 (N3)
+     LUT3:I2->O            2   0.704   0.451  columnCounter/column_position<2>2_SW0 (N98)
+     LUT4:I3->O            2   0.704   0.622  columnCounter/column_position<2>2 (N7)
+     LUT3:I0->O           24   0.704   1.427  columnCounter/column_position<2>94 (selected_column<2>)
+     LUT4:I0->O            2   0.704   0.000  columnSelector/out_gameboard_7_mux00021 (columnSelector/out_gameboard_7_mux0002)
+     LD:D                      0.308          columnSelector/out_gameboard_7_mux0000
+    ----------------------------------------
+    Total                      9.377ns (5.046ns logic, 4.331ns route)
+                                       (53.8% logic, 46.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'columnSelector/out_gameboard_6_mux0002'
+  Total number of paths / destination ports: 43 / 1
+-------------------------------------------------------------------------
+Offset:              9.281ns (Levels of Logic = 6)
+  Source:            Switch_2 (PAD)
+  Destination:       columnSelector/out_gameboard_6_mux0000 (LATCH)
+  Destination Clock: columnSelector/out_gameboard_6_mux0002 falling
+
+  Data Path: Switch_2 to columnSelector/out_gameboard_6_mux0000
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            16   1.218   1.209  Switch_2_IBUF (Switch_2_IBUF)
+     LUT3:I0->O            4   0.704   0.622  columnCounter/column_position<2>11 (N3)
+     LUT3:I2->O            2   0.704   0.451  columnCounter/column_position<2>2_SW0 (N98)
+     LUT4:I3->O            2   0.704   0.622  columnCounter/column_position<2>2 (N7)
+     LUT3:I0->O           24   0.704   1.331  columnCounter/column_position<2>94 (selected_column<2>)
+     LUT4:I1->O            2   0.704   0.000  columnSelector/out_gameboard_6_mux00021 (columnSelector/out_gameboard_6_mux0002)
+     LD:D                      0.308          columnSelector/out_gameboard_6_mux0000
+    ----------------------------------------
+    Total                      9.281ns (5.046ns logic, 4.235ns route)
+                                       (54.4% logic, 45.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'columnSelector/out_gameboard_5_mux0002'
+  Total number of paths / destination ports: 43 / 1
+-------------------------------------------------------------------------
+Offset:              9.281ns (Levels of Logic = 6)
+  Source:            Switch_2 (PAD)
+  Destination:       columnSelector/out_gameboard_5_mux0000 (LATCH)
+  Destination Clock: columnSelector/out_gameboard_5_mux0002 falling
+
+  Data Path: Switch_2 to columnSelector/out_gameboard_5_mux0000
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            16   1.218   1.209  Switch_2_IBUF (Switch_2_IBUF)
+     LUT3:I0->O            4   0.704   0.622  columnCounter/column_position<2>11 (N3)
+     LUT3:I2->O            2   0.704   0.451  columnCounter/column_position<2>2_SW0 (N98)
+     LUT4:I3->O            2   0.704   0.622  columnCounter/column_position<2>2 (N7)
+     LUT3:I0->O           24   0.704   1.331  columnCounter/column_position<2>94 (selected_column<2>)
+     LUT4:I1->O            2   0.704   0.000  columnSelector/out_gameboard_5_mux00021 (columnSelector/out_gameboard_5_mux0002)
+     LD:D                      0.308          columnSelector/out_gameboard_5_mux0000
+    ----------------------------------------
+    Total                      9.281ns (5.046ns logic, 4.235ns route)
+                                       (54.4% logic, 45.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'columnSelector/out_gameboard_4_mux0002'
+  Total number of paths / destination ports: 43 / 1
+-------------------------------------------------------------------------
+Offset:              9.377ns (Levels of Logic = 6)
+  Source:            Switch_2 (PAD)
+  Destination:       columnSelector/out_gameboard_4_mux0000 (LATCH)
+  Destination Clock: columnSelector/out_gameboard_4_mux0002 falling
+
+  Data Path: Switch_2 to columnSelector/out_gameboard_4_mux0000
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            16   1.218   1.209  Switch_2_IBUF (Switch_2_IBUF)
+     LUT3:I0->O            4   0.704   0.622  columnCounter/column_position<2>11 (N3)
+     LUT3:I2->O            2   0.704   0.451  columnCounter/column_position<2>2_SW0 (N98)
+     LUT4:I3->O            2   0.704   0.622  columnCounter/column_position<2>2 (N7)
+     LUT3:I0->O           24   0.704   1.427  columnCounter/column_position<3>94 (selected_column<3>)
+     LUT4:I0->O            2   0.704   0.000  columnSelector/out_gameboard_4_mux00021 (columnSelector/out_gameboard_4_mux0002)
+     LD:D                      0.308          columnSelector/out_gameboard_4_mux0000
+    ----------------------------------------
+    Total                      9.377ns (5.046ns logic, 4.331ns route)
+                                       (53.8% logic, 46.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'columnSelector/out_gameboard_3_mux0002'
+  Total number of paths / destination ports: 43 / 1
+-------------------------------------------------------------------------
+Offset:              9.237ns (Levels of Logic = 6)
+  Source:            Switch_2 (PAD)
+  Destination:       columnSelector/out_gameboard_3_mux0000 (LATCH)
+  Destination Clock: columnSelector/out_gameboard_3_mux0002 falling
+
+  Data Path: Switch_2 to columnSelector/out_gameboard_3_mux0000
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            16   1.218   1.209  Switch_2_IBUF (Switch_2_IBUF)
+     LUT3:I0->O            4   0.704   0.622  columnCounter/column_position<2>11 (N3)
+     LUT3:I2->O            2   0.704   0.451  columnCounter/column_position<2>2_SW0 (N98)
+     LUT4:I3->O            2   0.704   0.622  columnCounter/column_position<2>2 (N7)
+     LUT3:I0->O           24   0.704   1.287  columnCounter/column_position<2>94 (selected_column<2>)
+     LUT4:I2->O            2   0.704   0.000  columnSelector/out_gameboard_3_mux00021 (columnSelector/out_gameboard_3_mux0002)
+     LD:D                      0.308          columnSelector/out_gameboard_3_mux0000
+    ----------------------------------------
+    Total                      9.237ns (5.046ns logic, 4.191ns route)
+                                       (54.6% logic, 45.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'columnSelector/out_gameboard_2_mux0002'
+  Total number of paths / destination ports: 43 / 1
+-------------------------------------------------------------------------
+Offset:              9.377ns (Levels of Logic = 6)
+  Source:            Switch_2 (PAD)
+  Destination:       columnSelector/out_gameboard_2_mux0000 (LATCH)
+  Destination Clock: columnSelector/out_gameboard_2_mux0002 falling
+
+  Data Path: Switch_2 to columnSelector/out_gameboard_2_mux0000
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            16   1.218   1.209  Switch_2_IBUF (Switch_2_IBUF)
+     LUT3:I0->O            4   0.704   0.622  columnCounter/column_position<2>11 (N3)
+     LUT3:I2->O            2   0.704   0.451  columnCounter/column_position<2>2_SW0 (N98)
+     LUT4:I3->O            2   0.704   0.622  columnCounter/column_position<2>2 (N7)
+     LUT3:I0->O           24   0.704   1.427  columnCounter/column_position<2>94 (selected_column<2>)
+     LUT4:I0->O            2   0.704   0.000  columnSelector/out_gameboard_2_mux00021 (columnSelector/out_gameboard_2_mux0002)
+     LD:D                      0.308          columnSelector/out_gameboard_2_mux0000
+    ----------------------------------------
+    Total                      9.377ns (5.046ns logic, 4.331ns route)
+                                       (53.8% logic, 46.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'columnSelector/out_gameboard_1_mux0002'
+  Total number of paths / destination ports: 43 / 1
+-------------------------------------------------------------------------
+Offset:              9.377ns (Levels of Logic = 6)
+  Source:            Switch_2 (PAD)
+  Destination:       columnSelector/out_gameboard_1_mux0000 (LATCH)
+  Destination Clock: columnSelector/out_gameboard_1_mux0002 falling
+
+  Data Path: Switch_2 to columnSelector/out_gameboard_1_mux0000
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            16   1.218   1.209  Switch_2_IBUF (Switch_2_IBUF)
+     LUT3:I0->O            4   0.704   0.622  columnCounter/column_position<2>11 (N3)
+     LUT3:I2->O            2   0.704   0.451  columnCounter/column_position<2>2_SW0 (N98)
+     LUT4:I3->O            2   0.704   0.622  columnCounter/column_position<2>2 (N7)
+     LUT3:I0->O           24   0.704   1.427  columnCounter/column_position<2>94 (selected_column<2>)
+     LUT4:I0->O            2   0.704   0.000  columnSelector/out_gameboard_1_mux00021 (columnSelector/out_gameboard_1_mux0002)
+     LD:D                      0.308          columnSelector/out_gameboard_1_mux0000
+    ----------------------------------------
+    Total                      9.377ns (5.046ns logic, 4.331ns route)
+                                       (53.8% logic, 46.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'columnSelector/out_gameboard_0_mux0002'
+  Total number of paths / destination ports: 43 / 1
+-------------------------------------------------------------------------
+Offset:              9.377ns (Levels of Logic = 6)
+  Source:            Switch_2 (PAD)
+  Destination:       columnSelector/out_gameboard_0_mux0000 (LATCH)
+  Destination Clock: columnSelector/out_gameboard_0_mux0002 falling
+
+  Data Path: Switch_2 to columnSelector/out_gameboard_0_mux0000
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            16   1.218   1.209  Switch_2_IBUF (Switch_2_IBUF)
+     LUT3:I0->O            4   0.704   0.622  columnCounter/column_position<2>11 (N3)
+     LUT3:I2->O            2   0.704   0.451  columnCounter/column_position<2>2_SW0 (N98)
+     LUT4:I3->O            2   0.704   0.622  columnCounter/column_position<2>2 (N7)
+     LUT3:I0->O           24   0.704   1.427  columnCounter/column_position<2>94 (selected_column<2>)
+     LUT4:I0->O            2   0.704   0.000  columnSelector/out_gameboard_0_mux00021 (columnSelector/out_gameboard_0_mux0002)
+     LD:D                      0.308          columnSelector/out_gameboard_0_mux0000
+    ----------------------------------------
+    Total                      9.377ns (5.046ns logic, 4.331ns route)
+                                       (53.8% logic, 46.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'add'
   Total number of paths / destination ports: 48 / 12
 -------------------------------------------------------------------------
-Offset:              4.166ns (Levels of Logic = 2)
-  Source:            Switch_0 (PAD)
-  Destination:       tbc/counter_2_2 (LATCH)
+Offset:              4.217ns (Levels of Logic = 2)
+  Source:            Switch_2 (PAD)
+  Destination:       tbc/counter_0_2 (LATCH)
   Destination Clock: add falling
 
-  Data Path: Switch_0 to tbc/counter_2_2
+  Data Path: Switch_2 to tbc/counter_0_2
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            13   1.218   1.158  Switch_0_IBUF (Switch_0_IBUF)
-     LUT4:I0->O            3   0.704   0.531  tbc/counter_2_cmp_eq00001 (tbc/counter_2_cmp_eq0000)
-     LDCE:GE                   0.555          tbc/counter_2_2
+     IBUF:I->O            16   1.218   1.209  Switch_2_IBUF (Switch_2_IBUF)
+     LUT4:I0->O            3   0.704   0.531  tbc/counter_3_cmp_eq00001 (tbc/counter_3_cmp_eq0000)
+     LDCE:GE                   0.555          tbc/counter_3_2
     ----------------------------------------
-    Total                      4.166ns (2.477ns logic, 1.689ns route)
-                                       (59.5% logic, 40.5% route)
+    Total                      4.217ns (2.477ns logic, 1.740ns route)
+                                       (58.7% logic, 41.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'CD/clk_out'
-  Total number of paths / destination ports: 160 / 14
+  Total number of paths / destination ports: 184 / 14
 -------------------------------------------------------------------------
-Offset:              9.545ns (Levels of Logic = 6)
-  Source:            Switch_0 (PAD)
+Offset:              10.074ns (Levels of Logic = 6)
+  Source:            Switch_2 (PAD)
   Destination:       tbc/count_11 (FF)
   Destination Clock: CD/clk_out rising
 
-  Data Path: Switch_0 to tbc/count_11
+  Data Path: Switch_2 to tbc/count_11
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            13   1.218   1.158  Switch_0_IBUF (Switch_0_IBUF)
-     LUT3:I0->O            6   0.704   0.748  columnCounter/column_position_mux0002<4>110 (columnCounter/N11)
-     LUT4:I1->O            3   0.704   0.706  columnCounter/column_position_mux0002<4>62 (columnCounter/N15)
-     LUT2:I0->O            1   0.704   0.000  columnCounter/add712 (columnCounter/add711)
-     MUXF5:I0->O          13   0.321   1.062  columnCounter/add71_f5 (add)
+     IBUF:I->O            16   1.218   1.209  Switch_2_IBUF (Switch_2_IBUF)
+     LUT2:I0->O            1   0.704   0.595  columnCounter/add8 (columnCounter/add8)
+     LUT4:I0->O            1   0.704   0.499  columnCounter/add12 (columnCounter/add12)
+     LUT4:I1->O            1   0.704   0.455  columnCounter/add77 (columnCounter/add77)
+     LUT4:I2->O           13   0.704   1.062  columnCounter/add120 (add)
      LUT2:I1->O           12   0.704   0.961  tbc/count_and00001 (tbc/count_not0001_inv)
      FDE:CE                    0.555          tbc/count_0
     ----------------------------------------
-    Total                      9.545ns (4.910ns logic, 4.635ns route)
-                                       (51.4% logic, 48.6% route)
+    Total                     10.074ns (5.293ns logic, 4.781ns route)
+                                       (52.5% logic, 47.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'columnSelector/out_gameboard_15_cmp_eq0000'
-  Total number of paths / destination ports: 2 / 2
+  Total number of paths / destination ports: 7 / 2
 -------------------------------------------------------------------------
-Offset:              4.659ns (Levels of Logic = 3)
+Offset:              7.721ns (Levels of Logic = 6)
   Source:            reset (PAD)
-  Destination:       fsm/out_game_status_1 (LATCH)
+  Destination:       fsm/out_game_status_0 (LATCH)
   Destination Clock: columnSelector/out_gameboard_15_cmp_eq0000 rising
 
-  Data Path: reset to fsm/out_game_status_1
+  Data Path: reset to fsm/out_game_status_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            18   1.218   1.103  reset_IBUF (reset_IBUF)
-     LUT3:I2->O            2   0.704   0.622  WD/game_status<1>242_SW0 (N86)
-     LUT4:I0->O            1   0.704   0.000  fsm/Mmux_out_game_status_mux000121 (fsm/out_game_status_mux0001<1>)
-     LD_1:D                    0.308          fsm/out_game_status_1
+     IBUF:I->O            19   1.218   1.260  reset_IBUF (reset_IBUF)
+     LUT3:I0->O            6   0.704   0.844  WD/game_status<1>334_SW0 (N104)
+     LUT4:I0->O            1   0.704   0.000  WD/game_status<0>271_SW0_SW0_G (N194)
+     MUXF5:I1->O           1   0.321   0.455  WD/game_status<0>271_SW0_SW0 (N187)
+     LUT4:I2->O            1   0.704   0.499  WD/game_status<0>338_SW0 (N166)
+     LUT4:I1->O            1   0.704   0.000  fsm/Mmux_out_game_status_mux000111 (fsm/out_game_status_mux0001<0>)
+     LD_1:D                    0.308          fsm/out_game_status_0
     ----------------------------------------
-    Total                      4.659ns (2.934ns logic, 1.725ns route)
-                                       (63.0% logic, 37.0% route)
+    Total                      7.721ns (4.663ns logic, 3.058ns route)
+                                       (60.4% logic, 39.6% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'columnSelector/out_gameboard_15_cmp_eq0000'
@@ -918,7 +1274,7 @@ Offset:              6.047ns (Levels of Logic = 2)
 Timing constraint: Default OFFSET OUT AFTER for Clock 'CD/clk_out'
   Total number of paths / destination ports: 16 / 8
 -------------------------------------------------------------------------
-Offset:              6.455ns (Levels of Logic = 2)
+Offset:              6.456ns (Levels of Logic = 2)
   Source:            fsm/current_state_0 (FF)
   Destination:       leds<6> (PAD)
   Source Clock:      CD/clk_out rising
@@ -927,24 +1283,24 @@ Offset:              6.455ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q             45   0.591   1.301  fsm/current_state_0 (fsm/current_state_0)
+     FDC:C->Q             46   0.591   1.302  fsm/current_state_0 (fsm/current_state_0)
      LUT4:I2->O            4   0.704   0.587  leds<2>1 (leds_2_OBUF)
      OBUF:I->O                 3.272          leds_6_OBUF (leds<6>)
     ----------------------------------------
-    Total                      6.455ns (4.567ns logic, 1.888ns route)
+    Total                      6.456ns (4.567ns logic, 1.889ns route)
                                        (70.7% logic, 29.3% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 7.71 secs
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 7.56 secs
  
 --> 
 
-Total memory usage is 4529844 kilobytes
+Total memory usage is 4513656 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   63 (   0 filtered)
-Number of infos    :   53 (   0 filtered)
+Number of warnings :   61 (   0 filtered)
+Number of infos    :   52 (   0 filtered)
 

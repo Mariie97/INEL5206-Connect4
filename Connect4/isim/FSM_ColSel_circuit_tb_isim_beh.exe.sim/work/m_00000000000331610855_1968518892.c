@@ -190,19 +190,19 @@ LAB10:    xsi_set_current_line(18, ng0);
 LAB13:    xsi_set_current_line(19, ng0);
     t28 = ((char*)((ng2)));
     t29 = (t0 + 2088);
-    xsi_vlogvar_assign_value(t29, t28, 0, 0, 3);
+    xsi_vlogvar_wait_assign_value(t29, t28, 0, 0, 3, 0LL);
     xsi_set_current_line(20, ng0);
     t2 = ((char*)((ng2)));
     t3 = (t0 + 2248);
-    xsi_vlogvar_assign_value(t3, t2, 0, 0, 3);
+    xsi_vlogvar_wait_assign_value(t3, t2, 0, 0, 3, 0LL);
     xsi_set_current_line(21, ng0);
     t2 = ((char*)((ng2)));
     t3 = (t0 + 2408);
-    xsi_vlogvar_assign_value(t3, t2, 0, 0, 3);
+    xsi_vlogvar_wait_assign_value(t3, t2, 0, 0, 3, 0LL);
     xsi_set_current_line(22, ng0);
     t2 = ((char*)((ng2)));
     t3 = (t0 + 2568);
-    xsi_vlogvar_assign_value(t3, t2, 0, 0, 3);
+    xsi_vlogvar_wait_assign_value(t3, t2, 0, 0, 3, 0LL);
     goto LAB12;
 
 LAB17:    t7 = (t6 + 4);
@@ -247,7 +247,7 @@ LAB24:    xsi_set_current_line(27, ng0);
     memset(t33, 0, 8);
     xsi_vlog_unsigned_add(t33, 3, t31, 3, t32, 3);
     t34 = (t0 + 2088);
-    xsi_vlogvar_assign_value(t34, t33, 0, 0, 3);
+    xsi_vlogvar_wait_assign_value(t34, t33, 0, 0, 3, 0LL);
     goto LAB32;
 
 LAB26:    xsi_set_current_line(28, ng0);
@@ -258,7 +258,7 @@ LAB26:    xsi_set_current_line(28, ng0);
     memset(t6, 0, 8);
     xsi_vlog_unsigned_add(t6, 3, t5, 3, t7, 3);
     t8 = (t0 + 2248);
-    xsi_vlogvar_assign_value(t8, t6, 0, 0, 3);
+    xsi_vlogvar_wait_assign_value(t8, t6, 0, 0, 3, 0LL);
     goto LAB32;
 
 LAB28:    xsi_set_current_line(29, ng0);
@@ -269,7 +269,7 @@ LAB28:    xsi_set_current_line(29, ng0);
     memset(t6, 0, 8);
     xsi_vlog_unsigned_add(t6, 3, t5, 3, t7, 3);
     t8 = (t0 + 2408);
-    xsi_vlogvar_assign_value(t8, t6, 0, 0, 3);
+    xsi_vlogvar_wait_assign_value(t8, t6, 0, 0, 3, 0LL);
     goto LAB32;
 
 LAB30:    xsi_set_current_line(30, ng0);
@@ -280,7 +280,7 @@ LAB30:    xsi_set_current_line(30, ng0);
     memset(t6, 0, 8);
     xsi_vlog_unsigned_add(t6, 3, t5, 3, t7, 3);
     t8 = (t0 + 2568);
-    xsi_vlogvar_assign_value(t8, t6, 0, 0, 3);
+    xsi_vlogvar_wait_assign_value(t8, t6, 0, 0, 3, 0LL);
     goto LAB32;
 
 }

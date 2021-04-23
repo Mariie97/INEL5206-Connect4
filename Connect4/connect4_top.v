@@ -45,7 +45,7 @@ module connect4_top(
 //	led_5,
 //	led_6,
 //	led_7,
-//	led_8
+//	led_8,
 	
 	//selected_column
 	);
@@ -67,6 +67,14 @@ module connect4_top(
 	//FPGA LEDS
 	output [7:0] leds;
 	
+//	output reg led_1;
+//	output reg led_2;
+//	output reg led_3;
+//	output reg led_4;
+//	output reg led_5;
+//	output reg led_6;
+//	output reg led_7;
+//	output reg led_8;
 	
 	
 //	output pin_0;
@@ -185,75 +193,75 @@ module connect4_top(
 //	
 //		//if(BTN_EAST == 1)begin
 //			if(gameboard_out[0] == 1)begin
-//				pin_0 = 1;
+//				led_1 = 1;
 //			end else begin
-//				pin_0 = 0;
+//				led_1= 0;
 //			end	
 //		//end
 //		
 //		//if(BTN_EAST == 1)begin
 //		if(gameboard_out[1] == 1)begin
-//			pin_1 = 1;
+//			led_2 = 1;
 //		end else begin
-//			pin_1 = 0;
+//			led_2 = 0;
 //		end
 //		//end
 //		
 //		//if(BTN_EAST == 1)begin
 //		if(gameboard_out[2] == 1)begin
-//			pin_2 = 1;
+//			led_3= 1;
 //		end else begin
-//			pin_2 = 0;
+//			led_3 = 0;
 //		end
 //		//end
 //		
 //		//if(BTN_EAST == 1)begin
 //		if(gameboard_out[3] == 1)begin
-//			pin_3 = 1;
+//			led_4 = 1;
 //		end else begin
-//			pin_3 = 0;
+//			led_4 = 0;
 //		end
 //	//	end
 //		
 //		//if(BTN_EAST == 1)begin
 //		if(gameboard_out[4] == 1)begin
-//			pin_4 = 1;
+//			led_5 = 1;
 //		end else begin
-//			pin_4 = 0;
+//			led_5 = 0;
 //		end
 //		//end
 //		
 //		//if(BTN_EAST == 1)begin
 //		if(gameboard_out[5] == 1)begin
-//			pin_5 = 1;
+//			led_6 = 1;
 //		end else begin
-//			pin_5 = 0;
+//			led_6 = 0;
 //		end
 //		//end
 //		
 //		//if(BTN_EAST == 1)begin
 //		if(gameboard_out[6] == 1)begin
-//			pin_6 = 1;
+//			led_7 = 1;
 //		end else begin
-//			pin_6 = 0;
+//			led_7 = 0;
 //		end
 //		//end
 //		
 //		//if(BTN_EAST == 1)begin
 //		if(gameboard_out[7] == 1)begin
-//			pin_7 = 1;
+//			led_8 = 1;
 //		end else begin
-//			pin_7 = 0;
+//			led_8 = 0;
 //		end
-//		//end
-////		pin_0 = gameboard_out[0];
-////		pin_1 = gameboard_out[1];
-////		pin_2 = gameboard_out[2];
-////		pin_3 = gameboard_out[3];
-////		pin_4 = gameboard_out[4];
-////		pin_5 = gameboard_out[5];
-////		pin_6 = gameboard_out[6];
-////		pin_7 = gameboard_out[7];
+		//end
+//		pin_0 = gameboard_out[0];
+//		pin_1 = gameboard_out[1];
+//		pin_2 = gameboard_out[2];
+//		pin_3 = gameboard_out[3];
+//		pin_4 = gameboard_out[4];
+//		pin_5 = gameboard_out[5];
+//		pin_6 = gameboard_out[6];
+//		pin_7 = gameboard_out[7];
 //	end
 	
 //	always@(gameboard_out[0], gameboard_out[1], gameboard_out[2], gameboard_out[3], gameboard_out[4],gameboard_out[5],gameboard_out[6], gameboard_out[7])

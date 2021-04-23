@@ -26,10 +26,9 @@ module ColumnCalculator(
 	output reg add
     );
 
-	integer i;
 
 
-	always@(enable, selected_column, counters)begin
+always@(enable, selected_column, counters)begin
 	add=0;
 	if(enable==1'b0) column_position = 5'b11111;
 	else begin
@@ -39,24 +38,26 @@ module ColumnCalculator(
 						begin
 							column_position = counters[2:0] * 3'b100;
 							add=1;
-
 						end
+						else column_position = 5'b11111;											
 						end
 			
 			4'b1101: begin
 						if(counters[5:3]!=3'b100) 
 						begin
 							column_position = counters[5:3] * 3'b100 + 3'b001;
-								add=1;
+							add=1;
 						end
+						else column_position = 5'b11111;
 						end
 			
 			4'b1011: begin
 						if(counters[8:6]!=3'b100) 
 						begin
-							column_position =counters[8:6] * 3'b100 + 3'b010;
-								add=1;
+							column_position = counters[8:6] * 3'b100 + 3'b010;
+							add=1;
 						end
+						else column_position = 5'b11111;					
 						end
 			4'b0111: begin
 						if(counters[11:9]!=3'b100)
@@ -64,11 +65,12 @@ module ColumnCalculator(
 							column_position = counters[11:9] * 3'b100 + 3'b011;
 							add=1;
 						end
+						else column_position = 5'b11111;
 						end
 			
 			default: column_position = 5'b11111;
 		endcase
 	end
-	end
+end
 
 endmodule
