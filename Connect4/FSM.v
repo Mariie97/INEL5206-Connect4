@@ -30,12 +30,6 @@ end
 always @(current_state, in_game_status, player_turn)
 //always @(posedge clk)
 begin
-	if(in_game_status == TIE_GAME) 
-	begin
-		next_state <= END_GAME;
-		out_game_status <= TIE;
-	end
-	else begin
 		case(current_state)
 			GAME_INIT: begin
 							next_state <= P1_TURN;
@@ -90,13 +84,8 @@ begin
 											next_state <= END_GAME;
 											out_game_status <= TIE;
 										 end
-							default: begin
-											next_state <= END_GAME;
-											out_game_status <= TIE;		
-										end
 							endcase
 						end		
 		endcase
-	end
  end
 endmodule

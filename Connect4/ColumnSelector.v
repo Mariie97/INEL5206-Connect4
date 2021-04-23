@@ -31,14 +31,14 @@ begin
 						next_player <= 0;
 						end
 		P1_TURN: begin  //P1 turn 
-					if(column_position!=5'b11111 && next_player==0) begin
+					if(column_position!=5'b11111) begin
 						out_gameboard[column_position] <= 1;
 						out_players_cells[column_position] <= 0;
 						next_player <= 1;
 						end
 					end
 		P2_TURN: begin//P2 turn 
-					if(column_position!=5'b11111 && next_player==1) begin
+					if(column_position!=5'b11111) begin
 						out_gameboard[column_position] <= 1;
 						out_players_cells[column_position] <= 1;
 						next_player <= 0;

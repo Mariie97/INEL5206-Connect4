@@ -7,24 +7,6 @@
 
 
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date:    12:33:56 04/04/2021 
-// Design Name: 
-// Module Name:    connect4_top 
-// Project Name: 
-// Target Devices: 
-// Tool versions: 
-// Description: 
-//
-// Dependencies: 
-//
-// Revision: 
-// Revision 0.01 - File Created
-// Additional Comments: 
-//
-//////////////////////////////////////////////////////////////////////////////////
 module connect4_top(
 //	input clk,
 //   output wire pin_0,
@@ -40,34 +22,35 @@ module connect4_top(
 
 	clk,
 	reset, 
-	pin_0,
-	pin_1,
-	pin_2,
-	pin_3,
-	pin_4,
-	pin_5,
-	pin_6,
-	pin_7,
+//	pin_0,
+//	pin_1,
+//	pin_2,
+//	pin_3,
+//	pin_4,
+//	pin_5,
+//	pin_6,
+//	pin_7,
 	//state,
 	Switch_0,
 	Switch_1,
 	Switch_2,
 	Switch_3,
 	BTN_EAST,
-	gameboard_out,
-	led_1,
-	led_2,
-	led_3,
-	led_4,
-	led_5,
-	led_6,
-	led_7,
-	led_8
+	leds
+//	gameboard_out,
+//	led_1,
+//	led_2,
+//	led_3,
+//	led_4,
+//	led_5,
+//	led_6,
+//	led_7,
+//	led_8
 	
 	//selected_column
 	);
 	
-	output wire[15:0] gameboard_out;
+	 wire[15:0] gameboard_out;
 	
 	input Switch_0;
 	input Switch_1;
@@ -82,42 +65,27 @@ module connect4_top(
 	//input [2:0] selected_column;
 	
 	//FPGA LEDS
-	output led_1;
-	output led_2;
-	output led_3;
-	output led_4;
-	output led_5;
-	output led_6;
-	output led_7;
-	output led_8;
-	
-	reg led_1 = 0;
-	reg led_2 = 0;
-	reg led_3 = 0;
-	reg led_4 = 0;
-	reg led_5 = 0;
-	reg led_6 = 0;
-	reg led_7 = 0;
-	reg led_8 = 0;
+	output [7:0] leds;
 	
 	
-	output pin_0;
-	output pin_1;
-	output pin_2;
-	output pin_3;
-	output pin_4;
-	output pin_5;
-	output pin_6;
-	output pin_7;
 	
-	reg pin_0 = 0;
-	reg pin_1 = 0;
-	reg pin_2 = 0;
-	reg pin_3 = 0;
-	reg pin_4 = 0;
-	reg pin_5 = 0;
-	reg pin_6 = 0;
-	reg pin_7 = 0;
+//	output pin_0;
+//	output pin_1;
+//	output pin_2;
+//	output pin_3;
+//	output pin_4;
+//	output pin_5;
+//	output pin_6;
+//	output pin_7;
+//	
+//	reg pin_0 = 0;
+//	reg pin_1 = 0;
+//	reg pin_2 = 0;
+//	reg pin_3 = 0;
+//	reg pin_4 = 0;
+//	reg pin_5 = 0;
+//	reg pin_6 = 0;
+//	reg pin_7 = 0;
 
 	//wire pin_0;
 //	wire pin_1;
@@ -132,13 +100,12 @@ module connect4_top(
 	
 	wire [15:0]player_cells;
 	wire [4:0] selected_column;
-	wire Enable_Button;
+//	wire Enable_Button;
 	wire next_player;
 	wire add;
 	wire [1:0] state;
 	wire [1:0] game_status;
-	wire [1:0] out_game_status;
-	wire [7:0] LEDs;	
+	wire [1:0] out_game_status;	
 	wire [11:0] counters;
 
 	
@@ -155,11 +122,15 @@ module connect4_top(
 	parameter column = 3'b001;
 	parameter statep = 2'b01;
 	
-	ButtonPressDetector BPD(clk, BTN_EAST, Enable_Button);
+//	ButtonPressDetector BPD(clk, BTN_EAST, Enable_Button);
 	
-	
+	ClockDelay CD(
+		.clk_in(clk),
+		.clk_out(clk_delay)
+    );
+	 
 	ColumnCalculator columnCounter(
-		.enable(Enable_Button),
+		.enable(BTN_EAST),
 		.counters(counters),		
 		.selected_column({Switch_3, Switch_2, Switch_1, Switch_0}), 
 		.column_position(selected_column),
@@ -168,7 +139,7 @@ module connect4_top(
 		
 		
 	ThreeBitCounter tbc (
-		.clk(clk),
+		.clk(clk_delay),
 		.reset(reset), 
 		.column({Switch_3, Switch_2, Switch_1, Switch_0}), 
 		.add(add), 
@@ -186,7 +157,7 @@ module connect4_top(
 	
 	
 	FSM fsm (
-		.clk(clk), 
+		.clk(clk_delay), 
 		.reset(reset), 
 		.in_game_status(game_status), 
 		.player_turn(next_player), 
@@ -205,94 +176,85 @@ module connect4_top(
 	DisplayGameStatus DGS (
 		.state(state),
 		.game_status(out_game_status),
-		.LEDs(LEDs)
+		.LEDs(leds)
 	);
 	 
-	always@(LEDs) begin
-			led_1 <= LEDs[7];
-			led_2 <= LEDs[6];
-			led_3 <= LEDs[5];
-			led_4 <= LEDs[4];
-			led_5 <= LEDs[3];
-			led_6 <= LEDs[2];
-			led_7 <= LEDs[1];
-			led_8 <= LEDs[0];
-	end
+
 	
-	always@(gameboard_out, player_cells) begin
-	
-		//if(BTN_EAST == 1)begin
-			if(gameboard_out[0] == 1)begin
-				pin_0 = 1;
-			end else begin
-				pin_0 = 0;
-			end	
-		//end
-		
-		//if(BTN_EAST == 1)begin
-		if(gameboard_out[1] == 1)begin
-			pin_1 = 1;
-		end else begin
-			pin_1 = 0;
-		end
-		//end
-		
-		//if(BTN_EAST == 1)begin
-		if(gameboard_out[2] == 1)begin
-			pin_2 = 1;
-		end else begin
-			pin_2 = 0;
-		end
-		//end
-		
-		//if(BTN_EAST == 1)begin
-		if(gameboard_out[3] == 1)begin
-			pin_3 = 1;
-		end else begin
-			pin_3 = 0;
-		end
-	//	end
-		
-		//if(BTN_EAST == 1)begin
-		if(gameboard_out[4] == 1)begin
-			pin_4 = 1;
-		end else begin
-			pin_4 = 0;
-		end
-		//end
-		
-		//if(BTN_EAST == 1)begin
-		if(gameboard_out[5] == 1)begin
-			pin_5 = 1;
-		end else begin
-			pin_5 = 0;
-		end
-		//end
-		
-		//if(BTN_EAST == 1)begin
-		if(gameboard_out[6] == 1)begin
-			pin_6 = 1;
-		end else begin
-			pin_6 = 0;
-		end
-		//end
-		
-		//if(BTN_EAST == 1)begin
-		if(gameboard_out[7] == 1)begin
-			pin_7 = 1;
-		end else begin
-			pin_7 = 0;
-		end
-		//end
-//		pin_0 = gameboard_out[0];
-//		pin_1 = gameboard_out[1];
-//		pin_2 = gameboard_out[2];
-//		pin_3 = gameboard_out[3];
-//		pin_4 = gameboard_out[4];
-//		pin_5 = gameboard_out[5];
-//		pin_6 = gameboard_out[6];
-//		pin_7 = gameboard_out[7];
-	end
+//	always@(gameboard_out, player_cells) begin
+//	
+//		//if(BTN_EAST == 1)begin
+//			if(gameboard_out[0] == 1)begin
+//				pin_0 = 1;
+//			end else begin
+//				pin_0 = 0;
+//			end	
+//		//end
+//		
+//		//if(BTN_EAST == 1)begin
+//		if(gameboard_out[1] == 1)begin
+//			pin_1 = 1;
+//		end else begin
+//			pin_1 = 0;
+//		end
+//		//end
+//		
+//		//if(BTN_EAST == 1)begin
+//		if(gameboard_out[2] == 1)begin
+//			pin_2 = 1;
+//		end else begin
+//			pin_2 = 0;
+//		end
+//		//end
+//		
+//		//if(BTN_EAST == 1)begin
+//		if(gameboard_out[3] == 1)begin
+//			pin_3 = 1;
+//		end else begin
+//			pin_3 = 0;
+//		end
+//	//	end
+//		
+//		//if(BTN_EAST == 1)begin
+//		if(gameboard_out[4] == 1)begin
+//			pin_4 = 1;
+//		end else begin
+//			pin_4 = 0;
+//		end
+//		//end
+//		
+//		//if(BTN_EAST == 1)begin
+//		if(gameboard_out[5] == 1)begin
+//			pin_5 = 1;
+//		end else begin
+//			pin_5 = 0;
+//		end
+//		//end
+//		
+//		//if(BTN_EAST == 1)begin
+//		if(gameboard_out[6] == 1)begin
+//			pin_6 = 1;
+//		end else begin
+//			pin_6 = 0;
+//		end
+//		//end
+//		
+//		//if(BTN_EAST == 1)begin
+//		if(gameboard_out[7] == 1)begin
+//			pin_7 = 1;
+//		end else begin
+//			pin_7 = 0;
+//		end
+//		//end
+////		pin_0 = gameboard_out[0];
+////		pin_1 = gameboard_out[1];
+////		pin_2 = gameboard_out[2];
+////		pin_3 = gameboard_out[3];
+////		pin_4 = gameboard_out[4];
+////		pin_5 = gameboard_out[5];
+////		pin_6 = gameboard_out[6];
+////		pin_7 = gameboard_out[7];
+//	end
 	
 //	always@(gameboard_out[0], gameboard_out[1], gameboard_out[2], gameboard_out[3], gameboard_out[4],gameboard_out[5],gameboard_out[6], gameboard_out[7])
 //	begin

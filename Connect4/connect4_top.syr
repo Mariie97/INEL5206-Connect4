@@ -4,36 +4,31 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.13 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.13 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Reading design: connect4_top.prj
 
 TABLE OF CONTENTS
   1) Synthesis Options Summary
-  2) HDL Parsing
-  3) HDL Elaboration
-  4) HDL Synthesis
-       4.1) HDL Synthesis Report
-  5) Advanced HDL Synthesis
-       5.1) Advanced HDL Synthesis Report
-  6) Low Level Synthesis
-  7) Partition Report
-  8) Design Summary
-       8.1) Primitive and Black Box Usage
-       8.2) Device utilization summary
-       8.3) Partition Resource Summary
-       8.4) Timing Report
-            8.4.1) Clock Information
-            8.4.2) Asynchronous Control Signals Information
-            8.4.3) Timing Summary
-            8.4.4) Timing Details
-            8.4.5) Cross Clock Domains Report
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
 
 
 =========================================================================
@@ -41,12 +36,13 @@ TABLE OF CONTENTS
 =========================================================================
 ---- Source Parameters
 Input File Name                    : "connect4_top.prj"
+Input Format                       : mixed
 Ignore Synthesis Constraint File   : NO
 
 ---- Target Parameters
 Output File Name                   : "connect4_top"
 Output Format                      : NGC
-Target Device                      : xc6slx9-3-csg324
+Target Device                      : xc3s500e-4-fg320
 
 ---- Source Options
 Top Module Name                    : connect4_top
@@ -57,21 +53,25 @@ FSM Style                          : LUT
 RAM Extraction                     : Yes
 RAM Style                          : Auto
 ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
 Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
 ROM Style                          : Auto
+Mux Extraction                     : Yes
 Resource Sharing                   : YES
 Asynchronous To Synchronous        : NO
-Shift Register Minimum Size        : 2
-Use DSP Block                      : Auto
+Multiplier Style                   : LUT
 Automatic Register Balancing       : No
 
 ---- Target Options
-LUT Combining                      : Auto
-Reduce Control Sets                : Auto
 Add IO Buffers                     : YES
 Global Maximum Fanout              : 100000
 Add Generic Clock Buffer(BUFG)     : 16
 Register Duplication               : YES
+Slice Packing                      : YES
 Optimize Instantiated Primitives   : NO
 Use Clock Enable                   : Auto
 Use Synchronous Set                : Auto
@@ -82,7 +82,6 @@ Equivalent register Removal        : YES
 ---- General Options
 Optimization Goal                  : Speed
 Optimization Effort                : 1
-Power Reduction                    : NO
 Keep Hierarchy                     : No
 Netlist Hierarchy                  : As_Optimized
 RTL Output                         : Yes
@@ -95,7 +94,7 @@ Bus Delimiter                      : <>
 Case Specifier                     : Maintain
 Slice Utilization Ratio            : 100
 BRAM Utilization Ratio             : 100
-DSP48 Utilization Ratio            : 100
+Verilog 2001                       : YES
 Auto BRAM Packing                  : NO
 Slice Utilization Ratio Delta      : 5
 
@@ -103,280 +102,389 @@ Slice Utilization Ratio Delta      : 5
 
 
 =========================================================================
-*                          HDL Parsing                                  *
+*                          HDL Compilation                              *
 =========================================================================
-Analyzing Verilog file "C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4\FSM.v" into library work
-Parsing module <FSM>.
-Analyzing Verilog file "C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4\DisplayGameStatus.v" into library work
-Parsing module <DisplayGameStatus>.
-Analyzing Verilog file "C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4\connect4_top.v" into library work
-Parsing verilog file "ColumnSelector.v" included at line 2.
-Parsing module <ColumnSelector>.
-Parsing verilog file "ColumnCalculator.v" included at line 3.
-Parsing module <ColumnCalculator>.
-Parsing verilog file "ButtonPressDetector.v" included at line 4.
-Parsing module <ButtonPressDetector>.
-Parsing verilog file "DetectWinner.v" included at line 5.
-Parsing module <DetectWinner>.
-Parsing verilog file "ThreeBitCounter.v" included at line 6.
-Parsing module <ThreeBitCounter>.
-Parsing module <connect4_top>.
+Compiling verilog file "FSM.v" in library work
+Compiling verilog file "DisplayGameStatus.v" in library work
+Module <FSM> compiled
+Compiling verilog file "ClockDelay.v" in library work
+Module <DisplayGameStatus> compiled
+Compiling verilog file "connect4_top.v" in library work
+Compiling verilog include file "ColumnSelector.v"
+Module <ClockDelay> compiled
+Compiling verilog include file "ColumnCalculator.v"
+Module <ColumnSelector> compiled
+Compiling verilog include file "ButtonPressDetector.v"
+Module <ColumnCalculator> compiled
+Compiling verilog include file "DetectWinner.v"
+Module <ButtonPressDetector> compiled
+Compiling verilog include file "ThreeBitCounter.v"
+Module <DetectWinner> compiled
+Module <ThreeBitCounter> compiled
+Module <connect4_top> compiled
+No errors in compilation
+Analysis of file <"connect4_top.prj"> succeeded.
+ 
 
 =========================================================================
-*                            HDL Elaboration                            *
+*                     Design Hierarchy Analysis                         *
 =========================================================================
+Analyzing hierarchy for module <connect4_top> in library <work> with parameters.
+	column = "001"
+	statep = "01"
 
-Elaborating module <connect4_top>.
+Analyzing hierarchy for module <ClockDelay> in library <work>.
 
-Elaborating module <ButtonPressDetector>.
+Analyzing hierarchy for module <ColumnCalculator> in library <work>.
 
-Elaborating module <ColumnCalculator>.
-WARNING:HDLCompiler:91 - "ColumnCalculator.v" Line 36: Signal <selected_column> missing in the sensitivity list is added for synthesis purposes. HDL and post-synthesis simulations may differ as a result.
-WARNING:HDLCompiler:91 - "ColumnCalculator.v" Line 38: Signal <counters> missing in the sensitivity list is added for synthesis purposes. HDL and post-synthesis simulations may differ as a result.
-WARNING:HDLCompiler:91 - "ColumnCalculator.v" Line 40: Signal <counters> missing in the sensitivity list is added for synthesis purposes. HDL and post-synthesis simulations may differ as a result.
-WARNING:HDLCompiler:91 - "ColumnCalculator.v" Line 47: Signal <counters> missing in the sensitivity list is added for synthesis purposes. HDL and post-synthesis simulations may differ as a result.
-WARNING:HDLCompiler:91 - "ColumnCalculator.v" Line 49: Signal <counters> missing in the sensitivity list is added for synthesis purposes. HDL and post-synthesis simulations may differ as a result.
-WARNING:HDLCompiler:91 - "ColumnCalculator.v" Line 55: Signal <counters> missing in the sensitivity list is added for synthesis purposes. HDL and post-synthesis simulations may differ as a result.
-WARNING:HDLCompiler:91 - "ColumnCalculator.v" Line 57: Signal <counters> missing in the sensitivity list is added for synthesis purposes. HDL and post-synthesis simulations may differ as a result.
-WARNING:HDLCompiler:91 - "ColumnCalculator.v" Line 62: Signal <counters> missing in the sensitivity list is added for synthesis purposes. HDL and post-synthesis simulations may differ as a result.
-WARNING:HDLCompiler:91 - "ColumnCalculator.v" Line 64: Signal <counters> missing in the sensitivity list is added for synthesis purposes. HDL and post-synthesis simulations may differ as a result.
+Analyzing hierarchy for module <ThreeBitCounter> in library <work>.
 
-Elaborating module <ThreeBitCounter>.
+Analyzing hierarchy for module <ColumnSelector> in library <work> with parameters.
+	END_GAME = "11"
+	GAME_INIT = "00"
+	P1_TURN = "01"
+	P2_TURN = "10"
 
-Elaborating module <ColumnSelector>.
-WARNING:HDLCompiler:91 - "ColumnSelector.v" Line 34: Signal <next_player> missing in the sensitivity list is added for synthesis purposes. HDL and post-synthesis simulations may differ as a result.
-WARNING:HDLCompiler:91 - "ColumnSelector.v" Line 41: Signal <next_player> missing in the sensitivity list is added for synthesis purposes. HDL and post-synthesis simulations may differ as a result.
+Analyzing hierarchy for module <FSM> in library <work> with parameters.
+	END_GAME = "11"
+	GAME_INIT = "00"
+	NEXT_TURN = "00"
+	P1_TURN = "01"
+	P1_WIN = "01"
+	P1_WINS = "01"
+	P2_TURN = "10"
+	P2_WIN = "10"
+	P2_WINS = "10"
+	STILL_PLAYING = "00"
+	TIE = "11"
+	TIE_GAME = "11"
 
-Elaborating module <FSM>.
+Analyzing hierarchy for module <DetectWinner> in library <work> with parameters.
+	p1_wins = "01"
+	p2_wins = "10"
+	still_playing = "00"
+	tie = "11"
 
-Elaborating module <DetectWinner>.
+Analyzing hierarchy for module <DisplayGameStatus> in library <work> with parameters.
+	END_GAME = "11"
+	GAME_INIT = "00"
+	P1_TURN = "01"
+	P1_WINS = "01"
+	P2_TURN = "10"
+	P2_WINS = "10"
+	STILL_PLAYING = "00"
+	TIE = "11"
 
-Elaborating module <DisplayGameStatus>.
-WARNING:HDLCompiler:91 - "C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4\DisplayGameStatus.v" Line 41: Signal <game_status> missing in the sensitivity list is added for synthesis purposes. HDL and post-synthesis simulations may differ as a result.
-WARNING:HDLCompiler:91 - "C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4\DisplayGameStatus.v" Line 43: Signal <game_status> missing in the sensitivity list is added for synthesis purposes. HDL and post-synthesis simulations may differ as a result.
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <connect4_top>.
+	column = 3'b001
+	statep = 2'b01
+Module <connect4_top> is correct for synthesis.
+ 
+Analyzing module <ClockDelay> in library <work>.
+Module <ClockDelay> is correct for synthesis.
+ 
+Analyzing module <ColumnCalculator> in library <work>.
+Module <ColumnCalculator> is correct for synthesis.
+ 
+Analyzing module <ThreeBitCounter> in library <work>.
+WARNING:Xst:1467 - "ThreeBitCounter.v" line 19: Reset or set value is not constant in <counter_0>. It could involve simulation mismatches
+WARNING:Xst:1467 - "ThreeBitCounter.v" line 20: Reset or set value is not constant in <counter_1>. It could involve simulation mismatches
+WARNING:Xst:1467 - "ThreeBitCounter.v" line 21: Reset or set value is not constant in <counter_2>. It could involve simulation mismatches
+WARNING:Xst:1467 - "ThreeBitCounter.v" line 22: Reset or set value is not constant in <counter_3>. It could involve simulation mismatches
+WARNING:Xst:1467 - "ThreeBitCounter.v" line 33: Reset or set value is not constant in <count>. It could involve simulation mismatches
+WARNING:Xst:1467 - "ThreeBitCounter.v" line 33: Reset or set value is not constant in <count>. It could involve simulation mismatches
+Module <ThreeBitCounter> is correct for synthesis.
+ 
+Analyzing module <ColumnSelector> in library <work>.
+	END_GAME = 2'b11
+	GAME_INIT = 2'b00
+	P1_TURN = 2'b01
+	P2_TURN = 2'b10
+Module <ColumnSelector> is correct for synthesis.
+ 
+Analyzing module <FSM> in library <work>.
+	END_GAME = 2'b11
+	GAME_INIT = 2'b00
+	NEXT_TURN = 2'b00
+	P1_TURN = 2'b01
+	P1_WIN = 2'b01
+	P1_WINS = 2'b01
+	P2_TURN = 2'b10
+	P2_WIN = 2'b10
+	P2_WINS = 2'b10
+	STILL_PLAYING = 2'b00
+	TIE = 2'b11
+	TIE_GAME = 2'b11
+Module <FSM> is correct for synthesis.
+ 
+Analyzing module <DetectWinner> in library <work>.
+	p1_wins = 2'b01
+	p2_wins = 2'b10
+	still_playing = 2'b00
+	tie = 2'b11
+Module <DetectWinner> is correct for synthesis.
+ 
+Analyzing module <DisplayGameStatus> in library <work>.
+	END_GAME = 2'b11
+	GAME_INIT = 2'b00
+	P1_TURN = 2'b01
+	P1_WINS = 2'b01
+	P2_TURN = 2'b10
+	P2_WINS = 2'b10
+	STILL_PLAYING = 2'b00
+	TIE = 2'b11
+Module <DisplayGameStatus> is correct for synthesis.
+ 
 
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
 
-Synthesizing Unit <connect4_top>.
-    Related source file is "C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4\connect4_top.v".
-        column = 3'b001
-        statep = 2'b01
-    Summary:
-	no macro.
-Unit <connect4_top> synthesized.
+Performing bidirectional port resolution...
 
-Synthesizing Unit <ButtonPressDetector>.
-    Related source file is "C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4/ButtonPressDetector.v".
+Synthesizing Unit <ClockDelay>.
+    Related source file is "ClockDelay.v".
     Found 1-bit register for signal <clk_out>.
-    Found 26-bit register for signal <count>.
-    Found 26-bit adder for signal <count[25]_GND_2_o_add_2_OUT> created at line 32.
+    Found 28-bit up counter for signal <count>.
     Summary:
-	inferred   1 Adder/Subtractor(s).
-	inferred  27 D-type flip-flop(s).
-Unit <ButtonPressDetector> synthesized.
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+Unit <ClockDelay> synthesized.
+
 
 Synthesizing Unit <ColumnCalculator>.
-    Related source file is "C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4/ColumnCalculator.v".
-    Found 5-bit adder for signal <counters[5]_GND_3_o_add_4_OUT> created at line 49.
-    Found 5-bit adder for signal <counters[8]_GND_3_o_add_7_OUT> created at line 57.
-    Found 5-bit adder for signal <counters[11]_GND_3_o_add_10_OUT> created at line 64.
-WARNING:Xst:737 - Found 1-bit latch for signal <column_position<3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <column_position<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <column_position<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <column_position<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <column_position<4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Related source file is "ColumnCalculator.v".
+WARNING:Xst:1872 - Variable <i> is used but never assigned.
+WARNING:Xst:737 - Found 5-bit latch for signal <column_position>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+    Found 5-bit adder for signal <column_position$share0000> created at line 36.
     Summary:
-	inferred   3 Adder/Subtractor(s).
-	inferred   5 Latch(s).
-	inferred   1 Multiplexer(s).
+	inferred   1 Adder/Subtractor(s).
 Unit <ColumnCalculator> synthesized.
 
+
 Synthesizing Unit <ThreeBitCounter>.
-    Related source file is "C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4/ThreeBitCounter.v".
+    Related source file is "ThreeBitCounter.v".
+WARNING:Xst:737 - Found 3-bit latch for signal <counter_0>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 3-bit latch for signal <counter_1>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 3-bit latch for signal <counter_2>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 3-bit latch for signal <counter_3>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
     Found 12-bit register for signal <count>.
-    Found 3-bit adder for signal <counter_0[2]_GND_10_o_add_2_OUT> created at line 27.
-    Found 3-bit adder for signal <counter_1[2]_GND_10_o_add_3_OUT> created at line 28.
-    Found 3-bit adder for signal <counter_2[2]_GND_10_o_add_4_OUT> created at line 29.
-    Found 3-bit adder for signal <counter_3[2]_GND_10_o_add_5_OUT> created at line 30.
-WARNING:Xst:737 - Found 1-bit latch for signal <counter_0<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <counter_0<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <counter_0<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <counter_1<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <counter_1<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <counter_1<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <counter_2<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <counter_2<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <counter_2<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <counter_3<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <counter_3<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <counter_3<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Found 3-bit adder for signal <counter_0$add0000> created at line 27.
+    Found 3-bit adder for signal <counter_1$add0000> created at line 28.
+    Found 3-bit adder for signal <counter_2$add0000> created at line 29.
+    Found 3-bit adder for signal <counter_3$add0000> created at line 30.
     Summary:
-	inferred   4 Adder/Subtractor(s).
 	inferred  12 D-type flip-flop(s).
-	inferred  12 Latch(s).
+	inferred   4 Adder/Subtractor(s).
 Unit <ThreeBitCounter> synthesized.
 
+
 Synthesizing Unit <ColumnSelector>.
-    Related source file is "C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4/ColumnSelector.v".
-        GAME_INIT = 2'b00
-        P1_TURN = 2'b01
-        P2_TURN = 2'b10
-        END_GAME = 2'b11
-    Found 1-bit 4-to-1 multiplexer for signal <state[1]_GND_24_o_Mux_83_o> created at line 27.
-    Found 1-bit 4-to-1 multiplexer for signal <state[1]_GND_25_o_Mux_84_o> created at line 27.
-    Found 1-bit 4-to-1 multiplexer for signal <state[1]_GND_26_o_Mux_85_o> created at line 27.
-    Found 1-bit 4-to-1 multiplexer for signal <state[1]_GND_27_o_Mux_86_o> created at line 27.
-    Found 1-bit 4-to-1 multiplexer for signal <state[1]_GND_28_o_Mux_87_o> created at line 27.
-    Found 1-bit 4-to-1 multiplexer for signal <state[1]_GND_29_o_Mux_88_o> created at line 27.
-    Found 1-bit 4-to-1 multiplexer for signal <state[1]_GND_30_o_Mux_89_o> created at line 27.
-    Found 1-bit 4-to-1 multiplexer for signal <state[1]_GND_31_o_Mux_90_o> created at line 27.
-    Found 1-bit 4-to-1 multiplexer for signal <state[1]_GND_32_o_Mux_91_o> created at line 27.
-    Found 1-bit 4-to-1 multiplexer for signal <state[1]_GND_33_o_Mux_92_o> created at line 27.
-    Found 1-bit 4-to-1 multiplexer for signal <state[1]_GND_34_o_Mux_93_o> created at line 27.
-    Found 1-bit 4-to-1 multiplexer for signal <state[1]_GND_35_o_Mux_94_o> created at line 27.
-    Found 1-bit 4-to-1 multiplexer for signal <state[1]_GND_36_o_Mux_95_o> created at line 27.
-    Found 1-bit 4-to-1 multiplexer for signal <state[1]_GND_37_o_Mux_96_o> created at line 27.
-    Found 1-bit 4-to-1 multiplexer for signal <state[1]_GND_38_o_Mux_97_o> created at line 27.
-    Found 1-bit 4-to-1 multiplexer for signal <state[1]_GND_39_o_Mux_98_o> created at line 27.
-    Found 1-bit 4-to-1 multiplexer for signal <state[1]_GND_56_o_Mux_115_o> created at line 27.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard<14>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard<13>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard<12>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard<11>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard<10>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard<9>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard<8>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard<7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard<6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard<5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard<4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard<3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells<15>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells<14>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells<13>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells<12>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells<11>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells<10>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells<9>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells<8>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells<7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells<6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells<5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells<4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells<3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Related source file is "ColumnSelector.v".
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_15>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_14>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_13>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_12>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_11>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_10>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_9>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_8>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_7>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_6>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_5>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_4>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_3>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_2>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_1>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_0>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells_15>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells_14>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells_13>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells_12>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells_11>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells_10>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells_9>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells_8>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells_7>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells_6>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells_5>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells_4>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells_3>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells_2>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells_1>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_players_cells_0>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
 WARNING:Xst:737 - Found 1-bit latch for signal <next_player>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard<15>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-    Found 5-bit comparator lessequal for signal <n0006> created at line 42
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_15$mux0000>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_14$mux0000>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_13$mux0000>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_12$mux0000>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_11$mux0000>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_10$mux0000>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_9$mux0000>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_8$mux0000>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_7$mux0000>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_6$mux0000>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_5$mux0000>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_4$mux0000>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_3$mux0000>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_2$mux0000>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_1$mux0000>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <out_gameboard_0$mux0000>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+    Found 1-bit 3-to-1 multiplexer for signal <next_player$mux0000>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_gameboard_0$mux0001>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_gameboard_1$mux0001>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_gameboard_10$mux0001>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_gameboard_11$mux0001>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_gameboard_12$mux0001>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_gameboard_13$mux0001>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_gameboard_14$mux0001>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_gameboard_15$mux0001>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_gameboard_2$mux0001>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_gameboard_3$mux0001>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_gameboard_4$mux0001>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_gameboard_5$mux0001>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_gameboard_6$mux0001>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_gameboard_7$mux0001>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_gameboard_8$mux0001>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_gameboard_9$mux0001>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_players_cells_0$mux0000>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_players_cells_1$mux0000>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_players_cells_10$mux0000>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_players_cells_11$mux0000>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_players_cells_12$mux0000>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_players_cells_13$mux0000>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_players_cells_14$mux0000>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_players_cells_15$mux0000>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_players_cells_2$mux0000>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_players_cells_3$mux0000>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_players_cells_4$mux0000>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_players_cells_5$mux0000>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_players_cells_6$mux0000>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_players_cells_7$mux0000>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_players_cells_8$mux0000>.
+    Found 1-bit 3-to-1 multiplexer for signal <out_players_cells_9$mux0000>.
     Summary:
-	inferred  33 Latch(s).
-	inferred   1 Comparator(s).
-	inferred  17 Multiplexer(s).
+	inferred  33 Multiplexer(s).
 Unit <ColumnSelector> synthesized.
 
+
 Synthesizing Unit <FSM>.
-    Related source file is "C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4\FSM.v".
-        GAME_INIT = 2'b00
-        P1_TURN = 2'b01
-        P2_TURN = 2'b10
-        END_GAME = 2'b11
-        NEXT_TURN = 2'b00
-        P1_WIN = 2'b01
-        P2_WIN = 2'b10
-        TIE_GAME = 2'b11
-        STILL_PLAYING = 2'b00
-        P1_WINS = 2'b01
-        P2_WINS = 2'b10
-        TIE = 2'b11
+    Related source file is "FSM.v".
+    Found 4x2-bit ROM for signal <out_game_status$mux0000> created at line 66.
+WARNING:Xst:737 - Found 2-bit latch for signal <out_game_status>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
     Found 2-bit register for signal <current_state>.
-    Found finite state machine <FSM_0> for signal <current_state>.
-    -----------------------------------------------------------------------
-    | States             | 4                                              |
-    | Transitions        | 13                                             |
-    | Inputs             | 4                                              |
-    | Outputs            | 3                                              |
-    | Clock              | clk (rising_edge)                              |
-    | Reset              | reset (positive)                               |
-    | Reset type         | asynchronous                                   |
-    | Reset State        | 00                                             |
-    | Power Up State     | 00                                             |
-    | Encoding           | auto                                           |
-    | Implementation     | LUT                                            |
-    -----------------------------------------------------------------------
-WARNING:Xst:737 - Found 1-bit latch for signal <out_game_status<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <out_game_status<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Found 2-bit 4-to-1 multiplexer for signal <next_state>.
+    Found 2-bit 3-to-1 multiplexer for signal <out_game_status$mux0001>.
     Summary:
-	inferred   2 Latch(s).
-	inferred   2 Multiplexer(s).
-	inferred   1 Finite State Machine(s).
+	inferred   1 ROM(s).
+	inferred   2 D-type flip-flop(s).
+	inferred   4 Multiplexer(s).
 Unit <FSM> synthesized.
 
+
 Synthesizing Unit <DetectWinner>.
-    Related source file is "C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4/DetectWinner.v".
-        still_playing = 2'b00
-        p1_wins = 2'b01
-        p2_wins = 2'b10
-        tie = 2'b11
-    Found 2-bit register for signal <game_status>.
-    Found finite state machine <FSM_1> for signal <game_status>.
-    -----------------------------------------------------------------------
-    | States             | 4                                              |
-    | Transitions        | 55192                                          |
-    | Inputs             | 33                                             |
-    | Outputs            | 2                                              |
-    | Clock              | clk (rising_edge)                              |
-    | Reset              | reset (positive)                               |
-    | Reset type         | asynchronous                                   |
-    | Reset State        | 00                                             |
-    | Power Up State     | 00                                             |
-    | Encoding           | auto                                           |
-    | Implementation     | LUT                                            |
-    -----------------------------------------------------------------------
-    Summary:
-	inferred   1 Finite State Machine(s).
+    Related source file is "DetectWinner.v".
+WARNING:Xst:647 - Input <clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 Unit <DetectWinner> synthesized.
 
+
 Synthesizing Unit <DisplayGameStatus>.
-    Related source file is "C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4\DisplayGameStatus.v".
-        STILL_PLAYING = 2'b00
-        P1_WINS = 2'b01
-        P2_WINS = 2'b10
-        TIE = 2'b11
-        GAME_INIT = 2'b00
-        P1_TURN = 2'b01
-        P2_TURN = 2'b10
-        END_GAME = 2'b11
+    Related source file is "DisplayGameStatus.v".
+    Found 4x8-bit ROM for signal <LEDs$mux0000> created at line 40.
+    Found 8-bit 4-to-1 multiplexer for signal <LEDs>.
     Summary:
-	no macro.
+	inferred   1 ROM(s).
+	inferred   8 Multiplexer(s).
 Unit <DisplayGameStatus> synthesized.
+
+
+Synthesizing Unit <connect4_top>.
+    Related source file is "connect4_top.v".
+Unit <connect4_top> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 8
- 26-bit adder                                          : 1
+# ROMs                                                 : 2
+ 4x2-bit ROM                                           : 1
+ 4x8-bit ROM                                           : 1
+# Adders/Subtractors                                   : 5
  3-bit adder                                           : 4
- 5-bit adder                                           : 3
+ 5-bit adder                                           : 1
+# Counters                                             : 1
+ 28-bit up counter                                     : 1
 # Registers                                            : 3
  1-bit register                                        : 1
  12-bit register                                       : 1
- 26-bit register                                       : 1
-# Latches                                              : 52
- 1-bit latch                                           : 52
-# Comparators                                          : 1
- 5-bit comparator lessequal                            : 1
-# Multiplexers                                         : 20
- 1-bit 2-to-1 multiplexer                              : 3
- 1-bit 4-to-1 multiplexer                              : 17
-# FSMs                                                 : 2
+ 2-bit register                                        : 1
+# Latches                                              : 55
+ 1-bit latch                                           : 49
+ 2-bit latch                                           : 1
+ 3-bit latch                                           : 4
+ 5-bit latch                                           : 1
+# Multiplexers                                         : 36
+ 1-bit 3-to-1 multiplexer                              : 33
+ 2-bit 3-to-1 multiplexer                              : 1
+ 2-bit 4-to-1 multiplexer                              : 1
+ 8-bit 4-to-1 multiplexer                              : 1
 
 =========================================================================
 
@@ -385,83 +493,50 @@ Macro Statistics
 =========================================================================
 
 
-Synthesizing (advanced) Unit <ButtonPressDetector>.
-The following registers are absorbed into counter <count>: 1 register on signal <count>.
-Unit <ButtonPressDetector> synthesized (advanced).
-
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 7
+# ROMs                                                 : 2
+ 4x2-bit ROM                                           : 1
+ 4x8-bit ROM                                           : 1
+# Adders/Subtractors                                   : 5
  3-bit adder                                           : 4
- 5-bit adder                                           : 3
+ 5-bit adder                                           : 1
 # Counters                                             : 1
- 26-bit up counter                                     : 1
-# Registers                                            : 13
- Flip-Flops                                            : 13
-# Comparators                                          : 1
- 5-bit comparator lessequal                            : 1
-# Multiplexers                                         : 19
- 1-bit 2-to-1 multiplexer                              : 2
- 1-bit 4-to-1 multiplexer                              : 17
-# FSMs                                                 : 2
+ 28-bit up counter                                     : 1
+# Registers                                            : 15
+ Flip-Flops                                            : 15
+# Latches                                              : 55
+ 1-bit latch                                           : 49
+ 2-bit latch                                           : 1
+ 3-bit latch                                           : 4
+ 5-bit latch                                           : 1
+# Multiplexers                                         : 36
+ 1-bit 3-to-1 multiplexer                              : 33
+ 2-bit 3-to-1 multiplexer                              : 1
+ 2-bit 4-to-1 multiplexer                              : 1
+ 8-bit 4-to-1 multiplexer                              : 1
 
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <FSM_1> on signal <game_status[1:2]> with user encoding.
--------------------
- State | Encoding
--------------------
- 00    | 00
- 01    | 01
- 10    | 10
- 11    | 11
--------------------
-Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <fsm/FSM_0> on signal <current_state[1:2]> with user encoding.
--------------------
- State | Encoding
--------------------
- 00    | 00
- 01    | 01
- 11    | 11
- 10    | 10
--------------------
 
 Optimizing unit <connect4_top> ...
+
+Optimizing unit <ColumnSelector> ...
+
+Optimizing unit <ColumnCalculator> ...
 
 Optimizing unit <ThreeBitCounter> ...
 
 Optimizing unit <FSM> ...
 
-Optimizing unit <ColumnCalculator> ...
-
-Optimizing unit <ColumnSelector> ...
-
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block connect4_top, actual ratio is 56.
-Latch columnSelector/out_gameboard_15 has been replicated 1 time(s) to handle iob=true attribute.
-Latch columnSelector/out_gameboard_14 has been replicated 1 time(s) to handle iob=true attribute.
-Latch columnSelector/out_gameboard_13 has been replicated 1 time(s) to handle iob=true attribute.
-Latch columnSelector/out_gameboard_12 has been replicated 1 time(s) to handle iob=true attribute.
-Latch columnSelector/out_gameboard_11 has been replicated 1 time(s) to handle iob=true attribute.
-Latch columnSelector/out_gameboard_10 has been replicated 1 time(s) to handle iob=true attribute.
-Latch columnSelector/out_gameboard_9 has been replicated 1 time(s) to handle iob=true attribute.
-Latch columnSelector/out_gameboard_8 has been replicated 1 time(s) to handle iob=true attribute.
-Latch columnSelector/out_gameboard_7 has been replicated 2 time(s) to handle iob=true attribute.
-Latch columnSelector/out_gameboard_6 has been replicated 2 time(s) to handle iob=true attribute.
-Latch columnSelector/out_gameboard_5 has been replicated 2 time(s) to handle iob=true attribute.
-Latch columnSelector/out_gameboard_4 has been replicated 2 time(s) to handle iob=true attribute.
-Latch columnSelector/out_gameboard_3 has been replicated 2 time(s) to handle iob=true attribute.
-Latch columnSelector/out_gameboard_2 has been replicated 2 time(s) to handle iob=true attribute.
-Latch columnSelector/out_gameboard_1 has been replicated 2 time(s) to handle iob=true attribute.
-Latch columnSelector/out_gameboard_0 has been replicated 2 time(s) to handle iob=true attribute.
+Found area constraint ratio of 100 (+ 5) on block connect4_top, actual ratio is 2.
 
 Final Macro Processing ...
 
@@ -486,64 +561,59 @@ Partition Implementation Status
 -------------------------------
 
 =========================================================================
-*                            Design Summary                             *
+*                            Final Report                               *
 =========================================================================
+Final Results
+RTL Top Level Output File Name     : connect4_top.ngr
+Top Level Output File Name         : connect4_top
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
 
-Top Level Output File Name         : connect4_top.ngc
+Design Statistics
+# IOs                              : 15
 
-Primitive and Black Box Usage:
-------------------------------
-# BELS                             : 2314
+Cell Usage :
+# BELS                             : 304
 #      GND                         : 1
 #      INV                         : 6
-#      LUT1                        : 25
-#      LUT2                        : 78
-#      LUT3                        : 151
-#      LUT4                        : 180
-#      LUT5                        : 428
-#      LUT6                        : 1392
-#      MUXCY                       : 25
-#      MUXF7                       : 1
+#      LUT1                        : 27
+#      LUT2                        : 26
+#      LUT2_L                      : 1
+#      LUT3                        : 41
+#      LUT3_D                      : 3
+#      LUT3_L                      : 1
+#      LUT4                        : 110
+#      LUT4_D                      : 15
+#      MUXCY                       : 34
+#      MUXF5                       : 10
 #      VCC                         : 1
-#      XORCY                       : 26
-# FlipFlops/Latches                : 119
-#      FD                          : 38
-#      FDC                         : 4
-#      FDRE                        : 1
-#      LD                          : 57
+#      XORCY                       : 28
+# FlipFlops/Latches                : 111
+#      FDC                         : 2
+#      FDE                         : 13
+#      FDR                         : 28
+#      LD                          : 38
+#      LD_1                        : 18
 #      LDCE                        : 12
-#      LDP                         : 7
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 38
+# IO Buffers                       : 14
 #      IBUF                        : 6
-#      OBUF                        : 32
+#      OBUF                        : 8
+=========================================================================
 
 Device utilization summary:
 ---------------------------
 
-Selected Device : 6slx9csg324-3 
+Selected Device : 3s500efg320-4 
 
-
-Slice Logic Utilization: 
- Number of Slice Registers:              95  out of  11440     0%  
- Number of Slice LUTs:                 2260  out of   5720    39%  
-    Number used as Logic:              2260  out of   5720    39%  
-
-Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   2291
-   Number with an unused Flip Flop:    2196  out of   2291    95%  
-   Number with an unused LUT:            31  out of   2291     1%  
-   Number of fully used LUT-FF pairs:    64  out of   2291     2%  
-   Number of unique control sets:        26
-
-IO Utilization: 
- Number of IOs:                          39
- Number of bonded IOBs:                  39  out of    200    19%  
-    IOB Flip Flops/Latches:              24
-
-Specific Feature Utilization:
- Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+ Number of Slices:                      123  out of   4656     2%  
+ Number of Slice Flip Flops:            111  out of   9312     1%  
+ Number of 4 input LUTs:                230  out of   9312     2%  
+ Number of IOs:                          15
+ Number of bonded IOBs:                  15  out of    232     6%  
+ Number of GCLKs:                         1  out of     24     4%  
 
 ---------------------------
 Partition Resource Summary:
@@ -555,7 +625,7 @@ Partition Resource Summary:
 
 
 =========================================================================
-Timing Report
+TIMING REPORT
 
 NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
       FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
@@ -563,710 +633,318 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
----------------------------------------------------------------------------------------------------------------------+---------------------------------------------+-------+
-Clock Signal                                                                                                         | Clock buffer(FF name)                       | Load  |
----------------------------------------------------------------------------------------------------------------------+---------------------------------------------+-------+
-clk                                                                                                                  | BUFGP                                       | 43    |
-add(columnCounter/Mmux_add12:O)                                                                                      | NONE(*)(tbc/counter_3_0)                    | 12    |
-fsm/current_state[1]_GND_58_o_Mux_15_o(fsm/current_state_current_state[1]_GND_58_o_Mux_15_o1:O)                      | NONE(*)(fsm/out_game_status_0)              | 2     |
-columnCounter/selected_column[3]_counters[2]_Select_21_o(columnCounter/selected_column[3]_counters[2]_Select_21_o1:O)| NONE(*)(columnCounter/column_position_4)    | 5     |
-columnSelector/state[1]_GND_39_o_Mux_98_o(columnSelector/Mmux_state[1]_GND_39_o_Mux_98_o11:O)                        | NONE(*)(columnSelector/out_players_cells_0) | 4     |
-columnSelector/state[1]_GND_56_o_Mux_115_o(columnSelector/Mmux_state[1]_GND_56_o_Mux_115_o11:O)                      | NONE(*)(columnSelector/next_player)         | 1     |
-columnSelector/state[1]_GND_38_o_Mux_97_o(columnSelector/Mmux_state[1]_GND_38_o_Mux_97_o11:O)                        | NONE(*)(columnSelector/out_gameboard_1)     | 4     |
-columnSelector/state[1]_GND_37_o_Mux_96_o(columnSelector/Mmux_state[1]_GND_37_o_Mux_96_o11:O)                        | NONE(*)(columnSelector/out_players_cells_2) | 4     |
-columnSelector/state[1]_GND_36_o_Mux_95_o(columnSelector/Mmux_state[1]_GND_36_o_Mux_95_o11:O)                        | NONE(*)(columnSelector/out_players_cells_3) | 4     |
-columnSelector/state[1]_GND_35_o_Mux_94_o(columnSelector/Mmux_state[1]_GND_35_o_Mux_94_o11:O)                        | NONE(*)(columnSelector/out_gameboard_4)     | 4     |
-columnSelector/state[1]_GND_34_o_Mux_93_o(columnSelector/Mmux_state[1]_GND_34_o_Mux_93_o11:O)                        | NONE(*)(columnSelector/out_players_cells_5) | 4     |
-columnSelector/state[1]_GND_33_o_Mux_92_o(columnSelector/Mmux_state[1]_GND_33_o_Mux_92_o11:O)                        | NONE(*)(columnSelector/out_players_cells_6) | 4     |
-columnSelector/state[1]_GND_32_o_Mux_91_o(columnSelector/Mmux_state[1]_GND_32_o_Mux_91_o11:O)                        | NONE(*)(columnSelector/out_gameboard_7)     | 4     |
-columnSelector/state[1]_GND_31_o_Mux_90_o(columnSelector/Mmux_state[1]_GND_31_o_Mux_90_o11:O)                        | NONE(*)(columnSelector/out_players_cells_8) | 3     |
-columnSelector/state[1]_GND_30_o_Mux_89_o(columnSelector/Mmux_state[1]_GND_30_o_Mux_89_o11:O)                        | NONE(*)(columnSelector/out_players_cells_9) | 3     |
-columnSelector/state[1]_GND_29_o_Mux_88_o(columnSelector/Mmux_state[1]_GND_29_o_Mux_88_o11:O)                        | NONE(*)(columnSelector/out_players_cells_10)| 3     |
-columnSelector/state[1]_GND_28_o_Mux_87_o(columnSelector/Mmux_state[1]_GND_28_o_Mux_87_o11:O)                        | NONE(*)(columnSelector/out_players_cells_11)| 3     |
-columnSelector/state[1]_GND_27_o_Mux_86_o(columnSelector/Mmux_state[1]_GND_27_o_Mux_86_o11:O)                        | NONE(*)(columnSelector/out_gameboard_12)    | 3     |
-columnSelector/state[1]_GND_26_o_Mux_85_o(columnSelector/Mmux_state[1]_GND_26_o_Mux_85_o11:O)                        | NONE(*)(columnSelector/out_players_cells_13)| 3     |
-columnSelector/state[1]_GND_25_o_Mux_84_o(columnSelector/Mmux_state[1]_GND_25_o_Mux_84_o11:O)                        | NONE(*)(columnSelector/out_players_cells_14)| 3     |
-columnSelector/state[1]_GND_24_o_Mux_83_o(columnSelector/Mmux_state[1]_GND_24_o_Mux_83_o12:O)                        | NONE(*)(columnSelector/out_players_cells_15)| 3     |
----------------------------------------------------------------------------------------------------------------------+---------------------------------------------+-------+
-(*) These 20 clock signal(s) are generated by combinatorial logic,
+----------------------------------------------------------------------------------------------+-------------------------------------------------+-------+
+Clock Signal                                                                                  | Clock buffer(FF name)                           | Load  |
+----------------------------------------------------------------------------------------------+-------------------------------------------------+-------+
+clk                                                                                           | BUFGP                                           | 29    |
+columnSelector/out_gameboard_15_mux0002(columnSelector/out_gameboard_15_mux000211:O)          | NONE(*)(columnSelector/out_gameboard_15_mux0000)| 1     |
+columnSelector/out_gameboard_14_mux0002(columnSelector/out_gameboard_14_mux00021:O)           | NONE(*)(columnSelector/out_gameboard_14_mux0000)| 1     |
+columnSelector/out_gameboard_13_mux0002(columnSelector/out_gameboard_13_mux00021:O)           | NONE(*)(columnSelector/out_gameboard_13_mux0000)| 1     |
+columnSelector/out_gameboard_12_mux0002(columnSelector/out_gameboard_12_mux00021:O)           | NONE(*)(columnSelector/out_gameboard_12_mux0000)| 1     |
+columnSelector/out_gameboard_11_mux0002(columnSelector/out_gameboard_11_mux00021:O)           | NONE(*)(columnSelector/out_gameboard_11_mux0000)| 1     |
+columnSelector/out_gameboard_10_mux0002(columnSelector/out_gameboard_10_mux00021:O)           | NONE(*)(columnSelector/out_gameboard_10_mux0000)| 1     |
+columnSelector/out_gameboard_9_mux0002(columnSelector/out_gameboard_9_mux00021:O)             | NONE(*)(columnSelector/out_gameboard_9_mux0000) | 1     |
+columnSelector/out_gameboard_8_mux0002(columnSelector/out_gameboard_8_mux00021:O)             | NONE(*)(columnSelector/out_gameboard_8_mux0000) | 1     |
+columnSelector/out_gameboard_7_mux0002(columnSelector/out_gameboard_7_mux00021:O)             | NONE(*)(columnSelector/out_gameboard_7_mux0000) | 1     |
+columnSelector/out_gameboard_6_mux0002(columnSelector/out_gameboard_6_mux00021:O)             | NONE(*)(columnSelector/out_gameboard_6_mux0000) | 1     |
+columnSelector/out_gameboard_5_mux0002(columnSelector/out_gameboard_5_mux00021:O)             | NONE(*)(columnSelector/out_gameboard_5_mux0000) | 1     |
+columnSelector/out_gameboard_4_mux0002(columnSelector/out_gameboard_4_mux00021:O)             | NONE(*)(columnSelector/out_gameboard_4_mux0000) | 1     |
+columnSelector/out_gameboard_3_mux0002(columnSelector/out_gameboard_3_mux00021:O)             | NONE(*)(columnSelector/out_gameboard_3_mux0000) | 1     |
+columnSelector/out_gameboard_2_mux0002(columnSelector/out_gameboard_2_mux00021:O)             | NONE(*)(columnSelector/out_gameboard_2_mux0000) | 1     |
+columnSelector/out_gameboard_1_mux0002(columnSelector/out_gameboard_1_mux00021:O)             | NONE(*)(columnSelector/out_gameboard_1_mux0000) | 1     |
+columnSelector/out_gameboard_0_mux0002(columnSelector/out_gameboard_0_mux00021:O)             | NONE(*)(columnSelector/out_gameboard_0_mux0000) | 1     |
+columnSelector/out_gameboard_15_cmp_eq0000(fsm/Mmux_next_state111:O)                          | NONE(*)(columnSelector/out_gameboard_15)        | 18    |
+columnSelector/out_players_cells_15_not0001(columnSelector/out_players_cells_15_not00011_f5:O)| NONE(*)(columnSelector/out_players_cells_15)    | 1     |
+columnSelector/out_players_cells_14_not0001(columnSelector/out_players_cells_14_not00011:O)   | NONE(*)(columnSelector/out_players_cells_14)    | 1     |
+columnSelector/out_players_cells_13_not0001(columnSelector/out_players_cells_13_not00011:O)   | NONE(*)(columnSelector/out_players_cells_13)    | 1     |
+columnSelector/out_players_cells_12_not0001(columnSelector/out_players_cells_12_not00011:O)   | NONE(*)(columnSelector/out_players_cells_12)    | 1     |
+columnSelector/out_players_cells_11_not0001(columnSelector/out_players_cells_11_not00011:O)   | NONE(*)(columnSelector/out_players_cells_11)    | 1     |
+columnSelector/out_players_cells_10_not0001(columnSelector/out_players_cells_10_not00011:O)   | NONE(*)(columnSelector/out_players_cells_10)    | 1     |
+columnSelector/out_players_cells_9_not0001(columnSelector/out_players_cells_9_not00011:O)     | NONE(*)(columnSelector/out_players_cells_9)     | 1     |
+columnSelector/out_players_cells_8_not0001(columnSelector/out_players_cells_8_not00011:O)     | NONE(*)(columnSelector/out_players_cells_8)     | 1     |
+columnSelector/out_players_cells_7_not0001(columnSelector/out_players_cells_7_not00011:O)     | NONE(*)(columnSelector/out_players_cells_7)     | 1     |
+columnSelector/out_players_cells_6_not0001(columnSelector/out_players_cells_6_not00011:O)     | NONE(*)(columnSelector/out_players_cells_6)     | 1     |
+columnSelector/out_players_cells_5_not0001(columnSelector/out_players_cells_5_not00011:O)     | NONE(*)(columnSelector/out_players_cells_5)     | 1     |
+columnSelector/out_players_cells_4_not0001(columnSelector/out_players_cells_4_not00011:O)     | NONE(*)(columnSelector/out_players_cells_4)     | 1     |
+columnSelector/out_players_cells_3_not0001(columnSelector/out_players_cells_3_not00011:O)     | NONE(*)(columnSelector/out_players_cells_3)     | 1     |
+columnSelector/out_players_cells_2_not0001(columnSelector/out_players_cells_2_not00011:O)     | NONE(*)(columnSelector/out_players_cells_2)     | 1     |
+columnSelector/out_players_cells_1_not0001(columnSelector/out_players_cells_1_not00011:O)     | NONE(*)(columnSelector/out_players_cells_1)     | 1     |
+columnSelector/out_players_cells_0_not0001(columnSelector/out_players_cells_0_not00011:O)     | NONE(*)(columnSelector/out_players_cells_0)     | 1     |
+columnSelector/next_player_not0001(columnSelector/next_player_not0001:O)                      | NONE(*)(columnSelector/next_player)             | 1     |
+columnCounter/column_position_not0001(columnCounter/column_position_not0001:O)                | NONE(*)(columnCounter/column_position_4)        | 5     |
+add(columnCounter/add71_f5:O)                                                                 | NONE(*)(tbc/counter_0_2)                        | 12    |
+CD/clk_out                                                                                    | NONE(tbc/count_11)                              | 14    |
+----------------------------------------------------------------------------------------------+-------------------------------------------------+-------+
+(*) These 36 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
 Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
 ----------------------------------------
-No asynchronous control signals found in this design
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+reset                              | IBUF                   | 14    |
+-----------------------------------+------------------------+-------+
 
 Timing Summary:
 ---------------
-Speed Grade: -3
+Speed Grade: -4
 
-   Minimum period: 3.998ns (Maximum Frequency: 250.150MHz)
-   Minimum input arrival time before clock: 6.118ns
-   Maximum output required time after clock: 5.568ns
+   Minimum period: 8.359ns (Maximum Frequency: 119.632MHz)
+   Minimum input arrival time before clock: 9.545ns
+   Maximum output required time after clock: 6.455ns
    Maximum combinational path delay: No path found
 
-Timing Details:
----------------
+Timing Detail:
+--------------
 All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 3.998ns (frequency: 250.150MHz)
-  Total number of paths / destination ports: 1234 / 44
+  Clock period: 5.179ns (frequency: 193.078MHz)
+  Total number of paths / destination ports: 1219 / 58
 -------------------------------------------------------------------------
-Delay:               3.998ns (Levels of Logic = 3)
-  Source:            BPD/count_20 (FF)
-  Destination:       BPD/count_0 (FF)
+Delay:               5.179ns (Levels of Logic = 8)
+  Source:            CD/count_7 (FF)
+  Destination:       CD/count_0 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: BPD/count_20 to BPD/count_0
+  Data Path: CD/count_7 to CD/count_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               2   0.447   0.981  BPD/count_20 (BPD/count_20)
-     LUT6:I0->O            3   0.203   0.898  BPD/GND_2_o_GND_2_o_equal_4_o<25>1 (BPD/GND_2_o_GND_2_o_equal_4_o<25>)
-     LUT6:I2->O           14   0.203   0.958  BPD/Mcount_count_val261 (BPD/Mcount_count_val)
-     LUT2:I1->O            1   0.205   0.000  BPD/count_0_rstpot (BPD/count_0_rstpot)
-     FD:D                      0.102          BPD/count_0
+     FDR:C->Q              2   0.591   0.622  CD/count_7 (CD/count_7)
+     LUT4:I0->O            1   0.704   0.000  CD/clk_out_cmp_eq0000_wg_lut<0> (CD/clk_out_cmp_eq0000_wg_lut<0>)
+     MUXCY:S->O            1   0.464   0.000  CD/clk_out_cmp_eq0000_wg_cy<0> (CD/clk_out_cmp_eq0000_wg_cy<0>)
+     MUXCY:CI->O           1   0.059   0.000  CD/clk_out_cmp_eq0000_wg_cy<1> (CD/clk_out_cmp_eq0000_wg_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  CD/clk_out_cmp_eq0000_wg_cy<2> (CD/clk_out_cmp_eq0000_wg_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  CD/clk_out_cmp_eq0000_wg_cy<3> (CD/clk_out_cmp_eq0000_wg_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  CD/clk_out_cmp_eq0000_wg_cy<4> (CD/clk_out_cmp_eq0000_wg_cy<4>)
+     MUXCY:CI->O           1   0.059   0.000  CD/clk_out_cmp_eq0000_wg_cy<5> (CD/clk_out_cmp_eq0000_wg_cy<5>)
+     MUXCY:CI->O          29   0.331   1.261  CD/clk_out_cmp_eq0000_wg_cy<6> (CD/clk_out_cmp_eq0000)
+     FDR:R                     0.911          CD/count_0
     ----------------------------------------
-    Total                      3.998ns (1.160ns logic, 2.838ns route)
-                                       (29.0% logic, 71.0% route)
+    Total                      5.179ns (3.296ns logic, 1.883ns route)
+                                       (63.6% logic, 36.4% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'add'
-  Clock period: 2.002ns (frequency: 499.401MHz)
+  Clock period: 2.695ns (frequency: 371.057MHz)
   Total number of paths / destination ports: 24 / 12
 -------------------------------------------------------------------------
-Delay:               2.002ns (Levels of Logic = 1)
-  Source:            tbc/counter_3_0 (LATCH)
-  Destination:       tbc/counter_3_0 (LATCH)
+Delay:               2.695ns (Levels of Logic = 1)
+  Source:            tbc/counter_0_0 (LATCH)
+  Destination:       tbc/counter_0_0 (LATCH)
   Source Clock:      add falling
   Destination Clock: add falling
 
-  Data Path: tbc/counter_3_0 to tbc/counter_3_0
+  Data Path: tbc/counter_0_0 to tbc/counter_0_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     LDCE:G->Q             4   0.498   0.683  tbc/counter_3_0 (tbc/counter_3_0)
-     INV:I->O              1   0.206   0.579  tbc/Madd_counter_3[2]_GND_10_o_add_5_OUT_xor<0>11_INV_0 (tbc/counter_3[2]_GND_10_o_add_5_OUT<0>)
-     LDCE:D                    0.037          tbc/counter_3_0
+     LDCE:G->Q             4   0.676   0.587  tbc/counter_0_0 (tbc/counter_0_0)
+     INV:I->O              1   0.704   0.420  tbc/Madd_counter_0_add0000_xor<0>11_INV_0 (tbc/counter_0_add0000<0>)
+     LDCE:D                    0.308          tbc/counter_0_0
     ----------------------------------------
-    Total                      2.002ns (0.741ns logic, 1.261ns route)
-                                       (37.0% logic, 63.0% route)
+    Total                      2.695ns (1.688ns logic, 1.007ns route)
+                                       (62.6% logic, 37.4% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 451 / 43
+Timing constraint: Default period analysis for Clock 'CD/clk_out'
+  Clock period: 7.909ns (frequency: 126.438MHz)
+  Total number of paths / destination ports: 150 / 14
 -------------------------------------------------------------------------
-Offset:              6.118ns (Levels of Logic = 5)
-  Source:            Switch_2 (PAD)
+Delay:               7.909ns (Levels of Logic = 5)
+  Source:            tbc/count_2 (FF)
   Destination:       tbc/count_11 (FF)
-  Destination Clock: clk rising
+  Source Clock:      CD/clk_out rising
+  Destination Clock: CD/clk_out rising
 
-  Data Path: Switch_2 to tbc/count_11
+  Data Path: tbc/count_2 to tbc/count_11
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            14   1.222   1.205  Switch_2_IBUF (Switch_2_IBUF)
-     LUT4:I0->O            5   0.203   1.079  tbc/_n0071<3>1 (tbc/_n0071)
-     LUT6:I0->O            4   0.203   0.788  columnCounter/Mmux_add1131 (columnCounter/Mmux_add113)
-     LUT3:I1->O           12   0.203   0.909  tbc/_n0076_inv1_cepot_SW0 (N69)
-     LUT6:I5->O            1   0.205   0.000  tbc/count_11_rstpot (tbc/count_11_rstpot)
-     FD:D                      0.102          tbc/count_11
+     FDE:C->Q              2   0.591   0.622  tbc/count_2 (tbc/count_2)
+     LUT3:I0->O            2   0.704   0.482  columnCounter/column_position_not000121 (columnCounter/N7)
+     LUT4:I2->O            1   0.704   0.499  columnCounter/add18 (columnCounter/add18)
+     LUT4:I1->O            1   0.704   0.000  columnCounter/add711 (columnCounter/add71)
+     MUXF5:I1->O          13   0.321   1.062  columnCounter/add71_f5 (add)
+     LUT2:I1->O           12   0.704   0.961  tbc/count_and00001 (tbc/count_not0001_inv)
+     FDE:CE                    0.555          tbc/count_0
     ----------------------------------------
-    Total                      6.118ns (2.138ns logic, 3.980ns route)
-                                       (34.9% logic, 65.1% route)
+    Total                      7.909ns (4.283ns logic, 3.626ns route)
+                                       (54.2% logic, 45.8% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'columnSelector/out_gameboard_15_cmp_eq0000'
+  Clock period: 8.359ns (frequency: 119.632MHz)
+  Total number of paths / destination ports: 368 / 2
+-------------------------------------------------------------------------
+Delay:               8.359ns (Levels of Logic = 7)
+  Source:            columnSelector/out_gameboard_10 (LATCH)
+  Destination:       fsm/out_game_status_1 (LATCH)
+  Source Clock:      columnSelector/out_gameboard_15_cmp_eq0000 rising
+  Destination Clock: columnSelector/out_gameboard_15_cmp_eq0000 rising
+
+  Data Path: columnSelector/out_gameboard_10 to fsm/out_game_status_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD_1:G->Q             3   0.676   0.706  columnSelector/out_gameboard_10 (columnSelector/out_gameboard_10)
+     LUT4_D:I0->O          3   0.704   0.535  WD/game_status_and000211 (N25)
+     LUT4:I3->O            3   0.704   0.535  WD/game_status_and0002 (WD/game_status_and0002)
+     LUT4:I3->O            1   0.704   0.000  WD/game_status<1>140_SW0_F (N156)
+     MUXF5:I0->O           2   0.321   0.451  WD/game_status<1>140_SW0 (N96)
+     LUT4:I3->O            1   0.704   0.499  WD/game_status<1>87_SW0 (N116)
+     LUT4_D:I1->LO         1   0.704   0.104  WD/game_status<1>190 (N182)
+     LUT4:I3->O            1   0.704   0.000  fsm/Mmux_out_game_status_mux000121 (fsm/out_game_status_mux0001<1>)
+     LD_1:D                    0.308          fsm/out_game_status_1
+    ----------------------------------------
+    Total                      8.359ns (5.529ns logic, 2.830ns route)
+                                       (66.1% logic, 33.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'columnCounter/column_position_not0001'
+  Total number of paths / destination ports: 73 / 5
+-------------------------------------------------------------------------
+Offset:              6.412ns (Levels of Logic = 5)
+  Source:            Switch_0 (PAD)
+  Destination:       columnCounter/column_position_1 (LATCH)
+  Destination Clock: columnCounter/column_position_not0001 falling
+
+  Data Path: Switch_0 to columnCounter/column_position_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            13   1.218   1.158  Switch_0_IBUF (Switch_0_IBUF)
+     LUT3:I0->O            6   0.704   0.673  columnCounter/column_position_mux0002<4>110 (columnCounter/N11)
+     LUT4:I3->O            2   0.704   0.622  columnCounter/column_position_mux0002<1>17 (columnCounter/column_position_mux0002<0>37)
+     LUT3:I0->O            1   0.704   0.000  columnCounter/column_position_mux0002<1>272 (columnCounter/column_position_mux0002<1>271)
+     MUXF5:I0->O           1   0.321   0.000  columnCounter/column_position_mux0002<1>27_f5 (columnCounter/column_position_mux0002<1>)
+     LD:D                      0.308          columnCounter/column_position_1
+    ----------------------------------------
+    Total                      6.412ns (3.959ns logic, 2.453ns route)
+                                       (61.7% logic, 38.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'add'
-  Total number of paths / destination ports: 60 / 24
+  Total number of paths / destination ports: 48 / 12
 -------------------------------------------------------------------------
-Offset:              3.666ns (Levels of Logic = 2)
-  Source:            Switch_2 (PAD)
-  Destination:       tbc/counter_2_0 (LATCH)
+Offset:              4.166ns (Levels of Logic = 2)
+  Source:            Switch_0 (PAD)
+  Destination:       tbc/counter_2_2 (LATCH)
   Destination Clock: add falling
 
-  Data Path: Switch_2 to tbc/counter_2_0
+  Data Path: Switch_0 to tbc/counter_2_2
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            14   1.222   1.205  Switch_2_IBUF (Switch_2_IBUF)
-     LUT4:I0->O            5   0.203   0.714  tbc/_n0071<3>1 (tbc/_n0071)
-     LDCE:GE                   0.322          tbc/counter_2_2
+     IBUF:I->O            13   1.218   1.158  Switch_0_IBUF (Switch_0_IBUF)
+     LUT4:I0->O            3   0.704   0.531  tbc/counter_2_cmp_eq00001 (tbc/counter_2_cmp_eq0000)
+     LDCE:GE                   0.555          tbc/counter_2_2
     ----------------------------------------
-    Total                      3.666ns (1.747ns logic, 1.919ns route)
-                                       (47.7% logic, 52.3% route)
+    Total                      4.166ns (2.477ns logic, 1.689ns route)
+                                       (59.5% logic, 40.5% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'columnCounter/selected_column[3]_counters[2]_Select_21_o'
-  Total number of paths / destination ports: 47 / 5
+Timing constraint: Default OFFSET IN BEFORE for Clock 'CD/clk_out'
+  Total number of paths / destination ports: 160 / 14
 -------------------------------------------------------------------------
-Offset:              4.838ns (Levels of Logic = 4)
-  Source:            Switch_2 (PAD)
-  Destination:       columnCounter/column_position_2 (LATCH)
-  Destination Clock: columnCounter/selected_column[3]_counters[2]_Select_21_o falling
+Offset:              9.545ns (Levels of Logic = 6)
+  Source:            Switch_0 (PAD)
+  Destination:       tbc/count_11 (FF)
+  Destination Clock: CD/clk_out rising
 
-  Data Path: Switch_2 to columnCounter/column_position_2
+  Data Path: Switch_0 to tbc/count_11
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            14   1.222   1.205  Switch_2_IBUF (Switch_2_IBUF)
-     LUT4:I0->O            5   0.203   1.079  tbc/_n0071<3>1 (tbc/_n0071)
-     LUT6:I0->O            4   0.203   0.684  columnCounter/Mmux_add1131 (columnCounter/Mmux_add113)
-     LUT6:I5->O            1   0.205   0.000  columnCounter/selected_column[3]_column_position[4]_Select_22_o<1>1 (columnCounter/selected_column[3]_column_position[4]_Select_22_o)
-     LDP:D                     0.037          columnCounter/column_position_3
+     IBUF:I->O            13   1.218   1.158  Switch_0_IBUF (Switch_0_IBUF)
+     LUT3:I0->O            6   0.704   0.748  columnCounter/column_position_mux0002<4>110 (columnCounter/N11)
+     LUT4:I1->O            3   0.704   0.706  columnCounter/column_position_mux0002<4>62 (columnCounter/N15)
+     LUT2:I0->O            1   0.704   0.000  columnCounter/add712 (columnCounter/add711)
+     MUXF5:I0->O          13   0.321   1.062  columnCounter/add71_f5 (add)
+     LUT2:I1->O           12   0.704   0.961  tbc/count_and00001 (tbc/count_not0001_inv)
+     FDE:CE                    0.555          tbc/count_0
     ----------------------------------------
-    Total                      4.838ns (1.870ns logic, 2.968ns route)
-                                       (38.7% logic, 61.3% route)
+    Total                      9.545ns (4.910ns logic, 4.635ns route)
+                                       (51.4% logic, 48.6% route)
 
 =========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'columnSelector/state[1]_GND_24_o_Mux_83_o'
-  Total number of paths / destination ports: 1 / 1
--------------------------------------------------------------------------
-Offset:              3.648ns (Levels of Logic = 1)
-  Source:            columnSelector/out_gameboard_15_1 (LATCH)
-  Destination:       gameboard_out<15> (PAD)
-  Source Clock:      columnSelector/state[1]_GND_24_o_Mux_83_o falling
-
-  Data Path: columnSelector/out_gameboard_15_1 to gameboard_out<15>
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     LD:G->Q               1   0.498   0.579  columnSelector/out_gameboard_15_1 (columnSelector/out_gameboard_15_1)
-     OBUF:I->O                 2.571          gameboard_out_15_OBUF (gameboard_out<15>)
-    ----------------------------------------
-    Total                      3.648ns (3.069ns logic, 0.579ns route)
-                                       (84.1% logic, 15.9% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'columnSelector/state[1]_GND_25_o_Mux_84_o'
-  Total number of paths / destination ports: 1 / 1
--------------------------------------------------------------------------
-Offset:              3.648ns (Levels of Logic = 1)
-  Source:            columnSelector/out_gameboard_14_1 (LATCH)
-  Destination:       gameboard_out<14> (PAD)
-  Source Clock:      columnSelector/state[1]_GND_25_o_Mux_84_o falling
-
-  Data Path: columnSelector/out_gameboard_14_1 to gameboard_out<14>
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     LD:G->Q               1   0.498   0.579  columnSelector/out_gameboard_14_1 (columnSelector/out_gameboard_14_1)
-     OBUF:I->O                 2.571          gameboard_out_14_OBUF (gameboard_out<14>)
-    ----------------------------------------
-    Total                      3.648ns (3.069ns logic, 0.579ns route)
-                                       (84.1% logic, 15.9% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'columnSelector/state[1]_GND_26_o_Mux_85_o'
-  Total number of paths / destination ports: 1 / 1
--------------------------------------------------------------------------
-Offset:              3.648ns (Levels of Logic = 1)
-  Source:            columnSelector/out_gameboard_13_1 (LATCH)
-  Destination:       gameboard_out<13> (PAD)
-  Source Clock:      columnSelector/state[1]_GND_26_o_Mux_85_o falling
-
-  Data Path: columnSelector/out_gameboard_13_1 to gameboard_out<13>
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     LD:G->Q               1   0.498   0.579  columnSelector/out_gameboard_13_1 (columnSelector/out_gameboard_13_1)
-     OBUF:I->O                 2.571          gameboard_out_13_OBUF (gameboard_out<13>)
-    ----------------------------------------
-    Total                      3.648ns (3.069ns logic, 0.579ns route)
-                                       (84.1% logic, 15.9% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'columnSelector/state[1]_GND_27_o_Mux_86_o'
-  Total number of paths / destination ports: 1 / 1
--------------------------------------------------------------------------
-Offset:              3.648ns (Levels of Logic = 1)
-  Source:            columnSelector/out_gameboard_12_1 (LATCH)
-  Destination:       gameboard_out<12> (PAD)
-  Source Clock:      columnSelector/state[1]_GND_27_o_Mux_86_o falling
-
-  Data Path: columnSelector/out_gameboard_12_1 to gameboard_out<12>
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     LD:G->Q               1   0.498   0.579  columnSelector/out_gameboard_12_1 (columnSelector/out_gameboard_12_1)
-     OBUF:I->O                 2.571          gameboard_out_12_OBUF (gameboard_out<12>)
-    ----------------------------------------
-    Total                      3.648ns (3.069ns logic, 0.579ns route)
-                                       (84.1% logic, 15.9% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'columnSelector/state[1]_GND_28_o_Mux_87_o'
-  Total number of paths / destination ports: 1 / 1
--------------------------------------------------------------------------
-Offset:              3.648ns (Levels of Logic = 1)
-  Source:            columnSelector/out_gameboard_11_1 (LATCH)
-  Destination:       gameboard_out<11> (PAD)
-  Source Clock:      columnSelector/state[1]_GND_28_o_Mux_87_o falling
-
-  Data Path: columnSelector/out_gameboard_11_1 to gameboard_out<11>
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     LD:G->Q               1   0.498   0.579  columnSelector/out_gameboard_11_1 (columnSelector/out_gameboard_11_1)
-     OBUF:I->O                 2.571          gameboard_out_11_OBUF (gameboard_out<11>)
-    ----------------------------------------
-    Total                      3.648ns (3.069ns logic, 0.579ns route)
-                                       (84.1% logic, 15.9% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'columnSelector/state[1]_GND_29_o_Mux_88_o'
-  Total number of paths / destination ports: 1 / 1
--------------------------------------------------------------------------
-Offset:              3.648ns (Levels of Logic = 1)
-  Source:            columnSelector/out_gameboard_10_1 (LATCH)
-  Destination:       gameboard_out<10> (PAD)
-  Source Clock:      columnSelector/state[1]_GND_29_o_Mux_88_o falling
-
-  Data Path: columnSelector/out_gameboard_10_1 to gameboard_out<10>
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     LD:G->Q               1   0.498   0.579  columnSelector/out_gameboard_10_1 (columnSelector/out_gameboard_10_1)
-     OBUF:I->O                 2.571          gameboard_out_10_OBUF (gameboard_out<10>)
-    ----------------------------------------
-    Total                      3.648ns (3.069ns logic, 0.579ns route)
-                                       (84.1% logic, 15.9% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'columnSelector/state[1]_GND_30_o_Mux_89_o'
-  Total number of paths / destination ports: 1 / 1
--------------------------------------------------------------------------
-Offset:              3.648ns (Levels of Logic = 1)
-  Source:            columnSelector/out_gameboard_9_1 (LATCH)
-  Destination:       gameboard_out<9> (PAD)
-  Source Clock:      columnSelector/state[1]_GND_30_o_Mux_89_o falling
-
-  Data Path: columnSelector/out_gameboard_9_1 to gameboard_out<9>
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     LD:G->Q               1   0.498   0.579  columnSelector/out_gameboard_9_1 (columnSelector/out_gameboard_9_1)
-     OBUF:I->O                 2.571          gameboard_out_9_OBUF (gameboard_out<9>)
-    ----------------------------------------
-    Total                      3.648ns (3.069ns logic, 0.579ns route)
-                                       (84.1% logic, 15.9% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'columnSelector/state[1]_GND_31_o_Mux_90_o'
-  Total number of paths / destination ports: 1 / 1
--------------------------------------------------------------------------
-Offset:              3.648ns (Levels of Logic = 1)
-  Source:            columnSelector/out_gameboard_8_1 (LATCH)
-  Destination:       gameboard_out<8> (PAD)
-  Source Clock:      columnSelector/state[1]_GND_31_o_Mux_90_o falling
-
-  Data Path: columnSelector/out_gameboard_8_1 to gameboard_out<8>
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     LD:G->Q               1   0.498   0.579  columnSelector/out_gameboard_8_1 (columnSelector/out_gameboard_8_1)
-     OBUF:I->O                 2.571          gameboard_out_8_OBUF (gameboard_out<8>)
-    ----------------------------------------
-    Total                      3.648ns (3.069ns logic, 0.579ns route)
-                                       (84.1% logic, 15.9% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'columnSelector/state[1]_GND_32_o_Mux_91_o'
+Timing constraint: Default OFFSET IN BEFORE for Clock 'columnSelector/out_gameboard_15_cmp_eq0000'
   Total number of paths / destination ports: 2 / 2
 -------------------------------------------------------------------------
-Offset:              3.648ns (Levels of Logic = 1)
-  Source:            columnSelector/out_gameboard_7_1 (LATCH)
-  Destination:       gameboard_out<7> (PAD)
-  Source Clock:      columnSelector/state[1]_GND_32_o_Mux_91_o falling
+Offset:              4.659ns (Levels of Logic = 3)
+  Source:            reset (PAD)
+  Destination:       fsm/out_game_status_1 (LATCH)
+  Destination Clock: columnSelector/out_gameboard_15_cmp_eq0000 rising
 
-  Data Path: columnSelector/out_gameboard_7_1 to gameboard_out<7>
+  Data Path: reset to fsm/out_game_status_1
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     LD:G->Q               1   0.498   0.579  columnSelector/out_gameboard_7_1 (columnSelector/out_gameboard_7_1)
-     OBUF:I->O                 2.571          gameboard_out_7_OBUF (gameboard_out<7>)
+     IBUF:I->O            18   1.218   1.103  reset_IBUF (reset_IBUF)
+     LUT3:I2->O            2   0.704   0.622  WD/game_status<1>242_SW0 (N86)
+     LUT4:I0->O            1   0.704   0.000  fsm/Mmux_out_game_status_mux000121 (fsm/out_game_status_mux0001<1>)
+     LD_1:D                    0.308          fsm/out_game_status_1
     ----------------------------------------
-    Total                      3.648ns (3.069ns logic, 0.579ns route)
-                                       (84.1% logic, 15.9% route)
+    Total                      4.659ns (2.934ns logic, 1.725ns route)
+                                       (63.0% logic, 37.0% route)
 
 =========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'columnSelector/state[1]_GND_33_o_Mux_92_o'
-  Total number of paths / destination ports: 2 / 2
--------------------------------------------------------------------------
-Offset:              3.648ns (Levels of Logic = 1)
-  Source:            columnSelector/out_gameboard_6_1 (LATCH)
-  Destination:       gameboard_out<6> (PAD)
-  Source Clock:      columnSelector/state[1]_GND_33_o_Mux_92_o falling
-
-  Data Path: columnSelector/out_gameboard_6_1 to gameboard_out<6>
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     LD:G->Q               1   0.498   0.579  columnSelector/out_gameboard_6_1 (columnSelector/out_gameboard_6_1)
-     OBUF:I->O                 2.571          gameboard_out_6_OBUF (gameboard_out<6>)
-    ----------------------------------------
-    Total                      3.648ns (3.069ns logic, 0.579ns route)
-                                       (84.1% logic, 15.9% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'columnSelector/state[1]_GND_34_o_Mux_93_o'
-  Total number of paths / destination ports: 2 / 2
--------------------------------------------------------------------------
-Offset:              3.648ns (Levels of Logic = 1)
-  Source:            columnSelector/out_gameboard_5_1 (LATCH)
-  Destination:       gameboard_out<5> (PAD)
-  Source Clock:      columnSelector/state[1]_GND_34_o_Mux_93_o falling
-
-  Data Path: columnSelector/out_gameboard_5_1 to gameboard_out<5>
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     LD:G->Q               1   0.498   0.579  columnSelector/out_gameboard_5_1 (columnSelector/out_gameboard_5_1)
-     OBUF:I->O                 2.571          gameboard_out_5_OBUF (gameboard_out<5>)
-    ----------------------------------------
-    Total                      3.648ns (3.069ns logic, 0.579ns route)
-                                       (84.1% logic, 15.9% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'columnSelector/state[1]_GND_35_o_Mux_94_o'
-  Total number of paths / destination ports: 2 / 2
--------------------------------------------------------------------------
-Offset:              3.648ns (Levels of Logic = 1)
-  Source:            columnSelector/out_gameboard_4_1 (LATCH)
-  Destination:       gameboard_out<4> (PAD)
-  Source Clock:      columnSelector/state[1]_GND_35_o_Mux_94_o falling
-
-  Data Path: columnSelector/out_gameboard_4_1 to gameboard_out<4>
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     LD:G->Q               1   0.498   0.579  columnSelector/out_gameboard_4_1 (columnSelector/out_gameboard_4_1)
-     OBUF:I->O                 2.571          gameboard_out_4_OBUF (gameboard_out<4>)
-    ----------------------------------------
-    Total                      3.648ns (3.069ns logic, 0.579ns route)
-                                       (84.1% logic, 15.9% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'columnSelector/state[1]_GND_36_o_Mux_95_o'
-  Total number of paths / destination ports: 2 / 2
--------------------------------------------------------------------------
-Offset:              3.648ns (Levels of Logic = 1)
-  Source:            columnSelector/out_gameboard_3_1 (LATCH)
-  Destination:       gameboard_out<3> (PAD)
-  Source Clock:      columnSelector/state[1]_GND_36_o_Mux_95_o falling
-
-  Data Path: columnSelector/out_gameboard_3_1 to gameboard_out<3>
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     LD:G->Q               1   0.498   0.579  columnSelector/out_gameboard_3_1 (columnSelector/out_gameboard_3_1)
-     OBUF:I->O                 2.571          gameboard_out_3_OBUF (gameboard_out<3>)
-    ----------------------------------------
-    Total                      3.648ns (3.069ns logic, 0.579ns route)
-                                       (84.1% logic, 15.9% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'columnSelector/state[1]_GND_37_o_Mux_96_o'
-  Total number of paths / destination ports: 2 / 2
--------------------------------------------------------------------------
-Offset:              3.648ns (Levels of Logic = 1)
-  Source:            columnSelector/out_gameboard_2_1 (LATCH)
-  Destination:       gameboard_out<2> (PAD)
-  Source Clock:      columnSelector/state[1]_GND_37_o_Mux_96_o falling
-
-  Data Path: columnSelector/out_gameboard_2_1 to gameboard_out<2>
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     LD:G->Q               1   0.498   0.579  columnSelector/out_gameboard_2_1 (columnSelector/out_gameboard_2_1)
-     OBUF:I->O                 2.571          gameboard_out_2_OBUF (gameboard_out<2>)
-    ----------------------------------------
-    Total                      3.648ns (3.069ns logic, 0.579ns route)
-                                       (84.1% logic, 15.9% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'columnSelector/state[1]_GND_38_o_Mux_97_o'
-  Total number of paths / destination ports: 2 / 2
--------------------------------------------------------------------------
-Offset:              3.648ns (Levels of Logic = 1)
-  Source:            columnSelector/out_gameboard_1_1 (LATCH)
-  Destination:       gameboard_out<1> (PAD)
-  Source Clock:      columnSelector/state[1]_GND_38_o_Mux_97_o falling
-
-  Data Path: columnSelector/out_gameboard_1_1 to gameboard_out<1>
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     LD:G->Q               1   0.498   0.579  columnSelector/out_gameboard_1_1 (columnSelector/out_gameboard_1_1)
-     OBUF:I->O                 2.571          gameboard_out_1_OBUF (gameboard_out<1>)
-    ----------------------------------------
-    Total                      3.648ns (3.069ns logic, 0.579ns route)
-                                       (84.1% logic, 15.9% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'columnSelector/state[1]_GND_39_o_Mux_98_o'
-  Total number of paths / destination ports: 2 / 2
--------------------------------------------------------------------------
-Offset:              3.648ns (Levels of Logic = 1)
-  Source:            columnSelector/out_gameboard_0_1 (LATCH)
-  Destination:       gameboard_out<0> (PAD)
-  Source Clock:      columnSelector/state[1]_GND_39_o_Mux_98_o falling
-
-  Data Path: columnSelector/out_gameboard_0_1 to gameboard_out<0>
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     LD:G->Q               1   0.498   0.579  columnSelector/out_gameboard_0_1 (columnSelector/out_gameboard_0_1)
-     OBUF:I->O                 2.571          gameboard_out_0_OBUF (gameboard_out<0>)
-    ----------------------------------------
-    Total                      3.648ns (3.069ns logic, 0.579ns route)
-                                       (84.1% logic, 15.9% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+Timing constraint: Default OFFSET OUT AFTER for Clock 'columnSelector/out_gameboard_15_cmp_eq0000'
   Total number of paths / destination ports: 16 / 8
 -------------------------------------------------------------------------
-Offset:              5.568ns (Levels of Logic = 2)
-  Source:            fsm/current_state_FSM_FFd1 (FF)
-  Destination:       led_2 (PAD)
-  Source Clock:      clk rising
+Offset:              6.047ns (Levels of Logic = 2)
+  Source:            fsm/out_game_status_0 (LATCH)
+  Destination:       leds<6> (PAD)
+  Source Clock:      columnSelector/out_gameboard_15_cmp_eq0000 rising
 
-  Data Path: fsm/current_state_FSM_FFd1 to led_2
+  Data Path: fsm/out_game_status_0 to leds<6>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q             42   0.447   1.662  fsm/current_state_FSM_FFd1 (fsm/current_state_FSM_FFd1)
-     LUT4:I1->O            4   0.205   0.683  led_61 (led_6_OBUF)
-     OBUF:I->O                 2.571          led_2_OBUF (led_2)
+     LD_1:G->Q             5   0.676   0.808  fsm/out_game_status_0 (fsm/out_game_status_0)
+     LUT4:I0->O            4   0.704   0.587  leds<2>1 (leds_2_OBUF)
+     OBUF:I->O                 3.272          leds_6_OBUF (leds<6>)
     ----------------------------------------
-    Total                      5.568ns (3.223ns logic, 2.345ns route)
-                                       (57.9% logic, 42.1% route)
+    Total                      6.047ns (4.652ns logic, 1.395ns route)
+                                       (76.9% logic, 23.1% route)
 
 =========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'fsm/current_state[1]_GND_58_o_Mux_15_o'
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CD/clk_out'
   Total number of paths / destination ports: 16 / 8
 -------------------------------------------------------------------------
-Offset:              4.796ns (Levels of Logic = 2)
-  Source:            fsm/out_game_status_1 (LATCH)
-  Destination:       led_4 (PAD)
-  Source Clock:      fsm/current_state[1]_GND_58_o_Mux_15_o falling
+Offset:              6.455ns (Levels of Logic = 2)
+  Source:            fsm/current_state_0 (FF)
+  Destination:       leds<6> (PAD)
+  Source Clock:      CD/clk_out rising
 
-  Data Path: fsm/out_game_status_1 to led_4
+  Data Path: fsm/current_state_0 to leds<6>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     LDP:G->Q              5   0.498   0.943  fsm/out_game_status_1 (fsm/out_game_status_1)
-     LUT4:I1->O            1   0.205   0.579  DGS/LEDs<5>1 (led_5_OBUF)
-     OBUF:I->O                 2.571          led_5_OBUF (led_5)
+     FDC:C->Q             45   0.591   1.301  fsm/current_state_0 (fsm/current_state_0)
+     LUT4:I2->O            4   0.704   0.587  leds<2>1 (leds_2_OBUF)
+     OBUF:I->O                 3.272          leds_6_OBUF (leds<6>)
     ----------------------------------------
-    Total                      4.796ns (3.274ns logic, 1.522ns route)
-                                       (68.3% logic, 31.7% route)
-
-=========================================================================
-
-Cross Clock Domains Report:
---------------------------
-
-Clock to Setup on destination clock add
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-add            |         |         |    2.002|         |
----------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock clk
-------------------------------------------+---------+---------+---------+---------+
-                                          | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock                              |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
-------------------------------------------+---------+---------+---------+---------+
-add                                       |         |    1.851|         |         |
-clk                                       |    3.998|         |         |         |
-columnSelector/state[1]_GND_24_o_Mux_83_o |         |   21.993|         |         |
-columnSelector/state[1]_GND_25_o_Mux_84_o |         |   22.667|         |         |
-columnSelector/state[1]_GND_26_o_Mux_85_o |         |   21.791|         |         |
-columnSelector/state[1]_GND_27_o_Mux_86_o |         |   22.146|         |         |
-columnSelector/state[1]_GND_28_o_Mux_87_o |         |   21.953|         |         |
-columnSelector/state[1]_GND_29_o_Mux_88_o |         |   23.050|         |         |
-columnSelector/state[1]_GND_30_o_Mux_89_o |         |   21.680|         |         |
-columnSelector/state[1]_GND_31_o_Mux_90_o |         |   21.975|         |         |
-columnSelector/state[1]_GND_32_o_Mux_91_o |         |   22.192|         |         |
-columnSelector/state[1]_GND_33_o_Mux_92_o |         |   22.860|         |         |
-columnSelector/state[1]_GND_34_o_Mux_93_o |         |   22.285|         |         |
-columnSelector/state[1]_GND_35_o_Mux_94_o |         |   22.298|         |         |
-columnSelector/state[1]_GND_36_o_Mux_95_o |         |   21.655|         |         |
-columnSelector/state[1]_GND_37_o_Mux_96_o |         |   22.845|         |         |
-columnSelector/state[1]_GND_38_o_Mux_97_o |         |   21.820|         |         |
-columnSelector/state[1]_GND_39_o_Mux_98_o |         |   22.333|         |         |
-columnSelector/state[1]_GND_56_o_Mux_115_o|         |    2.038|         |         |
-------------------------------------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock columnCounter/selected_column[3]_counters[2]_Select_21_o
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk            |         |         |    2.784|         |
----------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock columnSelector/state[1]_GND_24_o_Mux_83_o
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk            |         |         |    2.225|         |
----------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock columnSelector/state[1]_GND_25_o_Mux_84_o
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk            |         |         |    2.225|         |
----------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock columnSelector/state[1]_GND_26_o_Mux_85_o
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk            |         |         |    2.225|         |
----------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock columnSelector/state[1]_GND_27_o_Mux_86_o
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk            |         |         |    2.225|         |
----------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock columnSelector/state[1]_GND_28_o_Mux_87_o
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk            |         |         |    2.225|         |
----------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock columnSelector/state[1]_GND_29_o_Mux_88_o
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk            |         |         |    2.225|         |
----------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock columnSelector/state[1]_GND_30_o_Mux_89_o
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk            |         |         |    2.225|         |
----------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock columnSelector/state[1]_GND_31_o_Mux_90_o
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk            |         |         |    2.225|         |
----------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock columnSelector/state[1]_GND_32_o_Mux_91_o
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk            |         |         |    2.225|         |
----------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock columnSelector/state[1]_GND_33_o_Mux_92_o
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk            |         |         |    2.225|         |
----------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock columnSelector/state[1]_GND_34_o_Mux_93_o
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk            |         |         |    2.225|         |
----------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock columnSelector/state[1]_GND_35_o_Mux_94_o
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk            |         |         |    2.225|         |
----------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock columnSelector/state[1]_GND_36_o_Mux_95_o
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk            |         |         |    2.225|         |
----------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock columnSelector/state[1]_GND_37_o_Mux_96_o
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk            |         |         |    2.225|         |
----------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock columnSelector/state[1]_GND_38_o_Mux_97_o
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk            |         |         |    2.225|         |
----------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock columnSelector/state[1]_GND_39_o_Mux_98_o
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk            |         |         |    2.225|         |
----------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock columnSelector/state[1]_GND_56_o_Mux_115_o
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk            |         |         |    2.123|         |
----------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock fsm/current_state[1]_GND_58_o_Mux_15_o
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk            |         |         |    2.545|         |
----------------+---------+---------+---------+---------+
+    Total                      6.455ns (4.567ns logic, 1.888ns route)
+                                       (70.7% logic, 29.3% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 578.00 secs
-Total CPU time to Xst completion: 578.28 secs
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 7.71 secs
  
 --> 
 
-Total memory usage is 5968256 kilobytes
+Total memory usage is 4529844 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   65 (   0 filtered)
-Number of infos    :    1 (   0 filtered)
+Number of warnings :   63 (   0 filtered)
+Number of infos    :   53 (   0 filtered)
 
