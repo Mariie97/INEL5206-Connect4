@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.15 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.15 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
  
 --> Reading design: connect4_top.prj
 
@@ -154,7 +154,7 @@ Synthesizing Unit <connect4_top>.
         column = 3'b001
         statep = 2'b01
     Summary:
-	no macro.
+	inferred  32 Multiplexer(s).
 Unit <connect4_top> synthesized.
 
 Synthesizing Unit <ClockDelay>.
@@ -293,8 +293,8 @@ Macro Statistics
  7-bit register                                        : 1
 # Comparators                                          : 1
  5-bit comparator lessequal                            : 1
-# Multiplexers                                         : 82
- 1-bit 2-to-1 multiplexer                              : 1
+# Multiplexers                                         : 114
+ 1-bit 2-to-1 multiplexer                              : 33
  16-bit 2-to-1 multiplexer                             : 4
  2-bit 2-to-1 multiplexer                              : 25
  32-bit 2-to-1 multiplexer                             : 48
@@ -332,8 +332,8 @@ Macro Statistics
  Flip-Flops                                            : 53
 # Comparators                                          : 1
  5-bit comparator lessequal                            : 1
-# Multiplexers                                         : 82
- 1-bit 2-to-1 multiplexer                              : 1
+# Multiplexers                                         : 114
+ 1-bit 2-to-1 multiplexer                              : 33
  16-bit 2-to-1 multiplexer                             : 4
  2-bit 2-to-1 multiplexer                              : 25
  32-bit 2-to-1 multiplexer                             : 48
@@ -373,7 +373,7 @@ Optimizing unit <DisplayGameStatus> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block connect4_top, actual ratio is 3.
+Found area constraint ratio of 100 (+ 5) on block connect4_top, actual ratio is 4.
 
 Final Macro Processing ...
 
@@ -405,32 +405,32 @@ Top Level Output File Name         : connect4_top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 228
+# BELS                             : 260
 #      GND                         : 1
-#      INV                         : 8
+#      INV                         : 9
 #      LUT1                        : 27
-#      LUT2                        : 6
+#      LUT2                        : 38
 #      LUT3                        : 18
 #      LUT4                        : 17
 #      LUT5                        : 29
-#      LUT6                        : 61
+#      LUT6                        : 60
 #      MUXCY                       : 27
 #      MUXF7                       : 5
 #      VCC                         : 1
 #      XORCY                       : 28
 # FlipFlops/Latches                : 93
-#      FD                          : 6
+#      FD                          : 5
 #      FDC                         : 4
 #      FDCE                        : 12
-#      FDE                         : 37
+#      FDE                         : 38
 #      FDR                         : 29
 #      FDS                         : 5
 # Clock Buffers                    : 2
 #      BUFG                        : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 14
+# IO Buffers                       : 78
 #      IBUF                        : 6
-#      OBUF                        : 8
+#      OBUF                        : 72
 
 Device utilization summary:
 ---------------------------
@@ -440,19 +440,19 @@ Selected Device : 6slx9csg324-3
 
 Slice Logic Utilization: 
  Number of Slice Registers:              93  out of  11440     0%  
- Number of Slice LUTs:                  166  out of   5720     2%  
-    Number used as Logic:               166  out of   5720     2%  
+ Number of Slice LUTs:                  198  out of   5720     3%  
+    Number used as Logic:               198  out of   5720     3%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    166
-   Number with an unused Flip Flop:      73  out of    166    43%  
-   Number with an unused LUT:             0  out of    166     0%  
-   Number of fully used LUT-FF pairs:    93  out of    166    56%  
+ Number of LUT Flip Flop pairs used:    198
+   Number with an unused Flip Flop:     105  out of    198    53%  
+   Number with an unused LUT:             0  out of    198     0%  
+   Number of fully used LUT-FF pairs:    93  out of    198    46%  
    Number of unique control sets:        12
 
 IO Utilization: 
- Number of IOs:                          15
- Number of bonded IOBs:                  15  out of    200     7%  
+ Number of IOs:                          79
+ Number of bonded IOBs:                  79  out of    200    39%  
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
@@ -492,7 +492,7 @@ Speed Grade: -3
 
    Minimum period: 6.608ns (Maximum Frequency: 151.327MHz)
    Minimum input arrival time before clock: 3.960ns
-   Maximum output required time after clock: 3.668ns
+   Maximum output required time after clock: 4.678ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -501,10 +501,10 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 4.460ns (frequency: 224.223MHz)
-  Total number of paths / destination ports: 1219 / 57
+  Clock period: 4.437ns (frequency: 225.395MHz)
+  Total number of paths / destination ports: 1219 / 58
 -------------------------------------------------------------------------
-Delay:               4.460ns (Levels of Logic = 2)
+Delay:               4.437ns (Levels of Logic = 2)
   Source:            CD/count_20 (FF)
   Destination:       CD/count_0 (FF)
   Source Clock:      clk rising
@@ -515,12 +515,12 @@ Delay:               4.460ns (Levels of Logic = 2)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FDR:C->Q              2   0.447   0.981  CD/count_20 (CD/count_20)
-     LUT6:I0->O            2   0.203   0.961  CD/GND_2_o_GND_2_o_equal_3_o<27>1 (CD/GND_2_o_GND_2_o_equal_3_o<27>)
-     LUT5:I0->O           28   0.203   1.234  CD/GND_2_o_GND_2_o_equal_3_o<27>6 (CD/GND_2_o_GND_2_o_equal_3_o)
+     LUT6:I0->O            1   0.203   0.924  CD/GND_2_o_GND_2_o_equal_3_o<27>1 (CD/GND_2_o_GND_2_o_equal_3_o<27>)
+     LUT5:I0->O           29   0.203   1.249  CD/GND_2_o_GND_2_o_equal_3_o<27>6 (CD/GND_2_o_GND_2_o_equal_3_o)
      FDR:R                     0.430          CD/count_0
     ----------------------------------------
-    Total                      4.460ns (1.283ns logic, 3.177ns route)
-                                       (28.8% logic, 71.2% route)
+    Total                      4.437ns (1.283ns logic, 3.154ns route)
+                                       (28.9% logic, 71.1% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CD/clk_out'
@@ -570,22 +570,23 @@ Offset:              3.960ns (Levels of Logic = 4)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'CD/clk_out'
-  Total number of paths / destination ports: 7 / 7
+  Total number of paths / destination ports: 103 / 71
 -------------------------------------------------------------------------
-Offset:              3.668ns (Levels of Logic = 1)
-  Source:            DGS/LEDs_1 (FF)
-  Destination:       leds<5> (PAD)
+Offset:              4.678ns (Levels of Logic = 2)
+  Source:            columnSelector/out_gameboard_3 (FF)
+  Destination:       P9_leds<7> (PAD)
   Source Clock:      CD/clk_out rising
 
-  Data Path: DGS/LEDs_1 to leds<5>
+  Data Path: columnSelector/out_gameboard_3 to P9_leds<7>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               3   0.447   0.650  DGS/LEDs_1 (DGS/LEDs_1)
-     OBUF:I->O                 2.571          leds_5_OBUF (leds<5>)
+     FDE:C->Q              7   0.447   0.878  columnSelector/out_gameboard_3 (columnSelector/out_gameboard_3)
+     LUT2:I0->O            1   0.203   0.579  Mmux_P9_leds<7>11 (P9_leds_7_OBUF)
+     OBUF:I->O                 2.571          P9_leds_7_OBUF (P9_leds<7>)
     ----------------------------------------
-    Total                      3.668ns (3.018ns logic, 0.650ns route)
-                                       (82.3% logic, 17.7% route)
+    Total                      4.678ns (3.221ns logic, 1.457ns route)
+                                       (68.9% logic, 31.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
@@ -600,7 +601,7 @@ Offset:              3.634ns (Levels of Logic = 1)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               2   0.447   0.616  CD/clk_out (CD/clk_out)
+     FDE:C->Q              2   0.447   0.616  CD/clk_out (CD/clk_out)
      OBUF:I->O                 2.571          clock_pos_OBUF (clock_pos)
     ----------------------------------------
     Total                      3.634ns (3.018ns logic, 0.616ns route)
@@ -616,7 +617,7 @@ Clock to Setup on destination clock CD/clk_out
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-CD/clk_out     |    6.044|    3.304|    2.567|         |
+CD/clk_out     |    6.134|    3.304|    2.567|         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock clk
@@ -624,14 +625,14 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    4.460|         |         |         |
+clk            |    4.437|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 10.00 secs
-Total CPU time to Xst completion: 9.74 secs
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 6.33 secs
  
 --> 
 

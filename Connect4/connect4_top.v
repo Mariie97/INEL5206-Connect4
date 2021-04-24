@@ -12,35 +12,25 @@ module connect4_top(
 	clk,
 	reset,
 	clock_pos,
-//	pin_0,
-//	pin_1,
-//	pin_2,
-//	pin_3,
-//	pin_4,
-//	pin_5,
-//	pin_6,
-//	pin_7,
-	//state,
+	P9_leds,
+	P8_leds,
+	P7_leds,
+	P6_leds,
 	Switch_0,
 	Switch_1,
 	Switch_2,
 	Switch_3,
 	BTN_EAST,
-	leds
-//	gameboard_out,
-//	led_1,
-//	led_2,
-//	led_3,
-//	led_4,
-//	led_5,
-//	led_6,
-//	led_7,
-//	led_8,
-	
+	leds,
+	gameboard,
+	player_moves
 	
 	);
 	
-	 wire[15:0] gameboard_out;
+	output [15:0]gameboard;
+	output [15:0]player_moves;
+	
+	wire[15:0] gameboard_out;
 	
 	input Switch_0;
 	input Switch_1;
@@ -50,22 +40,21 @@ module connect4_top(
 	
 	input clk;
 	input reset;
-	//input [2:0] selected_column;
+	
 	
 	//FPGA LEDS
 	output [6:0] leds;
 	output reg clock_pos;
 	
-	
-//	output reg led_1;
-//	output reg led_2;
-//	output reg led_3;
-//	output reg led_4;
-//	output reg led_5;
-//	output reg led_6;
-//	output reg led_7;
-//	output reg led_8;
-	
+	//Output LEDS
+	output P9_leds;
+	output P8_leds;
+	output P7_leds;
+	output P6_leds;
+	reg [7:0] P9_leds = 0;
+	reg [7:0] P8_leds = 0;
+	reg [7:0] P7_leds = 0;
+	reg [7:0] P6_leds = 0;
 	
 //	output pin_0;
 //	output pin_1;
@@ -85,16 +74,7 @@ module connect4_top(
 //	reg pin_6 = 0;
 //	reg pin_7 = 0;
 
-	//wire pin_0;
-//	wire pin_1;
-//	wire pin_2;
-//	wire pin_3;
-//	wire pin_4;
-//	wire pin_5;
-//	wire pin_6;
-//	wire pin_7;
-	
-	
+
 	
 	wire [15:0]player_cells;
 	wire [4:0] column_position;
@@ -110,15 +90,7 @@ module connect4_top(
    wire [2:0] counter_3;
    wire [1:0] c_register;
 	
-//	wire pin0;
-//	wire pin1;
-//	wire pin2;
-//	wire pin3;
-//	wire pin4;
-//	wire pin5;
-//	wire pin6;
-//	wire pin7;
-	
+
 	
 	parameter column = 3'b001;
 	parameter statep = 2'b01;
@@ -195,80 +167,240 @@ module connect4_top(
 	end
 
 	
-//	always@(gameboard_out, player_cells) begin
-//	
-//		//if(BTN_EAST == 1)begin
-//			if(gameboard_out[0] == 1)begin
-//				led_1 = 1;
-//			end else begin
-//				led_1= 0;
-//			end	
-//		//end
-//		
-//		//if(BTN_EAST == 1)begin
-//		if(gameboard_out[1] == 1)begin
-//			led_2 = 1;
-//		end else begin
-//			led_2 = 0;
-//		end
-//		//end
-//		
-//		//if(BTN_EAST == 1)begin
-//		if(gameboard_out[2] == 1)begin
-//			led_3= 1;
-//		end else begin
-//			led_3 = 0;
-//		end
-//		//end
-//		
-//		//if(BTN_EAST == 1)begin
-//		if(gameboard_out[3] == 1)begin
-//			led_4 = 1;
-//		end else begin
-//			led_4 = 0;
-//		end
-//	//	end
-//		
-//		//if(BTN_EAST == 1)begin
-//		if(gameboard_out[4] == 1)begin
-//			led_5 = 1;
-//		end else begin
-//			led_5 = 0;
-//		end
-//		//end
-//		
-//		//if(BTN_EAST == 1)begin
-//		if(gameboard_out[5] == 1)begin
-//			led_6 = 1;
-//		end else begin
-//			led_6 = 0;
-//		end
-//		//end
-//		
-//		//if(BTN_EAST == 1)begin
-//		if(gameboard_out[6] == 1)begin
-//			led_7 = 1;
-//		end else begin
-//			led_7 = 0;
-//		end
-//		//end
-//		
-//		//if(BTN_EAST == 1)begin
-//		if(gameboard_out[7] == 1)begin
-//			led_8 = 1;
-//		end else begin
-//			led_8 = 0;
-//		end
-		//end
-//		pin_0 = gameboard_out[0];
-//		pin_1 = gameboard_out[1];
-//		pin_2 = gameboard_out[2];
-//		pin_3 = gameboard_out[3];
-//		pin_4 = gameboard_out[4];
-//		pin_5 = gameboard_out[5];
-//		pin_6 = gameboard_out[6];
-//		pin_7 = gameboard_out[7];
-//	end
+	assign gameboard = gameboard_out;
+	assign player_moves = player_cells;
+	
+	always@(gameboard or player_moves) begin
+	
+		//----First column----
+		if(gameboard[0] == 1)begin
+			if(player_moves[0] == 0)begin
+				P9_leds[0] = 1;
+				P9_leds[1] = 0;
+			end else begin
+				P9_leds[0] = 0;
+				P9_leds[1] = 1;
+			end
+		end else begin
+			P9_leds[0] = 0;
+			P9_leds[1] = 0;
+		end	
+		
+		
+		
+		if(gameboard[1] == 1)begin
+			if(player_moves[1] == 0)begin
+				P9_leds[2] = 1;
+				P9_leds[3] = 0;
+			end else begin
+				P9_leds[2] = 0;
+				P9_leds[3] = 1;
+			end
+		end else begin
+			P9_leds[2] = 0;
+			P9_leds[3] = 0;
+		end	
+		
+		
+		
+		if(gameboard[2] == 1)begin
+			if(player_moves[2] == 0)begin
+				P9_leds[4] = 1;
+				P9_leds[5] = 0;
+			end else begin
+				P9_leds[4] = 0;
+				P9_leds[5] = 1;
+			end
+		end else begin
+			P9_leds[4] = 0;
+			P9_leds[5] = 0;
+		end
+		
+		
+		
+		if(gameboard[3] == 1)begin
+			if(player_moves[3] == 0)begin
+				P9_leds[6] = 1;
+				P9_leds[7] = 0;
+			end else begin
+				P9_leds[6] = 0;
+				P9_leds[7] = 1;
+			end
+		end else begin
+			P9_leds[6] = 0;
+			P9_leds[7] = 0;
+		end
+	
+		//----Second Column---- 
+		if(gameboard[4] == 1)begin
+			if(player_moves[4] == 0)begin
+				P8_leds[0] = 1;
+				P8_leds[1] = 0;
+			end else begin
+				P8_leds[0] = 0;
+				P8_leds[1] = 1;
+			end
+		end else begin
+			P8_leds[0] = 0;
+			P8_leds[1] = 0;
+		end
+		
+		
+		if(gameboard[5] == 1)begin
+			if(player_moves[5] == 0)begin
+				P8_leds[2] = 1;
+				P8_leds[3] = 0;
+			end else begin
+				P8_leds[2] = 0;
+				P8_leds[3] = 1;
+			end
+		end else begin
+			P8_leds[2] = 0;
+			P8_leds[3] = 0;
+		end
+		
+		
+		if(gameboard[6] == 1)begin
+			if(player_moves[6] == 0)begin
+				P8_leds[4] = 1;
+				P8_leds[5] = 0;
+			end else begin
+				P8_leds[4] = 0;
+				P8_leds[5] = 1;
+			end
+		end else begin
+			P8_leds[4] = 0;
+			P8_leds[5] = 0;
+		end
+		
+		
+		if(gameboard[7] == 1)begin
+			if(player_moves[7] == 0)begin
+				P8_leds[6] = 1;
+				P8_leds[7] = 0;
+			end else begin
+				P8_leds[6] = 0;
+				P8_leds[7] = 1;
+			end
+		end else begin
+			P8_leds[6] = 0;
+			P8_leds[7] = 0;
+		end
+		
+		//----Third Column----
+		if(gameboard[8] == 1)begin
+			if(player_moves[8] == 0)begin
+				P7_leds[0] = 1;
+				P7_leds[1] = 0;
+			end else begin
+				P7_leds[0] = 0;
+				P7_leds[1] = 1;
+			end
+		end else begin
+			P7_leds[0] = 0;
+			P7_leds[1] = 0;
+		end
+		
+		
+		if(gameboard[9] == 1)begin
+			if(player_moves[9] == 0)begin
+				P7_leds[2] = 1;
+				P7_leds[3] = 0;
+			end else begin
+				P7_leds[2] = 0;
+				P7_leds[3] = 1;
+			end
+		end else begin
+			P7_leds[2] = 0;
+			P7_leds[3] = 0;
+		end
+		
+		
+		if(gameboard[10] == 1)begin
+			if(player_moves[10] == 0)begin
+				P7_leds[4] = 1;
+				P7_leds[5] = 0;
+			end else begin
+				P7_leds[4] = 0;
+				P7_leds[5] = 1;
+			end
+		end else begin
+			P7_leds[4] = 0;
+			P7_leds[5] = 0;
+		end
+		
+		if(gameboard[11] == 1)begin
+			if(player_moves[11] == 0)begin
+				P7_leds[6] = 1;
+				P7_leds[7] = 0;
+			end else begin
+				P7_leds[6] = 0;
+				P7_leds[7] = 1;
+			end
+		end else begin
+			P7_leds[6] = 0;
+			P7_leds[7] = 0;
+		end
+		
+		//----Fouth Column----
+		if(gameboard[12] == 1)begin
+			if(player_moves[12] == 0)begin
+				P6_leds[0] = 1;
+				P6_leds[1] = 0;
+			end else begin
+				P6_leds[0] = 0;
+				P6_leds[1] = 1;
+			end
+		end else begin
+			P6_leds[0] = 0;
+			P6_leds[1] = 0;
+		end
+		
+		
+		if(gameboard[13] == 1)begin
+			if(player_moves[13] == 0)begin
+				P6_leds[2] = 1;
+				P6_leds[3] = 0;
+			end else begin
+				P6_leds[2] = 0;
+				P6_leds[3] = 1;
+			end
+		end else begin
+			P6_leds[2] = 0;
+			P6_leds[3] = 0;
+		end
+		
+		
+		if(gameboard[14] == 1)begin
+			if(player_moves[14] == 0)begin
+				P6_leds[4] = 1;
+				P6_leds[5] = 0;
+			end else begin
+				P6_leds[4] = 0;
+				P6_leds[5] = 1;
+			end
+		end else begin
+			P6_leds[4] = 0;
+			P6_leds[5] = 0;
+		end
+		
+		
+		if(gameboard[15] == 1)begin
+			if(player_moves[15] == 0)begin
+				P6_leds[6] = 1;
+				P6_leds[7] = 0;
+			end else begin
+				P6_leds[6] = 0;
+				P6_leds[7] = 1;
+			end
+		end else begin
+			P6_leds[6] = 0;
+			P6_leds[7] = 0;
+		end
+
+		
+
+	end
 	
 
 	
