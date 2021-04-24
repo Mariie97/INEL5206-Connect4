@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4\connect4_top.ncd
-OUTFILE=C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4\connect4_top.bit
-FAMILY=Spartan3E
-PART=xc3s500e-4fg320
-WORKINGDIR=C:\Users\cmcsc\Desktop\Segundo Semestre Virtual\Switching 2\Project\repo\INEL5206-Connect4\Connect4
+INFILE=C:\Users\vince\Desktop\Xilinx Projects\INEL5206-Connect4\Connect4\connect4_top.ncd
+OUTFILE=C:\Users\vince\Desktop\Xilinx Projects\INEL5206-Connect4\Connect4\connect4_top.bit
+FAMILY=Spartan6
+PART=xc6slx9-3csg324
+WORKINGDIR=C:\Users\vince\Desktop\Xilinx Projects\INEL5206-Connect4\Connect4
 LICENSE=WebPack
-USER_INFO=212137089_0_0_533
+USER_INFO=212163257_0_0_179

@@ -17,9 +17,9 @@ initial begin
 	counter_3 = 0;
 end
 
-always@(negedge clk or posedge reset)
+always@(negedge clk or negedge reset)
 begin
-	if(reset==1'b1) begin
+	if(reset==1'b0) begin
 			counter_0 = 0;
 			counter_1 = 0;
 			counter_2 = 0;

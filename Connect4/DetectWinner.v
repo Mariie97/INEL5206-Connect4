@@ -15,9 +15,9 @@ initial begin
 	game_status = still_playing;
 end
 
-always@(posedge clk or posedge reset)
+always@(posedge clk or negedge reset)
 begin
-if(reset==1'b1) game_status = still_playing;
+if(reset==1'b0) game_status = still_playing;
 else begin
 	if(game_board[12] == 1 && game_board[13] == 1 && game_board[14] == 1 && game_board[15] == 1 && 
 		player_cells[12] == 1 && player_cells[13] == 1 && player_cells[14] == 1 && player_cells[15] == 1)

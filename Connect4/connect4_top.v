@@ -8,17 +8,6 @@
 
 //////////////////////////////////////////////////////////////////////////////////
 module connect4_top(
-//	input clk,
-//   output wire pin_0,
-//	output wire pin_1,
-//	output wire pin_2,
-//	output wire pin_3,
-//	output wire pin_4,
-//	output wire pin_5,
-//	output wire pin_6,
-//	output wire pin_7,
-//	input [1:0] state,
-//	output wire [41:0] gameboard_out
 
 	clk,
 	reset,
@@ -48,7 +37,7 @@ module connect4_top(
 //	led_7,
 //	led_8,
 	
-	//selected_column
+	
 	);
 	
 	 wire[15:0] gameboard_out;
@@ -58,8 +47,7 @@ module connect4_top(
 	input Switch_2;
 	input Switch_3;
 	input BTN_EAST;
-	//input Switch_3;
-	//input [1:0] state;
+	
 	input clk;
 	input reset;
 	//input [2:0] selected_column;
@@ -282,28 +270,7 @@ module connect4_top(
 //		pin_7 = gameboard_out[7];
 //	end
 	
-//	always@(gameboard_out[0], gameboard_out[1], gameboard_out[2], gameboard_out[3], gameboard_out[4],gameboard_out[5],gameboard_out[6], gameboard_out[7])
-//	begin
-//		assign pin_0 = gameboard_out[0];
-//		assign pin_1 = gameboard_out[1];
-//		assign pin_2 = gameboard_out[2];
-//		assign pin_3 = gameboard_out[3];
-//		assign pin_4 = gameboard_out[4];
-//		assign pin_5 = gameboard_out[5];
-//		assign pin_6 = gameboard_out[6];
-//		assign pin_7 = gameboard_out[7];
-//	end
 
-//	always@(posedge clk)begin
-//		pin_0 = 1;
-//		assign pin_1 = pin1;
-//		assign pin_2 = pin2;
-//		assign pin_3 = pin3;
-//		assign pin_4 = pin4;
-//		assign pin_5 = pin5;
-//		assign pin_6 = pin6;
-//		assign pin_7 = pin7;
-//	end
 	
 	
 endmodule

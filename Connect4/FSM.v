@@ -19,9 +19,9 @@ initial begin
 current_state = GAME_INIT;
 end
 // current state registers 
-always @(posedge clk or posedge reset) 
+always @(posedge clk or negedge reset) 
 begin 
- if(reset==1'b1) current_state = GAME_INIT;
+ if(reset==1'b0) current_state = GAME_INIT;
  else begin
 	case(current_state)
 			GAME_INIT: begin

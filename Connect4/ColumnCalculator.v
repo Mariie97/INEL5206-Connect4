@@ -36,7 +36,7 @@ module ColumnCalculator(
 always@(posedge clk)begin
 							add = 0;
 
-	if(enable==1'b0) column_position = 5'b11111;
+	if(enable==1'b1) column_position = 5'b11111;
 	else begin
 		case(selected_column)
 			4'b1110: begin
