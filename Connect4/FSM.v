@@ -21,7 +21,10 @@ end
 // current state registers 
 always @(posedge clk or posedge reset) 
 begin 
- if(reset==1'b1) current_state = GAME_INIT;
+ if(reset==1'b1) begin
+						current_state = GAME_INIT;
+						out_game_status = STILL_PLAYING;
+						end
  else begin
 	case(current_state)
 			GAME_INIT: begin

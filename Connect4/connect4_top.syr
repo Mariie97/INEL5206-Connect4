@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.33 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.33 secs
  
 --> Reading design: connect4_top.prj
 
@@ -319,11 +319,11 @@ Unit <ColumnSelector> synthesized.
 
 Synthesizing Unit <FSM>.
     Related source file is "FSM.v".
-    Found 4x2-bit ROM for signal <out_game_status$mux0001> created at line 59.
+    Found 4x2-bit ROM for signal <out_game_status$mux0001> created at line 62.
     Found 2-bit register for signal <current_state>.
     Found 2-bit register for signal <out_game_status>.
-    Found 2-bit 4-to-1 multiplexer for signal <current_state$mux0000> created at line 26.
-    Found 2-bit 4-to-1 multiplexer for signal <out_game_status$mux0000> created at line 26.
+    Found 2-bit 4-to-1 multiplexer for signal <current_state$mux0000> created at line 29.
+    Found 2-bit 4-to-1 multiplexer for signal <out_game_status$mux0000> created at line 29.
     Summary:
 	inferred   1 ROM(s).
 	inferred   4 D-type flip-flop(s).
@@ -466,9 +466,9 @@ Design Statistics
 # IOs                              : 15
 
 Cell Usage :
-# BELS                             : 334
+# BELS                             : 333
 #      GND                         : 1
-#      INV                         : 10
+#      INV                         : 9
 #      LUT1                        : 27
 #      LUT2                        : 22
 #      LUT2_L                      : 6
@@ -484,9 +484,9 @@ Cell Usage :
 #      XORCY                       : 28
 # FlipFlops/Latches                : 93
 #      FD                          : 34
-#      FDC                         : 4
+#      FDC                         : 6
 #      FDCE                        : 12
-#      FDE                         : 5
+#      FDE                         : 3
 #      FDR                         : 28
 #      FDRS                        : 1
 #      FDS                         : 9
@@ -505,7 +505,7 @@ Selected Device : 3s500efg320-4
 
  Number of Slices:                      132  out of   4656     2%  
  Number of Slice Flip Flops:             93  out of   9312     0%  
- Number of 4 input LUTs:                257  out of   9312     2%  
+ Number of 4 input LUTs:                256  out of   9312     2%  
  Number of IOs:                          15
  Number of bonded IOBs:                  15  out of    232     6%  
  Number of GCLKs:                         2  out of     24     8%  
@@ -540,7 +540,7 @@ Asynchronous Control Signals Information:
 -----------------------------------+------------------------+-------+
 Control Signal                     | Buffer(FF name)        | Load  |
 -----------------------------------+------------------------+-------+
-reset                              | IBUF                   | 16    |
+reset                              | IBUF                   | 18    |
 -----------------------------------+------------------------+-------+
 
 Timing Summary:
@@ -611,7 +611,7 @@ Delay:               4.734ns (Levels of Logic = 3)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'CD/clk_out1'
-  Total number of paths / destination ports: 94 / 19
+  Total number of paths / destination ports: 92 / 17
 -------------------------------------------------------------------------
 Offset:              6.979ns (Levels of Logic = 5)
   Source:            Switch_3 (PAD)
@@ -673,12 +673,12 @@ Offset:              4.394ns (Levels of Logic = 1)
 =========================================================================
 
 
-Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 7.20 secs
+Total REAL time to Xst completion: 20.00 secs
+Total CPU time to Xst completion: 19.67 secs
  
 --> 
 
-Total memory usage is 4529904 kilobytes
+Total memory usage is 4529848 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    0 (   0 filtered)
