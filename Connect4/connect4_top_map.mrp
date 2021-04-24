@@ -9,33 +9,31 @@ Target Device  : xc3s500e
 Target Package : fg320
 Target Speed   : -4
 Mapper Version : spartan3e -- $Revision: 1.55 $
-Mapped Date    : Fri Apr 23 14:39:51 2021
+Mapped Date    : Fri Apr 23 23:52:14 2021
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:   35
+Number of warnings:    3
 Logic Utilization:
-  Total Number Slice Registers:         106 out of   9,312    1%
-    Number used as Flip Flops:           43
-    Number used as Latches:              63
-  Number of 4 input LUTs:               220 out of   9,312    2%
+  Number of Slice Flip Flops:            93 out of   9,312    1%
+  Number of 4 input LUTs:               223 out of   9,312    2%
 Logic Distribution:
-  Number of occupied Slices:            156 out of   4,656    3%
-    Number of Slices containing only related logic:     156 out of     156 100%
-    Number of Slices containing unrelated logic:          0 out of     156   0%
+  Number of occupied Slices:            134 out of   4,656    2%
+    Number of Slices containing only related logic:     134 out of     134 100%
+    Number of Slices containing unrelated logic:          0 out of     134   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:         247 out of   9,312    2%
-    Number used as logic:               220
-    Number used as a route-thru:         27
+  Total Number of 4 input LUTs:         254 out of   9,312    2%
+    Number used as logic:               223
+    Number used as a route-thru:         31
 
   The Slice Logic Distribution report is not meaningful if the design is
   over-mapped for a non-slice resource or if Placement fails.
 
   Number of bonded IOBs:                 15 out of     232    6%
-  Number of BUFGMUXs:                     1 out of      24    4%
+  Number of BUFGMUXs:                     2 out of      24    8%
 
-Average Fanout of Non-Clock Nets:                3.47
+Average Fanout of Non-Clock Nets:                3.54
 
 Peak Memory Usage:  4404 MB
 Total REAL time to MAP completion:  1 secs 
@@ -80,145 +78,16 @@ Section 1 - Errors
 
 Section 2 - Warnings
 --------------------
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_gameboard_1_mux0002 is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_players_cells_0_not0001 is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_gameboard_10_mux0002 is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_players_cells_10_not0001 is sourced by a combinatorial
-   pin. This is not good design practice. Use the CE pin to control the loading
-   of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_gameboard_3_mux0002 is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_players_cells_12_not0001 is sourced by a combinatorial
-   pin. This is not good design practice. Use the CE pin to control the loading
-   of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_gameboard_12_mux0002 is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_players_cells_14_not0001 is sourced by a combinatorial
-   pin. This is not good design practice. Use the CE pin to control the loading
-   of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_gameboard_5_mux0002 is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_players_cells_2_not0001 is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_gameboard_14_mux0002 is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_players_cells_4_not0001 is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/next_player_not0001 is sourced by a combinatorial pin. This is
-   not good design practice. Use the CE pin to control the loading of data into
-   the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_gameboard_15_cmp_eq0000 is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_gameboard_0_mux0002 is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_players_cells_6_not0001 is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_gameboard_2_mux0002 is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_players_cells_8_not0001 is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_gameboard_11_mux0002 is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net add is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to
-   control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_gameboard_13_mux0002 is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_gameboard_6_mux0002 is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_gameboard_8_mux0002 is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_players_cells_9_not0001 is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_gameboard_7_mux0002 is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_gameboard_9_mux0002 is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_players_cells_3_not0001 is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_gameboard_15_mux0002 is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_gameboard_4_mux0002 is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_players_cells_5_not0001 is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_players_cells_11_not0001 is sourced by a combinatorial
-   pin. This is not good design practice. Use the CE pin to control the loading
-   of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_players_cells_13_not0001 is sourced by a combinatorial
-   pin. This is not good design practice. Use the CE pin to control the loading
-   of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_players_cells_15_not0001 is sourced by a combinatorial
-   pin. This is not good design practice. Use the CE pin to control the loading
-   of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_players_cells_7_not0001 is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   columnSelector/out_players_cells_1_not0001 is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
+WARNING:Pack:266 - The function generator WD/game_status_and0013 failed to merge
+   with F5 multiplexer WD/game_status_mux0000<1>11_SW0.  There is a conflict for
+   the FXMUX.  The design will exhibit suboptimal timing.
+WARNING:Pack:266 - The function generator WD/game_status_and0010 failed to merge
+   with F5 multiplexer WD/game_status_mux0000<0>28_SW0.  There is a conflict for
+   the FXMUX.  The design will exhibit suboptimal timing.
+WARNING:Pack:266 - The function generator
+   columnCounter/column_position_mux0000<3>28 failed to merge with F5
+   multiplexer columnCounter/column_position_mux0000<2>31.  There is a conflict
+   for the FXMUX.  The design will exhibit suboptimal timing.
 
 Section 3 - Informational
 -------------------------
@@ -257,6 +126,7 @@ Section 6 - IOB Properties
 | Switch_2                           | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLUP   | 0 / 0    |
 | Switch_3                           | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLUP   | 0 / 0    |
 | clk                                | IBUF             | INPUT     | LVCMOS33             |       |          |      |              |          | 0 / 0    |
+| clock_pos                          | IOB              | OUTPUT    | LVTTL                |       | 8        | SLOW |              |          | 0 / 0    |
 | leds<0>                            | IOB              | OUTPUT    | LVTTL                |       | 8        | SLOW |              |          | 0 / 0    |
 | leds<1>                            | IOB              | OUTPUT    | LVTTL                |       | 8        | SLOW |              |          | 0 / 0    |
 | leds<2>                            | IOB              | OUTPUT    | LVTTL                |       | 8        | SLOW |              |          | 0 / 0    |
@@ -264,7 +134,6 @@ Section 6 - IOB Properties
 | leds<4>                            | IOB              | OUTPUT    | LVTTL                |       | 8        | SLOW |              |          | 0 / 0    |
 | leds<5>                            | IOB              | OUTPUT    | LVTTL                |       | 8        | SLOW |              |          | 0 / 0    |
 | leds<6>                            | IOB              | OUTPUT    | LVTTL                |       | 8        | SLOW |              |          | 0 / 0    |
-| leds<7>                            | IOB              | OUTPUT    | LVTTL                |       | 8        | SLOW |              |          | 0 / 0    |
 | reset                              | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLDOWN | 0 / 0    |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
 

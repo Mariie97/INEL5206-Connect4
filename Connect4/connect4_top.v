@@ -21,7 +21,8 @@ module connect4_top(
 //	output wire [41:0] gameboard_out
 
 	clk,
-	reset, 
+	reset,
+	clock_pos,
 //	pin_0,
 //	pin_1,
 //	pin_2,
@@ -58,14 +59,15 @@ module connect4_top(
 	input Switch_3;
 	input BTN_EAST;
 	//input Switch_3;
-	//input BTN_EAST;
 	//input [1:0] state;
 	input clk;
 	input reset;
 	//input [2:0] selected_column;
 	
 	//FPGA LEDS
-	output [7:0] leds;
+	output [6:0] leds;
+	output reg clock_pos;
+	
 	
 //	output reg led_1;
 //	output reg led_2;
@@ -107,15 +109,18 @@ module connect4_top(
 	
 	
 	wire [15:0]player_cells;
-	wire [4:0] selected_column;
+	wire [4:0] column_position;
 //	wire Enable_Button;
 	wire next_player;
 	wire add;
 	wire [1:0] state;
 	wire [1:0] game_status;
 	wire [1:0] out_game_status;	
-	wire [11:0] counters;
-
+   wire [2:0] counter_0;
+   wire [2:0] counter_1;
+   wire [2:0] counter_2;
+   wire [2:0] counter_3;
+   wire [1:0] c_register;
 	
 //	wire pin0;
 //	wire pin1;
@@ -138,25 +143,34 @@ module connect4_top(
     );
 	 
 	ColumnCalculator columnCounter(
+		.clk(clk_delay),
 		.enable(BTN_EAST),
-		.counters(counters),		
+		.counter_0(counter_0),		
+		.counter_1(counter_1),		
+		.counter_2(counter_2),		
+		.counter_3(counter_3),		
 		.selected_column({Switch_3, Switch_2, Switch_1, Switch_0}), 
-		.column_position(selected_column),
-		.add(add)
+		.column_position(column_position),
+		.add(add),
+		.c_register(c_register)
 		);
 		
 		
 	ThreeBitCounter tbc (
 		.clk(clk_delay),
 		.reset(reset), 
-		.column({Switch_3, Switch_2, Switch_1, Switch_0}), 
+		.counter(c_register), 
 		.add(add), 
-		.count(counters)
+		.counter_0(counter_0),		
+		.counter_1(counter_1),		
+		.counter_2(counter_2),		
+		.counter_3(counter_3)
 	);
 		
 		
 	ColumnSelector columnSelector(
-		.column_position(selected_column),
+		.clk(clk_delay),	
+		.column_position(column_position),
 		.state(state), 
 		.out_gameboard(gameboard_out),
 		.out_players_cells(player_cells),
@@ -174,7 +188,7 @@ module connect4_top(
 	);
 	
 	DetectWinner WD(
-		 .clk(clk), 
+		 .clk(clk_delay), 
 		 .reset(reset),
 		 .game_board(gameboard_out),
 		 .player_cells(player_cells),
@@ -182,11 +196,15 @@ module connect4_top(
     );
 	 
 	DisplayGameStatus DGS (
+		.clk(clk_delay),	
 		.state(state),
 		.game_status(out_game_status),
 		.LEDs(leds)
 	);
 	 
+	always@(clk_delay) begin
+		clock_pos = clk_delay;
+	end
 
 	
 //	always@(gameboard_out, player_cells) begin
@@ -288,5 +306,5 @@ module connect4_top(
 //	end
 	
 	
-	
 endmodule
+

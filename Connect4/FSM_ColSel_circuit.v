@@ -18,17 +18,25 @@ module FSM_ColSel_circuit(
 	  output [1:0] current_state, // keep track of player cells. 0-Player1, 1-Player2 
 	  output playerTurn,
 	  output [4:0] column_calc,
-	  output [7:0] LEDs
+	  output [6:0] LEDs,
+	  output  [2:0]counter_0,
+	  output  [2:0]counter_1,
+	  output  [2:0]counter_2,
+	  output  [2:0]counter_3
     );
  
  
  wire [1:0] state;
+ wire [1:0] c_register;
  wire [1:0] in_game_status;
  wire pturn;
  wire add;
  wire oset_invalid_column;
  wire [4:0] column_position;
- wire [11:0] counters;
+ wire [2:0] wcounter_0;
+ wire [2:0] wcounter_1;
+ wire [2:0] wcounter_2;
+ wire [2:0] wcounter_3;
 
 
 	FSM fsm (
@@ -43,20 +51,29 @@ module FSM_ColSel_circuit(
 	ThreeBitCounter tbc (
 		.clk(clk),
 		.reset(reset), 
-		.column(in_column), 
+		.counter(c_register), 
 		.add(add), 
-		.count(counters)
+		.counter_0(wcounter_0),		
+		.counter_1(wcounter_1),		
+		.counter_2(wcounter_2),		
+		.counter_3(wcounter_3)	
 	);
 	
 	ColumnCalculator CC(
+		.clk(clk),	
 		.enable(enable),
-		.counters(counters),		
+		.counter_0(wcounter_0),		
+		.counter_1(wcounter_1),		
+		.counter_2(wcounter_2),		
+		.counter_3(wcounter_3),		
 		.selected_column(in_column),
 		.column_position(column_position),
-		.add(add)
+		.add(add),
+		.c_register(c_register)
     );
 		
 	ColumnSelector CS (
+		.clk(clk),	
 		.column_position(column_position), 
 		.state(state), 
 		.out_gameboard(out_gameboard), 
@@ -73,6 +90,7 @@ module FSM_ColSel_circuit(
 	);
 	
 	DisplayGameStatus DGS (
+		.clk(clk),	
 		.state(state),
 		.game_status(out_game_status),
 		.LEDs(LEDs)
@@ -81,4 +99,9 @@ module FSM_ColSel_circuit(
 	assign current_state = state;
 	assign playerTurn = pturn;
 	assign column_calc = column_position;	
+	assign counter_0 = wcounter_0;
+	assign counter_1 = wcounter_1;
+	assign counter_2 = wcounter_2;
+	assign counter_3 = wcounter_3;
+
 endmodule

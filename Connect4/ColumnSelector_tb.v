@@ -4,28 +4,22 @@ module ColumnSelector_tb;
 
 	// Inputs
 	reg clk;
-	reg reset;
-	reg throw_again;
-	reg [1:0] in_column;
+	reg [4:0] column_position;
 	reg [2:0] state;
 
 	// Outputs
 	wire [15:0] out_gameboard;
 	wire [15:0] out_players_cells;
-	wire invalid_column;
 	wire next_player;
 	
 	
 	// Instantiate the Unit Under Test (UUT)
 	ColumnSelector uut (
 		.clk(clk), 
-		.reset(reset), 
-		.throw_again(throw_again),
-		.in_column(in_column), 
+		.column_position(column_position), 
 		.state(state), 
 		.out_gameboard(out_gameboard), 
 		.out_players_cells(out_players_cells),
-		.invalid_column(invalid_column),
 		.next_player(next_player)
 	);
 
@@ -34,10 +28,8 @@ module ColumnSelector_tb;
 	initial begin
 		// Initialize Inputs
 		clk = 0;
-		in_column = 3'b111;
+		column_position = 5'b11111;
 		state = 0;
-		reset=0;
-		throw_again = 0;
 		
 		// Wait 100 ns for global reset to finish
 		#100;

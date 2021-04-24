@@ -14,8 +14,12 @@ module FSM_ColSel_circuit_tb;
 	wire [1:0] out_game_status;
 	wire [1:0] current_state;
 	wire [4:0] column_calc;
-	wire [7:0] LEDs;
-	
+	wire [6:0] LEDs;
+	 wire [2:0] counter_0;
+	wire [2:0] counter_1;
+	wire [2:0] counter_2;
+ wire [2:0] counter_3;
+
 
 	// Instantiate the Unit Under Test (UUT)
 	FSM_ColSel_circuit uut (
@@ -29,7 +33,11 @@ module FSM_ColSel_circuit_tb;
 		.current_state(current_state),
 		.playerTurn(playerTurn),
 		.column_calc(column_calc),
-		.LEDs(LEDs)
+		.LEDs(LEDs),
+		.counter_0(counter_0),
+		.counter_1(counter_1),
+		.counter_2(counter_2),
+		.counter_3(counter_3)
 		);
 
 	always #10 clk = ~clk;
@@ -45,31 +53,34 @@ module FSM_ColSel_circuit_tb;
 		// Add stimulus here
 		#100
 		
-		#15 in_column = 4'b1110; //P1
+		#10 in_column = 4'b1110; //P1
 		enable = 1'b1;
 		#5 enable = 1'b0;
 		
-		#15 in_column = 4'b1101; //P2
-		enable = 1'b1;
-		#5 enable = 1'b0;
-		
-		#15 in_column = 4'b1110; //P1
+		#35 in_column = 4'b1101; //P2
 		enable = 1'b1;
 		#5 enable = 1'b0;
 
-		#10 in_column = 4'b1011; //P2
+		
+		#35 in_column = 4'b1110; //P1
+		enable = 1'b1;
+		#5 enable = 1'b0;
+
+
+
+		#35 in_column = 4'b1011; //P2
 		enable = 1'b1;
 		#5 enable = 1'b0;
 		
-		#15 in_column = 4'b1110; //P1
+		#35 in_column = 4'b1110; //P1
 		enable = 1'b1;
 		#5 enable = 1'b0;
 		
-		#45 in_column = 4'b1011; //P2
+		#35 in_column = 4'b1011; //P2
 		enable = 1'b1;
 		#5 enable = 1'b0;
 	
-		#15 in_column = 4'b1110; //P1
+		#35 in_column = 4'b1110; //P1
 		enable = 1'b1;
 		#5 enable = 1'b0;
 		
@@ -77,135 +88,135 @@ module FSM_ColSel_circuit_tb;
 		
 		
 		
-		#35 reset = 1;
-		#2 reset = 0;
-		
-		
-		
-		
-		//Start new game
-		#15 in_column = 4'b1101; //P1
-		enable = 1'b1;
-		#5 enable = 1'b0;
-
-		#15 in_column = 4'b1110; //P2
-		enable = 1'b1;
-		#5 enable = 1'b0;
-		
-		#15 in_column = 4'b1011; //P1
-		enable = 1'b1;
-		#5 enable = 1'b0;
-
-		#15 in_column = 4'b1101; //P2
-		enable = 1'b1;
-		#5 enable = 1'b0;		
-		
-		#15 in_column = 4'b1011; //P1
-		enable = 1'b1;
-		#5 enable = 1'b0;
-
-		#15 in_column = 4'b1011; //P2
-		enable = 1'b1;
-		#5 enable = 1'b0;	
-
-		#15 in_column = 4'b0111; //P1
-		enable = 1'b1;
-		#5 enable = 1'b0;
-
-		#15 in_column = 4'b0111; //P2
-		enable = 1'b1;
-		#5 enable = 1'b0;	
-		
-		#15 in_column = 4'b0111; //P1
-		enable = 1'b1;
-		#5 enable = 1'b0;
-
-		#15 in_column = 4'b0111; //P2
-		enable = 1'b1;
-		#5 enable = 1'b0;	
-		
-		// P2 WINS
-
-
 		#30 reset = 1;
-		#2 reset = 0;
-		
-		
+		#5 reset = 0;
+//		
+//		
+//		
+//		
+//		//Start new game
+//		#20 in_column = 4'b1101; //P1
+//		enable = 1'b1;
+//		#5 enable = 1'b0;
+//
+//		#20 in_column = 4'b1110; //P2
+//		enable = 1'b1;
+//		#5 enable = 1'b0;
+//		
+//		#20 in_column = 4'b1011; //P1
+//		enable = 1'b1;
+//		#5 enable = 1'b0;
+//
+//		#20 in_column = 4'b1101; //P2
+//		enable = 1'b1;
+//		#5 enable = 1'b0;		
+//		
+//		#20 in_column = 4'b1011; //P1
+//		enable = 1'b1;
+//		#5 enable = 1'b0;
 
-		
-		//Start new game
-		#20 in_column = 4'b1110; //P1
-		enable = 1'b1;
-		#5 enable = 1'b0;
-
-
-		#15 in_column = 4'b1101; //P2
-		enable = 1'b1;
-		#5 enable = 1'b0;
-		
-		#15 in_column = 4'b1011; //P1
-		enable = 1'b1;
-		#5 enable = 1'b0;
-
-
-		#15 in_column = 4'b0111; //P2
-		enable = 1'b1;
-		#5 enable = 1'b0;		
-		
-		#15 in_column = 4'b0111; //P1
-		enable = 1'b1;
-		#5 enable = 1'b0;
-
-
-		#15 in_column = 4'b1011; //P2
-		enable = 1'b1;
-		#5 enable = 1'b0;	
-
-		#15 in_column = 4'b1101; //P1
-		enable = 1'b1;
-		#5 enable = 1'b0;
-
-
-		#15 in_column = 4'b1110; //P2
-		enable = 1'b1;
-		#5 enable = 1'b0;	
-		
-		#15 in_column = 4'b1110; //P1
-		enable = 1'b1;
-		#5 enable = 1'b0;
-
-
-		#15 in_column = 4'b1101; //P2 
-		enable = 1'b1;
-		#5 enable = 1'b0;	
-
-		#15 in_column = 4'b1011; //P1
-		enable = 1'b1;
-		#5 enable = 1'b0;	
-
-		#15 in_column = 4'b0111; //P2
-		enable = 1'b1;
-		#5 enable = 1'b0;
-
-
-		#15 in_column = 4'b1110; //P1
-		enable = 1'b1;
-		#5 enable = 1'b0;	
-		
-		#15 in_column = 4'b1011; //P2
-		enable = 1'b1;
-		#5 enable = 1'b0;
-
-
-		#15 in_column = 4'b1101; //P1 
-		enable = 1'b1;
-		#5 enable = 1'b0;			
-		
-		#15 in_column = 4'b0111; //P1 
-		enable = 1'b1;
-		#5 enable = 1'b0;		
-		
-		//TIE GAME
+//		#20 in_column = 4'b1011; //P2
+//		enable = 1'b1;
+//		#5 enable = 1'b0;	
+//
+//		#20 in_column = 4'b0111; //P1
+//		enable = 1'b1;
+//		#5 enable = 1'b0;
+//
+//		#20 in_column = 4'b0111; //P2
+//		enable = 1'b1;
+//		#5 enable = 1'b0;	
+//		
+//		#20 in_column = 4'b0111; //P1
+//		enable = 1'b1;
+//		#5 enable = 1'b0;
+//
+//		#20 in_column = 4'b0111; //P2
+//		enable = 1'b1;
+//		#5 enable = 1'b0;	
+//		
+//		// P2 WINS
+//
+//
+//		#5 reset = 1;
+//		#2 reset = 0;
+//		
+//		
+//
+//		
+//		//Start new game
+//		#20 in_column = 4'b1110; //P1
+//		enable = 1'b1;
+//		#5 enable = 1'b0;
+//
+//
+//		#20 in_column = 4'b1101; //P2
+//		enable = 1'b1;
+//		#5 enable = 1'b0;
+//		
+//		#20 in_column = 4'b1011; //P1
+//		enable = 1'b1;
+//		#5 enable = 1'b0;
+//
+//
+//		#20 in_column = 4'b0111; //P2
+//		enable = 1'b1;
+//		#2 enable = 1'b0;		
+//		
+//		#20 in_column = 4'b0111; //P1
+//		enable = 1'b1;
+//		#5 enable = 1'b0;
+//
+//
+//		#20 in_column = 4'b1011; //P2
+//		enable = 1'b1;
+//		#5 enable = 1'b0;	
+//
+//		#20 in_column = 4'b1101; //P1
+//		enable = 1'b1;
+//		#5 enable = 1'b0;
+//
+//
+//		#20 in_column = 4'b1110; //P2
+//		enable = 1'b1;
+//		#5 enable = 1'b0;	
+//		
+//		#20 in_column = 4'b1110; //P1
+//		enable = 1'b1;
+//		#5 enable = 1'b0;
+//
+//
+//		#20 in_column = 4'b1101; //P2 
+//		enable = 1'b1;
+//		#5 enable = 1'b0;	
+//
+//		#20 in_column = 4'b1011; //P1
+//		enable = 1'b1;
+//		#5 enable = 1'b0;	
+//
+//		#20 in_column = 4'b0111; //P2
+//		enable = 1'b1;
+//		#5 enable = 1'b0;
+//
+//
+//		#20 in_column = 4'b1110; //P1
+//		enable = 1'b1;
+//		#5 enable = 1'b0;	
+//		
+//		#20 in_column = 4'b1011; //P2
+//		enable = 1'b1;
+//		#5 enable = 1'b0;
+//
+//
+//		#20 in_column = 4'b1101; //P1 
+//		enable = 1'b1;
+//		#5 enable = 1'b0;			
+//		
+//		#20 in_column = 4'b0111; //P1 
+//		enable = 1'b1;
+//		#5 enable = 1'b0;		
+//		
+//		//TIE GAME
 
 	
 
