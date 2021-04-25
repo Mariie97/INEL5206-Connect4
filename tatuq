@@ -1,0 +1,181 @@
+[33mcommit 2f6eae4434ee1a1d5c3790a2a0c3191cde6b4152[m[33m ([m[1;36mHEAD -> [m[1;32mfpga_try_connect_second_attempt[m[33m, [m[1;32mnew_merge_vin_cor[m[33m)[m
+Author: Mariie97 <coralys.cortes1@upr.edu>
+Date:   Thu Apr 22 00:31:16 2021 -0400
+
+    Dummy commit
+
+[33mcommit 33531b40397e3c7f1a6ee78ab8a267f3e3aadf6d[m[33m ([m[1;31morigin/new_merge_vin_cor[m[33m)[m
+Author: Mariie97 <coralys.cortes1@upr.edu>
+Date:   Wed Apr 21 16:48:36 2021 -0400
+
+    Connect leds signals to the FPGA pins
+
+[33mcommit b048a73f4a51c5a24d85f6e15647347715087def[m
+Author: Mariie97 <coralys.cortes1@upr.edu>
+Date:   Wed Apr 21 16:05:18 2021 -0400
+
+    Add module to display game status using FPGA board's leds. Initialize state and output game status at time 0.
+
+[33mcommit e170e91b085f30d23a5a89692bb6405a5fd2e509[m
+Author: Mariie97 <coralys.cortes1@upr.edu>
+Date:   Tue Apr 20 14:11:25 2021 -0400
+
+    El verdadero commit 2. Implement ThreeBitCounter with registers used for column counters.
+
+[33mcommit 4feb107fa0a981aa7658cc30c569ea84f36a00a0[m
+Author: Mariie97 <coralys.cortes1@upr.edu>
+Date:   Mon Apr 19 18:55:51 2021 -0400
+
+    Temporary comment columns counters reset because are generating errors in the design implementation.
+
+[33mcommit 46836c46829e24f113c4df813a69f017308535f7[m
+Author: Mariie97 <coralys.cortes1@upr.edu>
+Date:   Mon Apr 19 18:01:36 2021 -0400
+
+    Remove posedge from reset signal, Can't be mixed
+
+[33mcommit 62a49361a0fae3cdfb8e66df90ec3262fec08aa9[m
+Author: Mariie97 <coralys.cortes1@upr.edu>
+Date:   Mon Apr 19 17:45:14 2021 -0400
+
+    Add reset signal to CC instance
+
+[33mcommit 34bfeff8f4488c8f411d497804743da73ba6234e[m
+Author: Mariie97 <coralys.cortes1@upr.edu>
+Date:   Mon Apr 19 17:44:07 2021 -0400
+
+    Remove enable signal from columnSelector, never used, and add reset signal to column calculator to reset column's counters.
+
+[33mcommit f75939e350b024288941625ac2905b04ff0ecc68[m
+Author: Mariie97 <coralys.cortes1@upr.edu>
+Date:   Mon Apr 19 17:42:37 2021 -0400
+
+    Add more stimulus. Simulate 3 games with differents outcomes: P1 wins, P2_wins and Tie game
+
+[33mcommit 1683dd57f4e1bc2fffe8851ce03c5060ca332cc9[m
+Author: Mariie97 <coralys.cortes1@upr.edu>
+Date:   Mon Apr 19 16:18:10 2021 -0400
+
+    All modules connected. Game logic completed.
+
+[33mcommit 7b3e34f11c5daff9b26e915bdd0f26edd58d7055[m
+Author: Mariie97 <coralys.cortes1@upr.edu>
+Date:   Sat Apr 17 20:27:53 2021 -0400
+
+    Fsm, columnSelector and columnCalculator working as expected. DetectWinner module still having issues, currently working on it.
+
+[33mcommit 0b6da5a61a62cc230a3f92a1d48248ffdfa7dc91[m
+Author: Mariie97 <coralys.cortes1@upr.edu>
+Date:   Thu Apr 15 22:36:19 2021 -0400
+
+    Fix some warnings
+
+[33mcommit 21fa43314e864e95b14adaa2e0ef5ecf5b9a9566[m
+Author: Mariie97 <coralys.cortes1@upr.edu>
+Date:   Thu Apr 15 21:16:52 2021 -0400
+
+    merge almost completed
+
+[33mcommit 4229eb44dd1573ffc544d90b5dc71182eeddb19e[m[33m ([m[1;32mgameboard_inputs[m[33m)[m
+Author: Mariie97 <coralys.cortes1@upr.edu>
+Date:   Thu Apr 15 19:11:36 2021 -0400
+
+    Add unversioned files
+
+[33mcommit 074fc43555fcd3eb32414bc05ad032d8707c758d[m[33m ([m[1;31morigin/gameboard_inputs[m[33m)[m
+Author: Mariie97 <coralys.cortes1@upr.edu>
+Date:   Tue Apr 13 23:15:25 2021 -0400
+
+    El verdadero commit. Fix FSM and Column Sector
+
+[33mcommit a7a0324cded632754e7920e0f3eef912bfc803a6[m
+Author: Mariie97 <coralys.cortes1@upr.edu>
+Date:   Tue Apr 13 20:19:04 2021 -0400
+
+    Column selector wait for player to throw a token
+
+[33mcommit 3eaaa1a1c49c6235341f4e102043232c8dcd9ba3[m
+Author: Mariie97 <coralys.cortes1@upr.edu>
+Date:   Tue Apr 13 14:17:55 2021 -0400
+
+    Change state only when player select a column
+
+[33mcommit cea593d30446409fffdef75e2b2182bb022c2981[m[33m ([m[1;31morigin/noel_fsm_branch[m[33m)[m
+Author: Mariie97 <coralys.cortes1@upr.edu>
+Date:   Fri Apr 9 14:36:05 2021 -0400
+
+    Change grid size, 4x4
+
+[33mcommit 43f3d61b09b20e76057dbac565bb18c51774f5fd[m
+Author: Mariie97 <coralys.cortes1@upr.edu>
+Date:   Thu Apr 8 16:24:31 2021 -0400
+
+    clean code
+
+[33mcommit aca01ca7e10f8ea65af8150d010d02b2c27740ea[m
+Author: Mariie97 <coralys.cortes1@upr.edu>
+Date:   Thu Apr 8 16:21:07 2021 -0400
+
+    Add invalid column input
+
+[33mcommit 935720b5f76597ee6feb2f85098ad7310e448014[m
+Author: Mariie97 <coralys.cortes1@upr.edu>
+Date:   Thu Apr 8 14:30:53 2021 -0400
+
+    Modify FSM, when the column is invalid the state remain the same.
+
+[33mcommit 8879d2d9cbe40292c91c2ef7c1b7d59819e81cef[m
+Author: Mariie97 <coralys.cortes1@upr.edu>
+Date:   Wed Apr 7 20:29:16 2021 -0400
+
+    Bug fixed
+
+[33mcommit 1566b971b8c14856fc043c12d7d275864e75dc47[m
+Author: Mariie97 <coralys.cortes1@upr.edu>
+Date:   Wed Apr 7 16:53:55 2021 -0400
+
+    add module to decode input switches column. Also, create tb for the module.
+
+[33mcommit bc9983779b27077b80de0ffbbf85cd6e95990613[m
+Author: Mariie97 <coralys.cortes1@upr.edu>
+Date:   Fri Apr 2 13:27:52 2021 -0400
+
+    Fix bugs in FSM and add more stimulus in test bench
+
+[33mcommit 3bcbdb685fe6a0f8ceeb99d8dc4b2bbe220ddf2f[m
+Author: Mariie97 <coralys.cortes1@upr.edu>
+Date:   Wed Mar 31 15:34:02 2021 -0400
+
+    Add partial test bench for FSM
+
+[33mcommit c5ee1252cc19ce19d01b2fea66d714c261074ecf[m
+Author: Mariie97 <coralys.cortes1@upr.edu>
+Date:   Mon Mar 22 19:51:05 2021 -0400
+
+    Add input signal: invalid_move and board_full
+
+[33mcommit 00d3ca022433ee1ff10fe28082c3c1f8faa848aa[m
+Author: Mariie97 <coralys.cortes1@upr.edu>
+Date:   Mon Mar 22 19:19:03 2021 -0400
+
+    partial implementation of the FSM
+
+[33mcommit cca2d3a11525a8b60ef72732c2c628a7fcc5c701[m
+Author: Mariie97 <coralys.cortes1@upr.edu>
+Date:   Mon Mar 22 15:57:43 2021 -0400
+
+    Add column selector implementation
+
+[33mcommit 048eae6e08bfeb0831bdfcc07fc16bd6b263ba8f[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: Coralys M. Cortés Soto <37245039+Mariie97@users.noreply.github.com>
+Date:   Thu Mar 18 22:51:28 2021 -0400
+
+    Update README.md
+    
+    Add team members
+
+[33mcommit a2db9194b115c4e4d8e0b2d078594c5d911cbacc[m
+Author: Coralys M. Cortés Soto <37245039+Mariie97@users.noreply.github.com>
+Date:   Thu Mar 18 22:34:13 2021 -0400
+
+    Initial commit

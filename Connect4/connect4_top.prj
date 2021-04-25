@@ -1,0 +1,4 @@
+verilog work "FSM.v"
+verilog work "DisplayGameStatus.v"
+verilog work "ClockDelay.v"
+verilog work "connect4_top.v"
