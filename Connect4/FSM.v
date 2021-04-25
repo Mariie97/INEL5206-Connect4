@@ -18,7 +18,7 @@ parameter STILL_PLAYING=2'b00, P1_WINS=2'b01, P2_WINS=2'b10, TIE=2'b11; //output
 initial begin
 current_state = GAME_INIT;
 end
-// current state registers 
+
 always @(posedge clk or negedge reset) 
 begin 
  if(reset==1'b0) current_state = GAME_INIT;
@@ -82,5 +82,4 @@ begin
 		endcase
 	end
 end 	
-
 endmodule

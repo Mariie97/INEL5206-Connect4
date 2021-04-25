@@ -1,23 +1,6 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date:    18:10:35 04/13/2021 
-// Design Name: 
-// Module Name:    ColumnCalculator 
-// Project Name: 
-// Target Devices: 
-// Tool versions: 
-// Description: 
-//
-// Dependencies: 
-//
-// Revision: 
-// Revision 0.01 - File Created
-// Additional Comments: 
-//
-//////////////////////////////////////////////////////////////////////////////////
+
+
 module ColumnCalculator(
 	input clk,
 	input enable,
@@ -32,10 +15,8 @@ module ColumnCalculator(
     );
 
 
-
 always@(posedge clk)begin
-							add = 0;
-
+	add = 0;
 	if(enable==1'b1) column_position = 5'b11111;
 	else begin
 		case(selected_column)
@@ -99,5 +80,4 @@ always@(posedge clk)begin
 		endcase
 	end
 end
-
 endmodule

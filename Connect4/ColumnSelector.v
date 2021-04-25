@@ -42,7 +42,6 @@ begin
 						next_player = 0;
 						end
 					end
-//		END_GAME: next_player <= 0; 
 	endcase
 end
 endmodule
