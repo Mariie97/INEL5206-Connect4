@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Sat Apr 24 16:25:17 2021
+// Written by: Map P.20131013 on Mon Apr 26 10:05:09 2021
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -28,10 +28,10 @@ COMP "leds<3>" LOCATE = SITE "U17" LEVEL 1;
 COMP "leds<4>" LOCATE = SITE "N16" LEVEL 1;
 COMP "leds<5>" LOCATE = SITE "N15" LEVEL 1;
 COMP "leds<6>" LOCATE = SITE "P16" LEVEL 1;
-COMP "Switch_0" LOCATE = SITE "C17" LEVEL 1;
-COMP "Switch_1" LOCATE = SITE "C18" LEVEL 1;
-COMP "Switch_2" LOCATE = SITE "D17" LEVEL 1;
-COMP "Switch_3" LOCATE = SITE "D18" LEVEL 1;
+COMP "Switch_0" LOCATE = SITE "D18" LEVEL 1;
+COMP "Switch_1" LOCATE = SITE "D17" LEVEL 1;
+COMP "Switch_2" LOCATE = SITE "C18" LEVEL 1;
+COMP "Switch_3" LOCATE = SITE "C17" LEVEL 1;
 COMP "P7_leds<0>" LOCATE = SITE "V9" LEVEL 1;
 COMP "P7_leds<1>" LOCATE = SITE "T9" LEVEL 1;
 COMP "P7_leds<2>" LOCATE = SITE "T5" LEVEL 1;

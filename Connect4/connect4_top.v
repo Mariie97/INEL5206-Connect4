@@ -342,6 +342,7 @@ module connect4_top(
 			P7_leds[7] = 0;
 		end
 		
+		
 		//----Fouth Column----
 		if(gameboard[12] == 1)begin
 			if(player_moves[12] == 0)begin

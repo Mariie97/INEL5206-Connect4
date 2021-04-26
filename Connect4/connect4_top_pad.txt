@@ -1,7 +1,7 @@
 Release 14.7 - par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Sat Apr 24 16:25:23 2021
+Mon Apr 26 10:05:18 2021
 
 
 INFO: The IO information is provided in three file formats as part of the Place and Route (PAR) process.  These formats are:
@@ -72,8 +72,8 @@ Pinout by Pin Number:
 |C14       |                |IOBS     |IO_L65N_SCP2_0               |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
 |C15       |                |IOBM     |IO_L64P_SCP5_0               |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
 |C16       |                |         |GND                          |         |           |              |          |         |           |         |         |          |           |                |
-|C17       |Switch_0        |IOB      |IO_L29P_A23_M1A13_1          |INPUT    |LVCMOS33   |1             |          |         |PULLUP     |NONE     |         |LOCATED   |NO         |NONE            |
-|C18       |Switch_1        |IOB      |IO_L29N_A22_M1A14_1          |INPUT    |LVCMOS33   |1             |          |         |PULLUP     |NONE     |         |LOCATED   |NO         |NONE            |
+|C17       |Switch_3        |IOB      |IO_L29P_A23_M1A13_1          |INPUT    |LVCMOS33   |1             |          |         |PULLUP     |NONE     |         |LOCATED   |NO         |NONE            |
+|C18       |Switch_2        |IOB      |IO_L29N_A22_M1A14_1          |INPUT    |LVCMOS33   |1             |          |         |PULLUP     |NONE     |         |LOCATED   |NO         |NONE            |
 |D1        |                |IOBS     |IO_L52N_M3A9_3               |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
 |D2        |                |IOBM     |IO_L52P_M3A8_3               |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
 |D3        |                |IOBS     |IO_L54N_M3A11_3              |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
@@ -90,8 +90,8 @@ Pinout by Pin Number:
 |D14       |                |IOBM     |IO_L65P_SCP3_0               |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
 |D15       |                |         |TDI                          |         |           |              |          |         |           |         |         |          |           |                |
 |D16       |                |         |TDO                          |         |           |              |          |         |           |         |         |          |           |                |
-|D17       |Switch_2        |IOB      |IO_L31P_A19_M1CKE_1          |INPUT    |LVCMOS33   |1             |          |         |PULLUP     |NONE     |         |LOCATED   |NO         |NONE            |
-|D18       |Switch_3        |IOB      |IO_L31N_A18_M1A12_1          |INPUT    |LVCMOS33   |1             |          |         |PULLUP     |NONE     |         |LOCATED   |NO         |NONE            |
+|D17       |Switch_1        |IOB      |IO_L31P_A19_M1CKE_1          |INPUT    |LVCMOS33   |1             |          |         |PULLUP     |NONE     |         |LOCATED   |NO         |NONE            |
+|D18       |Switch_0        |IOB      |IO_L31N_A18_M1A12_1          |INPUT    |LVCMOS33   |1             |          |         |PULLUP     |NONE     |         |LOCATED   |NO         |NONE            |
 |E1        |                |IOBS     |IO_L50N_M3BA2_3              |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
 |E2        |                |         |VCCO_3                       |         |           |3             |          |         |           |         |2.50     |          |           |                |
 |E3        |                |IOBM     |IO_L50P_M3WE_3               |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
@@ -147,7 +147,7 @@ Pinout by Pin Number:
 |G17       |                |         |GND                          |         |           |              |          |         |           |         |         |          |           |                |
 |G18       |                |IOBS     |IO_L38N_A4_M1CLKN_1          |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |H1        |player_moves<8> |IOB      |IO_L41N_GCLK26_M3DQ5_3       |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
-|H2        |player_moves<9> |IOB      |IO_L41P_GCLK27_M3DQ4_3       |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
+|H2        |gameboard<2>    |IOB      |IO_L41P_GCLK27_M3DQ4_3       |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
 |H3        |player_moves<2> |IOB      |IO_L44N_GCLK20_M3A6_3        |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
 |H4        |player_moves<0> |IOB      |IO_L44P_GCLK21_M3A5_3        |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
 |H5        |                |IOBS     |IO_L49N_M3A2_3               |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
@@ -182,8 +182,8 @@ Pinout by Pin Number:
 |J16       |P9_leds<5>      |IOB      |IO_L44P_A3_M1DQ6_1           |OUTPUT   |LVCMOS33   |1             |8         |FAST     |           |         |         |LOCATED   |NO         |NONE            |
 |J17       |                |         |VCCO_1                       |         |           |1             |          |         |           |         |3.30     |          |           |                |
 |J18       |P9_leds<4>      |IOB      |IO_L44N_A2_M1DQ7_1           |OUTPUT   |LVCMOS33   |1             |8         |FAST     |           |         |         |LOCATED   |NO         |NONE            |
-|K1        |gameboard<1>    |IOB      |IO_L38N_M3DQ3_3              |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
-|K2        |gameboard<2>    |IOB      |IO_L38P_M3DQ2_3              |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
+|K1        |gameboard<7>    |IOB      |IO_L38N_M3DQ3_3              |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
+|K2        |player_moves<15>|IOB      |IO_L38P_M3DQ2_3              |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
 |K3        |player_moves<6> |IOB      |IO_L42N_GCLK24_M3LDM_3       |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
 |K4        |player_moves<7> |IOB      |IO_L42P_GCLK25_TRDY2_M3UDM_3 |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
 |K5        |player_moves<4> |IOB      |IO_L43N_GCLK22_IRDY2_M3CASN_3|OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
@@ -200,10 +200,10 @@ Pinout by Pin Number:
 |K16       |P9_leds<2>      |IOB      |IO_L41N_GCLK8_M1CASN_1       |OUTPUT   |LVCMOS33   |1             |8         |FAST     |           |         |         |LOCATED   |NO         |NONE            |
 |K17       |reset           |IOB      |IO_L45P_A1_M1LDQS_1          |INPUT    |LVCMOS33   |1             |          |         |PULLUP     |NONE     |         |LOCATED   |NO         |NONE            |
 |K18       |BTN_EAST        |IOB      |IO_L45N_A0_M1LDQSN_1         |INPUT    |LVCMOS33   |1             |          |         |PULLUP     |NONE     |         |LOCATED   |NO         |NONE            |
-|L1        |player_moves<11>|IOB      |IO_L37N_M3DQ1_3              |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
-|L2        |gameboard<6>    |IOB      |IO_L37P_M3DQ0_3              |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
-|L3        |gameboard<7>    |IOB      |IO_L39N_M3LDQSN_3            |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
-|L4        |gameboard<4>    |IOB      |IO_L39P_M3LDQS_3             |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
+|L1        |gameboard<0>    |IOB      |IO_L37N_M3DQ1_3              |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
+|L2        |gameboard<5>    |IOB      |IO_L37P_M3DQ0_3              |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
+|L3        |player_moves<11>|IOB      |IO_L39N_M3LDQSN_3            |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
+|L4        |player_moves<9> |IOB      |IO_L39P_M3LDQS_3             |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
 |L5        |player_moves<5> |IOB      |IO_L43P_GCLK23_M3RASN_3      |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
 |L6        |gameboard<12>   |IOB      |IO_L31P_3                    |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
 |L7        |player_moves<1> |IOB      |IO_L45P_M3A3_3               |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
@@ -218,11 +218,11 @@ Pinout by Pin Number:
 |L16       |P9_leds<0>      |IOB      |IO_L42N_GCLK6_TRDY1_M1LDM_1  |OUTPUT   |LVCMOS33   |1             |8         |FAST     |           |         |         |LOCATED   |NO         |NONE            |
 |L17       |                |IOBM     |IO_L46P_FCS_B_M1DQ2_1        |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |L18       |                |IOBS     |IO_L46N_FOE_B_M1DQ3_1        |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
-|M1        |player_moves<15>|IOB      |IO_L36N_M3DQ9_3              |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
+|M1        |gameboard<1>    |IOB      |IO_L36N_M3DQ9_3              |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
 |M2        |                |         |GND                          |         |           |              |          |         |           |         |         |          |           |                |
-|M3        |gameboard<0>    |IOB      |IO_L36P_M3DQ8_3              |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
+|M3        |player_moves<10>|IOB      |IO_L36P_M3DQ8_3              |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
 |M4        |                |         |VCCO_3                       |         |           |3             |          |         |           |         |2.50     |          |           |                |
-|M5        |                |IOBS     |IO_L31N_VREF_3               |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
+|M5        |gameboard<15>   |IOB      |IO_L31N_VREF_3               |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
 |M6        |                |         |GND                          |         |           |              |          |         |           |         |         |          |           |                |
 |M7        |                |         |VCCINT                       |         |           |              |          |         |           |         |1.2      |          |           |                |
 |M8        |                |         |NC                           |         |           |              |          |         |           |         |         |          |           |                |
@@ -236,10 +236,10 @@ Pinout by Pin Number:
 |M16       |                |IOBM     |IO_L47P_FWE_B_M1DQ0_1        |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |M17       |                |         |GND                          |         |           |              |          |         |           |         |         |          |           |                |
 |M18       |                |IOBS     |IO_L47N_LDC_M1DQ1_1          |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
-|N1        |gameboard<5>    |IOB      |IO_L35N_M3DQ11_3             |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
-|N2        |player_moves<10>|IOB      |IO_L35P_M3DQ10_3             |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
+|N1        |gameboard<4>    |IOB      |IO_L35N_M3DQ11_3             |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
+|N2        |player_moves<14>|IOB      |IO_L35P_M3DQ10_3             |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
 |N3        |                |IOBS     |IO_L1N_VREF_3                |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
-|N4        |gameboard<15>   |IOB      |IO_L1P_3                     |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
+|N4        |                |IOBM     |IO_L1P_3                     |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
 |N5        |                |IOBM     |IO_L64P_D8_2                 |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
 |N6        |                |         |NC                           |         |           |              |          |         |           |         |         |          |           |                |
 |N7        |                |         |NC                           |         |           |              |          |         |           |         |         |          |           |                |
@@ -254,8 +254,8 @@ Pinout by Pin Number:
 |N16       |leds<4>         |IOB      |IO_L50N_M1UDQSN_1            |OUTPUT   |LVCMOS33   |1             |8         |FAST     |           |         |         |LOCATED   |NO         |NONE            |
 |N17       |                |IOBM     |IO_L48P_HDC_M1DQ8_1          |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |N18       |                |IOBS     |IO_L48N_M1DQ9_1              |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
-|P1        |player_moves<12>|IOB      |IO_L34N_M3UDQSN_3            |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
-|P2        |player_moves<14>|IOB      |IO_L34P_M3UDQS_3             |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
+|P1        |gameboard<8>    |IOB      |IO_L34N_M3UDQSN_3            |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
+|P2        |player_moves<12>|IOB      |IO_L34P_M3UDQS_3             |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
 |P3        |gameboard<13>   |IOB      |IO_L2N_3                     |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
 |P4        |gameboard<14>   |IOB      |IO_L2P_3                     |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
 |P5        |                |         |VCCAUX                       |         |           |              |          |         |           |         |2.5      |          |           |                |
@@ -290,7 +290,7 @@ Pinout by Pin Number:
 |R16       |                |         |SUSPEND                      |         |           |              |          |         |           |         |         |          |           |                |
 |R17       |                |         |VCCO_1                       |         |           |1             |          |         |           |         |3.30     |          |           |                |
 |R18       |                |         |GND                          |         |           |              |          |         |           |         |         |          |           |                |
-|T1        |gameboard<8>    |IOB      |IO_L33N_M3DQ13_3             |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
+|T1        |gameboard<6>    |IOB      |IO_L33N_M3DQ13_3             |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
 |T2        |gameboard<9>    |IOB      |IO_L33P_M3DQ12_3             |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |           |         |         |UNLOCATED |NO         |NONE            |
 |T3        |P6_leds<0>      |IOB      |IO_L62N_D6_2                 |OUTPUT   |LVCMOS33   |2             |8         |FAST     |           |         |         |LOCATED   |NO         |NONE            |
 |T4        |P6_leds<5>      |IOB      |IO_L63P_2                    |OUTPUT   |LVCMOS33   |2             |8         |FAST     |           |         |         |LOCATED   |NO         |NONE            |
