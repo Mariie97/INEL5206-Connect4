@@ -8,7 +8,13 @@
 <msg type="warning" file="HDLCompiler" num="413" delta="old" >"C:\Users\vince\Desktop\Xilinx Projects\INEL5206-Connect4\Connect4\ClockDelay.v" Line 29: Result of <arg fmt="%d" index="1">29</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">28</arg>-bit target.
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">LEDs_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">DisplayGameStatus</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;LEDs_2&gt; &lt;LEDs_5&gt; </arg>
+<msg type="warning" file="Xst" num="2935" delta="old" >Signal &apos;<arg fmt="%s" index="1">h</arg>&apos;, unconnected in block &apos;<arg fmt="%s" index="2">SevenSegDisplay</arg>&apos;, is tied to its initial value (<arg fmt="%s" index="3">1</arg>).
+</msg>
+
+<msg type="warning" file="Xst" num="2404" delta="old" > FFs/Latches &lt;<arg fmt="%s" index="1">b</arg>&lt;<arg fmt="%d" index="2">0</arg>:<arg fmt="%d" index="3">0</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">SevenSegDisplay</arg>&gt;.
+</msg>
+
+<msg type="info" file="Xst" num="3231" delta="old" >The small RAM &lt;<arg fmt="%s" index="1">Mram__n0035</arg>&gt; will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
 </msg>
 
 </messages>

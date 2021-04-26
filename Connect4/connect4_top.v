@@ -21,9 +21,21 @@ module connect4_top(
 	Switch_2,
 	Switch_3,
 	BTN_EAST,
-	leds,
+	//leds,
 	gameboard,
-	player_moves
+	player_moves,
+	a,
+	b, 
+	c,
+	d,
+	e,
+	f,
+	g,
+	h,
+	e1,
+	e2,
+	e3
+	
 	
 	);
 	
@@ -43,7 +55,7 @@ module connect4_top(
 	
 	
 	//FPGA LEDS
-	output [6:0] leds;
+	//output [6:0] leds;
 	output reg clock_pos;
 	
 	//Output LEDS
@@ -56,29 +68,22 @@ module connect4_top(
 	reg [7:0] P7_leds = 0;
 	reg [7:0] P6_leds = 0;
 	
-//	output pin_0;
-//	output pin_1;
-//	output pin_2;
-//	output pin_3;
-//	output pin_4;
-//	output pin_5;
-//	output pin_6;
-//	output pin_7;
-//	
-//	reg pin_0 = 0;
-//	reg pin_1 = 0;
-//	reg pin_2 = 0;
-//	reg pin_3 = 0;
-//	reg pin_4 = 0;
-//	reg pin_5 = 0;
-//	reg pin_6 = 0;
-//	reg pin_7 = 0;
-
-
+	//Output 7 segment
+	output a;
+	output b; 
+	output c;
+	output d;
+	output e;
+	output f;
+	output g;
+	output h;
+	output e1;
+	output e2;
+	output e3;
+	
 	
 	wire [15:0]player_cells;
 	wire [4:0] column_position;
-//	wire Enable_Button;
 	wire next_player;
 	wire add;
 	wire [1:0] state;
@@ -90,12 +95,6 @@ module connect4_top(
    wire [2:0] counter_3;
    wire [1:0] c_register;
 	
-
-	
-	parameter column = 3'b001;
-	parameter statep = 2'b01;
-	
-//	ButtonPressDetector BPD(clk, BTN_EAST, Enable_Button);
 	
 	ClockDelay CD(
 		.clk_in(clk),
@@ -155,12 +154,31 @@ module connect4_top(
 		 .game_status(game_status)   
     );
 	 
-	DisplayGameStatus DGS (
-		.clk(clk_delay),	
-		.state(state),
-		.game_status(out_game_status),
-		.LEDs(leds)
+//	DisplayGameStatus DGS (
+//		.clk(clk_delay),	
+//		.state(state),
+//		.game_status(out_game_status),
+//		.LEDs(leds)
+//	);
+	
+	SevenSegDisplay SevenSegmentDisplay (
+		.state(state), 
+	   .game_status(out_game_status),
+		.clk(clk_delay), 
+		.a,
+		.b, 
+		.c,
+		.d,
+		.e,
+		.f,
+		.g,
+		.h,
+		.e1,
+		.e2,
+		.e3
 	);
+	
+	
 	 
 	always@(clk_delay) begin
 		clock_pos = clk_delay;
