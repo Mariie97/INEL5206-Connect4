@@ -425,4 +425,3 @@ module connect4_top(
 	
 	
 endmodule
-

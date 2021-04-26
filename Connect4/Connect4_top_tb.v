@@ -238,4 +238,3 @@ module Connect4_top_tb;
 	end
       
 endmodule
-
