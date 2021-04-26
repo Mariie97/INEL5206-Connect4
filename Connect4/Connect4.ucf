@@ -7,10 +7,10 @@ NET "clk"                  LOC = V10     | IOSTANDARD = LVCMOS33 | PERIOD = 50MH
 ####################################################################################################################################################
 ##                                                 DIP Switches                                                                                    #
 #################################################################################################################################################### 
-    NET "Switch_0"                LOC = C17     | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST | PULLUP;  #DP 8
-    NET "Switch_1"                LOC = C18     | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST | PULLUP;  #DP 7
-    NET "Switch_2"                LOC = D17     | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST | PULLUP;  #DP 6
-    NET "Switch_3"                LOC = D18     | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST | PULLUP;  #DP 5
+    NET "Switch_3"                LOC = C17     | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST | PULLUP;  #DP 8
+    NET "Switch_2"                LOC = C18     | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST | PULLUP;  #DP 7
+    NET "Switch_1"                LOC = D17     | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST | PULLUP;  #DP 6
+    NET "Switch_0"                LOC = D18     | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST | PULLUP;  #DP 5
 #    #NET "DPSwitch[4]"                LOC = E18     | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST | PULLUP;  #DP 4
 #    #NET "DPSwitch[5]"                LOC = E16     | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST | PULLUP;  #DP 3
 #    #NET "DPSwitch[6]"                LOC = F18     | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST | PULLUP;  #DP 2
@@ -30,13 +30,13 @@ NET "clk"                  LOC = V10     | IOSTANDARD = LVCMOS33 | PERIOD = 50MH
 ##                                                   LEDs                                                                                          #
 #################################################################################################################################################### 
 	 NET "clock_pos"                   LOC = P15 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ; #D1
-	 NET "leds[6]"                   LOC = P16 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ; #D2
-	 NET "leds[5]"                   LOC = N15 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ; #D3
-	 NET "leds[4]"                   LOC = N16 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ; #D4
-	 NET "leds[3]"                   LOC = U17 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ; #D5
-	 NET "leds[2]"                   LOC = U18 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ; #D6
-	 NET "leds[1]"                   LOC = T17 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ; #D7
-	 NET "leds[0]"                   LOC = T18 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ; #D8	 
+#	 NET "leds[6]"                   LOC = P16 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ; #D2
+#	 NET "leds[5]"                   LOC = N15 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ; #D3
+#	 NET "leds[4]"                   LOC = N16 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ; #D4
+#	 NET "leds[3]"                   LOC = U17 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ; #D5
+#	 NET "leds[2]"                   LOC = U18 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ; #D6
+#	 NET "leds[1]"                   LOC = T17 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ; #D7
+#	 NET "leds[0]"                   LOC = T18 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ; #D8	 
 #     
 ############################################################################################################################################
 ##                                                   HEADER P6                                                                                     #
@@ -86,31 +86,23 @@ NET "clk"                  LOC = V10     | IOSTANDARD = LVCMOS33 | PERIOD = 50MH
     NET "P9_leds[1]"                 LOC = L15      | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ; #Pin 7
     NET "P9_leds[0]"                 LOC = L16      | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ; #Pin 8
 
-#NET "clk"                  LOC = V10     | IOSTANDARD = LVCMOS33 | PERIOD = 50MHz ;
-#     
-#NET "clk" LOC = "C9" | IOSTANDARD = LVCMOS33 | PERIOD = 50MHz; 
-#NET "Switch_0" LOC = "L13" | IOSTANDARD = LVTTL | PULLUP ;
-#NET "Switch_1" LOC = "L14" | IOSTANDARD = LVTTL | PULLUP ;
-#NET "Switch_2" LOC = "H18" | IOSTANDARD = LVTTL | PULLUP ;
-#NET "Switch_3" LOC = "N17" | IOSTANDARD = LVTTL | PULLUP ;
-#NET "BTN_EAST" LOC = "D18" | IOSTANDARD = LVTTL | PULLDOWN ;
-#NET "reset" LOC = "K17" | IOSTANDARD = LVTTL | PULLDOWN ;
+###################################################################################################################################################
+#                                               Seven Segment Display                                                                             #
+################################################################################################################################################### 
 
 
-#NET "led_1" LOC = "F12" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8 ; 
-#NET "led_2" LOC = "E12" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8 ; 
-#NET "led_3" LOC = "E11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8 ; 
-#NET "led_4" LOC = "F11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8 ; 
-#NET "led_5" LOC = "C11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8 ; 
-#NET "led_6" LOC = "D11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8 ;
-#NET "led_7" LOC = "E9" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8 ; 
-#NET "led_8" LOC = "F9" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8 ;
-
-#NET "clock_pos" LOC = "F12" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8 ; 
-#NET "leds[6]" LOC = "E12" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8 ; 
-#NET "leds[5]" LOC = "E11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8 ; 
-#NET "leds[4]" LOC = "F11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8 ; 
-#NET "leds[3]" LOC = "C11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8 ; 
-#NET "leds[2]" LOC = "D11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8 ;
-#NET "leds[1]" LOC = "E9" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8 ; 
-#NET "leds[0]" LOC = "F9" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8 ;
+	 
+	NET "a" LOC = A3 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ;
+	NET "b" LOC = B4 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ;
+	NET "c" LOC = A4 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ;
+	NET "d" LOC = C4 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ;
+	NET "e" LOC = C5 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ;
+	NET "f" LOC = D6 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ;
+	NET "g" LOC = C6 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ;
+	NET "h" LOC = A5 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ;
+	 
+	NET "e1" LOC = B3 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ;
+	NET "e2" LOC = A2 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ;
+	NET "e3" LOC = B2 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ;
+	 
+	 

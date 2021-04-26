@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-LAPTOP-VIFFFPNF::  Sat Apr 24 16:25:20 2021
+LAPTOP-VIFFFPNF::  Mon Apr 26 15:46:41 2021
 
 par -w -intstyle ise -ol high -mt off connect4_top_map.ncd connect4_top.ncd
 connect4_top.pcf 
@@ -22,16 +22,16 @@ Device speed data version:  "PRODUCTION 1.23 2013-10-13".
 Device Utilization Summary:
 
 Slice Logic Utilization:
-  Number of Slice Registers:                    93 out of  11,440    1%
-    Number used as Flip Flops:                  93
+  Number of Slice Registers:                    95 out of  11,440    1%
+    Number used as Flip Flops:                  95
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                        161 out of   5,720    2%
-    Number used as logic:                      160 out of   5,720    2%
-      Number using O6 output only:              98
+  Number of Slice LUTs:                        163 out of   5,720    2%
+    Number used as logic:                      162 out of   5,720    2%
+      Number using O6 output only:              99
       Number using O5 output only:              26
-      Number using O5 and O6:                   36
+      Number using O5 and O6:                   37
       Number used as ROM:                        0
     Number used as Memory:                       0 out of   1,440    0%
     Number used exclusively as route-thrus:      1
@@ -42,10 +42,10 @@ Slice Logic Utilization:
 Slice Logic Distribution:
   Number of occupied Slices:                    67 out of   1,430    4%
   Number of MUXCYs used:                        28 out of   2,860    1%
-  Number of LUT Flip Flop pairs used:          161
-    Number with an unused Flip Flop:            74 out of     161   45%
-    Number with an unused LUT:                   0 out of     161    0%
-    Number of fully used LUT-FF pairs:          87 out of     161   54%
+  Number of LUT Flip Flop pairs used:          164
+    Number with an unused Flip Flop:            75 out of     164   45%
+    Number with an unused LUT:                   1 out of     164    1%
+    Number of fully used LUT-FF pairs:          88 out of     164   53%
     Number of slice register sites lost
       to control set restrictions:               0 out of  11,440    0%
 
@@ -56,8 +56,8 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                        79 out of     200   39%
-    Number of LOCed IOBs:                       47 out of      79   59%
+  Number of bonded IOBs:                        83 out of     200   41%
+    Number of LOCed IOBs:                       51 out of      83   61%
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         0 out of      32    0%
@@ -94,13 +94,13 @@ Finished initial Timing Analysis.  REAL time: 2 secs
 Starting Router
 
 
-Phase  1  : 848 unrouted;      REAL time: 2 secs 
+Phase  1  : 861 unrouted;      REAL time: 2 secs 
 
-Phase  2  : 753 unrouted;      REAL time: 2 secs 
+Phase  2  : 762 unrouted;      REAL time: 2 secs 
 
-Phase  3  : 290 unrouted;      REAL time: 2 secs 
+Phase  3  : 292 unrouted;      REAL time: 2 secs 
 
-Phase  4  : 290 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 2 secs 
+Phase  4  : 292 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 3 secs 
 
 Updating file: connect4_top.ncd with current fully routed design.
 
@@ -134,9 +134,9 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|           clk_BUFGP | BUFGMUX_X3Y13| No   |    8 |  0.030     |  1.109      |
+|     CD/clk_out_BUFG |  BUFGMUX_X2Y3| No   |   27 |  0.110     |  1.178      |
 +---------------------+--------------+------+------+------------+-------------+
-|     CD/clk_out_BUFG |  BUFGMUX_X2Y3| No   |   24 |  0.074     |  1.142      |
+|           clk_BUFGP | BUFGMUX_X3Y13| No   |    8 |  0.004     |  1.081      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -156,8 +156,8 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  NET "clk_BUFGP/IBUFG" PERIOD = 20 ns HIGH | SETUP       |    16.262ns|     3.738ns|       0|           0
-   50%                                      | HOLD        |     0.438ns|            |       0|           0
+  NET "clk_BUFGP/IBUFG" PERIOD = 20 ns HIGH | SETUP       |    16.467ns|     3.533ns|       0|           0
+   50%                                      | HOLD        |     0.439ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
 
 

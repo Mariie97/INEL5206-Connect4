@@ -1,4 +1,4 @@
+verilog work "seven_seg_display.v"
 verilog work "FSM.v"
-verilog work "DisplayGameStatus.v"
 verilog work "ClockDelay.v"
 verilog work "connect4_top.v"

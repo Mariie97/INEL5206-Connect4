@@ -1,26 +1,5 @@
 `timescale 1ns / 1ps
 
-////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer:
-//
-// Create Date:   11:13:27 04/25/2021
-// Design Name:   connect4_top
-// Module Name:   C:/Users/cmcsc/Desktop/Segundo Semestre Virtual/Switching 2/Project/repo/INEL5206-Connect4/Connect4/Connect4_top_tb.v
-// Project Name:  Connect4
-// Target Device:  
-// Tool versions:  
-// Description: 
-//
-// Verilog Test Fixture created by ISE for module: connect4_top
-//
-// Dependencies:
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-////////////////////////////////////////////////////////////////////////////////
 
 module Connect4_top_tb;
 
@@ -39,9 +18,19 @@ module Connect4_top_tb;
 	wire [7:0] P8_leds;
 	wire [7:0] P7_leds;
 	wire [7:0] P6_leds;
-	wire [6:0] leds;
 	wire [15:0] gameboard;
 	wire [15:0] player_moves;
+	wire a;
+	wire b;
+	wire c;
+	wire d;
+	wire e;
+	wire f;
+	wire g;
+	wire h;
+	wire e1;
+	wire e2;
+	wire e3;
 
 	// Instantiate the Unit Under Test (UUT)
 	connect4_top uut (
@@ -57,9 +46,19 @@ module Connect4_top_tb;
 		.Switch_2(Switch_2), 
 		.Switch_3(Switch_3), 
 		.BTN_EAST(BTN_EAST), 
-		.leds(leds), 
 		.gameboard(gameboard), 
-		.player_moves(player_moves)
+		.player_moves(player_moves), 
+		.a(a), 
+		.b(b), 
+		.c(c), 
+		.d(d), 
+		.e(e), 
+		.f(f), 
+		.g(g), 
+		.h(h), 
+		.e1(e1), 
+		.e2(e2), 
+		.e3(e3)
 	);
 
 	always #10 clk = ~clk;
@@ -161,7 +160,6 @@ module Connect4_top_tb;
 		#80 reset = 0;
 		#20 reset = 1;
 		
-		
 
 		
 		//Start new game
@@ -237,9 +235,6 @@ module Connect4_top_tb;
 		#5 BTN_EAST = 1'b1;	
 
 //		Tie Game
-
-//		#50 $finish;
 	end
       
 endmodule
-

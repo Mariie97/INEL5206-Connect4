@@ -21,9 +21,21 @@ module connect4_top(
 	Switch_2,
 	Switch_3,
 	BTN_EAST,
-	leds,
+	//leds,
 	gameboard,
-	player_moves
+	player_moves,
+	a,
+	b, 
+	c,
+	d,
+	e,
+	f,
+	g,
+	h,
+	e1,
+	e2,
+	e3
+	
 	
 	);
 	
@@ -43,7 +55,7 @@ module connect4_top(
 	
 	
 	//FPGA LEDS
-	output [6:0] leds;
+	//output [6:0] leds;
 	output reg clock_pos;
 	
 	//Output LEDS
@@ -55,6 +67,20 @@ module connect4_top(
 	reg [7:0] P8_leds = 0;
 	reg [7:0] P7_leds = 0;
 	reg [7:0] P6_leds = 0;
+	
+	//Output 7 segment
+	output a;
+	output b; 
+	output c;
+	output d;
+	output e;
+	output f;
+	output g;
+	output h;
+	output e1;
+	output e2;
+	output e3;
+	
 	
 	wire [15:0]player_cells;
 	wire [4:0] column_position;
@@ -128,12 +154,31 @@ module connect4_top(
 		 .game_status(game_status)   
     );
 	 
-	DisplayGameStatus DGS (
-		.clk(clk_delay),	
-		.state(state),
-		.game_status(out_game_status),
-		.LEDs(leds)
+//	DisplayGameStatus DGS (
+//		.clk(clk_delay),	
+//		.state(state),
+//		.game_status(out_game_status),
+//		.LEDs(leds)
+//	);
+	
+	SevenSegDisplay SevenSegmentDisplay (
+		.state(state), 
+	   .game_status(out_game_status),
+		.clk(clk_delay), 
+		.a,
+		.b, 
+		.c,
+		.d,
+		.e,
+		.f,
+		.g,
+		.h,
+		.e1,
+		.e2,
+		.e3
 	);
+	
+	
 	 
 	always@(clk_delay) begin
 		clock_pos = clk_delay;
@@ -315,6 +360,7 @@ module connect4_top(
 			P7_leds[7] = 0;
 		end
 		
+		
 		//----Fouth Column----
 		if(gameboard[12] == 1)begin
 			if(player_moves[12] == 0)begin
@@ -370,6 +416,12 @@ module connect4_top(
 			P6_leds[6] = 0;
 			P6_leds[7] = 0;
 		end
-	end
-endmodule
 
+		
+
+	end
+	
+
+	
+	
+endmodule
